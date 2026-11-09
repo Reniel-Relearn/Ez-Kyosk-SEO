@@ -1,0 +1,18 @@
+---
+import { Image } from 'astro:assets';
+import kiosk from '../../assets/hero-kiosk-original.png';
+---
+<figure class="hero-product">
+  <Image
+    src={kiosk}
+    alt="EZ Kyosk concept artwork showing a café ordering kiosk, payment terminal, and ordering icons"
+    widths={[480, 720, 1000]}
+    sizes="(max-width: 680px) 88vw, (max-height: 740px) 340px, 520px"
+    width={1000}
+    format="webp"
+    loading="eager"
+    fetchpriority="high"
+    quality={85}
+  />
+  <figcaption>Illustrative product concept. Payment hardware and integrations shown are planned, not operational.</figcaption>
+</figure>

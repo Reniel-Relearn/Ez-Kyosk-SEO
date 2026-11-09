@@ -1,0 +1,56 @@
+import { readFile, access } from 'node:fs/promises';
+import assert from 'node:assert/strict';
+
+const paths = ['', 'features', 'how-it-works', 'solutions', 'about', 'contact', 'privacy'];
+const pages = new Map();
+const titles = new Set();
+const descriptions = new Set();
+const locationFor = (url) => `dist${url.endsWith('/') ? url + 'index.html' : url}`;
+
+for (const path of paths) {
+  const url = `/${path ? path + '/' : ''}`;
+  const html = await readFile(locationFor(url), 'utf8');
+  pages.set(url, html);
+  assert.equal((html.match(/<h1[ >]/g) || []).length, 1, `${url}: one h1`);
+  const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
+  const description = html.match(/name="description" content="([^"]+)"/)?.[1];
+  assert.ok(title && !titles.has(title), `${url}: unique title`);
+  assert.ok(description && !descriptions.has(description), `${url}: unique description`);
+  titles.add(title); descriptions.add(description);
+  assert.ok(html.includes('href="/favicon.png"'), `${url}: supplied icon`);
+  assert.ok(!html.includes('favicon.svg'), `${url}: no obsolete favicon`);
+  if (process.env.SITE_URL) {
+    const expected = new URL(url, process.env.SITE_URL).href;
+    assert.ok(html.includes(`rel="canonical" href="${expected}"`), `${url}: canonical`);
+    assert.ok(!html.includes('noindex, nofollow'), `${url}: indexing`);
+    assert.ok(html.includes('property="og:image"'), `${url}: sharing image`);
+    const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([^<]+)<\/script>/)?.[1]);
+    assert.equal(schema.url, expected);
+    assert.equal(schema['@type'], 'WebPage');
+    const image = html.match(/property="og:image" content="([^"]+)"/)?.[1];
+    assert.ok(image.startsWith(new URL(process.env.SITE_URL).origin));
+    await access(`dist${decodeURIComponent(new URL(image).pathname)}`);
+  } else {
+    assert.ok(html.includes('noindex, nofollow'), `${url}: preview noindex`);
+    assert.ok(!html.includes('rel="canonical"'), `${url}: no invented canonical`);
+  }
+}
+
+for (const [pageUrl, html] of pages) {
+  for (const [, value] of html.matchAll(/(?:href|src)="([^"\s]+)"/g)) {
+    if (!value.startsWith('/') && !value.startsWith('#')) continue;
+    const url = new URL(value, `https://example.test${pageUrl}`);
+    await access(locationFor(decodeURIComponent(url.pathname)));
+    if (url.hash) {
+      const target = pages.get(url.pathname) || await readFile(locationFor(url.pathname), 'utf8');
+      assert.ok(target.includes(`id="${decodeURIComponent(url.hash.slice(1))}"`), `${pageUrl}: anchor ${value}`);
+    }
+  }
+}
+
+const robots = await readFile('dist/robots.txt', 'utf8');
+assert.ok(robots.includes(process.env.SITE_URL ? 'Allow: /' : 'Disallow: /'));
+const sitemap = await readFile('dist/sitemap.xml', 'utf8');
+assert.equal((sitemap.match(/<loc>/g) || []).length, process.env.SITE_URL ? 7 : 0);
+await access('dist/favicon.png');
+console.log('Passed: 7 pages, internal links/anchors/assets, unique metadata, logo/favicon references, indexing controls, sitemap, and configured-site schema/sharing image.');

@@ -1,0 +1,6 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ez-kyosk-seo",
+  "compatibility_date": "2026-11-03",
+  "assets": { "directory": "./dist", "not_found_handling": "404-page" }
+}

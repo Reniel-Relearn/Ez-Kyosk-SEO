@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT;
+const email = import.meta.env.PUBLIC_CONTACT_EMAIL;
+---
+<Layout title="Request an EZ Kyosk Demo" description="Request an EZ Kyosk self-ordering kiosk demonstration for your café, bakery, restaurant or quick-service business. Share your needs with the team.">
+  <section class="page-heading"><div class="eyebrow">REQUEST A DEMO / LET’S TALK</div><h1>See how self-ordering<br /><em>could fit your business.</em></h1><p>Tell us about your menu, your service style, and what you would like to explore with EZ Kyosk.</p></section>
+  <div class="page-body contact-layout">
+    <div>
+      {!endpoint && <div class="notice">Online inquiries are being set up. This preview form does not send or store your information.{email && <> You can contact us at <a href={`mailto:${email}`}>{email}</a>.</>}</div>}
+      <form action={endpoint || undefined} method="POST" data-live={endpoint ? 'true' : 'false'}>
+        <div class="form-grid">
+          <label>Your name<input name="name" autocomplete="name" required maxlength="100" /></label>
+          <label>Email address<input type="email" name="email" autocomplete="email" required maxlength="254" /></label>
+          <label>Business name <span>(optional)</span><input name="business" autocomplete="organization" maxlength="150" /></label>
+          <label>Phone <span>(optional)</span><input name="phone" type="tel" autocomplete="tel" maxlength="40" /></label>
+          <label class="full">Type of business<select name="business_type" required><option value="">Please select</option><option>Café / Coffee shop</option><option>Bakery / Pastry shop</option><option>Restaurant</option><option>Quick-service business</option><option>Other food & beverage business</option></select></label>
+          <label class="full">What would you like to explore?<textarea name="message" required maxlength="3000"></textarea></label>
+          <div style="display:none" aria-hidden="true"><label>Leave empty<input name="_gotcha" tabindex="-1" autocomplete="off" /></label></div>
+          <p class="full form-privacy">Please avoid sharing confidential information. Read our <a class="text-link" href="/privacy/">privacy notice</a> before sending.</p>
+          <div class="full"><button class="button" type="submit">{endpoint ? 'Send demo request' : 'Preview inquiry'} <span aria-hidden="true">↗</span></button><p class="form-status" role="status" aria-live="polite"></p></div>
+        </div>
+      </form>
+    </div>
+    <aside class="contact-aside"><div class="eyebrow">WHAT WE CAN DISCUSS</div><h2>Your menu.<br />Your requirements.<br />Your next step.</h2><p>Explore the self-ordering journey: browse, select, adjust, review, and confirm.</p><p>Talk through how a kiosk could fit your business. Demo arrangements and commercial availability are confirmed directly.</p><p>Payments, POS connections, receipt printing, and kitchen order handling are planned integrations.</p><p>No published pricing or rollout date has been confirmed.</p></aside>
+  </div>
+  <script>
+    const form = document.querySelector<HTMLFormElement>('form');
+    form?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const status = form.querySelector<HTMLElement>('.form-status');
+      const button = form.querySelector<HTMLButtonElement>('button');
+      if (!status || !button) return;
+      if (form.dataset.live !== 'true') { status.textContent = 'Preview complete. Nothing was sent or saved. Online inquiries are not yet enabled.'; return; }
+      button.disabled = true;
+      status.textContent = 'Sending your inquiry…';
+      try {
+        const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+        if (!response.ok) throw new Error();
+        status.textContent = 'Your inquiry was accepted by the form service. Thank you.';
+        form.reset();
+      } catch { status.textContent = 'Your inquiry could not be sent. Please try again later.'; }
+      finally { button.disabled = false; }
+    });
+  </script>
+</Layout>

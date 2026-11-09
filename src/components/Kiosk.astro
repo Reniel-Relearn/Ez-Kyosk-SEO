@@ -1,0 +1,41 @@
+---
+import { Image } from 'astro:assets';
+import wordmark from '../../assets/ez_kyosk_wordmark.png';
+---
+<figure class="product-scene">
+  <div class="scene-heading"><span>THE SELF-ORDERING EXPERIENCE</span><span>CONCEPT PREVIEW</span></div>
+  <div class="kiosk-stage" aria-hidden="true">
+    <div class="kiosk">
+      <div class="camera"></div>
+      <div class="screen">
+        <Image class="screen-logo" src={wordmark} width={172} alt="" format="webp" />
+        <div class="screen-greeting">What looks good today?</div>
+        <p class="screen-subtitle">Explore the menu. Find your favorites.</p>
+        <div class="screen-tabs"><span class="selected">All items</span><span>Drinks</span><span>Food</span></div>
+        <div class="menu-grid">
+          <div>
+            <div class="food coffee"><svg viewBox="0 0 70 55" fill="none"><ellipse cx="32" cy="46" rx="25" ry="4" fill="#c8c0ae"/><path d="M14 17H49L45 40Q32 49 18 40Z" fill="#fffcf2"/><path d="M49 21H55Q64 30 48 34" stroke="#fffcf2" stroke-width="5"/><ellipse cx="31" cy="17" rx="17" ry="5" fill="#937052"/><ellipse cx="31" cy="17" rx="9" ry="3" fill="#d3bfa0"/><path d="M28 5Q24 8 29 11" stroke="#ae9e82" stroke-linecap="round"/></svg></div>
+            <strong>House latte</strong><small>₱145.00</small>
+          </div>
+          <div>
+            <div class="food pastry"><svg viewBox="0 0 70 55" fill="none"><ellipse cx="35" cy="44" rx="26" ry="4" fill="#d7c5a5"/><path d="M10 36Q6 18 21 25Q34 7 48 24Q65 16 60 36L49 40L39 35L27 40Z" fill="#b97936"/><path d="M18 29L24 37M27 22L32 35M38 20L40 34M48 26L47 36" stroke="#f1c98a" stroke-width="4"/></svg></div>
+            <strong>Butter croissant</strong><small>₱95.00</small>
+          </div>
+          <div>
+            <div class="food meal"><svg viewBox="0 0 70 55" fill="none"><ellipse cx="35" cy="29" rx="28" ry="20" fill="#fffcf2"/><ellipse cx="35" cy="29" rx="23" ry="15" stroke="#d1d9c8"/><path d="M18 30L36 17L53 30L35 40Z" fill="#b7793d"/><path d="M20 29L36 20L50 29L35 37Z" fill="#f1d59f"/><path d="M24 29L43 28" stroke="#7c9566" stroke-width="5"/><path d="M29 25L40 32" stroke="#b55d41" stroke-width="3"/></svg></div>
+            <strong>Signature sandwich</strong><small>₱185.00</small>
+          </div>
+          <div>
+            <div class="food matcha"><svg viewBox="0 0 70 55" fill="none"><path d="M21 10H48L44 47H25Z" fill="#fffcf2"/><path d="M23 22H46L43 44H26Z" fill="#89a36e"/><path d="M23 20H46L45 26H24Z" fill="#d4ddbd"/><path d="M38 3L35 30" stroke="#b0ad99" stroke-width="3"/><path d="M27 19L32 17M37 20L42 17" stroke="#f6f5ec" stroke-width="3"/></svg></div>
+            <strong>Iced matcha</strong><small>₱165.00</small>
+          </div>
+        </div>
+        <div class="screen-cart"><span>Review order · 2 items</span><b>₱240.00 →</b></div>
+        <div class="screen-bottom">Your Menu. Their Order. One Simple Screen.</div>
+      </div>
+      <div class="kiosk-mark">EZ KYOSK</div>
+    </div>
+    <div class="kiosk-neck"></div><div class="kiosk-base"></div>
+  </div>
+  <figcaption class="scene-caption"><strong>Your menu, ready for their next order.</strong>Illustrative interface & hardware. Sample menu and prices.</figcaption>
+</figure>

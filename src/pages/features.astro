@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Kiosk from '../components/Kiosk.astro';
+import DemoCTA from '../components/DemoCTA.astro';
+const features = [
+  ['Digital menu & categories', 'Give customers a touchscreen menu they can explore by product category. Keep food and beverage choices together in a focused, customer-facing experience.'],
+  ['Product selection', 'Customers choose products and add them to their cart. They can browse before deciding what belongs in their order.'],
+  ['Cart & quantity management', 'Customers can adjust item quantities and review the selection they have built. The cart is part of the ordering journey, not a separate website checkout.'],
+  ['Calculated totals', 'The product shows calculated item and order totals. Commercial tax rules, discount logic, and other specialized pricing requirements need separate confirmation.'],
+  ['Order review & confirmation', 'Customers check the order and its total before proceeding to confirmation. Confirmation does not imply payment processing, receipt printing, or a connection to a kitchen or POS.'],
+];
+---
+<Layout title="Self-Ordering Kiosk Software Features" description="Explore EZ Kyosk digital menus, categories, cart management, quantity adjustment, calculated totals and order confirmation. See planned integrations.">
+  <section class="page-heading"><div class="eyebrow">THE PRODUCT / SELF-ORDERING & CHECKOUT</div><h1>A menu to explore.<br /><em>An order to make their own.</em></h1><p>EZ Kyosk puts the customer-facing ordering journey on one touchscreen. It is self-ordering and checkout kiosk software, not a general-purpose POS.</p></section>
+  <div class="page-body">
+    <div class="product-intro">
+      <div class="product-intro-copy"><span class="badge">CURRENT PRODUCT EXPERIENCE</span><h2>Everything customers need to start an order.</h2><p>Browse the menu. Find a category. Choose products, adjust quantities, and see the total before confirming.</p><p>The product is still in development. Explore its current capabilities and discuss what your business would need for a rollout.</p><a class="text-link" href="/how-it-works/">See the five-step journey <span aria-hidden="true">↗</span></a></div>
+      <Kiosk />
+    </div>
+    {features.map(([title, body], i) => <section class="feature-detail"><div><div class="eyebrow">0{i + 1} / CAPABILITY</div><h2>{title}</h2></div><p>{body}</p></section>)}
+    <section class="content-card" id="planned"><span class="badge planned">PLANNED INTEGRATIONS</span><h2>One kiosk today.<br />More possibilities ahead.</h2><p>EZ Kyosk is being developed with future POS, payment, printer, and kitchen order integrations in mind.</p><div class="integration-tags"><span>POS connections</span><span>GCash / Maya & other gateways</span><span>Receipt printing</span><span>Kitchen order handling</span></div><p>These are not confirmed operational capabilities. Provider compatibility, hardware support, and availability dates have not been announced.</p></section>
+    <div class="notice">Commercial pricing, hardware supply, installation, support terms, and production readiness require direct confirmation. No completed integration is implied by “checkout.”</div>
+  </div>
+  <DemoCTA />
+</Layout>

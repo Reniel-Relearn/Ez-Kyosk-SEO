@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import DemoCTA from '../components/DemoCTA.astro';
+const industries = [
+  ['cafes', '01', 'Cafés & coffee shops', 'A place for every favorite.', 'Help guests browse drinks and food, build a cart, and check their selection. Explore a self-ordering touchpoint alongside the personal welcome your café provides.', 'Discuss your categories, menu size, and guest ordering journey.'],
+  ['bakeries', '02', 'Bakeries & pastry shops', 'Put your selection on screen.', 'Let customers explore pastries and baked goods by category, choose quantities, and review the calculated total. Stock tracking and inventory connections are not confirmed capabilities.', 'Discuss how your daily selection would be presented.'],
+  ['restaurants', '03', 'Restaurants', 'An ordering path guests can follow.', 'Give customers a focused way to browse a restaurant menu and review an order. The kiosk is customer-facing software; table management, kitchen routing, and POS functionality are not implied.', 'Discuss your service style and order-handling requirements.'],
+  ['quick-service', '04', 'Quick-service businesses', 'Keep the next step clear.', 'Offer another way for guests to make a selection at the counter. Product categories, cart management, and order confirmation bring structure to the journey.', 'Discuss counter space, menu requirements, and rollout suitability.'],
+];
+---
+<Layout title="Self-Ordering Kiosks for Cafés, Bakeries & Restaurants" description="Explore EZ Kyosk self-ordering kiosk use cases for Philippine cafés, bakeries, restaurants and quick-service businesses. Discuss your menu and requirements.">
+  <section class="page-heading"><div class="eyebrow">SOLUTIONS / FOR FOOD & BEVERAGE BUSINESSES</div><h1>Your business has a rhythm.<br /><em>Ordering should fit.</em></h1><p>EZ Kyosk is designed for different menus and service styles. Explore where self-ordering could fit your business, then talk through the practical details.</p></section>
+  <div class="page-body">
+    {industries.map(([id, number, name, title, body, useCase]) => <section class="industry-detail" id={id}><div class="eyebrow">{number} /</div><div><div class="eyebrow">{name}</div><h2>{title}</h2></div><div><p>{body}</p><p class="use-case">{useCase}</p></div></section>)}
+    <div class="notice">These are intended use cases, not existing customer installations. Deployment suitability and commercial availability need direct confirmation.</div>
+  </div>
+  <DemoCTA />
+</Layout>

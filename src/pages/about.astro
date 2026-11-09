@@ -1,0 +1,14 @@
+---
+import { Image } from 'astro:assets';
+import orbitLogo from '../../assets/Ez Kyosk Orbit Logo.png';
+import Layout from '../layouts/Layout.astro';
+import DemoCTA from '../components/DemoCTA.astro';
+---
+<Layout title="About EZ Kyosk Self-Ordering Software" description="EZ Kyosk is developing customer-facing self-ordering and checkout kiosk software for Philippine food and beverage businesses. Learn about our purpose.">
+  <section class="page-heading"><div class="eyebrow">ABOUT EZ KYOSK / MADE FOR THE ORDERING MOMENT</div><h1>Simple to order.<br /><em>Considered for your business.</em></h1><p>Our purpose is to make touchscreen self-ordering understandable for customers and useful for the people running food and beverage businesses.</p></section>
+  <div class="page-body">
+    <div class="about-layout"><div class="about-art"><Image src={orbitLogo} alt="Official EZ Kyosk logo: a turquoise ordering kiosk and EZ Kyosk wordmark" width={700} format="webp" /><p>Your Menu. Their Order. One Simple Screen.</p></div><div class="about-copy"><div class="eyebrow">WHAT WE ARE BUILDING</div><h2>A focused tool for<br />a familiar moment.</h2><p>EZ Kyosk is self-ordering and checkout kiosk software in development for cafés, bakeries, restaurants, and quick-service businesses in the Philippines.</p><p>The current product journey connects menu browsing, categories, product selection, cart and quantity management, calculated totals, and order confirmation.</p><p>It is a customer-facing ordering tool. Future POS, payment, printing, and kitchen connections are planned separately.</p></div></div>
+    <section class="principles"><div class="eyebrow">HOW WE APPROACH THE PRODUCT</div><div class="three-columns"><article><span class="feature-icon">01 / SIMPLICITY</span><h3>Make the next step clear.</h3><p>Keep the customer journey focused, from browsing the menu to confirming an order.</p></article><article><span class="feature-icon">02 / HOSPITALITY</span><h3>Consider both sides.</h3><p>Give customers another way to order while keeping the needs of business owners and their teams in view.</p></article><article><span class="feature-icon">03 / HONESTY</span><h3>Say what works today.</h3><p>Distinguish current capabilities from future plans, and assess business requirements before promising a fit.</p></article></div></section>
+  </div>
+  <DemoCTA />
+</Layout>
