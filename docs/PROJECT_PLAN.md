@@ -58,12 +58,12 @@ The owner has requested continued brainstorming, wireframing, and roadmap refine
 - [x] Move the current How It Works experience into the homepage immediately before the FAQ.
 - [x] Keep the current How It Works and FAQ content/behavior intact during the first wireframe pass.
 - [x] Refine the hero later; prioritize wireframes and section layout first.
-- [x] Use one bold but welcoming primary font family for now; evaluate specific font candidates during wireframing.
+- [x] Use Plus Jakarta Sans as the single primary family, with ExtraBold display headings and lighter readable weights for body/UI copy.
 - [x] Develop an elegant, restrained palette derived from the EZ Kyosk logo.
 - [x] Use one permanent visual theme with accessible hover/focus effects such as controlled glow and color reversal; do not retain a user-selectable light/dark theme unless later re-approved.
 - [x] Create original benefit headings and cautious copy; do not show competitor references or unsupported citation markers on the website.
 - [x] Treat the PDF feature cards as layout references, not as approved third-party wording.
-- [x] Use the five product categories as a proposed interactive information architecture: Self-Ordering; POS & Checkout; Inventory; Reports & Analytics; Customers.
+- [x] Use the five product categories as the approved interactive information architecture: Self-Ordering; POS & Checkout; Inventory; Reports & Analytics; Customers.
 - [x] Treat AltPayNet as an owner-approved integration and approved brand relationship, subject to final asset and implementation verification before publication.
 - [x] Cover hospitality/food initially while allowing verified applications in retail, wellness/beauty, services/B2B, and other suitable markets.
 - [x] Treat all third-party screenshot photography as reference-only; use original, licensed, owner-supplied, or generated assets in the website.
@@ -75,14 +75,12 @@ The owner has requested continued brainstorming, wireframing, and roadmap refine
 - [x] Retain “Self-Ordering Kiosk Philippines” as the primary SEO theme.
 - [x] Do not commit the uploaded design PDF or DOCX to the repository.
 
-### Remaining design/evidence decisions
+### Remaining design decisions
 
-- [ ] Select and approve the exact bold, welcoming font family after comparing wireframe options. **BLOCKED - OWNER DECISION**
 - [ ] Approve the final logo-derived color tokens after reviewing wireframes. **BLOCKED - OWNER DECISION**
-- [ ] Decide whether the five product categories use tabs, stacked sections, or a hybrid desktop-tab/mobile-stacked pattern. The current recommendation is a hybrid with crawlable HTML panels and vertical mobile presentation. **BLOCKED - OWNER DECISION**
-- [ ] Decide whether the hero remains integration-neutral or shows AltPayNet. The current recommendation is a brand-first hero and a dedicated AltPayNet payment section. **BLOCKED - OWNER DECISION**
-- [ ] Provide or identify the current operational build, backend, or verification evidence for POS, payments, inventory, and live order management before those capabilities are stated as operational. **BLOCKED - PRODUCT EVIDENCE**
-- [ ] Confirm the exact navigation after wireframes. The current recommendation is Product, How It Works, Solutions, Industries, About, and Request a Demo, with Explore EZ Kyosk as the product-demo CTA. **BLOCKED - OWNER DECISION**
+- [x] Use a hybrid category pattern: crawlable tabs/panels on desktop and vertically stacked sections on mobile, with vertical page scrolling only.
+- [x] Keep the hero brand-first and integration-neutral; place AltPayNet in a dedicated payment section.
+- [x] Use Product, How It Works, Solutions, Industries, About, and Request a Demo as the primary navigation; use Explore EZ Kyosk as the product-demo CTA.
 
 ### Design implementation after approval
 
@@ -120,11 +118,13 @@ The owner has requested continued brainstorming, wireframing, and roadmap refine
 
 ## Phase 3 - Business and product truth
 
-### Verified public-demo baseline
+### Public-demo baseline and owner-confirmed product scope
 
 Source review of the public kiosk repository currently verifies category browsing, a 36-item menu, search and sorting, product/variant selection, cart quantity changes and removal, PHP total calculation, order review, local simulated confirmation, QR-based simulated progress, and responsive kiosk behavior.
 
-The same repository explicitly states that the public build does not currently connect to a backend, database, live POS, payment provider, inventory service, printer, or live order-management system. Its QR status and queue are locally simulated. This evidence conflicts with describing all five platform categories as operational. The marketing website must not resolve that conflict by assumption; it requires a newer implementation source, integration evidence, or a revised owner-approved description.
+The same repository explicitly states that the public build does not connect to a backend, database, live POS, payment provider, inventory service, printer, or live order-management system. Its QR status and queue are locally simulated. It is therefore treated as a limited public presentation rather than the complete source of truth for the commercial system.
+
+On 11 November 2026, the owner confirmed that self-ordering, order queueing/tracking, POS checkout, payment processing through the approved AltPayNet relationship, and real-time inventory are operational product capabilities. Marketing content may describe those core capabilities as operational based on this owner confirmation. Expanded reports/analytics, customer/loyalty features, promotions, and other bespoke capabilities should be described as configurable to client requirements unless separately confirmed as standard inclusions.
 
 - [ ] Confirm the public business/display name and legal identity.
 - [ ] Confirm the public business email address.
@@ -137,12 +137,11 @@ The same repository explicitly states that the public build does not currently c
 - [ ] Confirm hardware supply, ownership, and supported configurations.
 - [ ] Confirm installation and onboarding arrangements.
 - [ ] Confirm maintenance, warranty, service-level, and customer-support terms.
-- [ ] Verify every current product capability shown on the site.
-- [ ] Reconcile the owner-reported operational capabilities with the public demo's documented limitations.
-- [ ] Identify the authoritative product build or requirements source for production capability claims.
-- [ ] Confirm payment-processing status.
-- [ ] Confirm GCash, Maya, card, QR, and other gateway status.
-- [ ] Confirm every supported POS integration.
+- [x] Record the public demo as a limited presentation rather than the complete commercial implementation.
+- [x] Record owner confirmation of operational self-ordering, order queueing/tracking, POS checkout, payment processing, and real-time inventory.
+- [x] Record AltPayNet and the named card, QR, GCash, and Maya payment paths as owner-confirmed operational capabilities.
+- [ ] Verify the exact scope and terminology of each capability during page-level copy review.
+- [ ] Confirm each specifically named POS integration before publishing provider-specific compatibility claims.
 - [ ] Confirm supported receipt-printer models and printing status.
 - [ ] Confirm kitchen-order integration status.
 - [ ] Confirm tax, discount, promotion, and specialized pricing logic.
