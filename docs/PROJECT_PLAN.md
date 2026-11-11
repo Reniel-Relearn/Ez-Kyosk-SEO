@@ -12,6 +12,8 @@ The design brief in `docs/DESIGN-FOR-WEBSITE.pdf`, the owner-supplied product/pa
 
 The owner has requested continued brainstorming, wireframing, and roadmap refinement before implementation. The uploaded PDF and DOCX remain local references and are not intended for repository publication.
 
+The approved written wireframe and interaction specification is maintained in `docs/WIREFRAME_SPEC.md`.
+
 ## Status legend
 
 - `[x]` completed and verified
@@ -84,7 +86,8 @@ The owner has requested continued brainstorming, wireframing, and roadmap refine
 
 ### Design implementation after approval
 
-- [ ] Translate the approved brief into a homepage wireframe and exact section inventory.
+- [x] Translate the approved brief into a full-site written wireframe, responsive framework, and exact section inventory in `docs/WIREFRAME_SPEC.md`.
+- [ ] Create low-fidelity visual wireframes for homepage desktop/mobile and the product, solutions, and contact page patterns.
 - [ ] Define the approved typography scale using the selected font family/families.
 - [ ] Define a minimal color-token system with accessible contrast.
 - [ ] Refine spacing, grid, borders, radii, buttons, cards, and section transitions.
