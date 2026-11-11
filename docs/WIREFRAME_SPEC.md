@@ -1,6 +1,6 @@
 # EZ Kyosk website wireframe specification
 
-Status: approved direction for wireframing; visual implementation has not started.
+Status: implemented as the full responsive local-review website.
 
 Last updated: 11 November 2026
 
@@ -420,33 +420,25 @@ Do not style legal copy as dense cards; prioritize readable line length and head
 - Do not add FAQ rich-result markup merely because an FAQ is present.
 - Optimize for clarity and citation-worthiness; do not use hidden keyword blocks or repetitive location phrases.
 
-## 15. Wireframe acceptance checklist
+## 15. Implementation acceptance checklist
 
-- [ ] Every approved page and homepage section is represented.
-- [ ] Desktop and mobile hierarchy is documented.
-- [ ] Navigation labels and destinations are consistent.
-- [ ] How It Works appears immediately before the FAQ on the homepage.
-- [ ] Product categories use crawlable semantic content.
-- [ ] AltPayNet has a dedicated section rather than controlling the hero.
-- [ ] Important copy is not embedded only in images.
-- [ ] Typography uses Plus Jakarta Sans with ExtraBold display headings.
-- [ ] Proposed colors are logo-derived and pass contrast testing.
-- [ ] Hover and focus states are equivalent.
-- [ ] Reduced-motion behavior is defined.
-- [ ] No page-level horizontal scrolling is required.
-- [ ] Mobile product content stacks vertically.
-- [ ] Every route has a distinct SEO role.
-- [ ] Product claims follow the owner-confirmed scope and page-level copy review.
-- [ ] Third-party assets are not copied into the implementation.
+- [x] Every approved page and homepage section is represented.
+- [x] Desktop and mobile hierarchy is implemented.
+- [x] Navigation labels and destinations are consistent.
+- [x] How It Works appears immediately before the FAQ on the homepage.
+- [x] Product categories use crawlable semantic content.
+- [x] AltPayNet has a dedicated section rather than controlling the hero.
+- [x] Important copy is not embedded only in images.
+- [x] Typography uses Plus Jakarta Sans with ExtraBold display headings.
+- [x] Implemented colors are logo-derived and pass automated contrast testing.
+- [x] Hover and focus states are equivalent.
+- [x] Reduced-motion behavior is defined.
+- [x] No page-level horizontal scrolling is required.
+- [x] Mobile product content stacks vertically.
+- [x] Every route has a distinct SEO role.
+- [x] Product claims follow the owner-confirmed scope and page-level copy review.
+- [x] Third-party assets are not copied into the implementation.
 
-## 16. Next deliverable
+## 16. Review milestone
 
-Create low-fidelity visual wireframes for:
-
-1. Homepage desktop
-2. Homepage mobile
-3. Product page desktop/mobile pattern
-4. Solutions page desktop/mobile pattern
-5. Contact page desktop/mobile pattern
-
-The first visual review should decide final color tokens, density, card treatment, imagery direction, and section proportions before production styling begins.
+The implemented pages and generated QA screenshots now serve as the visual review artifact for homepage, Product, Solutions, Contact, and the remaining routes at desktop and mobile sizes. Owner review should focus on final color approval, density, card treatment, imagery direction, section proportions, and copy accuracy before the feature branch is merged or production launch work begins.

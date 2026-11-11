@@ -1,17 +1,45 @@
-# SEO strategy
+# SEO, GEO, and AEO strategy
 
-Primary themes: self-ordering kiosk Philippines, restaurant self-service kiosk, café ordering kiosk, and touchscreen ordering system. These are qualitative themes, with no claimed search volumes or ranking forecasts.
+Last updated: 11 November 2026
 
-Map the broad Philippine intent to the homepage, capability intent to features, industry suitability to solutions, educational intent to how-it-works, and demo intent to contact. Avoid near-duplicate industry pages until enough original useful information exists.
+## Search positioning
 
-Reference research: https://www.kwikpos.ph/pages/self-ordering-kiosk-pos and https://rentakiosk.ph/solutions. These suppliers emphasize integrations and use cases; EZ Kyosk must make its prototype status particularly clear. Do not copy competitor claims.
+Primary qualitative theme: **self-ordering kiosk Philippines**. Supporting themes include restaurant self-service kiosk, café ordering kiosk, touchscreen ordering system, kiosk checkout, kiosk payment integration, real-time kiosk inventory, and order tracking.
 
-Implementation: static HTML, unique titles/descriptions, semantic headings, internal links, actual-site canonicals, sitemap.xml, robots.txt, sharing text metadata, mobile layouts, and small scripts. No unsupported review, rating, pricing, or local-business schema. Social sharing image remains pending a suitable approved brand asset. Add factual organization schema after owner identity details are confirmed.
+No keyword volume, difficulty, ranking, traffic, or number-one forecast is claimed. Evidence-based volume research requires an approved current data source and remains a production marketing task.
 
-Redesign update (3 November 2026): the approved main direction is Self-Ordering Kiosk Philippines. Product positioning is self-ordering and checkout kiosk software, not a general POS. Current capabilities now include categories, quantity adjustment, order review, and confirmation, as confirmed in the owner's latest brief. All payment/POS/printing/kitchen integrations remain planned. The nine direct buyer FAQs and shared factual data support useful answers without promises about AI citations or rankings.
+## Keyword and intent map
 
-Official supplied combined logo now provides the configurable absolute Open Graph/Twitter image on builds with SITE_URL. Factual WebPage/WebSite JSON-LD is emitted only with a real configured site address. No fictional business address, pricing, ratings, customers, or organization identity is added. Preview builds omit absolute sharing/canonical/schema URLs and remain unindexed. No FAQ rich-result eligibility is claimed.
+| Route | Primary intent | Supporting topics |
+| --- | --- | --- |
+| `/` | Self-ordering kiosk Philippines | Product overview, checkout, payments, inventory, order tracking |
+| `/features/` | Self-ordering kiosk features | POS checkout, AltPayNet, real-time inventory, reports, customer tools |
+| `/how-it-works/` | How a self-ordering kiosk works | Browse, select, adjust, review, confirm, payment and fulfillment handoff |
+| `/solutions/` | Self-ordering kiosk use cases | Hospitality, cafés, restaurants, retail, wellness, services, B2B |
+| `/about/` | EZ Kyosk entity and purpose | Philippine focus, principles, product scope |
+| `/contact/` | Request kiosk demo | Requirements, quotation, integrations, hardware, configuration |
+| `/privacy/` | Inquiry privacy and website processing | Local review, form provider, retention, analytics/cookies |
 
-Production SITE_URL must be the real HTTPS URL. Previews without it are noindex and robots-disallowed. During domain migration update it, configure permanent redirects, rebuild, and resubmit the sitemap. Search Console verification requires owner account access.
+This map keeps the broad product query on the homepage, capability detail on Product, educational intent on How It Works, and industry intent on Solutions. Separate industry pages should wait until each can provide distinct verified content.
 
-Official guidance: https://developers.google.com/search/docs/essentials and https://developers.google.com/search/docs/fundamentals/seo-starter-guide. After launch, review actual queries and indexing before expanding content. No guaranteed rankings.
+## Implemented technical foundation
+
+- Static semantic HTML with one H1 and logical headings per route.
+- Unique titles and descriptions aligned to route intent.
+- Descriptive internal links across product, process, solutions, industries, FAQ, demo, and privacy content.
+- Important answers, product categories, and FAQ copy present in HTML.
+- Responsive layouts, local fonts, optimized responsive imagery, descriptive alternative text, and explicit dimensions.
+- `SITE_URL`-driven canonical URLs, sitemap entries, social URLs, and WebSite/WebPage JSON-LD.
+- Preview builds remain `noindex, nofollow` and robots-disallowed.
+- Official 2:1 orbit artwork provides the configured Open Graph/Twitter image.
+- No unsupported FAQ-rich-result, review, rating, pricing, customer, LocalBusiness, Product, or SoftwareApplication schema.
+
+## GEO and AEO content rules
+
+Answers use direct opening sentences, descriptive headings, ordered steps, capability lists, and semantic comparison/configuration structures. Claims distinguish operational core capability from configurable scope. The site avoids hidden keyword blocks, repetitive location phrases, citations to competitors, and guarantees about rankings or AI citations.
+
+Organization schema is deferred until the public legal/display identity, contact information, and public URL are confirmed. Product or SoftwareApplication schema was evaluated and withheld because verified public properties such as commercial availability, offers, operating requirements, support terms, and provider compatibility remain incomplete.
+
+## After launch
+
+Use owner-controlled Search Console and Bing Webmaster Tools, submit the actual sitemap, and review real queries, canonical selection, indexing, Core Web Vitals, and conversions. Expand or consolidate content only from measured demand and verified product evidence.

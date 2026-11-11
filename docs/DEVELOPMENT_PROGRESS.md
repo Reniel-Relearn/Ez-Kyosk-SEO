@@ -1,31 +1,38 @@
 # Development progress
 
-## Current implementation
+Last updated: 11 November 2026
 
-- Astro static marketing site with seven content pages, a custom 404 page, `robots.txt`, and `sitemap.xml`.
-- Shared responsive navigation, footer, light/dark theme controls, and official EZ Kyosk brand assets.
-- Product-focused homepage, feature overview, five-step ordering journey, industry use cases, FAQs, and demo inquiry flow.
-- Inquiry previews do not transmit or persist input unless an approved managed form endpoint is configured.
-- Builds without `SITE_URL` deliberately emit preview-safe noindex metadata and block crawling.
-- Payment, POS, printing, and kitchen integrations are described as planned rather than currently available.
+## Local-review milestone
 
-## Validation completed
+The website is ready for owner review on a local computer. The implemented build includes:
 
-- Production build and static verification for page metadata, internal links, headings, assets, robots behavior, and sitemap entries.
-- Responsive browser checks at phone, tablet, desktop, and ultrawide sizes with no horizontal overflow.
-- Keyboard navigation, mobile menu behavior, theme persistence, and storage-failure fallback checks.
-- Preview form no-send behavior plus mocked managed-form success and failure checks; no live service was contacted.
-- Automated axe accessibility scans at mobile and desktop sizes reported no WCAG A/AA violations. Automated results are not a complete accessibility certification.
-- Browser runs reported no JavaScript page errors or failed page/asset requests.
+- Seven responsive content routes, a custom 404 page, `robots.txt`, and `sitemap.xml`.
+- One permanent light theme using Plus Jakarta Sans, ExtraBold display headings, and logo-derived deep blue-teal/turquoise tokens.
+- Approved primary navigation, responsive mobile menu, footer, conversion CTAs, and external kiosk-experience link.
+- Homepage sequence: hero; Faster/More/Better benefits; connected platform; five product areas; AltPayNet payments; industries; How It Works; FAQ; conversion CTA.
+- Distinct Product, How It Works, Solutions, About, Contact, and Privacy page roles.
+- Owner-confirmed operational self-ordering, POS checkout, AltPayNet payments, real-time inventory, and order queueing/tracking copy.
+- Configurable reports, analytics, customers, loyalty, promotions, integrations, hardware, and bespoke requirements language.
+- Semantic HTML product content, desktop tabs with arrow-key support, and vertically stacked mobile panels.
+- Original CSS-based product/payment/industry illustrations plus optimized owner-supplied brand and kiosk artwork.
+- Preview-safe inquiry behavior that sends nothing unless an approved endpoint is configured.
+- Canonical, sitemap, robots, social metadata, and WebSite/WebPage schema safeguards driven by `SITE_URL`.
 
-Generated screenshots, reports, build output, local tools, dependency folders, and environment files are excluded from version control.
+## Verification completed
 
-## Before public launch
+- Astro production build passed.
+- Static verification passed for seven pages, H1 counts, unique titles/descriptions, internal links, anchors, assets, favicon, indexing controls, sitemap, canonical behavior, sharing images, and configured-site schema.
+- Browser layout checks passed across 320, 390, 768, 1024, 1440, and 1920 pixel widths for all seven public routes plus the custom 404 page: 48 combinations, no horizontal overflow or broken images.
+- Headless Edge reported no page errors and no failed page/asset requests.
+- Keyboard checks passed for the mobile menu, Escape/focus return, FAQ controls, and five product tabs.
+- Mobile product panels were verified as vertically stacked and visible.
+- Preview form no-send behavior passed; managed-form success and failure were tested with local interception only.
+- Axe WCAG A/AA/2.1 AA scans reported zero violations for every public route and the custom 404 page at 390 and 1440 pixels.
+- Desktop and phone screenshots were generated and visually reviewed.
+- Dependency audit reported zero known vulnerabilities during installation.
 
-- Confirm the public site URL, business and privacy contact details, retention policy, and production hosting ownership.
-- Configure and verify inquiry delivery with an approved provider.
-- Replace illustrative product imagery with approved production screenshots when available.
-- Confirm availability, pricing language, and all integration claims.
-- Run the repository checks again with the production configuration before enabling indexing.
+Automated results are not an accessibility certification or a substitute for owner review on real target devices.
 
-Publishing this source repository does not by itself authorize or perform a production deployment.
+## Production launch remains gated
+
+The following cannot be truthfully completed inside the repository: final owner approval, legal business/privacy identity, public contact details, production inquiry provider and retention workflow, hosting/domain ownership, DNS/HTTPS, Search Console, Bing Webmaster Tools, analytics/consent, real-user Core Web Vitals, customer evidence, backlinks, and post-launch measurement. They remain documented in `PROJECT_PLAN.md` and must be completed with the authorized accounts and confirmed facts before indexing.

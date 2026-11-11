@@ -1,18 +1,27 @@
 # Architecture
 
-Astro compiles pages to plain HTML in dist. Shared layout owns navigation, footer, metadata, and the mobile menu. CSS controls responsive layouts. Tiny browser scripts support navigation and form feedback. No database, React runtime, authentication, or backend is required.
+Astro compiles the website to static HTML in `dist`. The important product copy, navigation, FAQs, and internal links are present in server-rendered HTML. Small browser scripts enhance the mobile navigation, keyboard-accessible product tabs, progressive motion, and inquiry feedback. No database, authentication, frontend framework runtime, or marketing-site backend is required.
 
-- src/pages: public URLs, robots.txt, and sitemap.xml.
-- src/layouts/Layout.astro: shared page shell.
-- src/components/Kiosk.astro: explicitly illustrative product concept, not real product evidence.
-- src/components/OrderReview.astro and DemoCTA.astro: shared labeled illustration and demo invitation.
-- src/data/product.ts: shared ordering steps and factual buyer FAQs.
-- assets: original official wordmark, icon, and combined logo. Astro serves optimized image formats. public/favicon.png is the browser-icon derivative.
-- src/styles/global.css: palette, typography, components, and breakpoints.
-- public: directly served assets.
+## Source structure
 
-SITE_URL is public build configuration, not a secret. It drives canonical addresses, sitemap URLs, and indexing. PUBLIC_FORM_ENDPOINT and PUBLIC_CONTACT_EMAIL are intentionally public configuration. No secret belongs in any PUBLIC_ variable.
+- `src/pages`: the seven public routes, custom 404 page, `robots.txt`, and `sitemap.xml`.
+- `src/layouts/Layout.astro`: shared metadata, schema, navigation, footer, mobile menu, and progressive-motion setup.
+- `src/components/ProductExplorer.astro`: five semantic product panels with desktop tabs and mobile stacking.
+- `src/components/PaymentShowcase.astro`: original AltPayNet payment-section markup and CSS illustrations.
+- `src/components/HeroProduct.astro`: optimized owner-supplied kiosk artwork.
+- `src/components/OrderReview.astro`: original illustrative order-review UI.
+- `src/components/DemoCTA.astro`: shared conversion section.
+- `src/data/product.ts`: shared product categories, five-step journey, and FAQs.
+- `src/styles/global.css`: Plus Jakarta Sans, brand tokens, layout, components, breakpoints, focus states, and reduced-motion handling.
+- `assets`: owner-supplied brand and kiosk artwork processed by Astro.
+- `public/favicon.png`: directly served browser icon.
 
-Inquiry submission is disabled unless a managed endpoint is provided. The endpoint must be verified and the privacy notice completed before public launch. The browser uses normal form constraints and progressively enhanced submission feedback. This website cannot verify email inbox delivery by itself.
+## SEO and indexing behavior
 
-Brand redesign uses deep teal and restrained turquoise with a warm-white canvas. No new framework, backend, tracking, or production deployment changes were introduced. Canonicals and factual WebPage/WebSite schema use the actual configured SITE_URL. Official combined branding provides social-sharing imagery on configured-site builds. The approved content source is docs/WEBSITE_CONTENT.md.
+`SITE_URL` drives canonical URLs, the sitemap, absolute sharing imagery, and factual WebSite/WebPage JSON-LD. When it is absent, the build emits `noindex, nofollow`, omits invented canonical/schema URLs, and blocks crawling in `robots.txt`. Organization and product schema are intentionally withheld until sufficient public identity and product properties are confirmed.
+
+## Inquiry behavior
+
+Without `PUBLIC_FORM_ENDPOINT`, form validation and feedback run locally and no information is transmitted or stored. With an approved endpoint, the browser submits `FormData` and reports accepted/error states. Provider delivery, privacy handling, retention, and inbox arrival must be verified separately before launch.
+
+All `PUBLIC_` values are intentionally visible to the browser. Secrets must never be stored in those variables or committed to the repository.

@@ -3,47 +3,49 @@ import { getImage } from 'astro:assets';
 import BrandLogo from '../components/BrandLogo.astro';
 import orbitLogo from '../../assets/Ez Kyosk Orbit Logo.png';
 import '../styles/global.css';
-import '../styles/hero.css';
+
 const {
-  title = 'Self-Ordering Kiosk Philippines — EZ Kyosk',
-  description = 'EZ Kyosk is self-ordering and checkout kiosk software for cafés, restaurants, bakeries and quick-service businesses in the Philippines. Request a demo.',
+  title = 'Self-Ordering Kiosk Philippines | EZ Kyosk',
+  description = 'EZ Kyosk is self-ordering kiosk software for Philippine hospitality, retail, wellness, and service businesses. Explore the product or request a demo.',
 } = Astro.props;
+
 const pathname = Astro.url.pathname;
 const canonical = Astro.site ? new URL(pathname, Astro.site).href : undefined;
 const sharingImage = await getImage({ src: orbitLogo, width: 1200, format: 'png' });
 const sharingImageUrl = Astro.site ? new URL(sharingImage.src, Astro.site).href : undefined;
-const documentTitle = title.endsWith('EZ Kyosk') ? title : `${title} | EZ Kyosk`;
+const documentTitle = title.includes('EZ Kyosk') ? title : `${title} | EZ Kyosk`;
+const nav = [
+  ['/features/', 'Product'],
+  ['/#how-it-works', 'How It Works'],
+  ['/solutions/', 'Solutions'],
+  ['/solutions/#industries', 'Industries'],
+  ['/about/', 'About'],
+];
+const isCurrent = (url: string) => url.startsWith('/#') ? pathname === '/' : pathname === url;
 const schema = canonical ? {
   '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: documentTitle,
-  description,
-  url: canonical,
-  inLanguage: 'en-PH',
-  isPartOf: { '@type': 'WebSite', name: 'EZ Kyosk', url: Astro.site?.href },
+  '@graph': [
+    { '@type': 'WebSite', '@id': `${Astro.site?.href}#website`, name: 'EZ Kyosk', url: Astro.site?.href, inLanguage: 'en-PH' },
+    { '@type': 'WebPage', '@id': `${canonical}#webpage`, name: documentTitle, description, url: canonical, inLanguage: 'en-PH', isPartOf: { '@id': `${Astro.site?.href}#website` } },
+  ],
 } : undefined;
-const nav = [['/features/', 'The product'], ['/how-it-works/', 'How it works'], ['/solutions/', 'Solutions'], ['/about/', 'About us']];
 ---
 <!doctype html>
-<html lang="en-PH">
+<html lang="en-PH" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script is:inline>
-      try {
-        const savedTheme = localStorage.getItem('ez-kyosk-theme');
-        document.documentElement.dataset.theme = savedTheme === 'light' ? 'light' : 'dark';
-      } catch { document.documentElement.dataset.theme = 'dark'; }
-    </script>
+    <script is:inline>document.documentElement.classList.replace('no-js', 'js');</script>
     <title>{documentTitle}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#00343c" />
+    <meta name="theme-color" content="#f7fbfa" />
     <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
     {canonical && <link rel="canonical" href={canonical} />}
     <meta property="og:title" content={documentTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="EZ Kyosk" />
+    <meta property="og:locale" content="en_PH" />
     {canonical && <meta property="og:url" content={canonical} />}
     {sharingImageUrl && <><meta property="og:image" content={sharingImageUrl} /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="600" /><meta property="og:image:alt" content="Official EZ Kyosk logo and self-ordering kiosk icon" /></>}
     <meta name="twitter:card" content="summary_large_image" />
@@ -54,59 +56,62 @@ const nav = [['/features/', 'The product'], ['/how-it-works/', 'How it works'], 
     {!Astro.site && <meta name="robots" content="noindex, nofollow" />}
   </head>
   <body>
-    <a class="skip" href="#main">Skip to content</a>
-    <header class="header">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" data-site-header>
       <BrandLogo eager />
-      <nav id="main-navigation" aria-label="Main navigation">
-        {nav.map(([url, label]) => <a href={url} aria-current={pathname === url ? 'page' : undefined}>{label}</a>)}
+      <nav id="main-navigation" class="site-nav" aria-label="Main navigation">
+        {nav.map(([url, label]) => <a href={url} aria-current={isCurrent(url) ? 'page' : undefined}>{label}</a>)}
+        <a class="nav-mobile-cta" href="/contact/">Request a Demo <span aria-hidden="true">↗</span></a>
       </nav>
-      <button class="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="true">
-        <svg class="theme-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z" /></svg>
-        <svg class="theme-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
-      </button>
       <a class="header-cta" href="/contact/">Request a Demo <span aria-hidden="true">↗</span></a>
-      <button class="menu-toggle" aria-label="Toggle navigation" aria-controls="main-navigation" aria-expanded="false"><span></span><span></span></button>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-controls="main-navigation" aria-expanded="false"><span></span><span></span></button>
     </header>
     <main id="main" tabindex="-1"><slot /></main>
-    <footer>
-      <div class="footer-top">
+    <footer class="site-footer">
+      <div class="footer-grid">
         <div class="footer-brand">
           <BrandLogo />
-          <p>Your Menu. Their Order.<br />One Simple Screen.</p>
+          <p>Self-ordering, checkout, payments, and connected operations—built around your business.</p>
+          <a class="text-link" href="https://reniel-relearn.github.io/EZ-Kyosk/" target="_blank" rel="noopener">Explore the kiosk experience <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="footer-links"><span class="eyebrow">EXPLORE</span>{nav.slice(0, 3).map(([url, label]) => <a href={url}>{label}</a>)}</div>
-        <div class="footer-links"><span class="eyebrow">LET’S CONNECT</span><a href="/contact/">Request a Demo ↗</a><a href="/about/">About EZ Kyosk</a><a href="/privacy/">Privacy notice</a></div>
+        <div class="footer-links"><span class="footer-label">Product</span><a href="/features/">Product overview</a><a href="/#how-it-works">How It Works</a><a href="/solutions/">Solutions</a></div>
+        <div class="footer-links"><span class="footer-label">Industries</span><a href="/solutions/#hospitality">Hospitality & food</a><a href="/solutions/#retail">Retail & shops</a><a href="/solutions/#wellness">Wellness & beauty</a><a href="/solutions/#services">Services & B2B</a></div>
+        <div class="footer-links"><span class="footer-label">Company</span><a href="/about/">About EZ Kyosk</a><a href="/contact/">Request a Demo</a><a href="/privacy/">Privacy notice</a></div>
       </div>
-      <div class="footer-bottom"><span>© {new Date().getFullYear()} EZ Kyosk.</span><span>Self-ordering software for Philippine F&B businesses.</span><span>Designed for hospitality.</span></div>
+      <div class="footer-bottom"><span>© {new Date().getFullYear()} EZ Kyosk.</span><span>Your Menu. Their Order. One Simple Screen.</span></div>
     </footer>
     <script>
-      const themeToggle = document.querySelector<HTMLButtonElement>('.theme-toggle');
-      function updateThemeToggle() {
-        const dark = document.documentElement.dataset.theme === 'dark';
-        themeToggle?.setAttribute('aria-label', `Switch to ${dark ? 'light' : 'dark'} mode`);
-        themeToggle?.setAttribute('aria-pressed', String(dark));
-        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#09152a' : '#f0f7f7');
-      }
-      updateThemeToggle();
-      themeToggle?.addEventListener('click', () => {
-        const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-        document.documentElement.dataset.theme = next;
-        try { localStorage.setItem('ez-kyosk-theme', next); } catch {}
-        updateThemeToggle();
-      });
       const button = document.querySelector<HTMLButtonElement>('.menu-toggle');
-      const header = document.querySelector('.header');
-      function closeMenu() { button?.setAttribute('aria-expanded', 'false'); header?.classList.remove('nav-open'); }
+      const header = document.querySelector<HTMLElement>('[data-site-header]');
+      const nav = document.querySelector<HTMLElement>('#main-navigation');
+      const closeMenu = (restoreFocus = false) => {
+        button?.setAttribute('aria-expanded', 'false');
+        header?.classList.remove('nav-open');
+        if (restoreFocus) button?.focus();
+      };
       button?.addEventListener('click', () => {
         const open = button.getAttribute('aria-expanded') !== 'true';
         button.setAttribute('aria-expanded', String(open));
         header?.classList.toggle('nav-open', open);
       });
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && button?.getAttribute('aria-expanded') === 'true') { closeMenu(); button.focus(); }
-      });
-      document.addEventListener('click', (event) => { if (event.target instanceof Node && !header?.contains(event.target)) closeMenu(); });
-      window.matchMedia('(min-width: 901px)').addEventListener('change', closeMenu);
+      nav?.addEventListener('click', event => { if ((event.target as HTMLElement).closest('a')) closeMenu(); });
+      document.addEventListener('keydown', event => { if (event.key === 'Escape' && button?.getAttribute('aria-expanded') === 'true') closeMenu(true); });
+      document.addEventListener('click', event => { if (event.target instanceof Node && !header?.contains(event.target)) closeMenu(); });
+      window.matchMedia('(min-width: 981px)').addEventListener('change', () => closeMenu());
+
+      const reveals = document.querySelectorAll<HTMLElement>('[data-reveal]');
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+        document.documentElement.classList.add('reveal-ready');
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              (entry.target as HTMLElement).classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+        reveals.forEach(element => observer.observe(element));
+      } else reveals.forEach(element => element.classList.add('is-visible'));
     </script>
   </body>
 </html>

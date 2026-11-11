@@ -25,8 +25,12 @@ for (const path of paths) {
     assert.ok(!html.includes('noindex, nofollow'), `${url}: indexing`);
     assert.ok(html.includes('property="og:image"'), `${url}: sharing image`);
     const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([^<]+)<\/script>/)?.[1]);
-    assert.equal(schema.url, expected);
-    assert.equal(schema['@type'], 'WebPage');
+    const nodes = schema['@graph'] || [schema];
+    const webPage = nodes.find(node => node['@type'] === 'WebPage');
+    const webSite = nodes.find(node => node['@type'] === 'WebSite');
+    assert.equal(webPage?.url, expected);
+    assert.equal(webPage?.inLanguage, 'en-PH');
+    assert.equal(webSite?.url, new URL(process.env.SITE_URL).href);
     const image = html.match(/property="og:image" content="([^"]+)"/)?.[1];
     assert.ok(image.startsWith(new URL(process.env.SITE_URL).origin));
     await access(`dist${decodeURIComponent(new URL(image).pathname)}`);

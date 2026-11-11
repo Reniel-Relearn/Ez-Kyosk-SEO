@@ -3,31 +3,33 @@ import Layout from '../layouts/Layout.astro';
 const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT;
 const email = import.meta.env.PUBLIC_CONTACT_EMAIL;
 ---
-<Layout title="Request an EZ Kyosk Demo" description="Request an EZ Kyosk self-ordering kiosk demonstration for your café, bakery, restaurant or quick-service business. Share your needs with the team.">
-  <section class="page-heading"><div class="eyebrow">REQUEST A DEMO / LET’S TALK</div><h1>See how self-ordering<br /><em>could fit your business.</em></h1><p>Tell us about your menu, your service style, and what you would like to explore with EZ Kyosk.</p></section>
-  <div class="page-body contact-layout">
-    <div>
-      {!endpoint && <div class="notice">Online inquiries are being set up. This preview form does not send or store your information.{email && <> You can contact us at <a href={`mailto:${email}`}>{email}</a>.</>}</div>}
+<Layout title="Request an EZ Kyosk Demo" description="Request an EZ Kyosk self-ordering kiosk demo and discuss checkout, payments, inventory, order tracking, hardware, and configuration requirements.">
+  <section class="page-hero text-hero contact-hero section-shell"><div class="page-hero-copy" data-reveal><span class="eyebrow">Request a Demo · Tell us about your operation</span><h1>Let’s shape a clearer<br /><span>ordering experience.</span></h1><p>Share your business type, current workflow, and what you want customers or staff to accomplish. This helps frame a useful product conversation.</p></div><div class="contact-points" data-reveal><div><span>01</span><p>Walk through the current ordering and checkout experience.</p></div><div><span>02</span><p>Discuss payments, inventory, tracking, hardware, and integrations.</p></div><div><span>03</span><p>Identify configurable features and the information needed for a quotation.</p></div></div></section>
+  <section class="contact-section section-shell">
+    <div class="contact-form-wrap" data-reveal>
+      <span class="eyebrow">Your requirements</span><h2>Start the conversation.</h2>
+      {!endpoint && <div class="notice">This local-review form does not send or store information.{email && <> You can contact the team at <a href={`mailto:${email}`}>{email}</a>.</>}</div>}
       <form action={endpoint || undefined} method="POST" data-live={endpoint ? 'true' : 'false'}>
         <div class="form-grid">
           <label>Your name<input name="name" autocomplete="name" required maxlength="100" /></label>
           <label>Email address<input type="email" name="email" autocomplete="email" required maxlength="254" /></label>
           <label>Business name <span>(optional)</span><input name="business" autocomplete="organization" maxlength="150" /></label>
           <label>Phone <span>(optional)</span><input name="phone" type="tel" autocomplete="tel" maxlength="40" /></label>
-          <label class="full">Type of business<select name="business_type" required><option value="">Please select</option><option>Café / Coffee shop</option><option>Bakery / Pastry shop</option><option>Restaurant</option><option>Quick-service business</option><option>Other food & beverage business</option></select></label>
-          <label class="full">What would you like to explore?<textarea name="message" required maxlength="3000"></textarea></label>
-          <div style="display:none" aria-hidden="true"><label>Leave empty<input name="_gotcha" tabindex="-1" autocomplete="off" /></label></div>
-          <p class="full form-privacy">Please avoid sharing confidential information. Read our <a class="text-link" href="/privacy/">privacy notice</a> before sending.</p>
+          <label class="full">Type of business<select name="business_type" required><option value="">Please select</option><option>Café / Coffee shop</option><option>Bakery / Pastry shop</option><option>Restaurant / Quick service</option><option>Retail / Shop</option><option>Wellness / Beauty</option><option>Services / B2B</option><option>Other</option></select></label>
+          <label class="full">What would you like to explore?<textarea name="message" required maxlength="3000" placeholder="Tell us about your menu or catalog, ordering flow, payments, integrations, and goals."></textarea></label>
+          <div class="honeypot" aria-hidden="true"><label>Leave empty<input name="_gotcha" tabindex="-1" autocomplete="off" /></label></div>
+          <p class="full form-privacy">Please avoid sharing confidential information. Read the <a class="text-link" href="/privacy/">privacy notice</a> before sending.</p>
           <div class="full"><button class="button" type="submit">{endpoint ? 'Send demo request' : 'Preview inquiry'} <span aria-hidden="true">↗</span></button><p class="form-status" role="status" aria-live="polite"></p></div>
         </div>
       </form>
     </div>
-    <aside class="contact-aside"><div class="eyebrow">WHAT WE CAN DISCUSS</div><h2>Your menu.<br />Your requirements.<br />Your next step.</h2><p>Explore the self-ordering journey: browse, select, adjust, review, and confirm.</p><p>Talk through how a kiosk could fit your business. Demo arrangements and commercial availability are confirmed directly.</p><p>Payments, POS connections, receipt printing, and kitchen order handling are planned integrations.</p><p>No published pricing or rollout date has been confirmed.</p></aside>
-  </div>
+    <aside class="contact-aside" data-reveal><span class="eyebrow eyebrow-light">What we can discuss</span><h2>From customer screen to operational flow.</h2><ul class="check-list check-list-light"><li>Self-ordering journey and interface</li><li>POS and checkout requirements</li><li>AltPayNet payment paths</li><li>Real-time inventory and order tracking</li><li>Hardware, printing, and handoff needs</li><li>Reports, customers, loyalty, promotions, and custom features</li></ul><p>Pricing and implementation scope depend on the approved requirements and quotation.</p><a class="text-link text-link-light" href="https://reniel-relearn.github.io/EZ-Kyosk/" target="_blank" rel="noopener">Explore the kiosk experience <span aria-hidden="true">↗</span></a></aside>
+  </section>
   <script>
     const form = document.querySelector<HTMLFormElement>('form');
-    form?.addEventListener('submit', async (event) => {
+    form?.addEventListener('submit', async event => {
       event.preventDefault();
+      if (!form.reportValidity()) return;
       const status = form.querySelector<HTMLElement>('.form-status');
       const button = form.querySelector<HTMLButtonElement>('button');
       if (!status || !button) return;

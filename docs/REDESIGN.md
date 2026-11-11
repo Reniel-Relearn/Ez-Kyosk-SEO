@@ -1,54 +1,42 @@
 # Brand website redesign
 
-## Design direction
+## Implemented direction
 
-The redesign presents EZ Kyosk as self-ordering kiosk software for Philippine food-service businesses. It uses a warm-white canvas, deep-teal panels and text, restrained turquoise accents, readable typography, consistent touch targets, and clear product-first page hierarchy.
+The redesign presents EZ Kyosk as a bold, welcoming, and product-led self-ordering platform. It uses a permanent light theme, Plus Jakarta Sans with ExtraBold headings, a warm off-white canvas, deep blue-teal content panels, restrained turquoise accents, generous whitespace, controlled glow, and color-reversal hover/focus states.
 
-The site remains a static Astro marketing website. It does not add ordering, payment, POS, printing, inventory, or kitchen functionality.
+The visual references influenced hierarchy and pattern selection only. The website uses original EZ Kyosk copy, layouts, component compositions, CSS illustrations, and owner-supplied assets.
 
-## Brand assets
+## Information architecture
 
-Official source artwork is stored in `assets/` and served through Astro's image optimization where appropriate:
+The primary navigation is Product, How It Works, Solutions, Industries, About, and Request a Demo. The homepage follows the approved sequence and places How It Works immediately before the FAQ. Product content is available in HTML at all times; desktop visitors use accessible tabs while mobile visitors see vertically stacked sections.
 
-- `ez-kyosk-lockup.png` is the header and footer identity.
-- `Ez Kyosk Orbit Logo.png` is the combined About-page artwork.
-- `ez_kyosk_icon.png` is the source for the browser icon.
-- `hero-kiosk-original.png` is the owner-provided kiosk artwork displayed in the homepage hero.
-- `hero-kiosk-concept.png` is an earlier illustrative concept retained for reference but not displayed.
+Supporting routes provide distinct detail instead of repeating the homepage:
 
-The artwork should not be stretched or edited destructively. The header/footer component uses the lockup's alpha silhouette to keep the lettering legible in dark mode while retaining the turquoise icon and “EZ” colors.
+- Product explains five product areas and configurable scope.
+- How It Works expands the five-step customer and operational journey.
+- Solutions covers hospitality, retail, wellness/beauty, and services/B2B.
+- About establishes purpose and product principles without invented company history.
+- Contact captures requirements in preview-safe or configured-provider mode.
+- Privacy accurately describes the local-review state and launch dependencies.
 
-## Information architecture and content
+## Brand and product visuals
 
-The homepage introduces the product, ordering benefits, key features, five-step customer journey, industry use cases, integration roadmap, FAQs, and demo call to action. Supporting pages cover features, process, solutions, company context, contact, and privacy.
+- `ez-kyosk-lockup.png`: header/footer identity.
+- `Ez Kyosk Orbit Logo.png`: About-page brand artwork and configured sharing image.
+- `hero-kiosk-original.png`: owner-supplied hero/product artwork.
+- `hero-kiosk-concept.png`: retained local source reference, not displayed.
+- Product dashboards, payment terminal, phone/QR, industry, and process graphics are original CSS compositions with adjacent crawlable explanations.
 
-Shared product facts and FAQs are centralized in `src/data/product.ts`, and approved copy is recorded in `docs/WEBSITE_CONTENT.md`. Current versus planned capabilities are distinguished explicitly. The site does not invent prices, ratings, customer evidence, addresses, or production-readiness claims.
+Artwork keeps its proportions and is optimized to WebP by Astro. Important explanations are not baked only into images.
 
-## Search and preview safeguards
+## Responsive and interactive behavior
 
-Canonical URLs, share metadata, structured data, robots directives, and the sitemap use `SITE_URL` only when an actual public origin is configured. Without it, the build is intentionally unindexed and does not emit a false production canonical. The configured-site test uses `https://example.com` only as a local fixture.
+The site uses vertical page scrolling only. Layouts adapt at desktop, tablet, large-phone, narrow-phone, and ultrawide widths. Controls meet touch-target expectations, focus remains visible, mobile navigation returns focus after Escape, tab arrows work by keyboard, and animation degrades to static content with reduced-motion preferences. Motion never controls whether copy exists or remains readable.
 
-## Theme and responsive hero
+## Product truth
 
-Dark is the initial theme. A keyboard-accessible control lets visitors switch between dark and light modes, and the explicit selection persists in local storage. Initialization avoids a theme flash and safely handles unavailable browser storage.
+The copy describes owner-confirmed operational self-ordering, POS checkout, AltPayNet payment processing, real-time inventory, and order queueing/tracking. Expanded reports, analytics, customer tools, loyalty, promotions, provider compatibility, hardware, printing, kitchen workflows, and other bespoke requirements are described as configurable or subject to assessment. No invented pricing, ranking guarantees, testimonials, customer logos, addresses, certifications, or rollout dates appear.
 
-The header, hero, and section backgrounds span the viewport while their contents share a responsive gutter. Desktop layouts fit the hero into the available viewport beneath the header. Mobile layouts stack the content so the full artwork and caption remain accessible without horizontal overflow.
+## Verification
 
-## Inquiry behavior
-
-The demo form validates required fields, includes a honeypot, and displays clear success or failure feedback. In an unconfigured preview it does not transmit or persist input. Live delivery requires an approved `PUBLIC_FORM_ENDPOINT` and separate verification of the receiving service and privacy process.
-
-## Validation summary
-
-- Production build and static verification passed for content pages, the 404 page, titles, descriptions, internal links, anchor targets, image paths, favicon, robots behavior, and sitemap entries.
-- Responsive checks covered phone, tablet, desktop, and ultrawide viewports, light and dark modes, image loading, hero bounds, logo treatment, and horizontal overflow.
-- Keyboard checks covered navigation, theme control, focus return, links, and FAQ interactions.
-- Inquiry checks covered client validation, preview no-send, and mocked success and network-error responses without contacting a live provider.
-- Automated axe scans at mobile and desktop sizes reported no WCAG A/AA violations. Automated testing is not a substitute for full human accessibility review.
-- Browser checks reported no JavaScript page errors or failed page/asset requests.
-
-Local screenshots and reports are generated under `artifacts/` and are intentionally ignored by Git.
-
-## Remaining launch work
-
-Before enabling indexing or production deployment, confirm the business and privacy contacts, inquiry provider and retention policy, approved production imagery, availability and pricing statements, integration claims, hosting ownership, public domain, and production environment configuration.
+The build, static verification, 48 responsive route/viewport checks, keyboard interactions, inquiry states, image loading, browser errors, network failures, and axe checks all pass. Generated QA screenshots and reports remain excluded from Git.
