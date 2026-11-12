@@ -13,12 +13,13 @@ Astro compiles the website to static HTML in `dist`. The important product copy,
 - `src/components/DemoCTA.astro`: shared conversion section.
 - `src/data/product.ts`: shared product categories, five-step journey, and FAQs.
 - `src/styles/global.css`: Plus Jakarta Sans, light/dark brand tokens, layout, components, breakpoints, focus states, and reduced-motion handling.
+- `src/lib/sitePath.ts`: base-path-safe internal URLs for root hosting and repository-path previews.
 - `assets`: owner-supplied brand and kiosk artwork processed by Astro.
 - `public/favicon.png`: directly served browser icon.
 
 ## SEO and indexing behavior
 
-`SITE_URL` drives canonical URLs, the sitemap, absolute sharing imagery, and factual WebSite/WebPage JSON-LD. When it is absent, the build emits `noindex, nofollow`, omits invented canonical/schema URLs, and blocks crawling in `robots.txt`. Organization and product schema are intentionally withheld until sufficient public identity and product properties are confirmed.
+`SITE_URL` drives canonical URLs, the sitemap, absolute sharing imagery, and factual WebSite/WebPage JSON-LD. `BASE_PATH` supports repository-path preview hosting without changing page content. When `SITE_URL` is absent, the build emits `noindex, nofollow`, omits invented canonical/schema URLs, and blocks crawling in `robots.txt`. Organization and product schema are intentionally withheld until sufficient public identity and product properties are confirmed.
 
 ## Inquiry behavior
 

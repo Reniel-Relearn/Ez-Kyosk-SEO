@@ -2,10 +2,16 @@ import { readFile, access } from 'node:fs/promises';
 import assert from 'node:assert/strict';
 
 const paths = ['', 'features', 'how-it-works', 'solutions', 'about', 'contact', 'privacy'];
+const basePath = `/${(process.env.BASE_PATH || '').replace(/^\/+|\/+$/g, '')}`.replace(/^\/$/, '');
 const pages = new Map();
 const titles = new Set();
 const descriptions = new Set();
 const locationFor = (url) => `dist${url.endsWith('/') ? url + 'index.html' : url}`;
+const publicPath = (url) => `${basePath}${url}` || '/';
+const outputPath = (pathname) => {
+  if (basePath) assert.ok(pathname === basePath || pathname.startsWith(`${basePath}/`), `path uses configured base: ${pathname}`);
+  return pathname.slice(basePath.length) || '/';
+};
 
 for (const path of paths) {
   const url = `/${path ? path + '/' : ''}`;
@@ -17,10 +23,10 @@ for (const path of paths) {
   assert.ok(title && !titles.has(title), `${url}: unique title`);
   assert.ok(description && !descriptions.has(description), `${url}: unique description`);
   titles.add(title); descriptions.add(description);
-  assert.ok(html.includes('href="/favicon.png"'), `${url}: supplied icon`);
+  assert.ok(html.includes(`href="${publicPath('/favicon.png')}"`), `${url}: supplied icon`);
   assert.ok(!html.includes('favicon.svg'), `${url}: no obsolete favicon`);
   if (process.env.SITE_URL) {
-    const expected = new URL(url, process.env.SITE_URL).href;
+    const expected = new URL(publicPath(url), process.env.SITE_URL).href;
     assert.ok(html.includes(`rel="canonical" href="${expected}"`), `${url}: canonical`);
     assert.ok(!html.includes('noindex, nofollow'), `${url}: indexing`);
     assert.ok(html.includes('property="og:image"'), `${url}: sharing image`);
@@ -30,10 +36,10 @@ for (const path of paths) {
     const webSite = nodes.find(node => node['@type'] === 'WebSite');
     assert.equal(webPage?.url, expected);
     assert.equal(webPage?.inLanguage, 'en-PH');
-    assert.equal(webSite?.url, new URL(process.env.SITE_URL).href);
+    assert.equal(webSite?.url, new URL(publicPath('/'), process.env.SITE_URL).href);
     const image = html.match(/property="og:image" content="([^"]+)"/)?.[1];
     assert.ok(image.startsWith(new URL(process.env.SITE_URL).origin));
-    await access(`dist${decodeURIComponent(new URL(image).pathname)}`);
+    await access(locationFor(outputPath(decodeURIComponent(new URL(image).pathname))));
   } else {
     assert.ok(html.includes('noindex, nofollow'), `${url}: preview noindex`);
     assert.ok(!html.includes('rel="canonical"'), `${url}: no invented canonical`);
@@ -43,10 +49,11 @@ for (const path of paths) {
 for (const [pageUrl, html] of pages) {
   for (const [, value] of html.matchAll(/(?:href|src)="([^"\s]+)"/g)) {
     if (!value.startsWith('/') && !value.startsWith('#')) continue;
-    const url = new URL(value, `https://example.test${pageUrl}`);
-    await access(locationFor(decodeURIComponent(url.pathname)));
+    const url = new URL(value, `https://example.test${publicPath(pageUrl)}`);
+    await access(locationFor(outputPath(decodeURIComponent(url.pathname))));
     if (url.hash) {
-      const target = pages.get(url.pathname) || await readFile(locationFor(url.pathname), 'utf8');
+      const targetPath = outputPath(url.pathname);
+      const target = pages.get(targetPath) || await readFile(locationFor(targetPath), 'utf8');
       assert.ok(target.includes(`id="${decodeURIComponent(url.hash.slice(1))}"`), `${pageUrl}: anchor ${value}`);
     }
   }

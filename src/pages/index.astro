@@ -5,6 +5,7 @@ import ProductExplorer from '../components/ProductExplorer.astro';
 import PaymentShowcase from '../components/PaymentShowcase.astro';
 import DemoCTA from '../components/DemoCTA.astro';
 import { steps, faqs } from '../data/product';
+import { sitePath } from '../lib/sitePath';
 
 const platforms = [
   ['01', 'Self-ordering experience', 'Let customers browse, select, adjust, review, and confirm from one focused touchscreen.'],
@@ -28,7 +29,7 @@ const industries = [
       <h1>Self-Ordering<br /><span>Made Easy</span><br />for Your Business.</h1>
       <p class="hero-lead">Give customers the freedom to explore your menu, select their favorites, and review their orders—all from one touchscreen.</p>
       <p class="hero-audience">For cafés, bakeries, restaurants & quick-service businesses.</p>
-      <div class="hero-actions"><a class="button button-secondary" href="https://reniel-relearn.github.io/EZ-Kyosk/" target="_blank" rel="noopener">Explore EZ Kyosk</a><a class="button" href="/contact/">Request a Demo <span aria-hidden="true">↗</span></a></div>
+      <div class="hero-actions"><a class="button button-secondary" href="https://reniel-relearn.github.io/EZ-Kyosk/" target="_blank" rel="noopener">Explore EZ Kyosk</a><a class="button" href={sitePath('/contact/')}>Request a Demo <span aria-hidden="true">↗</span></a></div>
       <p class="hero-note">Your Menu. Their Order. One Simple Screen.</p>
     </div>
     <HeroProduct />
@@ -53,17 +54,17 @@ const industries = [
 
   <section class="industries-section section-shell" id="industries" aria-labelledby="industries-title" data-reveal>
     <div class="section-heading"><div><span class="eyebrow">Designed to adapt</span><h2 id="industries-title">Different operations.<br />One clearer experience.</h2></div><p>Hospitality is the starting point, but the same guided ordering pattern can support a wider range of customer-facing businesses.</p></div>
-    <div class="industry-grid">{industries.map(([id, title, body], index) => <a class={`industry-card industry-${id}`} href={`/solutions/#${id}`}><span>0{index + 1}</span><div class="industry-symbol" aria-hidden="true"><i></i><i></i><i></i></div><h3>{title}</h3><p>{body}</p><b>Explore this industry <i aria-hidden="true">↗</i></b></a>)}</div>
+    <div class="industry-grid">{industries.map(([id, title, body], index) => <a class={`industry-card industry-${id}`} href={sitePath(`/solutions/#${id}`)}><span>0{index + 1}</span><div class="industry-symbol" aria-hidden="true"><i></i><i></i><i></i></div><h3>{title}</h3><p>{body}</p><b>Explore this industry <i aria-hidden="true">↗</i></b></a>)}</div>
   </section>
 
   <section class="how-section section-shell" id="how-it-works" aria-labelledby="how-title" data-reveal>
     <div class="section-heading inverse"><div><span class="eyebrow eyebrow-light">How EZ Kyosk works</span><h2 id="how-title">Five simple steps.<br />One confident order.</h2></div><p>Each step keeps the customer oriented while the connected system carries the order toward checkout and fulfillment.</p></div>
     <ol class="steps">{steps.map(([title, body], index) => <li><span>0{index + 1}</span><div><h3>{title}</h3><p>{body}</p></div></li>)}</ol>
-    <a class="text-link text-link-light" href="/how-it-works/">See the complete ordering journey <span aria-hidden="true">↗</span></a>
+    <a class="text-link text-link-light" href={sitePath('/how-it-works/')}>See the complete ordering journey <span aria-hidden="true">↗</span></a>
   </section>
 
   <section class="faq-section section-shell" aria-labelledby="faq-title" data-reveal>
-    <div class="faq-intro"><span class="eyebrow">Questions, answered</span><h2 id="faq-title">What businesses ask before a demo.</h2><p>Clear answers about capabilities, payments, customization, compatibility, and pricing.</p><a class="text-link" href="/contact/">Ask a different question <span aria-hidden="true">↗</span></a></div>
+    <div class="faq-intro"><span class="eyebrow">Questions, answered</span><h2 id="faq-title">What businesses ask before a demo.</h2><p>Clear answers about capabilities, payments, customization, compatibility, and pricing.</p><a class="text-link" href={sitePath('/contact/')}>Ask a different question <span aria-hidden="true">↗</span></a></div>
     <div class="faq-list">{faqs.map(([question, answer]) => <details><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div>
   </section>
   <DemoCTA />

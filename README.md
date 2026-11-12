@@ -22,11 +22,12 @@ For active editing, use `npm run dev`. Run `npm run qa` while a preview is avail
 Copy `.env.example` to `.env` for local configuration. Keep real environment values out of version control.
 
 - `SITE_URL` is the approved public production origin. Builds without it intentionally remain unindexed.
+- `BASE_PATH` is an optional hosting subpath. The GitHub Pages review workflow sets it to `/Ez-Kyosk-SEO`.
 - `PUBLIC_FORM_ENDPOINT` is an approved managed inquiry endpoint.
 - `PUBLIC_CONTACT_EMAIL` is the approved public business contact address.
 
 ## Current status
 
-The full responsive redesign, product content, technical SEO foundation, preview-safe inquiry flow, and automated checks are complete for local review. Production launch remains gated by owner approval plus confirmed business/privacy details, an inquiry provider, hosting, domain, and production accounts.
+The full responsive redesign, product content, technical SEO foundation, preview-safe inquiry flow, and automated checks are complete. GitHub Pages provides a public, unindexed design-review deployment from the redesign branch. Production launch remains gated by owner approval plus confirmed business/privacy details, an inquiry provider, production hosting, domain, and accounts.
 
 See [the owner guide](docs/OWNER_GUIDE.md), [development progress](docs/DEVELOPMENT_PROGRESS.md), [project roadmap](docs/PROJECT_PLAN.md), and [deployment guide](docs/DEPLOYMENT_GUIDE.md).
