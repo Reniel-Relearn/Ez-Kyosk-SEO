@@ -1,9 +1,10 @@
 ---
 import { getImage } from 'astro:assets';
 import lockup from '../../assets/ez-kyosk-lockup.png';
+import { sitePath } from '../lib/sitePath';
 const { eager = false } = Astro.props;
 const image = await getImage({ src: lockup, width: 600, format: 'webp', quality: 90 });
 ---
-<a href="/" class="logo logo-lockup" aria-label="EZ Kyosk home" style={`--brand-mask: url("${image.src}")`}>
+<a href={sitePath('/')} class="logo logo-lockup" aria-label="EZ Kyosk home" style={`--brand-mask: url("${image.src}")`}>
   <img src={image.src} width={image.attributes.width} height={image.attributes.height} alt="EZ Kyosk" loading={eager ? 'eager' : 'lazy'} decoding="async" />
 </a>

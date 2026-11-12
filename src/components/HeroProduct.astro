@@ -2,17 +2,8 @@
 import { Image } from 'astro:assets';
 import kiosk from '../../assets/hero-kiosk-original.png';
 ---
-<figure class="hero-product">
-  <Image
-    src={kiosk}
-    alt="EZ Kyosk concept artwork showing a café ordering kiosk, payment terminal, and ordering icons"
-    widths={[480, 720, 1000]}
-    sizes="(max-width: 680px) 88vw, (max-height: 740px) 340px, 520px"
-    width={1000}
-    format="webp"
-    loading="eager"
-    fetchpriority="high"
-    quality={85}
-  />
-  <figcaption>Illustrative product concept. Payment hardware and integrations shown are planned, not operational.</figcaption>
+<figure class="hero-product" data-reveal>
+  <div class="hero-orbit" aria-hidden="true"></div>
+  <Image src={kiosk} alt="EZ Kyosk product artwork showing a self-ordering kiosk with a companion payment terminal" widths={[420, 640, 900]} sizes="(max-width: 720px) 82vw, 46vw" width={900} format="webp" loading="eager" fetchpriority="high" quality={84} />
+  <figcaption>EZ Kyosk self-ordering and checkout system. Core capabilities include POS checkout, AltPayNet payments, real-time inventory, and order tracking.</figcaption>
 </figure>

@@ -1,69 +1,70 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HeroProduct from '../components/HeroProduct.astro';
-import OrderReview from '../components/OrderReview.astro';
+import ProductExplorer from '../components/ProductExplorer.astro';
+import PaymentShowcase from '../components/PaymentShowcase.astro';
 import DemoCTA from '../components/DemoCTA.astro';
 import { steps, faqs } from '../data/product';
+import { sitePath } from '../lib/sitePath';
+
+const platforms = [
+  ['01', 'Self-ordering experience', 'Let customers browse, select, adjust, review, and confirm from one focused touchscreen.'],
+  ['02', 'POS and checkout', 'Connect confirmed orders to checkout, queueing, and the operational flow defined for your business.'],
+  ['03', 'Payments with AltPayNet', 'Support approved card, QR, GCash, Maya, and e-wallet payment paths.'],
+  ['04', 'Inventory and order tracking', 'Keep inventory visibility and order progress connected to the experience.'],
+  ['05', 'Configurable extensions', 'Scope reports, customers, loyalty, promotions, and other needs around your operation.'],
+];
+
+const industries = [
+  ['hospitality', 'Hospitality & food', 'Cafés, bakeries, restaurants, and quick-service teams can create a clearer ordering path.'],
+  ['retail', 'Retail & shops', 'Bring product discovery, selection, payment, and stock visibility into one guided touchpoint.'],
+  ['wellness', 'Wellness & beauty', 'Present services and add-ons with a simple path from selection to checkout.'],
+  ['services', 'Services & B2B', 'Configure a customer-facing flow around the products, services, and approvals your operation needs.'],
+];
 ---
-<Layout>
-  <section class="hero hero-reference">
-    <div class="hero-copy">
-      <div class="eyebrow"><span></span> SELF-ORDERING KIOSK SOFTWARE · PHILIPPINES</div>
+<Layout title="Self-Ordering Kiosk Philippines | EZ Kyosk" description="EZ Kyosk connects self-ordering, POS checkout, AltPayNet payments, real-time inventory, and order tracking for Philippine businesses. Explore the product or request a demo.">
+  <section class="home-hero section-shell">
+    <div class="hero-copy" data-reveal>
+      <span class="eyebrow"><i></i> SELF-ORDERING KIOSK SOFTWARE · PHILIPPINES</span>
       <h1>Self-Ordering<br /><span>Made Easy</span><br />for Your Business.</h1>
-      <p class="hero-description">Give customers the freedom to explore your menu, select their favorites, and review their orders—all from one touchscreen.</p>
-      <p class="hero-positioning">For cafés, bakeries, restaurants & quick-service businesses.</p>
-      <div class="hero-actions"><a class="button secondary" href="/features/">Explore EZ Kyosk</a><a class="button" href="/contact/">Request a Demo <span aria-hidden="true">↗</span></a></div>
-      <div class="hero-footnote">Your Menu. Their Order. One Simple Screen.</div>
+      <p class="hero-lead">Give customers the freedom to explore your menu, select their favorites, and review their orders—all from one touchscreen.</p>
+      <p class="hero-audience">For cafés, bakeries, restaurants & quick-service businesses.</p>
+      <div class="hero-actions"><a class="button button-secondary" href="https://reniel-relearn.github.io/EZ-Kyosk/" target="_blank" rel="noopener">Explore EZ Kyosk</a><a class="button" href={sitePath('/contact/')}>Request a Demo <span aria-hidden="true">↗</span></a></div>
+      <p class="hero-note">Your Menu. Their Order. One Simple Screen.</p>
     </div>
     <HeroProduct />
   </section>
 
-  <section class="industry-strip" aria-label="Designed for food and beverage businesses">
-    <span>YOUR MENU. THEIR ORDER. ONE SIMPLE SCREEN.</span>
-    <div>Cafés <i aria-hidden="true">/</i> Bakeries <i aria-hidden="true">/</i> Restaurants <i aria-hidden="true">/</i> Quick-service</div>
+  <section class="benefits-section section-shell" aria-labelledby="benefits-title" data-reveal>
+    <div class="section-heading"><div><span class="eyebrow">A better way to take orders</span><h2 id="benefits-title">Clear for customers.<br />Considered for your team.</h2></div><p>EZ Kyosk adds a structured customer-facing ordering path without losing sight of the people running the business.</p></div>
+    <div class="benefit-grid"><article><span>01</span><h3>Faster</h3><p>A direct route from browsing to confirmation can reduce unnecessary steps in the ordering journey.</p></article><article><span>02</span><h3>More</h3><p>Add another channel for customer demand and create more room for your team to focus on service.</p></article><article><span>03</span><h3>Better</h3><p>Keep choices, totals, payment, order status, and operational visibility in a clearer connected flow.</p></article></div>
   </section>
 
-  <section class="intro section">
-    <div><div class="eyebrow">A BETTER WAY TO TAKE ORDERS</div><h2>Let customers handle<br />the ordering.<br /><em>Let your team handle<br />the service.</em></h2></div>
-    <div class="intro-text"><p class="large-copy">A dedicated screen for ordering.<br />More attention for hospitality.</p><p>Let customers browse the menu, make their selections, and review their orders at their own pace. Give guests another way to order while staff focus on food preparation and customer service.</p><a class="text-link" href="/features/">Get to know the product <span aria-hidden="true">↗</span></a></div>
+  <section class="platform-section section-shell" aria-labelledby="platform-title" data-reveal>
+    <div class="section-heading"><div><span class="eyebrow">One connected platform</span><h2 id="platform-title">From the first tap to the next task.</h2></div><p>Start with the ordering experience, then connect checkout, payments, inventory, tracking, and the tools your operation requires.</p></div>
+    <div class="platform-grid">{platforms.map(([number, title, body]) => <article><span>{number}</span><div class="platform-icon" aria-hidden="true"><i></i><i></i><i></i></div><h3>{title}</h3><p>{body}</p></article>)}</div>
   </section>
 
-  <section class="benefits section">
-    <div class="section-heading"><div><div class="eyebrow">WHY CONSIDER SELF-ORDERING?</div><h2>Clear choices for guests.<br />A considered tool for your team.</h2></div><p>A customer-facing ordering experience, built around the way food and beverage businesses serve.</p></div>
-    <div class="three-columns">
-      <article><span class="feature-icon">01 / DISCOVERY</span><h3>A menu worth exploring</h3><p>Give every category a place on screen, so customers can discover what you offer before deciding.</p></article>
-      <article><span class="feature-icon">02 / CONTROL</span><h3>Orders at their own pace</h3><p>Customers can choose items, adjust quantities, and check their selection before confirming.</p></article>
-      <article><span class="feature-icon">03 / CLARITY</span><h3>A clearer review step</h3><p>Bring the cart and calculated total together in one view, ready for a final check.</p></article>
-    </div>
+  <section class="product-section section-shell" aria-labelledby="product-title" data-reveal>
+    <div class="section-heading inverse"><div><span class="eyebrow eyebrow-light">Explore the product</span><h2 id="product-title">Five areas. One adaptable system.</h2></div><p>Core ordering, checkout, payments, inventory, and tracking are operational. Expanded reports and customer tools can be configured around client requirements.</p></div>
+    <ProductExplorer />
   </section>
 
-  <section class="feature-section section">
-    <OrderReview />
-    <div><div class="eyebrow">THE CORE EXPERIENCE</div><h2>Everything customers need<br />to start an order.</h2><div class="feature-list">
-      <div><span class="feature-number">01</span><div><h3>A digital menu, organized</h3><p>Browse products by category on a touchscreen.</p></div></div>
-      <div><span class="feature-number">02</span><div><h3>A cart they can manage</h3><p>Add products and adjust quantities before moving on.</p></div></div>
-      <div><span class="feature-number">03</span><div><h3>Review, then confirm</h3><p>See calculated totals and proceed to order confirmation.</p></div></div>
-    </div><a class="text-link" href="/features/" style="margin-top:20px">Explore all features <span aria-hidden="true">↗</span></a></div>
+  <PaymentShowcase />
+
+  <section class="industries-section section-shell" id="industries" aria-labelledby="industries-title" data-reveal>
+    <div class="section-heading"><div><span class="eyebrow">Designed to adapt</span><h2 id="industries-title">Different operations.<br />One clearer experience.</h2></div><p>Hospitality is the starting point, but the same guided ordering pattern can support a wider range of customer-facing businesses.</p></div>
+    <div class="industry-grid">{industries.map(([id, title, body], index) => <a class={`industry-card industry-${id}`} href={sitePath(`/solutions/#${id}`)}><span>0{index + 1}</span><div class="industry-symbol" aria-hidden="true"><i></i><i></i><i></i></div><h3>{title}</h3><p>{body}</p><b>Explore this industry <i aria-hidden="true">↗</i></b></a>)}</div>
   </section>
 
-  <section class="workflow section">
-    <div class="section-heading"><div><div class="eyebrow">HOW EZ KYOSK WORKS</div><h2>Five simple steps.<br />One straightforward experience.</h2></div><p>From the first look at the menu to order confirmation, the next step stays clear.</p></div>
-    <ol class="steps">{steps.map(([title, body], i) => <li><div class="step-number">0{i + 1}<span aria-hidden="true">→</span></div><h3>{title}</h3><p>{body}</p></li>)}</ol>
-    <a class="text-link" href="/how-it-works/">Walk through the ordering flow <span aria-hidden="true">↗</span></a>
+  <section class="how-section section-shell" id="how-it-works" aria-labelledby="how-title" data-reveal>
+    <div class="section-heading inverse"><div><span class="eyebrow eyebrow-light">How EZ Kyosk works</span><h2 id="how-title">Five simple steps.<br />One confident order.</h2></div><p>Each step keeps the customer oriented while the connected system carries the order toward checkout and fulfillment.</p></div>
+    <ol class="steps">{steps.map(([title, body], index) => <li><span>0{index + 1}</span><div><h3>{title}</h3><p>{body}</p></div></li>)}</ol>
+    <a class="text-link text-link-light" href={sitePath('/how-it-works/')}>See the complete ordering journey <span aria-hidden="true">↗</span></a>
   </section>
 
-  <section class="solutions-preview section">
-    <div><div class="eyebrow">BUILT AROUND YOUR BUSINESS</div><h2>Different menus.<br /><em>One simple screen.</em></h2><p style="margin-top:24px">From a neighborhood bakery to a quick-service counter, explore how self-ordering could fit your place.</p></div>
-    <div class="industry-list"><a href="/solutions/#cafes">Cafés & coffee shops <span aria-hidden="true">↗</span></a><a href="/solutions/#bakeries">Bakeries & pastry shops <span aria-hidden="true">↗</span></a><a href="/solutions/#restaurants">Restaurants <span aria-hidden="true">↗</span></a><a href="/solutions/#quick-service">Quick-service businesses <span aria-hidden="true">↗</span></a></div>
-  </section>
-
-  <section id="integrations" class="roadmap section">
-    <div><div class="eyebrow">DEVELOPMENT ROADMAP</div><h2>One kiosk today.<br />More possibilities ahead.</h2></div>
-    <div><p>Menu browsing, categories, cart management, quantity adjustment, calculated totals, and order confirmation form the current product experience.</p><div class="integration-tags"><span>POS connections</span><span>Payment gateways</span><span>Receipt printing</span><span>Kitchen orders</span></div><p><strong>These integrations are planned.</strong> They are not confirmed production capabilities.</p><a class="text-link" href="/features/#planned">Understand the roadmap <span aria-hidden="true">↗</span></a></div>
-  </section>
-
-  <section class="faq section">
-    <div class="faq-intro"><div class="eyebrow">BEFORE YOU GET STARTED</div><h2>Good questions.<br /><em>Clear answers.</em></h2><p>What the software does, where it is heading, and what to discuss with us.</p><a class="text-link" href="/contact/">Have another question? <span aria-hidden="true">↗</span></a></div>
+  <section class="faq-section section-shell" aria-labelledby="faq-title" data-reveal>
+    <div class="faq-intro"><span class="eyebrow">Questions, answered</span><h2 id="faq-title">What businesses ask before a demo.</h2><p>Clear answers about capabilities, payments, customization, compatibility, and pricing.</p><a class="text-link" href={sitePath('/contact/')}>Ask a different question <span aria-hidden="true">↗</span></a></div>
     <div class="faq-list">{faqs.map(([question, answer]) => <details><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div>
   </section>
   <DemoCTA />

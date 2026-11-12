@@ -1,8 +1,8 @@
 # EZ Kyosk website wireframe specification
 
-Status: approved direction for wireframing; visual implementation has not started.
+Status: implemented as the full responsive local-review website.
 
-Last updated: 11 November 2026
+Last updated: 12 November 2026
 
 ## 1. Purpose
 
@@ -14,7 +14,7 @@ The website must feel bold, welcoming, elegant, and product-led. It should borro
 
 - Use semantic, server-rendered HTML for every important heading, answer, capability, industry, and call to action.
 - Do not bake meaningful text into promotional images.
-- Use one permanent brand theme rather than a user-selectable light/dark mode.
+- Support accessible light/dark themes without changing, hiding, or duplicating crawlable content.
 - Use progressive animation only; content and navigation must remain available without JavaScript.
 - Preserve keyboard, focus, reduced-motion, contrast, touch-target, and responsive requirements.
 - Use original, licensed, owner-supplied, or generated assets only.
@@ -53,8 +53,9 @@ Keep `/how-it-works/` as an indexable, expanded educational page. The homepage p
 
 - Left: official EZ Kyosk lockup.
 - Center/right: compact navigation with visible current state.
-- Far right: Request a Demo button.
+- Far right: compact theme control and Request a Demo button.
 - Sticky after the hero starts leaving the viewport; avoid hiding the H1 beneath it.
+- Keep the header logo visually smaller than the previous implementation while preserving its proportions.
 
 **Mobile/tablet:**
 
@@ -154,7 +155,7 @@ Rules:
 
 Purpose: brand recognition, crawlable navigation, and demo conversion.
 
-Layout: global header described above. Remove the light/dark theme toggle in the redesign.
+Layout: global header described above. Include a keyboard-accessible light/dark theme toggle with saved preference and system-default fallback.
 
 ### Section 2 - Hero
 
@@ -174,10 +175,14 @@ Purpose: communicate product category, primary benefit, audience, and next actio
 
 Content direction:
 
-- Primary SEO theme: Self-Ordering Kiosk Philippines.
-- H1 direction: bold outcome-oriented wording; final copy will be reviewed separately.
-- Primary CTA: Request a Demo.
-- Secondary CTA: Explore EZ Kyosk.
+- Eyebrow: `SELF-ORDERING KIOSK SOFTWARE · PHILIPPINES`
+- H1: `Self-Ordering Made Easy for Your Business.`
+- Description: `Give customers the freedom to explore your menu, select their favorites, and review their orders—all from one touchscreen.`
+- Audience line: `For cafés, bakeries, restaurants & quick-service businesses.`
+- CTA labels: `Explore EZ Kyosk` and `Request a Demo`.
+- Tagline: `Your Menu. Their Order. One Simple Screen.`
+- These hero strings are locked for SEO/GEO/AEO continuity; future revisions may change only presentation unless the owner explicitly re-approves copy changes.
+- The image caption may reflect the latest verified operational scope and must not repeat outdated “planned” language.
 
 ### Section 3 - Benefits
 
@@ -420,33 +425,27 @@ Do not style legal copy as dense cards; prioritize readable line length and head
 - Do not add FAQ rich-result markup merely because an FAQ is present.
 - Optimize for clarity and citation-worthiness; do not use hidden keyword blocks or repetitive location phrases.
 
-## 15. Wireframe acceptance checklist
+## 15. Implementation acceptance checklist
 
-- [ ] Every approved page and homepage section is represented.
-- [ ] Desktop and mobile hierarchy is documented.
-- [ ] Navigation labels and destinations are consistent.
-- [ ] How It Works appears immediately before the FAQ on the homepage.
-- [ ] Product categories use crawlable semantic content.
-- [ ] AltPayNet has a dedicated section rather than controlling the hero.
-- [ ] Important copy is not embedded only in images.
-- [ ] Typography uses Plus Jakarta Sans with ExtraBold display headings.
-- [ ] Proposed colors are logo-derived and pass contrast testing.
-- [ ] Hover and focus states are equivalent.
-- [ ] Reduced-motion behavior is defined.
-- [ ] No page-level horizontal scrolling is required.
-- [ ] Mobile product content stacks vertically.
-- [ ] Every route has a distinct SEO role.
-- [ ] Product claims follow the owner-confirmed scope and page-level copy review.
-- [ ] Third-party assets are not copied into the implementation.
+- [x] Every approved page and homepage section is represented.
+- [x] Desktop and mobile hierarchy is implemented.
+- [x] Navigation labels and destinations are consistent.
+- [x] How It Works appears immediately before the FAQ on the homepage.
+- [x] Product categories use crawlable semantic content.
+- [x] AltPayNet has a dedicated section rather than controlling the hero.
+- [x] Important copy is not embedded only in images.
+- [x] Typography uses Plus Jakarta Sans with ExtraBold display headings.
+- [x] Implemented colors are logo-derived and pass automated contrast testing.
+- [x] Light/dark themes preserve the same semantic, crawlable content.
+- [x] The original hero strings are preserved verbatim.
+- [x] Hover and focus states are equivalent.
+- [x] Reduced-motion behavior is defined.
+- [x] No page-level horizontal scrolling is required.
+- [x] Mobile product content stacks vertically.
+- [x] Every route has a distinct SEO role.
+- [x] Product claims follow the owner-confirmed scope and page-level copy review.
+- [x] Third-party assets are not copied into the implementation.
 
-## 16. Next deliverable
+## 16. Review milestone
 
-Create low-fidelity visual wireframes for:
-
-1. Homepage desktop
-2. Homepage mobile
-3. Product page desktop/mobile pattern
-4. Solutions page desktop/mobile pattern
-5. Contact page desktop/mobile pattern
-
-The first visual review should decide final color tokens, density, card treatment, imagery direction, and section proportions before production styling begins.
+The implemented pages and generated QA screenshots now serve as the visual review artifact for homepage, Product, Solutions, Contact, and the remaining routes at desktop and mobile sizes. Owner review should focus on final color approval, density, card treatment, imagery direction, section proportions, and copy accuracy before the review is approved or production launch work begins.

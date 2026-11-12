@@ -1,5 +1,9 @@
 # Deployment guide
 
+The current GitHub Pages deployment at `https://reniel-relearn.github.io/Ez-Kyosk-SEO/` is a public design-review environment built from `main`. It uses `/Ez-Kyosk-SEO` as its base path and intentionally omits `SITE_URL`, which preserves `noindex, nofollow` metadata and crawl blocking. This is not the production launch.
+
+Collaborator instructions are maintained in `docs/COLLABORATOR_FEEDBACK_GUIDE.md`.
+
 Recommended: Cloudflare Workers Static Assets, as current Astro documentation recommends Workers for new Cloudflare projects. Pages remains an option for the same static dist output.
 
 ## Cloudflare Git deployment

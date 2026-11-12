@@ -2,20 +2,20 @@
 import Layout from '../layouts/Layout.astro';
 import OrderReview from '../components/OrderReview.astro';
 import DemoCTA from '../components/DemoCTA.astro';
+import { steps } from '../data/product';
+import { sitePath } from '../lib/sitePath';
 const details = [
-  ['Browse', 'Start with a digital menu.', 'Customers explore products on the kiosk touchscreen and browse the available categories before making a choice.'],
-  ['Select', 'Add what looks good.', 'Customers choose food and beverages and add products to their cart. Their selection comes together in one place.'],
-  ['Adjust', 'Make the selection right.', 'Customers adjust quantities and manage the items in the cart before moving to the review step.'],
-  ['Review', 'See the order and the total.', 'The review brings together the chosen products, quantities, and calculated total, giving customers a chance to check their order.'],
-  ['Confirm', 'Take the next step with clarity.', 'Customers proceed to order confirmation on the kiosk. Payment processing, printer output, POS connections, and kitchen order handling remain planned integrations.'],
+  ['Browse', 'Start with a menu made to explore.', 'Customers see organized categories, products, and choices on the kiosk touchscreen. Clear structure helps them understand what is available before they decide.'],
+  ['Select', 'Build the order one choice at a time.', 'Customers add products, variants, and available options. Their selection remains visible as the order takes shape.'],
+  ['Adjust', 'Make every detail feel intentional.', 'Quantities and selections can be changed before checkout so the customer can correct or refine the order without starting again.'],
+  ['Review', 'Check items, options, and totals.', 'The review step brings the full order together. Customers can confirm what they selected and understand the calculated total before moving forward.'],
+  ['Confirm', 'Connect the decision to checkout.', 'The confirmed order moves into the configured checkout, payment, queueing, inventory, and order-tracking flow for the deployment.'],
 ];
 ---
-<Layout title="How EZ Kyosk Self-Ordering Works" description="Browse, select, adjust, review and confirm. Learn how customers use the EZ Kyosk touchscreen ordering experience and which integrations are planned.">
-  <section class="page-heading"><div class="eyebrow">HOW IT WORKS / FROM MENU TO CONFIRMATION</div><h1>Five simple steps.<br /><em>One simple screen.</em></h1><p>Browse → Select → Adjust → Review → Confirm. A clear path through the self-ordering experience, with room to check each choice.</p></section>
-  <div class="page-body">
-    <div class="feature-section" style="margin-bottom:55px"><div><div class="eyebrow">YOUR MENU. THEIR ORDER.</div><h2>Customers stay<br />in control of their selection.</h2><p style="margin-top:24px">The kiosk is the place to browse, build a cart, and review the total. Your team can focus on food preparation and customer service.</p><p>This page explains the product journey. This marketing website does not accept food orders.</p></div><OrderReview /></div>
-    {details.map(([label, title, body], i) => <section class="step-detail"><span>0{i + 1}</span><div><div class="eyebrow">{label}</div><h2>{title}</h2></div><p>{body}</p></section>)}
-    <div class="notice">Order confirmation is part of the described product journey. It does not mean that a payment has been collected or an order has reached a printer, kitchen, or POS.</div>
-  </div>
+<Layout title="How a Self-Ordering Kiosk Works | EZ Kyosk" description="Learn how EZ Kyosk guides customers through browsing, selecting, adjusting, reviewing, and confirming an order, then connects checkout and tracking.">
+  <section class="page-hero text-hero section-shell"><div class="page-hero-copy" data-reveal><span class="eyebrow">How It Works · From browsing to confirmation</span><h1>Five simple steps.<br /><span>One connected flow.</span></h1><p>EZ Kyosk keeps the customer journey easy to follow while the operational system handles checkout, payment, inventory, queueing, and order progress.</p><div class="hero-actions"><a class="button" href="https://reniel-relearn.github.io/EZ-Kyosk/" target="_blank" rel="noopener">Try the kiosk experience <span aria-hidden="true">↗</span></a><a class="button button-secondary" href={sitePath('/contact/')}>Request a Demo</a></div></div><div class="journey-map" aria-label="Browse, Select, Adjust, Review, Confirm">{steps.map(([title], index) => <div><span>0{index + 1}</span><b>{title}</b><i aria-hidden="true">→</i></div>)}</div></section>
+  <section class="journey-intro section-shell" data-reveal><div><span class="eyebrow">Your menu. Their order.</span><h2>Customers stay oriented at every step.</h2><p>The touchscreen provides one focused place to understand choices, build an order, check the total, and continue into payment.</p></div><OrderReview /></section>
+  <div class="journey-details section-shell">{details.map(([label, title, body], index) => <section class="journey-step" data-reveal><span class="journey-number">0{index + 1}</span><div><span class="eyebrow">{label}</span><h2>{title}</h2></div><p>{body}</p></section>)}</div>
+  <section class="handoff-section section-shell" data-reveal><div><span class="eyebrow eyebrow-light">After confirmation</span><h2>The order keeps moving.</h2></div><div class="handoff-grid"><article><span>01</span><h3>Checkout and payment</h3><p>The configured checkout flow can connect to supported AltPayNet terminal, card, QR, GCash, Maya, and e-wallet paths.</p></article><article><span>02</span><h3>Queue and inventory</h3><p>Order queueing or tracking and real-time inventory support keep the operational side aligned with the customer action.</p></article><article><span>03</span><h3>Business configuration</h3><p>Specific integrations, hardware, printing, kitchen workflows, reports, and customer tools are scoped for each implementation.</p></article></div></section>
   <DemoCTA />
 </Layout>

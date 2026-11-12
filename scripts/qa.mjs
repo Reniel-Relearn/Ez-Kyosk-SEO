@@ -8,13 +8,13 @@ const browser = await chromium.launch({ channel: 'msedge', headless: true });
 const context = await browser.newContext();
 const page = await context.newPage();
 const errors = [], failedRequests = [], layouts = [], accessibility = [];
-const routes = ['/', '/features/', '/how-it-works/', '/solutions/', '/about/', '/contact/', '/privacy/'];
+const routes = ['/', '/features/', '/how-it-works/', '/solutions/', '/about/', '/contact/', '/privacy/', '/404.html'];
 page.on('pageerror', error => errors.push(error.message));
 page.on('response', response => { if (response.status() >= 400) failedRequests.push({ url: response.url(), status: response.status() }); });
 await mkdir('artifacts', { recursive: true });
 
 try {
-  for (const width of [320, 390, 768, 1024, 1440]) {
+  for (const width of [320, 390, 768, 1024, 1440, 1920]) {
     await page.setViewportSize({ width, height: 1000 });
     for (const route of routes) {
       const response = await page.goto(`${base}${route}`);
@@ -48,14 +48,37 @@ try {
   assert.equal(await menu.getAttribute('aria-expanded'), 'false');
   assert.equal(await menu.evaluate(element => element === document.activeElement), true);
   await menu.click();
-  await page.getByRole('navigation').getByRole('link', { name: 'The product', exact: true }).click();
+  await page.getByRole('navigation').getByRole('link', { name: 'Product', exact: true }).click();
   await page.waitForURL('**/features/');
 
   await page.goto(base);
-  const faq = page.locator('summary').filter({ hasText: 'Can it accept GCash or Maya?' });
+  const faq = page.locator('summary').filter({ hasText: 'Can it accept card, QR, GCash, or Maya payments?' });
   await faq.focus(); await page.keyboard.press('Enter');
   assert.equal(await faq.evaluate(el => el.parentElement.open), true);
   assert.equal(await page.locator('.faq-list details').count(), 9);
+  assert.equal(await page.locator('[role="tabpanel"]:visible').count(), 5, 'mobile product panels stack visibly');
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto(base);
+  assert.match(await page.locator('.hero-copy h1').innerText(), /Self-Ordering\s+Made Easy\s+for Your Business\./);
+  await page.getByText('Give customers the freedom to explore your menu, select their favorites, and review their orders—all from one touchscreen.', { exact: true }).waitFor();
+  await page.getByText('For cafés, bakeries, restaurants & quick-service businesses.', { exact: true }).waitFor();
+  await page.getByText('Your Menu. Their Order. One Simple Screen.', { exact: true }).first().waitFor();
+  await page.getByText('Core capabilities include POS checkout, AltPayNet payments, real-time inventory, and order tracking.', { exact: false }).waitFor();
+  const themeToggle = page.locator('.theme-toggle');
+  assert.equal(await themeToggle.getAttribute('aria-label'), 'Switch to dark mode');
+  await themeToggle.click();
+  assert.equal(await page.locator('html').getAttribute('data-theme'), 'dark');
+  assert.equal(await themeToggle.getAttribute('aria-pressed'), 'true');
+  await page.reload();
+  assert.equal(await page.locator('html').getAttribute('data-theme'), 'dark', 'theme persists after reload');
+  await page.getByRole('button', { name: 'Switch to light mode' }).click();
+  assert.equal(await page.locator('html').getAttribute('data-theme'), 'light');
+  const tabs = page.getByRole('tab');
+  assert.equal(await tabs.count(), 5);
+  await tabs.nth(0).focus();
+  await page.keyboard.press('ArrowRight');
+  assert.equal(await tabs.nth(1).getAttribute('aria-selected'), 'true');
+  assert.equal(await page.getByRole('tabpanel', { name: 'POS & Checkout' }).isVisible(), true);
   const favicon = await context.request.get(`${base}/favicon.png`);
   assert.equal(favicon.status(), 200);
   assert.ok(favicon.headers()['content-type'].includes('image/png'));
@@ -63,7 +86,7 @@ try {
   const fillForm = async () => {
     await page.locator('[name=name]').fill('Design reviewer');
     await page.locator('[name=email]').fill('review@example.com');
-    await page.locator('select').selectOption('Restaurant');
+    await page.locator('select').selectOption({ label: 'Restaurant / Quick service' });
     await page.locator('textarea').fill('Automated test; no real submission.');
   };
   await page.goto(`${base}/contact/`);
@@ -93,15 +116,21 @@ try {
   assert.equal(await page.getByRole('button', { name: 'Preview inquiry' }).isEnabled(), true);
   assert.equal(await page.locator('[name=name]').inputValue(), 'Design reviewer');
 
-  for (const width of [390, 1440]) {
-    await page.setViewportSize({ width, height: 1000 });
-    for (const route of routes) {
-      await page.goto(`${base}${route}`);
-      const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
-      accessibility.push({ route, width, violations: result.violations.map(v => ({ id: v.id, impact: v.impact, nodes: v.nodes.map(n => n.target) })) });
+  for (const theme of ['light', 'dark']) {
+    await page.goto(base);
+    await page.evaluate(value => localStorage.setItem('ez-kyosk-theme', value), theme);
+    for (const width of [390, 1440]) {
+      await page.setViewportSize({ width, height: 1000 });
+      for (const route of routes) {
+        await page.goto(`${base}${route}`);
+        assert.equal(await page.locator('html').getAttribute('data-theme'), theme);
+        const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
+        accessibility.push({ theme, route, width, violations: result.violations.map(v => ({ id: v.id, impact: v.impact, nodes: v.nodes.map(n => n.target) })) });
+        if (route === '/') await page.screenshot({ path: `artifacts/home-${theme}-${width}.png`, fullPage: true });
+      }
     }
   }
-  const report = { layouts, accessibility, errors, failedRequests, previewPosts, managedForm: 'mocked success and failure passed', keyboard: 'menu, Escape, focus return, FAQ passed' };
+  const report = { layouts, accessibility, errors, failedRequests, previewPosts, managedForm: 'mocked success and failure passed', keyboard: 'menu, Escape, focus return, FAQ, product tabs, and theme toggle passed' };
   await writeFile('artifacts/qa-report.json', JSON.stringify(report, null, 2));
   console.log(JSON.stringify({ layoutChecks: layouts.length, accessibility, errors, failedRequests, previewPosts, managedForm: report.managedForm, keyboard: report.keyboard }, null, 2));
   assert.ok(accessibility.every(result => result.violations.length === 0), 'Accessibility violations');
