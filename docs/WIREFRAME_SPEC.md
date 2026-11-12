@@ -92,6 +92,13 @@ Proposed responsive scale:
 
 Final sizes must respond to available width and pass overflow checks at 320 px.
 
+### Content width and horizontal spacing
+
+- Use the available page width with small, consistent gutters: `clamp(20px, 2.5vw, 64px)` on desktop/tablet and 20px on phones.
+- Align the header, section content, card grids, and footer to the same page edges. Avoid a fixed 1,320px content cap that creates oversized side margins on wide screens.
+- Retain readable widths for long body text and legal content; widen section introductions where restrictive centered blocks cause unnecessary wrapping.
+- Keep the original homepage hero wording intact while allowing the layout to use the wider content area.
+
 ### Logo-derived color proposal
 
 The official lockup's dominant sampled colors are deep blue-teal and bright turquoise. Proposed tokens:
@@ -252,7 +259,7 @@ The panels must clarify which expanded reports, customer tools, loyalty, promoti
 
 Purpose: present the approved payment relationship without crowding the brand-first hero.
 
-Pattern: a centered section heading followed by two large cards.
+Pattern: a left-aligned, full-width section heading and wider supporting description followed by two large cards. Align the introduction with the card grid, use natural responsive wrapping, and allow the heading to occupy one line on sufficiently wide screens. The description can use up to 1,280px; avoid the previous centered 900px heading / 700px description constraints.
 
 Card A - Terminal integration:
 
