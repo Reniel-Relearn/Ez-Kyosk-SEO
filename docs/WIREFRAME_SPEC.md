@@ -26,26 +26,28 @@ The website must feel bold, welcoming, elegant, and product-led. It should borro
 
 ### Primary navigation
 
-1. Product
-2. How It Works
-3. Solutions
-4. Industries
+1. Home
+2. Product
+3. How It Works
+4. Solutions
 5. About
 6. Request a Demo
 
-`Request a Demo` is the persistent primary CTA. `Explore EZ Kyosk` is the product-demo CTA and opens `https://reniel-relearn.github.io/EZ-Kyosk/`.
+`Request a Demo` is the persistent primary CTA rather than a standard navigation link. `Explore EZ Kyosk` is the product-demo CTA and opens `https://reniel-relearn.github.io/EZ-Kyosk/`.
 
 ### Recommended link behavior
 
+- **Home:** `/`
 - **Product:** `/features/`
-- **How It Works:** `/#how-it-works`
+- **How It Works:** `/how-it-works/`
 - **Solutions:** `/solutions/`
-- **Industries:** `/solutions/#industries` until distinct industry pages have enough original content
 - **About:** `/about/`
 - **Request a Demo:** `/contact/`
 - **Explore EZ Kyosk:** external public kiosk experience, clearly labeled as opening the interactive demo
 
-Keep `/how-it-works/` as an indexable, expanded educational page. The homepage presents the approved core flow immediately before the FAQ; the dedicated route adds depth and internal links rather than becoming an exact duplicate.
+Industries remains a substantive section within Solutions and in the footer, not a duplicated primary navigation item. Keep `/how-it-works/` as an indexable, expanded educational page. The homepage presents the approved core flow immediately before the FAQ; the dedicated route adds depth and internal links rather than becoming an exact duplicate.
+
+Every primary route has exactly one active navigation state. The homepage hero belongs only to Home; Product, How It Works, Solutions, and About each use a distinct page-specific hero composition.
 
 ### Header behavior
 
@@ -318,7 +320,7 @@ SEO role: detailed answer for self-ordering kiosk software features, POS/checkou
 
 Wireframe:
 
-1. Product-led page hero with concise scope statement.
+1. Product-led page hero with a five-area connected-system map; do not reuse the homepage kiosk hero artwork or composition.
 2. Sticky or in-page five-category navigation on desktop; normal vertical table of contents on mobile.
 3. Five alternating deep-dive sections corresponding to the homepage product architecture.
 4. AltPayNet integration callout.

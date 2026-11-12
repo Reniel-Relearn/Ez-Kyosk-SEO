@@ -17,13 +17,13 @@ const sharingImage = await getImage({ src: orbitLogo, width: 1200, format: 'png'
 const sharingImageUrl = Astro.site ? new URL(sharingImage.src, Astro.site).href : undefined;
 const documentTitle = title.includes('EZ Kyosk') ? title : `${title} | EZ Kyosk`;
 const nav = [
+  ['/', 'Home'],
   ['/features/', 'Product'],
-  ['/#how-it-works', 'How It Works'],
+  ['/how-it-works/', 'How It Works'],
   ['/solutions/', 'Solutions'],
-  ['/solutions/#industries', 'Industries'],
   ['/about/', 'About'],
 ];
-const isCurrent = (url: string) => pathname === sitePath(url.split('#')[0] || '/');
+const isCurrent = (url: string) => pathname === sitePath(url);
 const schema = canonical ? {
   '@context': 'https://schema.org',
   '@graph': [
@@ -92,7 +92,7 @@ const schema = canonical ? {
           <p>Self-ordering, checkout, payments, and connected operations—built around your business.</p>
           <a class="text-link" href="https://reniel-relearn.github.io/EZ-Kyosk/" target="_blank" rel="noopener">Explore the kiosk experience <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="footer-links"><span class="footer-label">Product</span><a href={sitePath('/features/')}>Product overview</a><a href={sitePath('/#how-it-works')}>How It Works</a><a href={sitePath('/solutions/')}>Solutions</a></div>
+        <div class="footer-links"><span class="footer-label">Product</span><a href={sitePath('/features/')}>Product overview</a><a href={sitePath('/how-it-works/')}>How It Works</a><a href={sitePath('/solutions/')}>Solutions</a></div>
         <div class="footer-links"><span class="footer-label">Industries</span><a href={sitePath('/solutions/#hospitality')}>Hospitality & food</a><a href={sitePath('/solutions/#retail')}>Retail & shops</a><a href={sitePath('/solutions/#wellness')}>Wellness & beauty</a><a href={sitePath('/solutions/#services')}>Services & B2B</a></div>
         <div class="footer-links"><span class="footer-label">Company</span><a href={sitePath('/about/')}>About EZ Kyosk</a><a href={sitePath('/contact/')}>Request a Demo</a><a href={sitePath('/privacy/')}>Privacy notice</a></div>
       </div>

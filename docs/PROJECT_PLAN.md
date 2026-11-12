@@ -85,7 +85,7 @@ The approved written wireframe and interaction specification is maintained in `d
 - [ ] Approve the final logo-derived color tokens after reviewing wireframes. **BLOCKED - OWNER DECISION**
 - [x] Use a hybrid category pattern: crawlable tabs/panels on desktop and vertically stacked sections on mobile, with vertical page scrolling only.
 - [x] Keep the hero brand-first and integration-neutral; place AltPayNet in a dedicated payment section.
-- [x] Use Product, How It Works, Solutions, Industries, About, and Request a Demo as the primary navigation; use Explore EZ Kyosk as the product-demo CTA.
+- [x] Use Home, Product, How It Works, Solutions, and About as the primary navigation; keep Request a Demo as the persistent CTA and Explore EZ Kyosk as the product-demo CTA. Keep Industries within Solutions and the footer.
 
 ### Design implementation after approval
 

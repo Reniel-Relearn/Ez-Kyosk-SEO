@@ -59,11 +59,34 @@ try {
   assert.equal(await page.locator('[role="tabpanel"]:visible').count(), 5, 'mobile product panels stack visibly');
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto(base);
+  const primaryNav = page.locator('#main-navigation > a:not(.nav-mobile-cta)');
+  assert.deepEqual(await primaryNav.allTextContents(), ['Home', 'Product', 'How It Works', 'Solutions', 'About']);
+  assert.equal(await page.locator('#main-navigation > a[aria-current="page"]').innerText(), 'Home');
+  assert.equal(await page.locator('#main-navigation > a', { hasText: 'Industries' }).count(), 0, 'Industries is grouped under Solutions, not duplicated in primary navigation');
   assert.match(await page.locator('.hero-copy h1').innerText(), /Self-Ordering\s+Made Easy\s+for Your Business\./);
   await page.getByText('Give customers the freedom to explore your menu, select their favorites, and review their orders—all from one touchscreen.', { exact: true }).waitFor();
   await page.getByText('For cafés, bakeries, restaurants & quick-service businesses.', { exact: true }).waitFor();
   await page.getByText('Your Menu. Their Order. One Simple Screen.', { exact: true }).first().waitFor();
   await page.getByText('Core capabilities include POS checkout, AltPayNet payments, real-time inventory, and order tracking.', { exact: false }).waitFor();
+  const pageIdentities = [
+    ['/', 'Home', '.hero-product'],
+    ['/features/', 'Product', '.product-system-map'],
+    ['/how-it-works/', 'How It Works', '.journey-map'],
+    ['/solutions/', 'Solutions', '.solution-orbit'],
+    ['/about/', 'About', '.about-logo-panel'],
+  ];
+  for (const [route, label, visual] of pageIdentities) {
+    await page.goto(`${base}${route}`);
+    const current = page.locator('#main-navigation > a[aria-current="page"]');
+    assert.equal(await current.count(), 1, `${route}: exactly one active navigation item`);
+    assert.equal(await current.innerText(), label, `${route}: correct active navigation item`);
+    assert.equal(await page.locator(visual).count(), 1, `${route}: distinct page identity`);
+    if (route !== '/') assert.equal(await page.locator('.hero-product').count(), 0, `${route}: homepage kiosk hero is not reused`);
+  }
+  await page.goto(`${base}/features/`);
+  assert.match(await page.locator('.page-hero h1').innerText(), /Five product areas\.\s+One connected system\./);
+  assert.equal(await page.locator('.product-system-links > a').count(), 5);
+  await page.goto(base);
   const themeToggle = page.locator('.theme-toggle');
   assert.equal(await themeToggle.getAttribute('aria-label'), 'Switch to dark mode');
   await themeToggle.click();
