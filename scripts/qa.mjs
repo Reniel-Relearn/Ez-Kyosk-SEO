@@ -37,10 +37,14 @@ try {
       assert.ok(state.logos.every(logo => logo.loaded && Math.abs(logo.ratio - logo.original) < .03), `${route}: undistorted logos`);
       layouts.push({ route, width, ...state });
       if (width === 390 || width === 1440) await page.screenshot({ path: `artifacts/${route === '/' ? 'home' : route.split('/')[1]}-${width}.png`, fullPage: true });
+      await page.evaluate(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }));
+      const headerTop = await page.locator('.site-header').evaluate(header => header.getBoundingClientRect().top);
+      assert.ok(Math.abs(headerTop) < 1, `${route} ${width}: header remains pinned while scrolling`);
     }
   }
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(base);
+  await page.evaluate(() => window.scrollTo({ top: 900, behavior: 'instant' }));
   const menu = page.getByRole('button', { name: 'Toggle navigation' });
   await menu.focus(); await page.keyboard.press('Enter');
   assert.equal(await menu.getAttribute('aria-expanded'), 'true');

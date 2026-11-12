@@ -57,7 +57,7 @@ Every primary route has exactly one active navigation state. The homepage hero b
 - Left: official EZ Kyosk lockup.
 - Center/right: compact navigation with visible current state.
 - Far right: compact theme control and Request a Demo button.
-- Sticky after the hero starts leaving the viewport; avoid hiding the H1 beneath it.
+- Keep the complete header pinned to the top throughout vertical scrolling on every route. Keep anchor targets clear of the header.
 - Keep the header logo visually smaller than the previous implementation while preserving its proportions.
 
 **Mobile/tablet:**
@@ -65,6 +65,7 @@ Every primary route has exactly one active navigation state. The homepage hero b
 - Left: proportional logo.
 - Right: Request a Demo and menu controls, or menu control alone when width is constrained.
 - Menu opens as a vertically stacked panel; no horizontal navigation scrolling.
+- Keep the header and menu trigger visible while scrolling, with the open menu positioned directly beneath the header.
 - Escape closes the menu and returns focus to the trigger.
 
 ## 4. Visual system proposal
@@ -176,6 +177,7 @@ Purpose: communicate product category, primary benefit, audience, and next actio
 - Left 45-50%: eyebrow, H1, concise description, audience line, primary/secondary CTAs, tagline.
 - Right 50-55%: original product/kiosk composition with accessible supporting caption.
 - Keep the hero brand-first and integration-neutral.
+- Start the homepage hero content 32px below the header, with 56px bottom padding. Let its content determine its height rather than filling the viewport and centering it vertically.
 
 **Mobile layout:**
 
