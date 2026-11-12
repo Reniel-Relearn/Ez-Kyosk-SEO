@@ -1,13 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import HeroProduct from '../components/HeroProduct.astro';
 import PaymentShowcase from '../components/PaymentShowcase.astro';
 import DemoCTA from '../components/DemoCTA.astro';
 import { productCategories } from '../data/product';
 import { sitePath } from '../lib/sitePath';
 ---
 <Layout title="Self-Ordering Kiosk Features | EZ Kyosk" description="Explore EZ Kyosk self-ordering, POS checkout, AltPayNet payments, real-time inventory, order tracking, reports, and configurable customer tools.">
-  <section class="page-hero section-shell"><div class="page-hero-copy" data-reveal><span class="eyebrow">Product · Self-ordering and connected operations</span><h1>One customer journey.<br /><span>A system behind it.</span></h1><p>Bring self-ordering, checkout, payments, inventory visibility, and order tracking into one adaptable experience. Configure the surrounding tools around how your business operates.</p><div class="hero-actions"><a class="button" href={sitePath('/contact/')}>Request a Demo <span aria-hidden="true">↗</span></a><a class="button button-secondary" href="#product-areas">Explore the product</a></div></div><HeroProduct /></section>
+  <section class="page-hero product-hero section-shell">
+    <div class="page-hero-copy" data-reveal>
+      <span class="eyebrow">Product · Connected capabilities</span>
+      <h1>Five product areas.<br /><span>One connected system.</span></h1>
+      <p>Bring self-ordering, checkout, payments, inventory visibility, and order tracking into one adaptable experience. Configure the surrounding tools around how your business operates.</p>
+      <div class="hero-actions"><a class="button" href="#product-areas">Explore product areas <span aria-hidden="true">↓</span></a><a class="button button-secondary" href={sitePath('/contact/')}>Request a Demo</a></div>
+    </div>
+    <nav class="product-system-map" aria-label="Five EZ Kyosk product areas" data-reveal>
+      <div class="product-system-core"><span>EZ Kyosk system</span><strong>Customer choice to operational action</strong><small>Connected around the requirements of each deployment.</small></div>
+      <div class="product-system-links">
+        {productCategories.map((category, index) => <a href={`#${category.id}`}><span>0{index + 1}</span><strong>{category.label}</strong><small>{category.eyebrow}</small></a>)}
+      </div>
+    </nav>
+  </section>
   <nav class="anchor-nav section-shell" aria-label="Product page sections"><span>On this page</span>{productCategories.map(category => <a href={`#${category.id}`}>{category.label}</a>)}</nav>
   <div class="feature-deep-dives section-shell" id="product-areas">
     {productCategories.map((category, index) => <section class="feature-deep-dive" id={category.id} data-reveal><div class="feature-number">0{index + 1}</div><div class="feature-copy"><span class="eyebrow">{category.eyebrow}</span><h2>{category.title}</h2><p>{category.body}</p><ul class="check-list">{category.items.map(item => <li>{item}</li>)}</ul></div><div class={`feature-art art-${category.id}`} aria-hidden="true"><div class="art-header"><span></span><span></span><span></span></div><div class="art-content"><i></i><i></i><i></i><b></b><b></b></div></div></section>)}

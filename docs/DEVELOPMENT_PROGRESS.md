@@ -10,9 +10,9 @@ The website is ready for owner review on a local computer. The implemented build
 - Accessible light/dark themes with saved preference, system-default fallback, Plus Jakarta Sans, ExtraBold display headings, and logo-derived deep blue-teal/turquoise tokens.
 - The original SEO-focused hero content is locked; only its design treatment and updated operational-capability caption may change.
 - A smaller responsive header logo that preserves the official source artwork and proportions.
-- Approved primary navigation, responsive mobile menu, footer, conversion CTAs, and external kiosk-experience link.
+- Final primary navigation (Home, Product, How It Works, Solutions, About), exact per-route active states, responsive mobile menu, footer, conversion CTAs, and external kiosk-experience link.
 - Homepage sequence: hero; Faster/More/Better benefits; connected platform; five product areas; AltPayNet payments; industries; How It Works; FAQ; conversion CTA.
-- Distinct Product, How It Works, Solutions, About, Contact, and Privacy page roles.
+- Distinct Home, Product, How It Works, Solutions, About, Contact, and Privacy page roles; the Product hero now uses its own five-area system map rather than reusing the homepage kiosk composition.
 - Owner-confirmed operational self-ordering, POS checkout, AltPayNet payments, real-time inventory, and order queueing/tracking copy.
 - Configurable reports, analytics, customers, loyalty, promotions, integrations, hardware, and bespoke requirements language.
 - Semantic HTML product content, desktop tabs with arrow-key support, and vertically stacked mobile panels.
