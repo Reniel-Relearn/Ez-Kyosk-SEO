@@ -19,13 +19,13 @@ This record combines the owner redesign brief, subsequent clarifications, the ap
 
 - Eyebrow: `SELF-ORDERING KIOSK SOFTWARE · PHILIPPINES`
 - Headline: `Self-Ordering Made Easy for Your Business.`
-- Description: `Give customers the freedom to explore your menu, select their favorites, and review their orders—all from one touchscreen.`
+- Description: `Give customers the freedom to explore your menu, select their favorites, and review their orders, all from one touchscreen.`
 - Audience: `For cafés, bakeries, restaurants & quick-service businesses.`
 - CTA labels: `Explore EZ Kyosk` and `Request a Demo`.
 - Tagline: `Your Menu. Their Order. One Simple Screen.`
 - Current caption: `EZ Kyosk self-ordering and checkout system. Core capabilities include POS checkout, AltPayNet payments, real-time inventory, and order tracking.`
 
-The eyebrow, headline, description, audience line, CTA labels, and tagline remain unchanged during design revisions. The caption may be updated only to maintain verified product accuracy.
+The eyebrow, headline, description, audience line, CTA labels, and tagline remain unchanged during design revisions, except for the owner's approved removal of em dashes. The caption may be updated only to maintain verified product accuracy.
 
 ## Operational core confirmed by the owner
 

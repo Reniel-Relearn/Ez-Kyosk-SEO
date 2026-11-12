@@ -14,6 +14,7 @@ The website must feel bold, welcoming, elegant, and product-led. It should borro
 
 - Use semantic, server-rendered HTML for every important heading, answer, capability, industry, and call to action.
 - Do not bake meaningful text into promotional images.
+- Use commas, periods, or other suitable punctuation instead of em dashes in website copy.
 - Support accessible light/dark themes without changing, hiding, or duplicating crawlable content.
 - Use progressive animation only; content and navigation must remain available without JavaScript.
 - Preserve keyboard, focus, reduced-motion, contrast, touch-target, and responsive requirements.
@@ -186,7 +187,7 @@ Content direction:
 
 - Eyebrow: `SELF-ORDERING KIOSK SOFTWARE · PHILIPPINES`
 - H1: `Self-Ordering Made Easy for Your Business.`
-- Description: `Give customers the freedom to explore your menu, select their favorites, and review their orders—all from one touchscreen.`
+- Description: `Give customers the freedom to explore your menu, select their favorites, and review their orders, all from one touchscreen.`
 - Audience line: `For cafés, bakeries, restaurants & quick-service businesses.`
 - CTA labels: `Explore EZ Kyosk` and `Request a Demo`.
 - Tagline: `Your Menu. Their Order. One Simple Screen.`

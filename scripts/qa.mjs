@@ -64,7 +64,7 @@ try {
   assert.equal(await page.locator('#main-navigation > a[aria-current="page"]').innerText(), 'Home');
   assert.equal(await page.locator('#main-navigation > a', { hasText: 'Industries' }).count(), 0, 'Industries is grouped under Solutions, not duplicated in primary navigation');
   assert.match(await page.locator('.hero-copy h1').innerText(), /Self-Ordering\s+Made Easy\s+for Your Business\./);
-  await page.getByText('Give customers the freedom to explore your menu, select their favorites, and review their orders—all from one touchscreen.', { exact: true }).waitFor();
+  await page.getByText('Give customers the freedom to explore your menu, select their favorites, and review their orders, all from one touchscreen.', { exact: true }).waitFor();
   await page.getByText('For cafés, bakeries, restaurants & quick-service businesses.', { exact: true }).waitFor();
   await page.getByText('Your Menu. Their Order. One Simple Screen.', { exact: true }).first().waitFor();
   await page.getByText('Core capabilities include POS checkout, AltPayNet payments, real-time inventory, and order tracking.', { exact: false }).waitFor();
