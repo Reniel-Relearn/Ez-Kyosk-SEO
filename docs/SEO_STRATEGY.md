@@ -1,12 +1,14 @@
 # SEO, GEO, and AEO strategy
 
-Last updated: 11 November 2026
+Last updated: 12 November 2026
 
 ## Search positioning
 
 Primary qualitative theme: **self-ordering kiosk Philippines**. Supporting themes include restaurant self-service kiosk, café ordering kiosk, touchscreen ordering system, kiosk checkout, kiosk payment integration, real-time kiosk inventory, and order tracking.
 
 No keyword volume, difficulty, ranking, traffic, or number-one forecast is claimed. Evidence-based volume research requires an approved current data source and remains a production marketing task.
+
+The homepage retains its original SEO-focused hero eyebrow, H1, description, audience line, CTA labels, and tagline verbatim. Light/dark theme selection affects presentation only and does not change semantic HTML, metadata, structured data, or answer-focused copy.
 
 ## Keyword and intent map
 

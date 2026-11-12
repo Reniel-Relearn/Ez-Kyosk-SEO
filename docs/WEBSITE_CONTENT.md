@@ -1,6 +1,6 @@
 # Approved website content
 
-Last updated: 11 November 2026
+Last updated: 12 November 2026
 
 This record combines the owner redesign brief, subsequent clarifications, the approved wireframe specification, and owner confirmation of operational capability scope.
 
@@ -14,6 +14,18 @@ This record combines the owner redesign brief, subsequent clarifications, the ap
 - Primary CTA: Request a Demo.
 - Product-demo CTA: Explore EZ Kyosk, linking to `https://reniel-relearn.github.io/EZ-Kyosk/`.
 - Current website language: English.
+
+## Locked homepage hero content
+
+- Eyebrow: `SELF-ORDERING KIOSK SOFTWARE · PHILIPPINES`
+- Headline: `Self-Ordering Made Easy for Your Business.`
+- Description: `Give customers the freedom to explore your menu, select their favorites, and review their orders—all from one touchscreen.`
+- Audience: `For cafés, bakeries, restaurants & quick-service businesses.`
+- CTA labels: `Explore EZ Kyosk` and `Request a Demo`.
+- Tagline: `Your Menu. Their Order. One Simple Screen.`
+- Current caption: `EZ Kyosk self-ordering and checkout system. Core capabilities include POS checkout, AltPayNet payments, real-time inventory, and order tracking.`
+
+The eyebrow, headline, description, audience line, CTA labels, and tagline remain unchanged during design revisions. The caption may be updated only to maintain verified product accuracy.
 
 ## Operational core confirmed by the owner
 

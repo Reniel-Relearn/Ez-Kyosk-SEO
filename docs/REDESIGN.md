@@ -2,7 +2,9 @@
 
 ## Implemented direction
 
-The redesign presents EZ Kyosk as a bold, welcoming, and product-led self-ordering platform. It uses a permanent light theme, Plus Jakarta Sans with ExtraBold headings, a warm off-white canvas, deep blue-teal content panels, restrained turquoise accents, generous whitespace, controlled glow, and color-reversal hover/focus states.
+The redesign presents EZ Kyosk as a bold, welcoming, minimalist, and product-led self-ordering platform. It uses accessible light/dark themes, Plus Jakarta Sans with ExtraBold headings, logo-derived deep blue-teal and turquoise tokens, generous whitespace, controlled glow, and color-reversal hover/focus states. The selected preference persists locally, with the operating-system preference used on the first visit.
+
+The original hero eyebrow, headline, description, audience line, CTA labels, and tagline are locked and remain unchanged through design revisions. Only the previous outdated illustration caption was updated to reflect owner-confirmed operational POS checkout, AltPayNet payments, real-time inventory, and order tracking.
 
 The visual references influenced hierarchy and pattern selection only. The website uses original EZ Kyosk copy, layouts, component compositions, CSS illustrations, and owner-supplied assets.
 
@@ -39,4 +41,4 @@ The copy describes owner-confirmed operational self-ordering, POS checkout, AltP
 
 ## Verification
 
-The build, static verification, 48 responsive route/viewport checks, keyboard interactions, inquiry states, image loading, browser errors, network failures, and axe checks all pass. Generated QA screenshots and reports remain excluded from Git.
+The build, static verification, 48 responsive route/viewport checks, keyboard interactions, inquiry states, image loading, browser errors, network failures, and 32 light/dark axe scans all pass. Generated QA screenshots and reports remain excluded from Git.

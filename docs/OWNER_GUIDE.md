@@ -27,6 +27,9 @@ Review at least one computer and one phone width.
 6. Contact: fields, requirements copy, preview feedback, and privacy link.
 7. Privacy: confirm that it accurately describes the current local-review configuration.
 8. Header/footer: every internal link, Request a Demo, and the external Explore EZ Kyosk link.
+9. Theme control: switch between light and dark, reload the page to confirm persistence, and check both themes on desktop and mobile.
+
+The top logo is intentionally smaller than the previous design. The original hero copy is locked; review its presentation, spacing, and responsiveness without rewriting its wording.
 
 Check product claims carefully. Core self-ordering, POS checkout, AltPayNet payments, real-time inventory, and order queueing/tracking are presented as operational based on owner confirmation. Expanded reports, customer tools, loyalty, promotions, hardware, integrations, printing, kitchen workflows, and other bespoke capabilities are presented as configurable or subject to assessment.
 

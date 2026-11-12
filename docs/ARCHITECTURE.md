@@ -5,14 +5,14 @@ Astro compiles the website to static HTML in `dist`. The important product copy,
 ## Source structure
 
 - `src/pages`: the seven public routes, custom 404 page, `robots.txt`, and `sitemap.xml`.
-- `src/layouts/Layout.astro`: shared metadata, schema, navigation, footer, mobile menu, and progressive-motion setup.
+- `src/layouts/Layout.astro`: shared metadata, schema, navigation, footer, mobile menu, persistent theme control, and progressive-motion setup.
 - `src/components/ProductExplorer.astro`: five semantic product panels with desktop tabs and mobile stacking.
 - `src/components/PaymentShowcase.astro`: original AltPayNet payment-section markup and CSS illustrations.
 - `src/components/HeroProduct.astro`: optimized owner-supplied kiosk artwork.
 - `src/components/OrderReview.astro`: original illustrative order-review UI.
 - `src/components/DemoCTA.astro`: shared conversion section.
 - `src/data/product.ts`: shared product categories, five-step journey, and FAQs.
-- `src/styles/global.css`: Plus Jakarta Sans, brand tokens, layout, components, breakpoints, focus states, and reduced-motion handling.
+- `src/styles/global.css`: Plus Jakarta Sans, light/dark brand tokens, layout, components, breakpoints, focus states, and reduced-motion handling.
 - `assets`: owner-supplied brand and kiosk artwork processed by Astro.
 - `public/favicon.png`: directly served browser icon.
 

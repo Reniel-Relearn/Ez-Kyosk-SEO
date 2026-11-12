@@ -1,6 +1,6 @@
 # EZ Kyosk website roadmap
 
-Last updated: 11 November 2026
+Last updated: 12 November 2026
 
 ## Current status
 
@@ -37,7 +37,7 @@ The approved written wireframe and interaction specification is maintained in `d
 
 - [x] Astro static website foundation and dependency lockfile.
 - [x] Seven marketing/content pages plus a custom 404 page.
-- [x] Responsive navigation, footer, permanent brand theme, and shared design system.
+- [x] Responsive navigation, footer, accessible light/dark themes, and shared design system.
 - [x] Official EZ Kyosk brand assets and optimized image serving.
 - [x] Unique page titles and meta descriptions.
 - [x] Semantic heading structure and internal links.
@@ -59,10 +59,10 @@ The approved written wireframe and interaction specification is maintained in `d
 - [x] Use the approved homepage sequence: header/hero; benefits; platform/features; product overview; payments; industries; How It Works; FAQ; CTA/footer.
 - [x] Move the current How It Works experience into the homepage immediately before the FAQ.
 - [x] Keep the current How It Works and FAQ content/behavior intact during the first wireframe pass.
-- [x] Refine the hero later; prioritize wireframes and section layout first.
+- [x] Lock the original SEO-focused hero content while allowing design-only revisions.
 - [x] Use Plus Jakarta Sans as the single primary family, with ExtraBold display headings and lighter readable weights for body/UI copy.
 - [x] Develop an elegant, restrained palette derived from the EZ Kyosk logo.
-- [x] Use one permanent visual theme with accessible hover/focus effects such as controlled glow and color reversal; do not retain a user-selectable light/dark theme unless later re-approved.
+- [x] Re-approve accessible light/dark themes with saved preference and system-default fallback; theme changes must not alter crawlable content.
 - [x] Create original benefit headings and cautious copy; do not show competitor references or unsupported citation markers on the website.
 - [x] Treat the PDF feature cards as layout references, not as approved third-party wording.
 - [x] Use the five product categories as the approved interactive information architecture: Self-Ordering; POS & Checkout; Inventory; Reports & Analytics; Customers.
@@ -75,6 +75,9 @@ The approved written wireframe and interaction specification is maintained in `d
 - [x] Point the “Explore EZ Kyosk” CTA to the public kiosk experience at `https://reniel-relearn.github.io/EZ-Kyosk/`.
 - [x] Keep website copy in English for the current phase.
 - [x] Retain “Self-Ordering Kiosk Philippines” as the primary SEO theme.
+- [x] Retain the original hero eyebrow, headline, description, audience line, CTA labels, and tagline verbatim.
+- [x] Replace only the outdated hero-image caption with owner-confirmed operational capability language.
+- [x] Reduce the visual size of the header logo without modifying the source asset.
 - [x] Do not commit the uploaded design PDF or DOCX to the repository.
 
 ### Remaining design decisions
@@ -91,7 +94,7 @@ The approved written wireframe and interaction specification is maintained in `d
 - [x] Define and implement the responsive Plus Jakarta Sans typography scale.
 - [x] Define and implement the minimal logo-derived color-token system with tested contrast.
 - [x] Refine spacing, grid, borders, radii, buttons, cards, and section transitions.
-- [x] Implement the approved hero treatment and CTA hierarchy.
+- [x] Implement the approved hero treatment while preserving the locked original content.
 - [x] Implement the approved “Faster / More / Better” benefits section using only supportable claims.
 - [x] Implement the approved platform/features card section using original EZ Kyosk content and assets.
 - [x] Implement the approved product-overview interaction with crawlable semantic HTML rather than baking important copy into images.

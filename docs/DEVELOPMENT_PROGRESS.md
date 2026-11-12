@@ -1,13 +1,15 @@
 # Development progress
 
-Last updated: 11 November 2026
+Last updated: 12 November 2026
 
 ## Local-review milestone
 
 The website is ready for owner review on a local computer. The implemented build includes:
 
 - Seven responsive content routes, a custom 404 page, `robots.txt`, and `sitemap.xml`.
-- One permanent light theme using Plus Jakarta Sans, ExtraBold display headings, and logo-derived deep blue-teal/turquoise tokens.
+- Accessible light/dark themes with saved preference, system-default fallback, Plus Jakarta Sans, ExtraBold display headings, and logo-derived deep blue-teal/turquoise tokens.
+- The original SEO-focused hero content is locked; only its design treatment and updated operational-capability caption may change.
+- A smaller responsive header logo that preserves the official source artwork and proportions.
 - Approved primary navigation, responsive mobile menu, footer, conversion CTAs, and external kiosk-experience link.
 - Homepage sequence: hero; Faster/More/Better benefits; connected platform; five product areas; AltPayNet payments; industries; How It Works; FAQ; conversion CTA.
 - Distinct Product, How It Works, Solutions, About, Contact, and Privacy page roles.
@@ -27,7 +29,7 @@ The website is ready for owner review on a local computer. The implemented build
 - Keyboard checks passed for the mobile menu, Escape/focus return, FAQ controls, and five product tabs.
 - Mobile product panels were verified as vertically stacked and visible.
 - Preview form no-send behavior passed; managed-form success and failure were tested with local interception only.
-- Axe WCAG A/AA/2.1 AA scans reported zero violations for every public route and the custom 404 page at 390 and 1440 pixels.
+- Thirty-two axe WCAG A/AA/2.1 AA scans reported zero violations: every public route and the custom 404 page in both light and dark themes at 390 and 1440 pixels.
 - Desktop and phone screenshots were generated and visually reviewed.
 - Dependency audit reported zero known vulnerabilities during installation.
 
