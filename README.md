@@ -2,6 +2,8 @@
 
 An Astro marketing website for EZ Kyosk, designed for local review before production launch. The repository contains the website only; kiosk ordering, payment, POS, inventory, and order-processing services run outside this codebase.
 
+Public design review: `https://reniel-relearn.github.io/Ez-Kyosk-SEO/`
+
 ## Review locally
 
 Install Node.js 24 or a compatible current version, then run:

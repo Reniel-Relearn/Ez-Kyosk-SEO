@@ -2,6 +2,8 @@
 
 This guide explains how to review the EZ Kyosk website and leave useful feedback without editing any code.
 
+Review website: `https://reniel-relearn.github.io/Ez-Kyosk-SEO/`
+
 ## What you need
 
 - The GitHub Pages review link.
@@ -10,7 +12,7 @@ This guide explains how to review the EZ Kyosk website and leave useful feedback
 
 ## Review the website
 
-1. Open the GitHub Pages review link supplied by the project owner.
+1. Open `https://reniel-relearn.github.io/Ez-Kyosk-SEO/`.
 2. Review both light and dark themes using the round theme button in the header.
 3. Review the website on a computer and, if possible, on a phone.
 4. Visit Home, Product, How It Works, Solutions, About, Contact, and Privacy.
