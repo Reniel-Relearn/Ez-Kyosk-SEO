@@ -1,6 +1,6 @@
 # Deployment guide
 
-The current GitHub Pages deployment at `https://reniel-relearn.github.io/Ez-Kyosk-SEO/` is a public design-review environment built from `feature/full-site-redesign`. It uses `/Ez-Kyosk-SEO` as its base path and intentionally omits `SITE_URL`, which preserves `noindex, nofollow` metadata and crawl blocking. This is not the production launch.
+The current GitHub Pages deployment at `https://reniel-relearn.github.io/Ez-Kyosk-SEO/` is a public design-review environment built from `main`. It uses `/Ez-Kyosk-SEO` as its base path and intentionally omits `SITE_URL`, which preserves `noindex, nofollow` metadata and crawl blocking. This is not the production launch.
 
 Collaborator instructions are maintained in `docs/COLLABORATOR_FEEDBACK_GUIDE.md`.
 

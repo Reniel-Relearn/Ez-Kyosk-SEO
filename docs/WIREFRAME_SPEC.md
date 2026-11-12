@@ -448,4 +448,4 @@ Do not style legal copy as dense cards; prioritize readable line length and head
 
 ## 16. Review milestone
 
-The implemented pages and generated QA screenshots now serve as the visual review artifact for homepage, Product, Solutions, Contact, and the remaining routes at desktop and mobile sizes. Owner review should focus on final color approval, density, card treatment, imagery direction, section proportions, and copy accuracy before the feature branch is merged or production launch work begins.
+The implemented pages and generated QA screenshots now serve as the visual review artifact for homepage, Product, Solutions, Contact, and the remaining routes at desktop and mobile sizes. Owner review should focus on final color approval, density, card treatment, imagery direction, section proportions, and copy accuracy before the review is approved or production launch work begins.

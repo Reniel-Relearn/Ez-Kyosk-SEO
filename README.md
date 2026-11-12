@@ -30,6 +30,6 @@ Copy `.env.example` to `.env` for local configuration. Keep real environment val
 
 ## Current status
 
-The full responsive redesign, product content, technical SEO foundation, preview-safe inquiry flow, and automated checks are complete. GitHub Pages provides a public, unindexed design-review deployment from the redesign branch. Production launch remains gated by owner approval plus confirmed business/privacy details, an inquiry provider, production hosting, domain, and accounts.
+The full responsive redesign, product content, technical SEO foundation, preview-safe inquiry flow, and automated checks are complete. GitHub Pages provides a public, unindexed design-review deployment from `main`. Production launch remains gated by owner approval plus confirmed business/privacy details, an inquiry provider, production hosting, domain, and accounts.
 
 See [the owner guide](docs/OWNER_GUIDE.md), [development progress](docs/DEVELOPMENT_PROGRESS.md), [project roadmap](docs/PROJECT_PLAN.md), and [deployment guide](docs/DEPLOYMENT_GUIDE.md).
