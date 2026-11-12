@@ -23,7 +23,7 @@
   --radius-md:22px;
   --radius-lg:34px;
   --section-space:clamp(76px,9vw,140px);
-  --page-gutter:max(clamp(20px,5vw,88px),calc((100% - 1320px)/2));
+  --page-gutter:clamp(20px,2.5vw,64px);
   color-scheme:light;
 }
 
@@ -121,8 +121,8 @@ html[data-theme='dark'] .theme-sun{display:block}
 /* Shared section headings */
 .section-heading{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.65fr);gap:50px;align-items:end;margin-bottom:55px}
 .section-heading>p{max-width:520px;justify-self:end;font-size:17px}
-.section-heading.centered{display:flex;max-width:900px;margin:0 auto 55px;flex-direction:column;align-items:center;gap:18px;text-align:center}
-.section-heading.centered .eyebrow{justify-content:center}.section-heading.centered>p{justify-self:auto;max-width:700px}
+.payment-heading{display:block}
+.payment-heading>p{max-width:1280px;margin-top:20px;justify-self:start}
 .section-heading.inverse h2,.section-heading.inverse>p{color:#fff}.section-heading.inverse>p{color:#b8cecf}
 
 /* Benefits and platform */
