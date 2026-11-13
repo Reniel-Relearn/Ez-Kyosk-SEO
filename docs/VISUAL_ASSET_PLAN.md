@@ -2,7 +2,7 @@
 
 Updated: 13 November 2026
 
-Branding override: [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md) is authoritative. Display name is Ez Kyosk. Use only original logo/icon assets, not header screenshots. Active hero and first overview-card image use brand-corrected v2 artwork; original source images and superseded samples remain non-deployed references.
+Branding override: [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md) is authoritative. Display name is Ez Kyosk. Use only original logo/icon assets, not header screenshots. The hero now uses transparent v3 artwork without white logo panels; see [HERO_TRANSPARENCY_FIX.md](HERO_TRANSPARENCY_FIX.md). The first overview card remains v2. Original source images and superseded samples remain non-deployed references.
 
 Actions 3 and 4: visual assignments and shared art direction. All three benefit icons are integrated. The first realistic sample is integrated into Home's Self-ordering experience overview card for owner review. Remaining imagery and the four-step journey are pending. The Word-arrangement action is removed; retain the current homepage sequence.
 

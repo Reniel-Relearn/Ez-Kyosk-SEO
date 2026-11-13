@@ -23,7 +23,7 @@ Do not rename repository URLs, case-sensitive external demo paths, the Pages bas
 
 Both existing gold-wordmark images required raster branding corrections. The built-in ImageGen tool used the original logo and icon as references, never a header screenshot. The resulting device imagery is illustrative, not a verified interface screenshot or pixel-identical embedding of the original source logo.
 
-- Active hero: `assets/hero-kiosk-branded-v2.webp`, used by `HeroProduct.astro` and optimized by Astro at the existing responsive widths. Its aspect ratio and cutout presentation are retained.
+- Active hero: `assets/hero-kiosk-transparent-v3.webp`, with genuine transparent surroundings and no white logo backing panels. Dark device material shows behind the logos; light lettering supplies contrast without a white plate. V2 is rejected and not imported. See [HERO_TRANSPARENCY_FIX.md](HERO_TRANSPARENCY_FIX.md) for the two-step correction and decoded-pixel checks.
 - Active overview card: `public/assets/images/platform-self-ordering-v2-{320,640,1280}.webp`, replacing the v1 URLs without altering the card's copy or structure.
 - The old v1 WebPs are retained in `assets/archive/` so they are recoverable but no longer deployed as public files. The original supplied hero/concept images remain untouched as historical references, not active imports.
 - Existing third-party payment-provider logos are not Ez Kyosk logos and are not replaced.
@@ -35,6 +35,8 @@ Scanned application source, public assets, metadata/schema, CSS, build/browser c
 Build verification checks canonical spelling in generated HTML, shared-logo references, absence of superseded artwork references, and availability of favicon/social assets. Browser QA checks rendered spelling (including CSS effects), shared logo sources/alt text, layout, interaction, and accessibility across all routes.
 
 ## Exact raster-edit prompts
+
+Historical v2 prompts below explain the superseded output. Their white-plate instruction does not apply to the current hero; the owner's latest request and [HERO_TRANSPARENCY_FIX.md](HERO_TRANSPARENCY_FIX.md) take precedence.
 
 ### Hero
 

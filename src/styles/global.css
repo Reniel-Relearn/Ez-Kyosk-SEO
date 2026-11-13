@@ -144,7 +144,7 @@ html[data-theme='dark'] .theme-sun{display:block}
 .hero-audience{max-width:620px;margin-bottom:30px;font-size:14px}
 .hero-note{margin-top:24px;font-size:12px;font-weight:600;letter-spacing:.04em}
 .hero-product{position:relative;display:grid;place-items:center;min-width:0;margin:0}
-.hero-product img{position:relative;z-index:2;width:auto;max-height:min(720px,calc(100svh - 180px));filter:drop-shadow(0 35px 40px rgba(15,23,42,.2))}
+.hero-product img{position:relative;z-index:2;width:auto;max-height:min(720px,calc(100svh - 180px))}
 .hero-product figcaption{position:relative;z-index:3;margin-top:10px;color:var(--muted);font-size:11px;text-align:center}
 .hero-orbit{position:absolute;width:min(38vw,520px);aspect-ratio:1;border:1px solid rgba(14,116,144,.22);border-radius:50%;background:radial-gradient(circle,var(--blue-tint),transparent 70%);border-color:var(--line)}
 .hero-orbit::before,.hero-orbit::after{content:'';position:absolute;border-radius:50%;background:var(--cyan);box-shadow:none}
