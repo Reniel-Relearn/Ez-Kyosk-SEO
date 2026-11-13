@@ -4,7 +4,7 @@ Last updated: 13 November 2026
 
 ## Current status
 
-**Current phase:** action 2 removed; visual assignments and art direction documented; blue/cyan palette and benefit text cleanup implemented and verified. The owner approved the first benefit icon specification, and its theme-aware SVG is integrated for visual review.
+**Current phase:** action 2 removed; visual assignments and art direction documented; blue/cyan palette and benefit text cleanup implemented and verified. The owner authorized the first two benefit icons, Faster Ordering Experience and More Order Capacity; their theme-aware SVGs are integrated for visual review.
 
 The repository contains the completed local-review redesign: responsive pages, the approved information architecture, owner-confirmed product scope, preview-safe indexing controls, technical SEO foundations, a non-sending local inquiry experience, and automated build/browser/accessibility checks. Production launch remains unauthorized and unconfigured.
 
@@ -26,7 +26,8 @@ The latest task statuses, removed Word-arrangement step, icon exception, and pen
 - Plan the requested Browse -> Select -> Payment -> Get order journey with distinct images.
 - Reuse the owner's prompt saved verbatim in [IMAGE_ASSET_PROMPT.md](IMAGE_ASSET_PROMPT.md).
 - [x] Present the first benefit icon in words, receive approval to create it, and integrate the theme-aware SVG.
-- Review the first icon before creating the other two. Raster imagery and later journey changes remain pending.
+- [x] Add the matching More Order Capacity icon and update the second card heading as requested.
+- Better's icon, raster imagery, and later journey changes remain pending.
 
 ## Status legend
 

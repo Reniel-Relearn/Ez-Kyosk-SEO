@@ -2,7 +2,7 @@
 
 Updated: 13 November 2026
 
-Actions 3 and 4: visual assignments and shared art direction. The owner approved creation of the first benefit icon, which is now integrated. The other two icons, raster imagery, and four-step journey remain pending. The Word-arrangement action is removed at the owner's request; retain the current homepage section sequence.
+Actions 3 and 4: visual assignments and shared art direction. The owner authorized the first two benefit icons, which are now integrated: Faster Ordering Experience and More Order Capacity. The Better icon, raster imagery, and four-step journey remain pending. The Word-arrangement action is removed at the owner's request; retain the current homepage section sequence.
 
 ## Shared direction
 
@@ -20,7 +20,7 @@ Actions 3 and 4: visual assignments and shared art direction. The owner approved
 | ID | Placement | Visual subject and distinct purpose | Format / crop |
 | --- | --- | --- | --- |
 | benefit-faster | Home benefit 1 | Kiosk touchscreen and tapping finger: a direct interaction | Line icon, 1:1 |
-| benefit-more | Home benefit 2 | Two order paths joining a shared destination: an additional ordering channel | Matching line icon, 1:1 |
+| benefit-more | Home benefit 2: More Order Capacity | Two order slips and paths joining a shared queue: an additional ordering channel | Matching line icon, 1:1 |
 | benefit-better | Home benefit 3 | Connected order flow and a checkmark: clearer coordinated operations | Matching line icon, 1:1 |
 | platform-ordering | Home platform overview | Kiosk menu/product selection shown as a focused product composition | Realistic device composition, 4:3 |
 | platform-checkout | Home platform overview | Staff checkout workstation receiving a confirmed order | Realistic operational composition, 4:3 |
@@ -50,7 +50,7 @@ The Product hero's semantic system map, navigation, FAQ, About principles, Conta
 ## Review sequence
 
 1. Completed: present `benefit-faster` in words and receive the owner's approval to create it.
-2. First icon integrated for light/dark owner review. Do not extend its style to the remaining benefit icons until reviewed.
+2. Owner authorized the next icon as "More Order Capacity". First and second icons are integrated for light/dark review; Better remains pending.
 3. Later, create one representative realistic image and review the group art direction before producing the remaining imagery.
 4. Optimize and integrate approved assets section by section; validate responsive crops, light/dark contrast, and page performance.
 
@@ -71,4 +71,16 @@ Meaning: a straightforward touchscreen order interaction. The icon communicates 
 - Presentation: flat, crisp line artwork. No photo background, 3D bevel, drop shadow, large glow, stopwatch, lightning bolt, payment symbol, or order-completion badge.
 - Placement after creation: above the first benefit heading, aligned with the card's text edge, with roughly 20px to 24px between icon and heading. The icon is decorative because the heading and paragraph communicate its meaning.
 
-Implemented asset: `public/assets/images/benefit-faster-v1.svg`. `src/components/FasterOrderingIcon.astro` embeds this trusted local SVG inline so the shared theme tokens control its two stroke colors without a separate image request. The transparent 64px icon is decorative, not focusable, and sits 24px above the first heading. It is original SVG artwork, not an AI-generated raster image. No other planned asset has been created.
+Implemented asset: `public/assets/images/benefit-faster-v1.svg`. `src/components/FasterOrderingIcon.astro` embeds this trusted local SVG inline so the shared theme tokens control its two stroke colors without a separate image request. The transparent 64px icon is decorative, not focusable, and sits 24px above the first heading. It is original SVG artwork, not an AI-generated raster image.
+
+## Second icon: More Order Capacity
+
+Owner authorization: proceed with the next icon, named "More Order Capacity". The second card heading now uses that wording; its existing explanatory paragraph is unchanged.
+
+- Meaning: another ordering channel feeding a shared queue, not a measured throughput or revenue guarantee.
+- Composition: two rounded order slips on the left, each with two short abstract content strokes. Their paths merge centrally and a single right-facing arrow leads into a shared order/queue card on the right.
+- Accent: one small cyan junction at the merge point. No extra colors, numbers, labels, payment marks, analytics, or completion checkmark.
+- Family: the same transparent 64 by 64 canvas, 2.5-unit rounded blue strokes, and theme tokens as Faster Ordering Experience. Left-aligned above the second heading with the same 24px gap; decorative and non-focusable.
+- Asset: `public/assets/images/benefit-more-capacity-v1.svg`, embedded inline by `src/components/MoreOrderCapacityIcon.astro`. No raster generation or additional runtime JavaScript.
+
+Only these two benefit icons are implemented. Better and all planned raster imagery remain pending.

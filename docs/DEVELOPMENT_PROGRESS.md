@@ -13,8 +13,8 @@ The website is ready for owner review on a local computer. The implemented build
 - Header navigation stays pinned during page scrolling on desktop and mobile; homepage hero content starts 32px below it without viewport-height centering.
 - Wider page layouts with small responsive gutters (20–64px), plus a left-aligned payment introduction that uses fewer lines on desktop.
 - Final primary navigation (Home, Product, How It Works, Solutions, About), exact per-route active states, responsive mobile menu, footer, conversion CTAs, and external kiosk-experience link.
-- Homepage sequence retained: hero; Faster Ordering Experience/More/Better benefits; connected platform; five product areas; AltPayNet payments; industries; How It Works; FAQ; conversion CTA. The three benefit numbers are removed. The first benefit now has its approved blue/cyan kiosk-and-tap SVG, with automatic light/dark colors; the other two icons remain pending.
-- The full visual assignment plan and shared art direction are documented in `VISUAL_ASSET_PLAN.md`. The owner removed the Word-arrangement step. Only the first benefit icon has been created; no new raster images have been generated.
+- Homepage sequence retained: hero; Faster Ordering Experience/More Order Capacity/Better benefits; connected platform; five product areas; AltPayNet payments; industries; How It Works; FAQ; conversion CTA. The three benefit numbers are removed. The first two benefits have matching blue/cyan kiosk-and-tap and merged-order-path SVGs, with automatic light/dark colors; Better's icon remains pending.
+- The full visual assignment plan and shared art direction are documented in `VISUAL_ASSET_PLAN.md`. The owner removed the Word-arrangement step. Only the first two benefit icons have been created; no new raster images have been generated.
 - Distinct Home, Product, How It Works, Solutions, About, Contact, and Privacy page roles; the Product hero now uses its own five-area system map rather than reusing the homepage kiosk composition.
 - Owner-confirmed operational self-ordering, POS checkout, AltPayNet payments, real-time inventory, and order queueing/tracking copy.
 - Configurable reports, analytics, customers, loyalty, promotions, integrations, hardware, and bespoke requirements language.
@@ -25,6 +25,7 @@ The website is ready for owner review on a local computer. The implemented build
 
 ## Verification completed
 
+- More Order Capacity update: production build/static verification passed. Twelve homepage width/theme checks confirmed the matching 64px icon, 24px gap, exact blue/cyan colors, no horizontal overflow, decorative/non-focusable markup, and aligned first/second heading starts on desktop. Four targeted axe scans found zero violations; desktop/mobile and enlarged light/dark screenshots were visually reviewed. No browser/request errors occurred.
 - First-icon update: production build and static verification passed. Homepage checks passed at 320, 390, 768, 1024, 1440, and 1920px in both themes (12 combinations), confirming a 64px decorative icon, exact blue/cyan strokes, 24px heading gap, and no horizontal overflow or browser/request errors. Four targeted benefit-section axe scans reported zero violations. Desktop/mobile cards and enlarged light/dark icon screenshots were visually reviewed.
 - Astro production build passed.
 - Static verification passed for seven pages, H1 counts, unique titles/descriptions, internal links, anchors, assets, favicon, indexing controls, sitemap, canonical behavior, sharing images, and configured-site schema.
