@@ -2,7 +2,7 @@
 setlocal
 cd /d "%~dp0"
 set ASTRO_TELEMETRY_DISABLED=1
-echo Preparing your EZ Kyosk preview...
+echo Preparing your Ez Kyosk preview...
 call npm exec -- astro preview stop
 call npm run build
 if errorlevel 1 goto failed

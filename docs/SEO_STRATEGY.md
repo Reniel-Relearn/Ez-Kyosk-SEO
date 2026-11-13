@@ -18,7 +18,7 @@ The homepage retains its original SEO-focused hero eyebrow, H1, description, aud
 | `/features/` | Self-ordering kiosk features | POS checkout, AltPayNet, real-time inventory, reports, customer tools |
 | `/how-it-works/` | How a self-ordering kiosk works | Browse, select, adjust, review, confirm, payment and fulfillment handoff |
 | `/solutions/` | Self-ordering kiosk use cases | Hospitality, cafés, restaurants, retail, wellness, services, B2B |
-| `/about/` | EZ Kyosk entity and purpose | Philippine focus, principles, product scope |
+| `/about/` | Ez Kyosk entity and purpose | Philippine focus, principles, product scope |
 | `/contact/` | Request kiosk demo | Requirements, quotation, integrations, hardware, configuration |
 | `/privacy/` | Inquiry privacy and website processing | Local review, form provider, retention, analytics/cookies |
 

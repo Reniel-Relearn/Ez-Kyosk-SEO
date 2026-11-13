@@ -2,7 +2,7 @@
 
 ## Open the local review
 
-On Windows, double-click **Open EZ Kyosk.cmd** in the project folder. It builds the production artifact, starts a local preview on port 4322, and opens `http://127.0.0.1:4322/`.
+On Windows, double-click **Open Ez Kyosk.cmd** in the project folder. It builds the production artifact, starts a local preview on port 4322, and opens `http://127.0.0.1:4322/`.
 
 Or run:
 
@@ -26,7 +26,7 @@ Review at least one computer and one phone width.
 5. About: purpose, scope, and principles.
 6. Contact: fields, requirements copy, preview feedback, and privacy link.
 7. Privacy: confirm that it accurately describes the current local-review configuration.
-8. Header/footer: every internal link, Request a Demo, and the external Explore EZ Kyosk link.
+8. Header/footer: every internal link, Request a Demo, and the external Explore Ez Kyosk link.
 9. Theme control: switch between light and dark, reload the page to confirm persistence, and check both themes on desktop and mobile.
 
 The top logo is intentionally smaller than the previous design. The original hero copy is locked; review its presentation, spacing, and responsiveness without rewriting its wording.

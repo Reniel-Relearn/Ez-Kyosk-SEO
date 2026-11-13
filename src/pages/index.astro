@@ -25,27 +25,27 @@ const industries = [
   ['services', 'Services & B2B', 'Configure a customer-facing flow around the products, services, and approvals your operation needs.'],
 ];
 ---
-<Layout title="Self-Ordering Kiosk Philippines | EZ Kyosk" description="EZ Kyosk connects self-ordering, POS checkout, AltPayNet payments, real-time inventory, and order tracking for Philippine businesses. Explore the product or request a demo.">
+<Layout title="Self-Ordering Kiosk Philippines | Ez Kyosk" description="Ez Kyosk connects self-ordering, POS checkout, AltPayNet payments, real-time inventory, and order tracking for Philippine businesses. Explore the product or request a demo.">
   <section class="home-hero section-shell">
     <div class="hero-copy" data-reveal>
       <span class="eyebrow"><i></i> SELF-ORDERING KIOSK SOFTWARE · PHILIPPINES</span>
       <h1>Self-Ordering<br /><span>Made Easy</span><br />for Your Business.</h1>
       <p class="hero-lead">Give customers the freedom to explore your menu, select their favorites, and review their orders, all from one touchscreen.</p>
       <p class="hero-audience">For cafés, bakeries, restaurants & quick-service businesses.</p>
-      <div class="hero-actions"><a class="button button-secondary" href="https://reniel-relearn.github.io/EZ-Kyosk/" target="_blank" rel="noopener">Explore EZ Kyosk</a><a class="button" href={sitePath('/contact/')}>Request a Demo <span aria-hidden="true">↗</span></a></div>
+      <div class="hero-actions"><a class="button button-secondary" href="https://reniel-relearn.github.io/EZ-Kyosk/" target="_blank" rel="noopener">Explore Ez Kyosk</a><a class="button" href={sitePath('/contact/')}>Request a Demo <span aria-hidden="true">↗</span></a></div>
       <p class="hero-note">Your Menu. Their Order. One Simple Screen.</p>
     </div>
     <HeroProduct />
   </section>
 
   <section class="benefits-section section-shell" aria-labelledby="benefits-title" data-reveal>
-    <div class="section-heading"><div><span class="eyebrow">A better way to take orders</span><h2 id="benefits-title">Clear for customers.<br />Considered for your team.</h2></div><p>EZ Kyosk adds a structured customer-facing ordering path without losing sight of the people running the business.</p></div>
+    <div class="section-heading"><div><span class="eyebrow">A better way to take orders</span><h2 id="benefits-title">Clear for customers.<br />Considered for your team.</h2></div><p>Ez Kyosk adds a structured customer-facing ordering path without losing sight of the people running the business.</p></div>
     <div class="benefit-grid"><article><FasterOrderingIcon /><h3>Faster Ordering Experience</h3><p>A direct route from browsing to confirmation can reduce unnecessary steps in the ordering journey.</p></article><article><MoreOrderCapacityIcon /><h3>More Order Capacity</h3><p>Add another channel for customer demand and create more room for your team to focus on service.</p></article><article><BetterServiceFlowIcon /><h3>Better Service Flow</h3><p>Keep choices, totals, payment, order status, and operational visibility in a clearer connected flow.</p></article></div>
   </section>
 
   <section class="platform-section section-shell" aria-labelledby="platform-title" data-reveal>
     <div class="section-heading"><div><span class="eyebrow">One connected platform</span><h2 id="platform-title">From the first tap to the next task.</h2></div><p>Start with the ordering experience, then connect checkout, payments, inventory, tracking, and the tools your operation requires.</p></div>
-    <div class="platform-grid">{platforms.map(([number, title, body]) => <article><span>{number}</span>{number === '01' ? <img class="platform-image" src={sitePath('/assets/images/platform-self-ordering-v1-640.webp')} srcset={`${sitePath('/assets/images/platform-self-ordering-v1-320.webp')} 320w, ${sitePath('/assets/images/platform-self-ordering-v1-640.webp')} 640w, ${sitePath('/assets/images/platform-self-ordering-v1-1280.webp')} 1280w`} sizes="(max-width: 720px) calc(100vw - 94px), (max-width: 1180px) 28vw, 18vw" width="640" height="480" alt="EZ Kyosk kiosk with a café menu on its touchscreen" loading="lazy" decoding="async" /> : <div class="platform-icon" aria-hidden="true"><i></i><i></i><i></i></div>}<h3>{title}</h3><p>{body}</p></article>)}</div>
+    <div class="platform-grid">{platforms.map(([number, title, body]) => <article><span>{number}</span>{number === '01' ? <img class="platform-image" src={sitePath('/assets/images/platform-self-ordering-v2-640.webp')} srcset={`${sitePath('/assets/images/platform-self-ordering-v2-320.webp')} 320w, ${sitePath('/assets/images/platform-self-ordering-v2-640.webp')} 640w, ${sitePath('/assets/images/platform-self-ordering-v2-1280.webp')} 1280w`} sizes="(max-width: 720px) calc(100vw - 94px), (max-width: 1180px) 28vw, 18vw" width="640" height="480" alt="Ez Kyosk kiosk with a café menu on its touchscreen" loading="lazy" decoding="async" /> : <div class="platform-icon" aria-hidden="true"><i></i><i></i><i></i></div>}<h3>{title}</h3><p>{body}</p></article>)}</div>
   </section>
 
   <section class="product-section section-shell" aria-labelledby="product-title" data-reveal>
@@ -61,7 +61,7 @@ const industries = [
   </section>
 
   <section class="how-section section-shell" id="how-it-works" aria-labelledby="how-title" data-reveal>
-    <div class="section-heading inverse"><div><span class="eyebrow eyebrow-light">How EZ Kyosk works</span><h2 id="how-title">Five simple steps.<br />One confident order.</h2></div><p>Each step keeps the customer oriented while the connected system carries the order toward checkout and fulfillment.</p></div>
+    <div class="section-heading inverse"><div><span class="eyebrow eyebrow-light brand-case">How Ez Kyosk works</span><h2 id="how-title">Five simple steps.<br />One confident order.</h2></div><p>Each step keeps the customer oriented while the connected system carries the order toward checkout and fulfillment.</p></div>
     <ol class="steps">{steps.map(([title, body], index) => <li><span>0{index + 1}</span><div><h3>{title}</h3><p>{body}</p></div></li>)}</ol>
     <a class="text-link text-link-light" href={sitePath('/how-it-works/')}>See the complete ordering journey <span aria-hidden="true">↗</span></a>
   </section>

@@ -22,6 +22,9 @@ try {
       await page.evaluate(async () => { await Promise.all([...document.images].map(async image => { image.loading = 'eager'; try { await image.decode(); } catch {} })); });
       const state = await page.evaluate(() => ({
         overflow: document.documentElement.scrollWidth > innerWidth,
+        wrongBrandCase: [...document.body.innerText.matchAll(/\bez\s+kyosk\b/gi)].map(match => match[0]).filter(name => name !== 'Ez Kyosk'),
+        brandSources: [...document.querySelectorAll('.brand-mark img')].map(image => image.currentSrc),
+        brandAlts: [...document.querySelectorAll('.brand-mark img')].map(image => image.alt),
         headings: document.querySelectorAll('h1').length,
         logos: [...document.querySelectorAll('.logo img')].map(img => {
           const rect = img.getBoundingClientRect();
@@ -31,6 +34,9 @@ try {
       }));
       assert.equal(response.status(), 200, `${route} ${width}: HTTP`);
       assert.equal(state.overflow, false, `${route} ${width}: no overflow`);
+      assert.deepEqual(state.wrongBrandCase, [], `${route} ${width}: rendered brand case`);
+      assert.ok(state.brandSources.length >= 2 && state.brandSources.every(source => source === state.brandSources[0] && source.includes('ez-kyosk-lockup.')), `${route}: original shared logo`);
+      assert.ok(state.brandAlts.every(alt => alt === 'Ez Kyosk'), `${route}: consistent logo alt text`);
       assert.equal(state.headings, 1);
       assert.equal(state.brokenImages.length, 0, `${route}: images`);
       assert.equal(state.logos.length, 2);

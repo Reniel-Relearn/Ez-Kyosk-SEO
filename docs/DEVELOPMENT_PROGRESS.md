@@ -2,6 +2,8 @@
 
 Last updated: 13 November 2026
 
+Brand consistency update: display name is Ez Kyosk throughout current website copy, metadata/schema, accessibility labels, and documentation. Header/footer, About, payment mockups, Solutions, favicon, and social previews use the original assets through shared components or deterministic derivatives. Hero and overview-card branding is corrected in versioned raster artwork using those originals as references. Technical URLs, source artwork, owner PDF/DOCX references, and historical exact prompts remain intact. See [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md).
+
 ## Local-review milestone
 
 The website is ready for owner review on a local computer. The implemented build includes:
@@ -25,6 +27,7 @@ The website is ready for owner review on a local computer. The implemented build
 
 ## Verification completed
 
+- Brand consistency: preview and configured-site production builds/static verification passed. Full browser QA passed 48 responsive route checks and 32 light/dark WCAG scans with zero violations, broken requests, or browser errors. Rendered casing, shared original-logo sources/alt text, keyboard/form behavior, and image proportions passed. Header, About, payment, Solutions, card, favicon, and social-preview artwork were visually reviewed. Superseded public images are preserved under `assets/archive/` and excluded from deployment.
 - Self-ordering overview image: production build/static verification passed. Six widths in both themes plus high-density phone/desktop checks passed (16 combinations). One generated image, four unchanged placeholders, preserved card titles, correct responsive sources and 4:3 dimensions, no overflow or browser/request errors. Four targeted axe scans found zero violations. Optimized master and phone/desktop light/dark screenshots were visually reviewed. Details: `PLATFORM_SELF_ORDERING_ASSET.md`.
 - Better Service Flow / completed icon family: production build and static verification passed. Twelve homepage width/theme checks confirmed three 64px SVGs with matching 2.5-unit blue strokes, exact blue/cyan tokens, 24px icon-to-heading spacing, no overflow, and aligned heading starts on desktop. Four targeted benefit-section axe scans found zero violations; no browser/request errors. The full set and enlarged third icon were visually reviewed in both themes on desktop/mobile screenshots.
 - More Order Capacity update: production build/static verification passed. Twelve homepage width/theme checks confirmed the matching 64px icon, 24px gap, exact blue/cyan colors, no horizontal overflow, decorative/non-focusable markup, and aligned first/second heading starts on desktop. Four targeted axe scans found zero violations; desktop/mobile and enlarged light/dark screenshots were visually reviewed. No browser/request errors occurred.

@@ -17,6 +17,9 @@ for (const path of paths) {
   const url = `/${path ? path + '/' : ''}`;
   const html = await readFile(locationFor(url), 'utf8');
   pages.set(url, html);
+  assert.ok([...html.matchAll(/\bez\s+kyosk\b/gi)].every(match => match[0] === 'Ez Kyosk'), `${url}: canonical brand spelling`);
+  assert.ok(html.includes('ez-kyosk-lockup.'), `${url}: original shared logo asset`);
+  assert.ok(!/hero-kiosk-original|platform-self-ordering-v1-|Ez%20Kyosk%20Orbit/.test(html), `${url}: no superseded deployed artwork`);
   assert.equal((html.match(/<h1[ >]/g) || []).length, 1, `${url}: one h1`);
   const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
   const description = html.match(/name="description" content="([^"]+)"/)?.[1];
@@ -64,4 +67,8 @@ assert.ok(robots.includes(process.env.SITE_URL ? 'Allow: /' : 'Disallow: /'));
 const sitemap = await readFile('dist/sitemap.xml', 'utf8');
 assert.equal((sitemap.match(/<loc>/g) || []).length, process.env.SITE_URL ? 7 : 0);
 await access('dist/favicon.png');
+await access('dist/brand-social.png');
+await assert.rejects(access('dist/assets/images/platform-self-ordering-v1-640.webp'), 'superseded public artwork is not deployed');
+const notFound = await readFile('dist/404.html', 'utf8');
+assert.ok([...notFound.matchAll(/\bez\s+kyosk\b/gi)].every(match => match[0] === 'Ez Kyosk'), '404: canonical brand spelling');
 console.log('Passed: 7 pages, internal links/anchors/assets, unique metadata, logo/favicon references, indexing controls, sitemap, and configured-site schema/sharing image.');

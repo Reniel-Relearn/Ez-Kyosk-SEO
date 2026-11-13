@@ -2,6 +2,8 @@
 
 Updated: 13 November 2026
 
+Branding override: [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md) is authoritative. Display name is Ez Kyosk. Use only original logo/icon assets, not header screenshots. Active hero and first overview-card image use brand-corrected v2 artwork; original source images and superseded samples remain non-deployed references.
+
 Actions 3 and 4: visual assignments and shared art direction. All three benefit icons are integrated. The first realistic sample is integrated into Home's Self-ordering experience overview card for owner review. Remaining imagery and the four-step journey are pending. The Word-arrangement action is removed; retain the current homepage sequence.
 
 ## Shared direction
@@ -100,6 +102,6 @@ Exact location: Home > One connected platform > From the first tap to the next t
 
 Generated a restrained 4:3 product composition using the existing owner-supplied kiosk artwork as its physical-device and illustrative-menu reference. The touchscreen and upper pedestal remain visible against a neutral background with a subtle blue tint. This is illustrative product imagery, not a verified live interface screenshot. Only the first card's placeholder is replaced; the other four cards and all text remain unchanged.
 
-Responsive WebP assets: `public/assets/images/platform-self-ordering-v1-{320,640,1280}.webp`, approximately 8KB, 22KB, and 58KB. Integration preserves the five-card grid, uses base-path-safe responsive URLs, lazy loading, explicit dimensions, and alt text. Full prompt, provenance, optimization settings, and verification: [PLATFORM_SELF_ORDERING_ASSET.md](PLATFORM_SELF_ORDERING_ASSET.md).
+Responsive WebP assets: `public/assets/images/platform-self-ordering-v2-{320,640,1280}.webp`, approximately 8KB, 22KB, and 58KB. Integration preserves the five-card grid, uses base-path-safe responsive URLs, lazy loading, explicit dimensions, and alt text. Full prompt, provenance, optimization settings, and verification: [PLATFORM_SELF_ORDERING_ASSET.md](PLATFORM_SELF_ORDERING_ASSET.md).
 
 Owner review of this sample remains pending; creation of the remaining assets is not implied.
