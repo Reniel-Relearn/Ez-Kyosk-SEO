@@ -39,6 +39,11 @@ try {
       assert.ok(state.brandAlts.every(alt => alt === 'Ez Kyosk'), `${route}: consistent logo alt text`);
       assert.equal(state.headings, 1);
       assert.equal(state.brokenImages.length, 0, `${route}: images`);
+      if (route === '/') {
+        const hero = await page.locator('.hero-product img').evaluate(image => ({ source: image.currentSrc, filter: getComputedStyle(image).filter }));
+        assert.ok(hero.source.includes('hero-kiosk-transparent-v3.'), 'corrected transparent hero is loaded');
+        assert.equal(hero.filter, 'none', 'no broad CSS blur/drop-shadow around the cutout');
+      }
       assert.equal(state.logos.length, 2);
       assert.ok(state.logos.every(logo => logo.loaded && Math.abs(logo.ratio - logo.original) < .03), `${route}: undistorted logos`);
       layouts.push({ route, width, ...state });

@@ -6,6 +6,8 @@ Brand consistency update: display name is Ez Kyosk throughout current website co
 
 ## Local-review milestone
 
+Hero correction: surrounding matte/haze and both white logo panels are removed in `hero-kiosk-transparent-v3.webp`. The device remains solid, empty background regions are truly transparent, and the broad CSS image shadow is removed. Hero wording/layout and other sections are unchanged. Source and all responsive variants have decoded-pixel regression checks; details and exact edit prompts are in [HERO_TRANSPARENCY_FIX.md](HERO_TRANSPARENCY_FIX.md).
+
 The website is ready for owner review on a local computer. The implemented build includes:
 
 - Seven responsive content routes, a custom 404 page, `robots.txt`, and `sitemap.xml`.
