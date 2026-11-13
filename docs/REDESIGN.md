@@ -12,7 +12,7 @@ The visual references influenced hierarchy and pattern selection only. The websi
 
 The primary navigation is Home, Product, How It Works, Solutions, and About, with Request a Demo as the persistent CTA. Industries is grouped under Solutions. The existing homepage sequence is retained after the owner removed the Word-arrangement action; How It Works remains immediately before the FAQ. Product content is available in HTML at all times; desktop visitors use accessible tabs while mobile visitors see vertically stacked sections.
 
-The first benefit is renamed Faster Ordering Experience and the three benefit numbers are removed. No benefit icon or new raster asset has been created. `VISUAL_ASSET_PLAN.md` defines the future assignments and exact verbal description of the first icon, which is the current review stop.
+The first benefit is renamed Faster Ordering Experience and the three benefit numbers are removed. Following approval of its verbal specification, that card now has an original blue/cyan kiosk-and-tap SVG that follows both themes. No other benefit icon or new raster asset has been created. `VISUAL_ASSET_PLAN.md` records its specification, implementation, and remaining assignments; review this first icon before continuing the family.
 
 Supporting routes provide distinct detail instead of repeating the homepage:
 
