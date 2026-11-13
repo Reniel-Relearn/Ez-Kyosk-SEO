@@ -4,7 +4,7 @@ Last updated: 13 November 2026
 
 ## Current status
 
-**Current phase:** action 2 removed; visual assignments and art direction documented; blue/cyan palette and benefit text cleanup implemented and verified. All three owner-authorized benefit icons are integrated for visual review: Faster Ordering Experience, More Order Capacity, and Better Service Flow.
+**Current phase:** action 2 removed; visual assignments, palette, and benefit icon family implemented. The first realistic sample is integrated into Home > From the first tap to the next task. > Self-ordering experience for owner review. Remaining imagery and the four-step journey are pending.
 
 The repository contains the completed local-review redesign: responsive pages, the approved information architecture, owner-confirmed product scope, preview-safe indexing controls, technical SEO foundations, a non-sending local inquiry experience, and automated build/browser/accessibility checks. Production launch remains unauthorized and unconfigured.
 
@@ -28,7 +28,8 @@ The latest task statuses, removed Word-arrangement step, icon exception, and pen
 - [x] Present the first benefit icon in words, receive approval to create it, and integrate the theme-aware SVG.
 - [x] Add the matching More Order Capacity icon and update the second card heading as requested.
 - [x] Add the matching Better Service Flow icon and update the third card heading as requested.
-- Raster imagery and later journey changes remain pending.
+- [x] Generate, optimize, and integrate the first realistic sample into Home's Self-ordering experience overview card.
+- Review that sample before creating the other four overview images. Remaining imagery and later journey changes are pending.
 
 ## Status legend
 

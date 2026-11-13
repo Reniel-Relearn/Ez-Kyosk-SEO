@@ -78,5 +78,5 @@ Palette implementation verification passed: 48 responsive route checks including
 ## Scope boundary
 
 - Complete now: palette selection, exact tokens, usage rules, interaction-state specification, pairwise contrast calculations, and shared CSS implementation.
-- All three benefit icons are now implemented after owner authorization, using the same blue/cyan tokens. Raster image generation and homepage rearrangement are not performed.
+- All three benefit icons use the same blue/cyan tokens. The first realistic overview-card sample preserves natural device/brand colors against a restrained neutral/blue background rather than recoloring the product. Follow `VISUAL_ASSET_PLAN.md` for artwork status. Homepage rearrangement is not performed.
 - Action 2 is removed at the owner's request. Retain the current homepage sequence; review the icon family before further artwork.

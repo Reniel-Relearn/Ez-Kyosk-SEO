@@ -224,6 +224,8 @@ Purpose: show that EZ Kyosk can support a connected operating experience while s
 
 Pattern: four or five original image-led feature cards inspired by the reference grid, not copied from it.
 
+Implementation status: Home > "From the first tap to the next task." uses five cards. Only "Self-ordering experience" now has a generated realistic 4:3 kiosk composition in place of its generic bar illustration. The other four visuals and all card text remain unchanged. Responsive WebP sizes, alt text, lazy loading, and reserved dimensions are implemented. This first sample awaits owner review before producing the remaining images; see [PLATFORM_SELF_ORDERING_ASSET.md](PLATFORM_SELF_ORDERING_ASSET.md). The existing five-card grid is retained.
+
 Recommended cards:
 
 - Self-ordering experience
