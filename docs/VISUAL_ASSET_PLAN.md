@@ -2,7 +2,7 @@
 
 Updated: 13 November 2026
 
-Actions 3 and 4: visual assignments and shared art direction. The owner authorized the first two benefit icons, which are now integrated: Faster Ordering Experience and More Order Capacity. The Better icon, raster imagery, and four-step journey remain pending. The Word-arrangement action is removed at the owner's request; retain the current homepage section sequence.
+Actions 3 and 4: visual assignments and shared art direction. All three owner-authorized benefit icons are integrated: Faster Ordering Experience, More Order Capacity, and Better Service Flow. Raster imagery and the four-step journey remain pending. The Word-arrangement action is removed at the owner's request; retain the current homepage section sequence.
 
 ## Shared direction
 
@@ -13,7 +13,7 @@ Actions 3 and 4: visual assignments and shared art direction. The owner authoriz
 - Use actual interface references when showing a specific product function. Missing references require review before depicting detailed interfaces. Configurable features must remain consistent with the existing product scope.
 - Use one line-icon family for the benefit cards: 64px square artwork, approximately 2.5px strokes, rounded caps and joins, simple silhouettes, transparent background. Icons share optical size and stroke weight.
 - Define mobile crops before integration. Keep essential subjects within a central safe area; do not crop away the interaction or rely on tiny text.
-- Save approved assets with descriptive versioned filenames in `public/assets/images`. Use optimized responsive raster formats for photographs and product imagery. Simple line icons use SVG; the first icon is the reference for the remaining benefit icons.
+- Save approved assets with descriptive versioned filenames in `public/assets/images`. Use optimized responsive raster formats for photographs and product imagery. The completed benefit icon family uses SVG, with the first icon as its style reference.
 
 ## Asset assignments
 
@@ -21,7 +21,7 @@ Actions 3 and 4: visual assignments and shared art direction. The owner authoriz
 | --- | --- | --- | --- |
 | benefit-faster | Home benefit 1 | Kiosk touchscreen and tapping finger: a direct interaction | Line icon, 1:1 |
 | benefit-more | Home benefit 2: More Order Capacity | Two order slips and paths joining a shared queue: an additional ordering channel | Matching line icon, 1:1 |
-| benefit-better | Home benefit 3 | Connected order flow and a checkmark: clearer coordinated operations | Matching line icon, 1:1 |
+| benefit-better | Home benefit 3: Better Service Flow | Connected stages ending in a checkmark: clearer coordinated operations | Matching line icon, 1:1 |
 | platform-ordering | Home platform overview | Kiosk menu/product selection shown as a focused product composition | Realistic device composition, 4:3 |
 | platform-checkout | Home platform overview | Staff checkout workstation receiving a confirmed order | Realistic operational composition, 4:3 |
 | platform-payments | Home platform overview | Terminal and phone together, explaining the available payment paths at a glance | Realistic product composition, 4:3 |
@@ -50,7 +50,7 @@ The Product hero's semantic system map, navigation, FAQ, About principles, Conta
 ## Review sequence
 
 1. Completed: present `benefit-faster` in words and receive the owner's approval to create it.
-2. Owner authorized the next icon as "More Order Capacity". First and second icons are integrated for light/dark review; Better remains pending.
+2. Completed: owner authorized More Order Capacity and Better Service Flow. All three matching icons are integrated for light/dark review.
 3. Later, create one representative realistic image and review the group art direction before producing the remaining imagery.
 4. Optimize and integrate approved assets section by section; validate responsive crops, light/dark contrast, and page performance.
 
@@ -83,4 +83,13 @@ Owner authorization: proceed with the next icon, named "More Order Capacity". Th
 - Family: the same transparent 64 by 64 canvas, 2.5-unit rounded blue strokes, and theme tokens as Faster Ordering Experience. Left-aligned above the second heading with the same 24px gap; decorative and non-focusable.
 - Asset: `public/assets/images/benefit-more-capacity-v1.svg`, embedded inline by `src/components/MoreOrderCapacityIcon.astro`. No raster generation or additional runtime JavaScript.
 
-Only these two benefit icons are implemented. Better and all planned raster imagery remain pending.
+## Third icon: Better Service Flow
+
+Owner authorization: proceed with "Better Service Flow". The third card heading now uses that wording; its explanatory paragraph is unchanged.
+
+- Meaning: connected service stages progressing toward order completion, not a guaranteed service time or a literal count of workflow steps.
+- Composition: two rounded stage nodes joined by an orderly stepped path, ending in a circular completion node. One cyan checkmark is the only accent. Unlike the capacity icon, this is one sequential path with no branching or merging.
+- Family: transparent 64 by 64 canvas, 2.5-unit rounded blue strokes, shared light/dark blue and cyan tokens, and 24px spacing above the heading. Decorative, non-focusable, with all meaningful text retained as HTML.
+- Asset: `public/assets/images/benefit-better-flow-v1.svg`, embedded inline by `src/components/BetterServiceFlowIcon.astro`. No raster generation or additional runtime JavaScript.
+
+All three benefit icons are implemented. Planned raster imagery and the four-step journey remain pending.
