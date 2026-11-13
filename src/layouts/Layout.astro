@@ -52,7 +52,7 @@ const schema = canonical ? {
     </script>
     <title>{documentTitle}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#f7fbfa" />
+    <meta name="theme-color" content="#f8fafc" />
     <link rel="icon" href={sitePath('/favicon.png')} type="image/png" sizes="64x64" />
     {canonical && <link rel="canonical" href={canonical} />}
     <meta property="og:title" content={documentTitle} />
@@ -104,7 +104,7 @@ const schema = canonical ? {
         document.documentElement.dataset.theme = theme;
         themeToggle?.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
         themeToggle?.setAttribute('aria-pressed', String(theme === 'dark'));
-        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#06171d' : '#f7fbfa');
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#080d16' : '#f8fafc');
         if (save) {
           try { localStorage.setItem('ez-kyosk-theme', theme); } catch {}
         }

@@ -1,19 +1,20 @@
 # Development progress
 
-Last updated: 12 November 2026
+Last updated: 13 November 2026
 
 ## Local-review milestone
 
 The website is ready for owner review on a local computer. The implemented build includes:
 
 - Seven responsive content routes, a custom 404 page, `robots.txt`, and `sitemap.xml`.
-- Accessible light/dark themes with saved preference, system-default fallback, Plus Jakarta Sans, ExtraBold display headings, and logo-derived deep blue-teal/turquoise tokens.
+- Accessible light/dark themes with saved preference, system-default fallback, Plus Jakarta Sans, ExtraBold display headings, and the blue/white and blue/black/white palette with subtle cyan highlights.
 - The original SEO-focused hero content is locked; only its design treatment and updated operational-capability caption may change.
 - A smaller responsive header logo that preserves the official source artwork and proportions.
 - Header navigation stays pinned during page scrolling on desktop and mobile; homepage hero content starts 32px below it without viewport-height centering.
 - Wider page layouts with small responsive gutters (20–64px), plus a left-aligned payment introduction that uses fewer lines on desktop.
 - Final primary navigation (Home, Product, How It Works, Solutions, About), exact per-route active states, responsive mobile menu, footer, conversion CTAs, and external kiosk-experience link.
-- Homepage sequence: hero; Faster/More/Better benefits; connected platform; five product areas; AltPayNet payments; industries; How It Works; FAQ; conversion CTA.
+- Homepage sequence retained: hero; Faster Ordering Experience/More/Better benefits; connected platform; five product areas; AltPayNet payments; industries; How It Works; FAQ; conversion CTA. The three benefit numbers are removed; icons await review before creation.
+- The full visual assignment plan and shared art direction are documented in `VISUAL_ASSET_PLAN.md`. The owner removed the Word-arrangement step. No new images or benefit icons have been generated.
 - Distinct Home, Product, How It Works, Solutions, About, Contact, and Privacy page roles; the Product hero now uses its own five-area system map rather than reusing the homepage kiosk composition.
 - Owner-confirmed operational self-ordering, POS checkout, AltPayNet payments, real-time inventory, and order queueing/tracking copy.
 - Configurable reports, analytics, customers, loyalty, promotions, integrations, hardware, and bespoke requirements language.

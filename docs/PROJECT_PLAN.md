@@ -1,10 +1,10 @@
 # EZ Kyosk website roadmap
 
-Last updated: 12 November 2026
+Last updated: 13 November 2026
 
 ## Current status
 
-**Current phase:** full website implementation complete; ready for local owner review.
+**Current phase:** action 2 removed; visual assignments and art direction documented; blue/cyan palette and benefit text cleanup implemented and verified. Paused before creating the first benefit icon, ready for its verbal design review.
 
 The repository contains the completed local-review redesign: responsive pages, the approved information architecture, owner-confirmed product scope, preview-safe indexing controls, technical SEO foundations, a non-sending local inquiry experience, and automated build/browser/accessibility checks. Production launch remains unauthorized and unconfigured.
 
@@ -13,6 +13,19 @@ The design brief in `docs/DESIGN-FOR-WEBSITE.pdf`, the owner-supplied product/pa
 The written wireframe has been implemented as a full responsive website. The uploaded PDF and DOCX remain local references and are not intended for repository publication.
 
 The approved written wireframe and interaction specification is maintained in `docs/WIREFRAME_SPEC.md`.
+
+The latest task statuses, removed Word-arrangement step, icon exception, and pending four-step journey are recorded in [ITERATIVE_REDESIGN_NOTES.md](ITERATIVE_REDESIGN_NOTES.md). The implemented blue/cyan palette is specified in [COLOR_PALETTE.md](COLOR_PALETTE.md); visual assignments and the first icon's verbal specification are in [VISUAL_ASSET_PLAN.md](VISUAL_ASSET_PLAN.md). These latest notes supersede conflicting earlier design proposals without implying that pending artwork is complete.
+
+### Next design iteration
+
+- [x] Finalize and apply the minimalist blue/white light and blue/black/white dark palette with subtle cyan highlights, exact tokens, and interaction-state rules.
+- Action 2 and its dependent homepage rearrangement are removed. Keep the current homepage section sequence.
+- [x] Document the full visual assignment list and shared image/icon art direction.
+- [x] Rename the first benefit to Faster Ordering Experience and remove the three benefit numbers.
+- Use one coordinated icon per benefit card and ultra-realistic imagery for appropriate other cards and product panels.
+- Plan the requested Browse -> Select -> Payment -> Get order journey with distinct images.
+- Reuse the owner's prompt saved verbatim in [IMAGE_ASSET_PROMPT.md](IMAGE_ASSET_PROMPT.md).
+- Stop before creating the first benefit icon; present its exact appearance in words. Image/icon generation and later journey changes remain pending.
 
 ## Status legend
 
@@ -82,7 +95,7 @@ The approved written wireframe and interaction specification is maintained in `d
 
 ### Remaining design decisions
 
-- [ ] Approve the final logo-derived color tokens after reviewing wireframes. **BLOCKED - OWNER DECISION**
+- [x] Finalize and apply the blue/white light and blue/black/white dark palette with subtle cyan highlights in `docs/COLOR_PALETTE.md`.
 - [x] Use a hybrid category pattern: crawlable tabs/panels on desktop and vertically stacked sections on mobile, with vertical page scrolling only.
 - [x] Keep the hero brand-first and integration-neutral; place AltPayNet in a dedicated payment section.
 - [x] Use Home, Product, How It Works, Solutions, and About as the primary navigation; keep Request a Demo as the persistent CTA and Explore EZ Kyosk as the product-demo CTA. Keep Industries within Solutions and the footer.
