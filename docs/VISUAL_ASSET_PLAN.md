@@ -2,7 +2,7 @@
 
 Updated: 13 November 2026
 
-Actions 3 and 4: visual assignments and shared art direction. No assets have been generated. The Word-arrangement action is removed at the owner's request; retain the current homepage section sequence. Do not begin the four-step journey implementation or image production before the first benefit icon has been reviewed.
+Actions 3 and 4: visual assignments and shared art direction. The owner approved creation of the first benefit icon, which is now integrated. The other two icons, raster imagery, and four-step journey remain pending. The Word-arrangement action is removed at the owner's request; retain the current homepage section sequence.
 
 ## Shared direction
 
@@ -13,7 +13,7 @@ Actions 3 and 4: visual assignments and shared art direction. No assets have bee
 - Use actual interface references when showing a specific product function. Missing references require review before depicting detailed interfaces. Configurable features must remain consistent with the existing product scope.
 - Use one line-icon family for the benefit cards: 64px square artwork, approximately 2.5px strokes, rounded caps and joins, simple silhouettes, transparent background. Icons share optical size and stroke weight.
 - Define mobile crops before integration. Keep essential subjects within a central safe area; do not crop away the interaction or rely on tiny text.
-- Save approved assets with descriptive versioned filenames in `public/assets/images`. Use optimized responsive raster formats for photographs and product imagery. Simple line icons can use SVG; this does not authorize creating the first icon before the review stop.
+- Save approved assets with descriptive versioned filenames in `public/assets/images`. Use optimized responsive raster formats for photographs and product imagery. Simple line icons use SVG; the first icon is the reference for the remaining benefit icons.
 
 ## Asset assignments
 
@@ -49,12 +49,12 @@ The Product hero's semantic system map, navigation, FAQ, About principles, Conta
 
 ## Review sequence
 
-1. Stop before creating `benefit-faster` and present its specification below in words.
-2. After approval to create it, review that icon in both themes before extending its style to the remaining benefit icons.
+1. Completed: present `benefit-faster` in words and receive the owner's approval to create it.
+2. First icon integrated for light/dark owner review. Do not extend its style to the remaining benefit icons until reviewed.
 3. Later, create one representative realistic image and review the group art direction before producing the remaining imagery.
 4. Optimize and integrate approved assets section by section; validate responsive crops, light/dark contrast, and page performance.
 
-## First icon specification for owner review
+## First icon specification and implementation
 
 Name: Faster Ordering Experience.
 
@@ -71,4 +71,4 @@ Meaning: a straightforward touchscreen order interaction. The icon communicates 
 - Presentation: flat, crisp line artwork. No photo background, 3D bevel, drop shadow, large glow, stopwatch, lightning bolt, payment symbol, or order-completion badge.
 - Placement after creation: above the first benefit heading, aligned with the card's text edge, with roughly 20px to 24px between icon and heading. The icon is decorative because the heading and paragraph communicate its meaning.
 
-No icon file, SVG markup, or generated raster image is included in this specification.
+Implemented asset: `public/assets/images/benefit-faster-v1.svg`. `src/components/FasterOrderingIcon.astro` embeds this trusted local SVG inline so the shared theme tokens control its two stroke colors without a separate image request. The transparent 64px icon is decorative, not focusable, and sits 24px above the first heading. It is original SVG artwork, not an AI-generated raster image. No other planned asset has been created.

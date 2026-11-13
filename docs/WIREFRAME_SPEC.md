@@ -10,7 +10,7 @@ This document translates the approved design references and roadmap decisions in
 
 The website must feel bold, welcoming, elegant, and product-led. It should borrow useful patterns from the approved references without copying their text, imagery, branding, or exact compositions.
 
-The iterative redesign applies the palette in [COLOR_PALETTE.md](COLOR_PALETTE.md) and uses the visual assignments in [VISUAL_ASSET_PLAN.md](VISUAL_ASSET_PLAN.md). Action 2 (Word-arrangement review) and its dependent rearrangement are removed; keep the current homepage section sequence. The reusable image-generation prompt remains in [IMAGE_ASSET_PROMPT.md](IMAGE_ASSET_PROMPT.md). Latest statuses are in [ITERATIVE_REDESIGN_NOTES.md](ITERATIVE_REDESIGN_NOTES.md). Stop before creating the first benefit icon and present its appearance in words.
+The iterative redesign applies the palette in [COLOR_PALETTE.md](COLOR_PALETTE.md) and uses the visual assignments in [VISUAL_ASSET_PLAN.md](VISUAL_ASSET_PLAN.md). Action 2 (Word-arrangement review) and its dependent rearrangement are removed; keep the current homepage section sequence. The reusable image-generation prompt remains in [IMAGE_ASSET_PROMPT.md](IMAGE_ASSET_PROMPT.md). Latest statuses are in [ITERATIVE_REDESIGN_NOTES.md](ITERATIVE_REDESIGN_NOTES.md). The first benefit icon's verbal specification was approved; only that icon is now integrated for review.
 
 ## 2. Non-negotiable principles
 
@@ -208,7 +208,7 @@ Purpose: answer why a business should consider self-ordering without unsupported
 
 Pattern: one wide light panel containing three clear benefit columns.
 
-The first heading is now "Faster Ordering Experience" and the visible 01/02/03 labels are removed. One consistent blue icon per card is planned, replacing the earlier photography recommendation. Stop before creating the first icon; its verbal specification is in `VISUAL_ASSET_PLAN.md`.
+The first heading is now "Faster Ordering Experience" and the visible 01/02/03 labels are removed. One consistent blue icon per card replaces the earlier photography recommendation. The first card now has an original 64px kiosk/tapping-hand SVG, with one cyan touch arc and 24px spacing above its heading. Its strokes follow the shared light/dark tokens; it is decorative and non-focusable. The More and Better icons remain pending. Specification and asset path: `VISUAL_ASSET_PLAN.md`.
 
 Working themes:
 

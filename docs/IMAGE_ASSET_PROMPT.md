@@ -2,11 +2,11 @@
 
 Saved: 13 November 2026
 
-Status: saved image prompt only. The shared palette is implemented and verified, but no images or benefit icons may be created before the first icon's verbal review.
+Status: the image prompt below remains saved verbatim for future raster imagery. The first benefit icon's verbal review and creation approval are complete; its original SVG is integrated. Remaining icons and raster imagery are pending.
 
 The next iterative redesign starts with the homepage, with images for its cards as the core direction. This document preserves the owner's prompt verbatim for that future work. Approved project assets will use `public/assets/images`.
 
-Latest scope clarification: the three benefit cards use one coordinated icon each rather than photographs. Ultra-realistic imagery is intended for appropriate other cards, the product panels, and the revised customer journey. The palette is specified in [COLOR_PALETTE.md](COLOR_PALETTE.md); generation is still on hold. The assignment list and icon brief are in [VISUAL_ASSET_PLAN.md](VISUAL_ASSET_PLAN.md). The Word-arrangement action is removed; retain the current homepage order. See [ITERATIVE_REDESIGN_NOTES.md](ITERATIVE_REDESIGN_NOTES.md) for current statuses; the saved prompt below remains unchanged.
+Latest scope clarification: the three benefit cards use coordinated SVG line icons rather than photographs. Only Faster Ordering Experience has been created. Ultra-realistic imagery is intended for appropriate other cards, the product panels, and the revised customer journey; raster generation remains on hold. The palette is specified in [COLOR_PALETTE.md](COLOR_PALETTE.md). The assignment list and icon brief are in [VISUAL_ASSET_PLAN.md](VISUAL_ASSET_PLAN.md). The Word-arrangement action is removed; retain the current homepage order. See [ITERATIVE_REDESIGN_NOTES.md](ITERATIVE_REDESIGN_NOTES.md) for current statuses; the saved prompt below remains unchanged.
 
 ## Saved prompt
 

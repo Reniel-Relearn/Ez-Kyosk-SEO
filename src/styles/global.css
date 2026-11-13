@@ -155,6 +155,8 @@ html[data-theme='dark'] .theme-sun{display:block}
 .benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;background:var(--paper)}
 .benefit-grid article{position:relative;min-height:290px;padding:42px;border-right:1px solid var(--line);transition:.25s}
 .benefit-grid article:last-child{border-right:0}.benefit-grid article:hover{z-index:2;background:var(--surface-raised);color:var(--text);box-shadow:var(--soft-shadow);transform:translateY(-3px)}
+.benefit-icon{width:64px;height:64px;margin-bottom:24px}
+.benefit-icon svg{display:block;width:100%;height:100%}
 .benefit-grid article>span,.platform-grid article>span{color:var(--brand-700);font-size:12px;font-weight:800;letter-spacing:.1em}
 .benefit-grid h3{margin:0 0 16px;font-size:clamp(26px,2.25vw,36px);margin-top:0;max-width:16ch}
 .benefit-grid article:hover p{color:var(--muted)}.benefit-grid article:hover>span{color:var(--brand-300)}
