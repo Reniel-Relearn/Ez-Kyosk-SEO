@@ -2,7 +2,7 @@
 
 ## Implemented direction
 
-The redesign presents EZ Kyosk as a bold, welcoming, minimalist, and product-led self-ordering platform. It uses accessible light/dark themes, Plus Jakarta Sans with ExtraBold headings, logo-derived deep blue-teal and turquoise tokens, generous whitespace, controlled glow, and color-reversal hover/focus states. The selected preference persists locally, with the operating-system preference used on the first visit.
+The redesign presents EZ Kyosk as a bold, welcoming, minimalist, and product-led self-ordering platform. It uses accessible light/dark themes, Plus Jakarta Sans with ExtraBold headings, blue/white and blue/black/white surfaces, and subtle cyan highlights. Buttons and interactive states follow `COLOR_PALETTE.md`; keyboard focus has an opaque cyan outline. The selected preference persists locally, with the operating-system preference used on the first visit.
 
 The original hero eyebrow, headline, description, audience line, CTA labels, and tagline are locked and remain unchanged through design revisions. Only the previous outdated illustration caption was updated to reflect owner-confirmed operational POS checkout, AltPayNet payments, real-time inventory, and order tracking.
 
@@ -10,7 +10,9 @@ The visual references influenced hierarchy and pattern selection only. The websi
 
 ## Information architecture
 
-The primary navigation is Product, How It Works, Solutions, Industries, About, and Request a Demo. The homepage follows the approved sequence and places How It Works immediately before the FAQ. Product content is available in HTML at all times; desktop visitors use accessible tabs while mobile visitors see vertically stacked sections.
+The primary navigation is Home, Product, How It Works, Solutions, and About, with Request a Demo as the persistent CTA. Industries is grouped under Solutions. The existing homepage sequence is retained after the owner removed the Word-arrangement action; How It Works remains immediately before the FAQ. Product content is available in HTML at all times; desktop visitors use accessible tabs while mobile visitors see vertically stacked sections.
+
+The first benefit is renamed Faster Ordering Experience and the three benefit numbers are removed. No benefit icon or new raster asset has been created. `VISUAL_ASSET_PLAN.md` defines the future assignments and exact verbal description of the first icon, which is the current review stop.
 
 Supporting routes provide distinct detail instead of repeating the homepage:
 

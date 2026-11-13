@@ -2,13 +2,15 @@
 
 Status: implemented as the full responsive local-review website.
 
-Last updated: 12 November 2026
+Last updated: 13 November 2026
 
 ## 1. Purpose
 
 This document translates the approved design references and roadmap decisions into an original EZ Kyosk page framework. It defines hierarchy, responsive layout, crawlable content structure, and interaction behavior before visual implementation.
 
 The website must feel bold, welcoming, elegant, and product-led. It should borrow useful patterns from the approved references without copying their text, imagery, branding, or exact compositions.
+
+The iterative redesign applies the palette in [COLOR_PALETTE.md](COLOR_PALETTE.md) and uses the visual assignments in [VISUAL_ASSET_PLAN.md](VISUAL_ASSET_PLAN.md). Action 2 (Word-arrangement review) and its dependent rearrangement are removed; keep the current homepage section sequence. The reusable image-generation prompt remains in [IMAGE_ASSET_PROMPT.md](IMAGE_ASSET_PROMPT.md). Latest statuses are in [ITERATIVE_REDESIGN_NOTES.md](ITERATIVE_REDESIGN_NOTES.md). Stop before creating the first benefit icon and present its appearance in words.
 
 ## 2. Non-negotiable principles
 
@@ -101,7 +103,11 @@ Final sizes must respond to available width and pass overflow checks at 320 px.
 - Retain readable widths for long body text and legal content; widen section introductions where restrictive centered blocks cause unnecessary wrapping.
 - Keep the original homepage hero wording intact while allowing the layout to use the wider content area.
 
-### Logo-derived color proposal
+### Latest color direction
+
+The implemented specification uses blue and white for light mode, and blue, black, and white for dark mode, with subtle cyan highlights in both themes. Exact tokens, component states, and contrast calculations are recorded in [COLOR_PALETTE.md](COLOR_PALETTE.md). Preserve the official logo artwork. The earlier proposal below is retained as design history.
+
+### Earlier logo-derived color proposal
 
 The official lockup's dominant sampled colors are deep blue-teal and bright turquoise. Proposed tokens:
 
@@ -119,7 +125,7 @@ The official lockup's dominant sampled colors are deep blue-teal and bright turq
 | `--line` | `#CDE0DE` | Borders and separators |
 | `--text-muted` | `#4E6668` | Supporting copy after contrast validation |
 
-The palette remains intentionally small: one dark family, one turquoise family, and neutral surfaces. Final tokens require visual and contrast approval during the first wireframe review.
+This earlier turquoise-led proposal is superseded by the implemented blue/cyan palette above.
 
 ### Surface and shape language
 
@@ -132,8 +138,8 @@ The palette remains intentionally small: one dark family, one turquoise family, 
 
 ### Hover, focus, and motion
 
-- Primary interactive reversal: turquoise surface to deep ink, or deep ink to turquoise.
-- Optional glow: turquoise at low opacity, confined to the component boundary.
+- Next-iteration primary buttons: blue fill with theme-appropriate contrasting labels; use the hover and pressed shades in `COLOR_PALETTE.md`.
+- Keyboard focus: opaque cyan outline with a separating gap; optional low-opacity cyan glow remains confined to the component boundary.
 - Transition duration: approximately 160-240 ms for color, border, opacity, and transform.
 - Use small elevation or translation only; avoid layout-shifting scale effects.
 - Hover must have an equivalent keyboard focus-visible treatment.
@@ -201,6 +207,8 @@ Content direction:
 Purpose: answer why a business should consider self-ordering without unsupported statistics.
 
 Pattern: one wide light panel containing three clear benefit columns.
+
+The first heading is now "Faster Ordering Experience" and the visible 01/02/03 labels are removed. One consistent blue icon per card is planned, replacing the earlier photography recommendation. Stop before creating the first icon; its verbal specification is in `VISUAL_ASSET_PLAN.md`.
 
 Working themes:
 
@@ -297,7 +305,7 @@ Anchor: `id="how-it-works"`.
 
 Purpose: answer the core process question immediately before the FAQ.
 
-Preserve the approved five-step journey:
+Next iteration, pending implementation: replace the homepage's displayed journey with Browse -> Select -> Payment -> Get order, supported by distinct images. Reconcile related process descriptions when implementing this change. The current implementation still uses the earlier five-step journey:
 
 1. Browse
 2. Select
@@ -305,7 +313,7 @@ Preserve the approved five-step journey:
 4. Review
 5. Confirm
 
-Keep the current content and behavior intact during the first implementation pass. Add one internal link to the expanded `/how-it-works/` guide.
+Keep the existing implementation intact during brainstorming. Retain an internal link to the expanded `/how-it-works/` guide when updating the journey.
 
 ### Section 9 - FAQ
 
