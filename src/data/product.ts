@@ -15,13 +15,13 @@ export const productCategories = [
 ];
 
 export const faqs = [
-  ['What is EZ Kyosk?', 'EZ Kyosk is self-ordering and checkout kiosk software for hospitality, retail, wellness, and service businesses. It brings menu or product browsing, order review, checkout, payments, inventory visibility, and order tracking into a connected experience.'],
+  ['What is Ez Kyosk?', 'Ez Kyosk is self-ordering and checkout kiosk software for hospitality, retail, wellness, and service businesses. It brings menu or product browsing, order review, checkout, payments, inventory visibility, and order tracking into a connected experience.'],
   ['How does self-ordering work?', 'Customers browse the touchscreen menu, select products and options, adjust quantities, review their order and total, then confirm. The core journey is Browse → Select → Adjust → Review → Confirm.'],
-  ['Is EZ Kyosk a POS system?', 'EZ Kyosk is customer-facing self-ordering software with connected POS and checkout capabilities. The exact checkout configuration is matched to each business and deployment.'],
+  ['Is Ez Kyosk a POS system?', 'Ez Kyosk is customer-facing self-ordering software with connected POS and checkout capabilities. The exact checkout configuration is matched to each business and deployment.'],
   ['Can it accept card, QR, GCash, or Maya payments?', 'Yes. Payment processing through the approved AltPayNet relationship can support card, QR, GCash, and Maya payment paths. The precise terminal, wallet, and deployment requirements are confirmed during consultation.'],
   ['Does it track inventory and orders?', 'Yes. The operational scope includes real-time inventory and order queueing or tracking. Configuration depends on the business workflow and deployment requirements.'],
-  ['Can it work with my current setup?', 'EZ Kyosk is configurable, but compatibility with a specific POS, printer, kitchen system, hardware model, or provider must be assessed before it is promised. Share your current setup during the requirements discussion.'],
-  ['What types of businesses can use it?', 'EZ Kyosk is initially focused on hospitality and food businesses, including cafés, bakeries, restaurants, and quick-service operations. It can also be explored for retail, wellness, beauty, service, and B2B use cases.'],
+  ['Can it work with my current setup?', 'Ez Kyosk is configurable, but compatibility with a specific POS, printer, kitchen system, hardware model, or provider must be assessed before it is promised. Share your current setup during the requirements discussion.'],
+  ['What types of businesses can use it?', 'Ez Kyosk is initially focused on hospitality and food businesses, including cafés, bakeries, restaurants, and quick-service operations. It can also be explored for retail, wellness, beauty, service, and B2B use cases.'],
   ['Can you add features for our business?', 'Yes. Reports, analytics, customer tools, loyalty, promotions, and other capabilities can be scoped according to client requirements and approved during the quotation and implementation process.'],
-  ['How much does EZ Kyosk cost?', 'Pricing depends on the hardware, integrations, configuration, and implementation requirements. Request a demo so the team can understand your operation before preparing a quotation.'],
+  ['How much does Ez Kyosk cost?', 'Pricing depends on the hardware, integrations, configuration, and implementation requirements. Request a demo so the team can understand your operation before preparing a quotation.'],
 ];

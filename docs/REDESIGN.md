@@ -2,11 +2,11 @@
 
 ## Implemented direction
 
-The redesign presents EZ Kyosk as a bold, welcoming, minimalist, and product-led self-ordering platform. It uses accessible light/dark themes, Plus Jakarta Sans with ExtraBold headings, blue/white and blue/black/white surfaces, and subtle cyan highlights. Buttons and interactive states follow `COLOR_PALETTE.md`; keyboard focus has an opaque cyan outline. The selected preference persists locally, with the operating-system preference used on the first visit.
+The redesign presents Ez Kyosk as a bold, welcoming, minimalist, and product-led self-ordering platform. It uses accessible light/dark themes, Plus Jakarta Sans with ExtraBold headings, blue/white and blue/black/white surfaces, and subtle cyan highlights. Buttons and interactive states follow `COLOR_PALETTE.md`; keyboard focus has an opaque cyan outline. The selected preference persists locally, with the operating-system preference used on the first visit.
 
 The original hero eyebrow, headline, description, audience line, CTA labels, and tagline are locked and remain unchanged through design revisions. Only the previous outdated illustration caption was updated to reflect owner-confirmed operational POS checkout, AltPayNet payments, real-time inventory, and order tracking.
 
-The visual references influenced hierarchy and pattern selection only. The website uses original EZ Kyosk copy, layouts, component compositions, CSS illustrations, and owner-supplied assets.
+The visual references influenced hierarchy and pattern selection only. The website uses original Ez Kyosk copy, layouts, component compositions, CSS illustrations, and owner-supplied assets.
 
 ## Information architecture
 

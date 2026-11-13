@@ -1,0 +1,9 @@
+---
+import { getImage } from 'astro:assets';
+import { brandLogo, brandName } from '../lib/brand';
+const { eager = false, adaptive = false } = Astro.props;
+const image = await getImage({ src: brandLogo, width: 600, format: 'webp', quality: 90 });
+---
+<div class:list={['brand-mark', { 'brand-mark-adaptive': adaptive }]} style={`--brand-mask: url("${image.src}")`}>
+  <img src={image.src} width={image.attributes.width} height={image.attributes.height} alt={brandName} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+</div>

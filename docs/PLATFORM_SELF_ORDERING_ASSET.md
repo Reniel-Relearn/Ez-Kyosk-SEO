@@ -1,4 +1,4 @@
-# Self-ordering overview card image v1
+# Self-ordering overview card image (current: v2)
 
 Status: generated and integrated as the first realistic sample for owner review. Approval of this sample's art direction is still pending; do not generate the remaining four overview images automatically.
 
@@ -8,7 +8,7 @@ Home > One connected platform > From the first tap to the next task. > card 01, 
 
 ## Provenance and visual boundary
 
-Generated with the built-in ImageGen tool, using owner-supplied `assets/hero-kiosk-original.png` as a kiosk-design and illustrative-menu reference. The output is AI-generated product imagery, not a verified live interface screenshot or evidence of specific hardware deployment. Do not reuse this as detailed interface documentation. Natural charcoal/silver materials and existing gold device branding remain; the neutral background has a restrained blue tint for both website themes.
+Generated with the built-in ImageGen tool, using owner-supplied `assets/hero-kiosk-original.png` as a kiosk-design and illustrative-menu reference. The output is AI-generated product imagery, not a verified live interface screenshot or evidence of specific hardware deployment. Do not reuse this as detailed interface documentation. Version 2 corrects both device branding areas using the original `assets/ez-kyosk-lockup.png` and `assets/ez_kyosk_icon.png`, not a header screenshot. Natural charcoal/silver materials and the neutral blue-tinted background remain. Current branding rules are in [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md).
 
 ## Responsive deliverables
 
@@ -16,9 +16,9 @@ All paths are inside `public/assets/images/`. The 4:3 composition shows the comp
 
 | File | Dimensions | Bytes |
 | --- | --- | --- |
-| platform-self-ordering-v1-320.webp | 320 x 240 | 8,120 |
-| platform-self-ordering-v1-640.webp | 640 x 480 | 22,018 |
-| platform-self-ordering-v1-1280.webp | 1280 x 960 | 57,838 |
+| platform-self-ordering-v2-320.webp | 320 x 240 | 8,424 |
+| platform-self-ordering-v2-640.webp | 640 x 480 | 22,718 |
+| platform-self-ordering-v2-1280.webp | 1280 x 960 | 58,266 |
 
 Integration uses base-path-safe URLs, `srcset`/`sizes`, descriptive alt text, lazy loading, asynchronous decoding, and explicit width/height to reserve space. The image is not tinted or inverted in dark mode. No additional runtime JavaScript.
 
@@ -26,7 +26,9 @@ Integration uses base-path-safe URLs, `srcset`/`sizes`, descriptive alt text, la
 
 Production build and static verification passed. Six widths in both themes plus high-density phone/desktop checks passed (16 combinations), including one new image, four unchanged placeholders, all five unchanged titles, no overflow, correct 4:3 dimensions, working responsive sources, and retained benefit icons. Four targeted platform-section axe scans found zero violations; no browser/request errors. Optimized master, desktop section, and light/dark phone/desktop card screenshots were visually reviewed.
 
-## Exact generation prompt
+## Exact generation prompt (historical v1)
+
+The prompt below is preserved verbatim as provenance, not current branding direction. Its older name/logo instructions are superseded by [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md). Superseded v1 WebP files are retained in `assets/archive/`, not deployed. Current v2 branding-edit prompts are recorded in the brand guidelines.
 
 ```text
 Use case: product-mockup.

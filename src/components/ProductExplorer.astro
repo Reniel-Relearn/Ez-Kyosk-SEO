@@ -3,7 +3,7 @@ import { productCategories } from '../data/product';
 import { sitePath } from '../lib/sitePath';
 ---
 <div class="product-explorer" data-product-explorer>
-  <div class="product-tabs" role="tablist" aria-label="EZ Kyosk product areas">
+  <div class="product-tabs" role="tablist" aria-label="Ez Kyosk product areas">
     {productCategories.map((category, index) => <button type="button" role="tab" id={`tab-${category.id}`} aria-controls={`panel-${category.id}`} aria-selected={index === 0 ? 'true' : 'false'} tabindex={index === 0 ? 0 : -1}><span>0{index + 1}</span>{category.label}</button>)}
   </div>
   <div class="product-panels">

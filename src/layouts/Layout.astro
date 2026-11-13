@@ -1,21 +1,19 @@
 ---
-import { getImage } from 'astro:assets';
 import BrandLogo from '../components/BrandLogo.astro';
-import orbitLogo from '../../assets/Ez Kyosk Orbit Logo.png';
+import { brandName } from '../lib/brand';
 import { sitePath } from '../lib/sitePath';
 import '../styles/global.css';
 
 const {
-  title = 'Self-Ordering Kiosk Philippines | EZ Kyosk',
-  description = 'EZ Kyosk is self-ordering kiosk software for Philippine hospitality, retail, wellness, and service businesses. Explore the product or request a demo.',
+  title = 'Self-Ordering Kiosk Philippines | Ez Kyosk',
+  description = 'Ez Kyosk is self-ordering kiosk software for Philippine hospitality, retail, wellness, and service businesses. Explore the product or request a demo.',
 } = Astro.props;
 
 const pathname = Astro.url.pathname;
 const canonical = Astro.site ? new URL(pathname, Astro.site).href : undefined;
 const siteRoot = Astro.site ? new URL(sitePath('/'), Astro.site).href : undefined;
-const sharingImage = await getImage({ src: orbitLogo, width: 1200, format: 'png' });
-const sharingImageUrl = Astro.site ? new URL(sharingImage.src, Astro.site).href : undefined;
-const documentTitle = title.includes('EZ Kyosk') ? title : `${title} | EZ Kyosk`;
+const sharingImageUrl = Astro.site ? new URL(sitePath('/brand-social.png'), Astro.site).href : undefined;
+const documentTitle = title.includes('Ez Kyosk') ? title : `${title} | Ez Kyosk`;
 const nav = [
   ['/', 'Home'],
   ['/features/', 'Product'],
@@ -27,7 +25,7 @@ const isCurrent = (url: string) => pathname === sitePath(url);
 const schema = canonical ? {
   '@context': 'https://schema.org',
   '@graph': [
-    { '@type': 'WebSite', '@id': `${siteRoot}#website`, name: 'EZ Kyosk', url: siteRoot, inLanguage: 'en-PH' },
+    { '@type': 'WebSite', '@id': `${siteRoot}#website`, name: brandName, url: siteRoot, inLanguage: 'en-PH' },
     { '@type': 'WebPage', '@id': `${canonical}#webpage`, name: documentTitle, description, url: canonical, inLanguage: 'en-PH', isPartOf: { '@id': `${siteRoot}#website` } },
   ],
 } : undefined;
@@ -58,14 +56,14 @@ const schema = canonical ? {
     <meta property="og:title" content={documentTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="EZ Kyosk" />
+    <meta property="og:site_name" content={brandName} />
     <meta property="og:locale" content="en_PH" />
     {canonical && <meta property="og:url" content={canonical} />}
-    {sharingImageUrl && <><meta property="og:image" content={sharingImageUrl} /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="600" /><meta property="og:image:alt" content="Official EZ Kyosk logo and self-ordering kiosk icon" /></>}
+    {sharingImageUrl && <><meta property="og:image" content={sharingImageUrl} /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:image:alt" content="Official Ez Kyosk logo and self-ordering kiosk icon" /></>}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={documentTitle} />
     <meta name="twitter:description" content={description} />
-    {sharingImageUrl && <><meta name="twitter:image" content={sharingImageUrl} /><meta name="twitter:image:alt" content="Official EZ Kyosk logo and self-ordering kiosk icon" /></>}
+    {sharingImageUrl && <><meta name="twitter:image" content={sharingImageUrl} /><meta name="twitter:image:alt" content="Official Ez Kyosk logo and self-ordering kiosk icon" /></>}
     {schema && <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\u003c')} />}
     {!Astro.site && <meta name="robots" content="noindex, nofollow" />}
   </head>
@@ -94,9 +92,9 @@ const schema = canonical ? {
         </div>
         <div class="footer-links"><span class="footer-label">Product</span><a href={sitePath('/features/')}>Product overview</a><a href={sitePath('/how-it-works/')}>How It Works</a><a href={sitePath('/solutions/')}>Solutions</a></div>
         <div class="footer-links"><span class="footer-label">Industries</span><a href={sitePath('/solutions/#hospitality')}>Hospitality & food</a><a href={sitePath('/solutions/#retail')}>Retail & shops</a><a href={sitePath('/solutions/#wellness')}>Wellness & beauty</a><a href={sitePath('/solutions/#services')}>Services & B2B</a></div>
-        <div class="footer-links"><span class="footer-label">Company</span><a href={sitePath('/about/')}>About EZ Kyosk</a><a href={sitePath('/contact/')}>Request a Demo</a><a href={sitePath('/privacy/')}>Privacy notice</a></div>
+        <div class="footer-links"><span class="footer-label">Company</span><a href={sitePath('/about/')}>About Ez Kyosk</a><a href={sitePath('/contact/')}>Request a Demo</a><a href={sitePath('/privacy/')}>Privacy notice</a></div>
       </div>
-      <div class="footer-bottom"><span>© {new Date().getFullYear()} EZ Kyosk.</span><span>Your Menu. Their Order. One Simple Screen.</span></div>
+      <div class="footer-bottom"><span>© {new Date().getFullYear()} Ez Kyosk.</span><span>Your Menu. Their Order. One Simple Screen.</span></div>
     </footer>
     <script>
       const themeToggle = document.querySelector<HTMLButtonElement>('.theme-toggle');

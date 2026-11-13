@@ -1,8 +1,10 @@
-# EZ Kyosk marketing website
+# Ez Kyosk marketing website
 
-An Astro marketing website for EZ Kyosk, designed for local review before production launch. The repository contains the website only; kiosk ordering, payment, POS, inventory, and order-processing services run outside this codebase.
+An Astro marketing website for Ez Kyosk, designed for local review before production launch. The repository contains the website only; kiosk ordering, payment, POS, inventory, and order-processing services run outside this codebase.
 
 Public design review: `https://reniel-relearn.github.io/Ez-Kyosk-SEO/`
+
+Brand name and original logo/icon sources: [brand guidelines](docs/BRAND_GUIDELINES.md). Run `node scripts/prepare-brand-assets.mjs` after an approved source-logo update to refresh favicon/social derivatives.
 
 ## Review locally
 
@@ -15,7 +17,7 @@ npm run verify
 npm run preview -- --port 4322
 ```
 
-Open `http://127.0.0.1:4322/`. On Windows, `Open EZ Kyosk.cmd` performs the build-and-preview workflow automatically.
+Open `http://127.0.0.1:4322/`. On Windows, `Open Ez Kyosk.cmd` performs the build-and-preview workflow automatically.
 
 For active editing, use `npm run dev`. Run `npm run qa` while a preview is available on port 4322 to execute the responsive browser, keyboard, form, image, and accessibility suite.
 

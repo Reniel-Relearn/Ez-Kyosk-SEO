@@ -1,14 +1,16 @@
-# EZ Kyosk website roadmap
+# Ez Kyosk website roadmap
 
 Last updated: 13 November 2026
 
 ## Current status
 
+Latest owner request: enforce Ez Kyosk naming and use the original `assets/ez-kyosk-lockup.png` / matching icon consistently. Shared logo placements, metadata, CSS casing, active kiosk imagery, and current documentation are aligned; see [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md). Technical URLs/identifiers and historical references are preserved.
+
 **Current phase:** action 2 removed; visual assignments, palette, and benefit icon family implemented. The first realistic sample is integrated into Home > From the first tap to the next task. > Self-ordering experience for owner review. Remaining imagery and the four-step journey are pending.
 
 The repository contains the completed local-review redesign: responsive pages, the approved information architecture, owner-confirmed product scope, preview-safe indexing controls, technical SEO foundations, a non-sending local inquiry experience, and automated build/browser/accessibility checks. Production launch remains unauthorized and unconfigured.
 
-The design brief in `docs/DESIGN-FOR-WEBSITE.pdf`, the owner-supplied product/payment composition screenshot, and the three approved reference sites are active visual references. They define layout, framework, pattern, and interaction direction only. The implementation must be an original EZ Kyosk design and must not reuse third-party copy or unlicensed assets.
+The design brief in `docs/DESIGN-FOR-WEBSITE.pdf`, the owner-supplied product/payment composition screenshot, and the three approved reference sites are active visual references. They define layout, framework, pattern, and interaction direction only. The implementation must be an original Ez Kyosk design and must not reuse third-party copy or unlicensed assets.
 
 The written wireframe has been implemented as a full responsive website. The uploaded PDF and DOCX remain local references and are not intended for repository publication.
 
@@ -55,7 +57,7 @@ The latest task statuses, removed Word-arrangement step, icon exception, and pen
 - [x] Astro static website foundation and dependency lockfile.
 - [x] Seven marketing/content pages plus a custom 404 page.
 - [x] Responsive navigation, footer, accessible light/dark themes, and shared design system.
-- [x] Official EZ Kyosk brand assets and optimized image serving.
+- [x] Official Ez Kyosk brand assets and optimized image serving.
 - [x] Unique page titles and meta descriptions.
 - [x] Semantic heading structure and internal links.
 - [x] Conditional canonical URLs, social metadata, and factual WebPage/WebSite structured data.
@@ -72,13 +74,13 @@ The latest task statuses, removed Word-arrangement step, icon exception, and pen
 
 - [x] Apply the design direction across the full website, not only the homepage.
 - [x] Use the PDF, supplied screenshot, inyad, Qashier, and Table Buddy for pattern transfer, framework, layout, and interaction inspiration only.
-- [x] Build an original EZ Kyosk implementation rather than copying competitor designs, wording, or assets.
+- [x] Build an original Ez Kyosk implementation rather than copying competitor designs, wording, or assets.
 - [x] Use the approved homepage sequence: header/hero; benefits; platform/features; product overview; payments; industries; How It Works; FAQ; CTA/footer.
 - [x] Move the current How It Works experience into the homepage immediately before the FAQ.
 - [x] Keep the current How It Works and FAQ content/behavior intact during the first wireframe pass.
 - [x] Lock the original SEO-focused hero content while allowing design-only revisions.
 - [x] Use Plus Jakarta Sans as the single primary family, with ExtraBold display headings and lighter readable weights for body/UI copy.
-- [x] Develop an elegant, restrained palette derived from the EZ Kyosk logo.
+- [x] Develop an elegant, restrained palette derived from the Ez Kyosk logo.
 - [x] Re-approve accessible light/dark themes with saved preference and system-default fallback; theme changes must not alter crawlable content.
 - [x] Create original benefit headings and cautious copy; do not show competitor references or unsupported citation markers on the website.
 - [x] Treat the PDF feature cards as layout references, not as approved third-party wording.
@@ -89,7 +91,7 @@ The latest task statuses, removed Word-arrangement step, icon exception, and pen
 - [x] Create responsive mobile/tablet interpretations using established responsive design practices and vertical page scrolling.
 - [x] Add progressive animation and hover/focus effects only when semantic HTML content remains crawlable, keyboard accessible, performant, and usable with reduced motion.
 - [x] Keep the existing inquiry form for the current phase and do not publish a response-time promise.
-- [x] Point the “Explore EZ Kyosk” CTA to the public kiosk experience at `https://reniel-relearn.github.io/EZ-Kyosk/`.
+- [x] Point the “Explore Ez Kyosk” CTA to the public kiosk experience at `https://reniel-relearn.github.io/EZ-Kyosk/`.
 - [x] Keep website copy in English for the current phase.
 - [x] Retain “Self-Ordering Kiosk Philippines” as the primary SEO theme.
 - [x] Retain the original hero eyebrow, headline, description, audience line, CTA labels, and tagline verbatim.
@@ -102,7 +104,7 @@ The latest task statuses, removed Word-arrangement step, icon exception, and pen
 - [x] Finalize and apply the blue/white light and blue/black/white dark palette with subtle cyan highlights in `docs/COLOR_PALETTE.md`.
 - [x] Use a hybrid category pattern: crawlable tabs/panels on desktop and vertically stacked sections on mobile, with vertical page scrolling only.
 - [x] Keep the hero brand-first and integration-neutral; place AltPayNet in a dedicated payment section.
-- [x] Use Home, Product, How It Works, Solutions, and About as the primary navigation; keep Request a Demo as the persistent CTA and Explore EZ Kyosk as the product-demo CTA. Keep Industries within Solutions and the footer.
+- [x] Use Home, Product, How It Works, Solutions, and About as the primary navigation; keep Request a Demo as the persistent CTA and Explore Ez Kyosk as the product-demo CTA. Keep Industries within Solutions and the footer.
 
 ### Design implementation after approval
 
@@ -113,7 +115,7 @@ The latest task statuses, removed Word-arrangement step, icon exception, and pen
 - [x] Refine spacing, grid, borders, radii, buttons, cards, and section transitions.
 - [x] Implement the approved hero treatment while preserving the locked original content.
 - [x] Implement the approved “Faster / More / Better” benefits section using only supportable claims.
-- [x] Implement the approved platform/features card section using original EZ Kyosk content and assets.
+- [x] Implement the approved platform/features card section using original Ez Kyosk content and assets.
 - [x] Implement the approved product-overview interaction with crawlable semantic HTML rather than baking important copy into images.
 - [x] Implement the approved dedicated AltPayNet payment/integration section.
 - [x] Implement the approved industry cards using the confirmed target-market direction.

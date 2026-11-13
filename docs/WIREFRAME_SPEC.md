@@ -1,4 +1,6 @@
-# EZ Kyosk website wireframe specification
+# Ez Kyosk website wireframe specification
+
+Branding authority: [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md). Use the original assets, not a header screenshot; display name is Ez Kyosk, including CSS-rendered labels. This owner-authorized casing correction does not unlock unrelated hero-copy edits.
 
 Status: implemented as the full responsive local-review website.
 
@@ -6,7 +8,7 @@ Last updated: 13 November 2026
 
 ## 1. Purpose
 
-This document translates the approved design references and roadmap decisions into an original EZ Kyosk page framework. It defines hierarchy, responsive layout, crawlable content structure, and interaction behavior before visual implementation.
+This document translates the approved design references and roadmap decisions into an original Ez Kyosk page framework. It defines hierarchy, responsive layout, crawlable content structure, and interaction behavior before visual implementation.
 
 The website must feel bold, welcoming, elegant, and product-led. It should borrow useful patterns from the approved references without copying their text, imagery, branding, or exact compositions.
 
@@ -36,7 +38,7 @@ The iterative redesign applies the palette in [COLOR_PALETTE.md](COLOR_PALETTE.m
 5. About
 6. Request a Demo
 
-`Request a Demo` is the persistent primary CTA rather than a standard navigation link. `Explore EZ Kyosk` is the product-demo CTA and opens `https://reniel-relearn.github.io/EZ-Kyosk/`.
+`Request a Demo` is the persistent primary CTA rather than a standard navigation link. `Explore Ez Kyosk` is the product-demo CTA and opens `https://reniel-relearn.github.io/EZ-Kyosk/`.
 
 ### Recommended link behavior
 
@@ -46,7 +48,7 @@ The iterative redesign applies the palette in [COLOR_PALETTE.md](COLOR_PALETTE.m
 - **Solutions:** `/solutions/`
 - **About:** `/about/`
 - **Request a Demo:** `/contact/`
-- **Explore EZ Kyosk:** external public kiosk experience, clearly labeled as opening the interactive demo
+- **Explore Ez Kyosk:** external public kiosk experience, clearly labeled as opening the interactive demo
 
 Industries remains a substantive section within Solutions and in the footer, not a duplicated primary navigation item. Keep `/how-it-works/` as an indexable, expanded educational page. The homepage presents the approved core flow immediately before the FAQ; the dedicated route adds depth and internal links rather than becoming an exact duplicate.
 
@@ -56,7 +58,7 @@ Every primary route has exactly one active navigation state. The homepage hero b
 
 **Desktop:**
 
-- Left: official EZ Kyosk lockup.
+- Left: official Ez Kyosk lockup.
 - Center/right: compact navigation with visible current state.
 - Far right: compact theme control and Request a Demo button.
 - Keep the complete header pinned to the top throughout vertical scrolling on every route. Keep anchor targets clear of the header.
@@ -197,7 +199,7 @@ Content direction:
 - H1: `Self-Ordering Made Easy for Your Business.`
 - Description: `Give customers the freedom to explore your menu, select their favorites, and review their orders, all from one touchscreen.`
 - Audience line: `For cafés, bakeries, restaurants & quick-service businesses.`
-- CTA labels: `Explore EZ Kyosk` and `Request a Demo`.
+- CTA labels: `Explore Ez Kyosk` and `Request a Demo`.
 - Tagline: `Your Menu. Their Order. One Simple Screen.`
 - These hero strings are locked for SEO/GEO/AEO continuity; future revisions may change only presentation unless the owner explicitly re-approves copy changes.
 - The image caption may reflect the latest verified operational scope and must not repeat outdated “planned” language.
@@ -220,7 +222,7 @@ Use cautious, factual language. Do not include numbered citations or competitor 
 
 ### Section 4 - Platform/features overview
 
-Purpose: show that EZ Kyosk can support a connected operating experience while separating standard core capabilities from configurable extensions.
+Purpose: show that Ez Kyosk can support a connected operating experience while separating standard core capabilities from configurable extensions.
 
 Pattern: four or five original image-led feature cards inspired by the reference grid, not copied from it.
 
@@ -330,7 +332,7 @@ All answers exist in HTML and remain readable without opening every accordion th
 Purpose: final demo conversion and complete site navigation.
 
 - Primary CTA: Request a Demo.
-- Secondary CTA: Explore EZ Kyosk.
+- Secondary CTA: Explore Ez Kyosk.
 - Footer groups: Product, Solutions/Industries, Company, Legal/Contact.
 - Include concise positioning, copyright, and privacy link.
 
@@ -389,7 +391,7 @@ Wireframe:
 
 1. Purpose-led hero.
 2. Official orbit logo/brand statement.
-3. What EZ Kyosk does.
+3. What Ez Kyosk does.
 4. Principles: simplicity, hospitality, adaptability, and clarity.
 5. Philippine market focus and supported business types.
 6. Product-demo and inquiry CTAs.

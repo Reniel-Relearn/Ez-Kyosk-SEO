@@ -5,7 +5,7 @@ import DemoCTA from '../components/DemoCTA.astro';
 import { productCategories } from '../data/product';
 import { sitePath } from '../lib/sitePath';
 ---
-<Layout title="Self-Ordering Kiosk Features | EZ Kyosk" description="Explore EZ Kyosk self-ordering, POS checkout, AltPayNet payments, real-time inventory, order tracking, reports, and configurable customer tools.">
+<Layout title="Self-Ordering Kiosk Features | Ez Kyosk" description="Explore Ez Kyosk self-ordering, POS checkout, AltPayNet payments, real-time inventory, order tracking, reports, and configurable customer tools.">
   <section class="page-hero product-hero section-shell">
     <div class="page-hero-copy" data-reveal>
       <span class="eyebrow">Product · Connected capabilities</span>
@@ -13,8 +13,8 @@ import { sitePath } from '../lib/sitePath';
       <p>Bring self-ordering, checkout, payments, inventory visibility, and order tracking into one adaptable experience. Configure the surrounding tools around how your business operates.</p>
       <div class="hero-actions"><a class="button" href="#product-areas">Explore product areas <span aria-hidden="true">↓</span></a><a class="button button-secondary" href={sitePath('/contact/')}>Request a Demo</a></div>
     </div>
-    <nav class="product-system-map" aria-label="Five EZ Kyosk product areas" data-reveal>
-      <div class="product-system-core"><span>EZ Kyosk system</span><strong>Customer choice to operational action</strong><small>Connected around the requirements of each deployment.</small></div>
+    <nav class="product-system-map" aria-label="Five Ez Kyosk product areas" data-reveal>
+      <div class="product-system-core"><span class="brand-case">Ez Kyosk system</span><strong>Customer choice to operational action</strong><small>Connected around the requirements of each deployment.</small></div>
       <div class="product-system-links">
         {productCategories.map((category, index) => <a href={`#${category.id}`}><span>0{index + 1}</span><strong>{category.label}</strong><small>{category.eyebrow}</small></a>)}
       </div>

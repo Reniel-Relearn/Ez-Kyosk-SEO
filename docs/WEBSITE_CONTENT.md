@@ -4,6 +4,8 @@ Last updated: 12 November 2026
 
 This record combines the owner redesign brief, subsequent clarifications, the approved wireframe specification, and owner confirmation of operational capability scope.
 
+Latest branding instruction: display name is Ez Kyosk. This spelling supersedes earlier capitalization, including the locked hero CTA's brand spelling only. Original asset sources and logo rules: [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md).
+
 ## Positioning
 
 - Product: self-ordering and connected checkout kiosk software for Philippine businesses.
@@ -12,7 +14,7 @@ This record combines the owner redesign brief, subsequent clarifications, the ap
 - Primary theme: Self-Ordering Kiosk Philippines.
 - Tagline: Your Menu. Their Order. One Simple Screen.
 - Primary CTA: Request a Demo.
-- Product-demo CTA: Explore EZ Kyosk, linking to `https://reniel-relearn.github.io/EZ-Kyosk/`.
+- Product-demo CTA: Explore Ez Kyosk, linking to `https://reniel-relearn.github.io/EZ-Kyosk/`.
 - Current website language: English.
 
 ## Locked homepage hero content
@@ -21,9 +23,9 @@ This record combines the owner redesign brief, subsequent clarifications, the ap
 - Headline: `Self-Ordering Made Easy for Your Business.`
 - Description: `Give customers the freedom to explore your menu, select their favorites, and review their orders, all from one touchscreen.`
 - Audience: `For cafés, bakeries, restaurants & quick-service businesses.`
-- CTA labels: `Explore EZ Kyosk` and `Request a Demo`.
+- CTA labels: `Explore Ez Kyosk` and `Request a Demo`.
 - Tagline: `Your Menu. Their Order. One Simple Screen.`
-- Current caption: `EZ Kyosk self-ordering and checkout system. Core capabilities include POS checkout, AltPayNet payments, real-time inventory, and order tracking.`
+- Current caption: `Ez Kyosk self-ordering and checkout system. Core capabilities include POS checkout, AltPayNet payments, real-time inventory, and order tracking.`
 
 The eyebrow, headline, description, audience line, CTA labels, and tagline remain unchanged during design revisions, except for the owner's approved removal of em dashes. The caption may be updated only to maintain verified product accuracy.
 

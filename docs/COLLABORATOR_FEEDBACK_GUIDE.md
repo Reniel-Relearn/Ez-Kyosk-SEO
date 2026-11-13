@@ -1,6 +1,6 @@
 # Website design feedback guide
 
-This guide explains how to review the EZ Kyosk website and leave useful feedback without editing any code.
+This guide explains how to review the Ez Kyosk website and leave useful feedback without editing any code.
 
 Review website: `https://reniel-relearn.github.io/Ez-Kyosk-SEO/`
 
@@ -22,7 +22,7 @@ Review website: `https://reniel-relearn.github.io/Ez-Kyosk-SEO/`
 ## Leave feedback in GitHub
 
 1. Sign in at `https://github.com`.
-2. Open the EZ Kyosk repository: `https://github.com/Reniel-Relearn/Ez-Kyosk-SEO`.
+2. Open the Ez Kyosk repository: `https://github.com/Reniel-Relearn/Ez-Kyosk-SEO`.
 3. Select the **Issues** tab near the top of the repository.
 4. Open the issue titled **Website design review feedback**.
 5. Scroll to the comment box at the bottom.
