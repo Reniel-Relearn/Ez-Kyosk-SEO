@@ -2,7 +2,7 @@
 
 Updated: 13 November 2026
 
-Status: the owner removed action 2 and authorized the first two icons. "Faster Ordering Experience" and "More Order Capacity" are now integrated for owner review. Actions 3 and 4 are documented in the visual asset plan. Action 5 and the benefit text/number cleanup are implemented and verified. Better, raster imagery, and journey changes stay pending.
+Status: the owner removed action 2 and authorized all three benefit icons. "Faster Ordering Experience", "More Order Capacity", and "Better Service Flow" are now integrated for owner review. Actions 3 and 4 are documented in the visual asset plan. Action 5 and the benefit text/number cleanup are implemented and verified. Raster imagery and journey changes stay pending.
 
 These notes take precedence over earlier proposals where the design direction has changed. Keep completed implementation separate from pending redesign work.
 
@@ -14,14 +14,14 @@ These notes take precedence over earlier proposals where the design direction ha
 | Expand content sizes and reduce side margins | Done for the current layout | Shared responsive gutters are 20px to 64px; additional card and typography adjustments remain part of iterative review. |
 | Expand text widths and reduce unnecessary wrapping | Done for the reviewed payment introduction | Payment heading and description were widened and left-aligned. This does not mean adding more words or enlarging every font. |
 | Finalize and apply color palette | Done and verified | Blue with subtle cyan highlights, exact theme tokens, and component states are applied in the shared stylesheet. See [COLOR_PALETTE.md](COLOR_PALETTE.md). |
-| Visual assignments and shared art direction | Done as planning | [VISUAL_ASSET_PLAN.md](VISUAL_ASSET_PLAN.md) assigns distinct subjects, groups, crops, reuse, and icon styling. First two icons implemented; remaining assignments pending. |
-| Three benefit cards under "A better way to take orders" | Text cleanup and first two icons implemented | Titles: "Faster Ordering Experience", "More Order Capacity", and "Better"; 01/02/03 are removed. The kiosk/tap and merged-order-path SVGs share the blue/cyan family and both themes. Better's icon remains pending. |
+| Visual assignments and shared art direction | Done as planning | [VISUAL_ASSET_PLAN.md](VISUAL_ASSET_PLAN.md) assigns distinct subjects, groups, crops, reuse, and icon styling. All three benefit icons implemented; raster assignments pending. |
+| Three benefit cards under "A better way to take orders" | Titles and all three icons implemented | Titles: "Faster Ordering Experience", "More Order Capacity", and "Better Service Flow"; 01/02/03 are removed. Kiosk/tap, merged-order-path, and sequential-flow/checkmark SVGs share the blue/cyan family and both themes. |
 | Add ultra-realistic images to applicable cards | Pending | Plan subjects across the site to avoid redundant scenes. Benefit cards are the icon exception; not every card needs photography. |
 | Add visuals to "Five areas. One adaptable system." | Pending | Give each of the five product panels an appropriate, distinct visual, with accurate product/interface references where needed. |
 | Update the customer journey and add images | Pending | New requested sequence: Browse -> Select -> Payment -> Get order. The existing five-step implementation has not yet changed. |
 | Follow the Word document's homepage arrangement | Removed by owner | Action 2 and its dependent homepage-rearrangement step are removed. Retain the current homepage section order; the uploaded documents remain local references. |
 
-The saved image prompt remains verbatim in [IMAGE_ASSET_PROMPT.md](IMAGE_ASSET_PROMPT.md). Only the first two benefit icons have been authorized and implemented. Better and other imagery remain pending. Specifications and asset paths are in [VISUAL_ASSET_PLAN.md](VISUAL_ASSET_PLAN.md).
+The saved image prompt remains verbatim in [IMAGE_ASSET_PROMPT.md](IMAGE_ASSET_PROMPT.md). All three benefit icons have been authorized and implemented; other imagery remains pending. Specifications and asset paths are in [VISUAL_ASSET_PLAN.md](VISUAL_ASSET_PLAN.md).
 
 ## Finalized palette specification
 
@@ -45,9 +45,9 @@ Primary button text: white on the light-mode blue button and dark navy on the da
 
 - Faster Ordering Experience: touchscreen/tap symbol.
 - More Order Capacity: two order slips and paths merging into a shared queue, with one cyan junction.
-- Better: connected order flow with a checkmark.
+- Better Service Flow: connected sequential stages ending in one cyan completion checkmark.
 
-Use one icon family with consistent stroke weight, proportions, and visual size. Apply the theme's blue consistently. The first two icons are implemented as SVG; Better remains a concept, not a created asset.
+The completed SVG icon family uses consistent stroke weight, proportions, and visual size. Each icon applies the theme's blue with one small cyan detail.
 
 ## Alignment rules for later work
 

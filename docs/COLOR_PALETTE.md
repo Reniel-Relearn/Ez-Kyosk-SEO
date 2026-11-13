@@ -78,5 +78,5 @@ Palette implementation verification passed: 48 responsive route checks including
 ## Scope boundary
 
 - Complete now: palette selection, exact tokens, usage rules, interaction-state specification, pairwise contrast calculations, and shared CSS implementation.
-- First two benefit icons now implemented after owner authorization, using the same blue/cyan tokens. Better's icon, raster image generation, and homepage rearrangement are not performed.
+- All three benefit icons are now implemented after owner authorization, using the same blue/cyan tokens. Raster image generation and homepage rearrangement are not performed.
 - Action 2 is removed at the owner's request. Retain the current homepage sequence; review the icon family before further artwork.

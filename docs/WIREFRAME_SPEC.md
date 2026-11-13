@@ -10,7 +10,7 @@ This document translates the approved design references and roadmap decisions in
 
 The website must feel bold, welcoming, elegant, and product-led. It should borrow useful patterns from the approved references without copying their text, imagery, branding, or exact compositions.
 
-The iterative redesign applies the palette in [COLOR_PALETTE.md](COLOR_PALETTE.md) and uses the visual assignments in [VISUAL_ASSET_PLAN.md](VISUAL_ASSET_PLAN.md). Action 2 (Word-arrangement review) and its dependent rearrangement are removed; keep the current homepage section sequence. The reusable image-generation prompt remains in [IMAGE_ASSET_PROMPT.md](IMAGE_ASSET_PROMPT.md). Latest statuses are in [ITERATIVE_REDESIGN_NOTES.md](ITERATIVE_REDESIGN_NOTES.md). The first two benefit icons are authorized and integrated for review; Better remains pending.
+The iterative redesign applies the palette in [COLOR_PALETTE.md](COLOR_PALETTE.md) and uses the visual assignments in [VISUAL_ASSET_PLAN.md](VISUAL_ASSET_PLAN.md). Action 2 (Word-arrangement review) and its dependent rearrangement are removed; keep the current homepage section sequence. The reusable image-generation prompt remains in [IMAGE_ASSET_PROMPT.md](IMAGE_ASSET_PROMPT.md). Latest statuses are in [ITERATIVE_REDESIGN_NOTES.md](ITERATIVE_REDESIGN_NOTES.md). All three benefit icons are authorized and integrated for review; raster imagery remains pending.
 
 ## 2. Non-negotiable principles
 
@@ -208,13 +208,13 @@ Purpose: answer why a business should consider self-ordering without unsupported
 
 Pattern: one wide light panel containing three clear benefit columns.
 
-The first two headings are now "Faster Ordering Experience" and "More Order Capacity"; visible 01/02/03 labels are removed. One consistent blue icon per card replaces the earlier photography recommendation. The first card has an original kiosk/tapping-hand SVG with one cyan touch arc. The second has two order slips merging into a shared queue, with one cyan junction. Both are transparent 64px SVGs, sit 24px above their headings, follow shared light/dark tokens, and are decorative and non-focusable. Better's icon remains pending. Specifications and asset paths: `VISUAL_ASSET_PLAN.md`.
+The headings are now "Faster Ordering Experience", "More Order Capacity", and "Better Service Flow"; visible 01/02/03 labels are removed. One consistent blue icon per card replaces the earlier photography recommendation. The first has a kiosk/tapping hand with one cyan touch arc. The second has two order slips merging into a shared queue, with one cyan junction. The third has sequential connected stages ending in a cyan completion checkmark. All are transparent 64px SVGs, sit 24px above their headings, follow shared light/dark tokens, and are decorative and non-focusable. Specifications and asset paths: `VISUAL_ASSET_PLAN.md`.
 
 Working themes:
 
 1. Faster - a more direct customer ordering path.
 2. More Order Capacity - another channel for handling customer demand.
-3. Better - clearer ordering and service flow.
+3. Better Service Flow - clearer ordering and service flow.
 
 Use cautious, factual language. Do not include numbered citations or competitor wording in the interface.
 
