@@ -2,11 +2,11 @@
 
 Saved: 13 November 2026
 
-Status: the image prompt below remains saved verbatim for future raster imagery. All three benefit icons are authorized and integrated as original SVGs. Raster imagery remains pending.
+Status: the owner's prompt below remains saved verbatim. All three benefit icons are implemented as original SVGs. The first raster sample, Home's Self-ordering experience overview card, is generated and integrated for review. Remaining raster imagery is pending.
 
 The next iterative redesign starts with the homepage, with images for its cards as the core direction. This document preserves the owner's prompt verbatim for that future work. Approved project assets will use `public/assets/images`.
 
-Latest scope clarification: the three benefit cards use coordinated SVG line icons rather than photographs. Faster Ordering Experience, More Order Capacity, and Better Service Flow have been created. Ultra-realistic imagery is intended for appropriate other cards, the product panels, and the revised customer journey; raster generation remains on hold. The palette is specified in [COLOR_PALETTE.md](COLOR_PALETTE.md). The assignment list and icon briefs are in [VISUAL_ASSET_PLAN.md](VISUAL_ASSET_PLAN.md). The Word-arrangement action is removed; retain the current homepage order. See [ITERATIVE_REDESIGN_NOTES.md](ITERATIVE_REDESIGN_NOTES.md) for current statuses; the saved prompt below remains unchanged.
+Latest scope clarification: the benefit cards use coordinated SVG icons; appropriate other cards use realistic raster imagery. The first overview-card sample follows the saved prompt and is documented with its exact generation prompt in [PLATFORM_SELF_ORDERING_ASSET.md](PLATFORM_SELF_ORDERING_ASSET.md). Review it before generating the remaining four overview images or other groups. Palette: [COLOR_PALETTE.md](COLOR_PALETTE.md). Assignments: [VISUAL_ASSET_PLAN.md](VISUAL_ASSET_PLAN.md). The Word-arrangement action is removed; retain the homepage order. See [ITERATIVE_REDESIGN_NOTES.md](ITERATIVE_REDESIGN_NOTES.md) for current statuses; the owner's saved prompt below remains unchanged.
 
 ## Saved prompt
 

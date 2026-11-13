@@ -12,7 +12,7 @@ The visual references influenced hierarchy and pattern selection only. The websi
 
 The primary navigation is Home, Product, How It Works, Solutions, and About, with Request a Demo as the persistent CTA. Industries is grouped under Solutions. The existing homepage sequence is retained after the owner removed the Word-arrangement action; How It Works remains immediately before the FAQ. Product content is available in HTML at all times; desktop visitors use accessible tabs while mobile visitors see vertically stacked sections.
 
-The benefits are named Faster Ordering Experience, More Order Capacity, and Better Service Flow; the three benefit numbers are removed. Their original blue/cyan SVGs show a kiosk/tap, two order paths merging into a shared queue, and sequential stages ending in a completion checkmark. All follow the same 64px icon family and light/dark tokens. New raster assets remain pending. `VISUAL_ASSET_PLAN.md` records their specifications, implementation, and remaining assignments.
+The benefits are named Faster Ordering Experience, More Order Capacity, and Better Service Flow; their numbers are removed and their matching 64px blue/cyan SVG family is complete. The next section's first card, Self-ordering experience, now has a realistic generated kiosk composition, optimized as responsive WebP for both themes. This is the first art-direction sample for review; the other four cards and all remaining imagery are unchanged. `VISUAL_ASSET_PLAN.md` records specifications, implementation, and pending assignments.
 
 Supporting routes provide distinct detail instead of repeating the homepage:
 
