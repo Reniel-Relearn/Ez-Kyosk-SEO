@@ -24,7 +24,7 @@ Do not rename repository URLs, case-sensitive external demo paths, the Pages bas
 Both existing gold-wordmark images required raster branding corrections. The built-in ImageGen tool used the original logo and icon as references, never a header screenshot. The resulting device imagery is illustrative, not a verified interface screenshot or pixel-identical embedding of the original source logo.
 
 - Active hero: `assets/hero-kiosk-transparent-v3.webp`, with genuine transparent surroundings and no white logo backing panels. Dark device material shows behind the logos; light lettering supplies contrast without a white plate. V2 is rejected and not imported. See [HERO_TRANSPARENCY_FIX.md](HERO_TRANSPARENCY_FIX.md) for the two-step correction and decoded-pixel checks.
-- Active overview card: `public/assets/images/platform-self-ordering-v2-{320,640,1280}.webp`, replacing the v1 URLs without altering the card's copy or structure.
+- Active overview card: `public/assets/images/platform-self-ordering-v3-{320,640,1280}.webp`. The 14 November correction removes both white logo backing panels and reverses the kiosk's physical three-quarter view without mirroring its lettering. Dark device material remains behind the cyan/light logos. Card copy and structure are unchanged. See [PLATFORM_SELF_ORDERING_ASSET.md](PLATFORM_SELF_ORDERING_ASSET.md). Older v2 WebPs are retained for recovery, not referenced by the page.
 - The old v1 WebPs are retained in `assets/archive/` so they are recoverable but no longer deployed as public files. The original supplied hero/concept images remain untouched as historical references, not active imports.
 - Existing third-party payment-provider logos are not Ez Kyosk logos and are not replaced.
 
@@ -36,7 +36,7 @@ Build verification checks canonical spelling in generated HTML, shared-logo refe
 
 ## Exact raster-edit prompts
 
-Historical v2 prompts below explain the superseded output. Their white-plate instruction does not apply to the current hero; the owner's latest request and [HERO_TRANSPARENCY_FIX.md](HERO_TRANSPARENCY_FIX.md) take precedence.
+Historical v2 prompts below explain the superseded output. Their white-plate instruction applies to neither current kiosk image; the owner's latest requests, [HERO_TRANSPARENCY_FIX.md](HERO_TRANSPARENCY_FIX.md), and [PLATFORM_SELF_ORDERING_ASSET.md](PLATFORM_SELF_ORDERING_ASSET.md) take precedence.
 
 ### Hero
 

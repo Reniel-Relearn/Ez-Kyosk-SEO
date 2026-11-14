@@ -2,7 +2,7 @@
 
 Updated: 13 November 2026
 
-Branding override: [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md) is authoritative. Display name is Ez Kyosk. Use only original logo/icon assets, not header screenshots. The hero now uses transparent v3 artwork without white logo panels; see [HERO_TRANSPARENCY_FIX.md](HERO_TRANSPARENCY_FIX.md). The first overview card remains v2. Original source images and superseded samples remain non-deployed references.
+Branding override: [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md) is authoritative. Display name is Ez Kyosk. Use only original logo/icon assets, not header screenshots. The hero uses transparent v3 artwork without white logo panels; see [HERO_TRANSPARENCY_FIX.md](HERO_TRANSPARENCY_FIX.md). The first overview card now uses v3 without logo backing plates and with the opposite three-quarter kiosk view, as requested on 14 November. Original source images and superseded samples remain reference material, not active page imports.
 
 Actions 3 and 4: visual assignments and shared art direction. All three benefit icons are integrated. The first realistic sample is integrated into Home's Self-ordering experience overview card for owner review. Remaining imagery and the four-step journey are pending. The Word-arrangement action is removed; retain the current homepage sequence.
 
@@ -102,6 +102,8 @@ Exact location: Home > One connected platform > From the first tap to the next t
 
 Generated a restrained 4:3 product composition using the existing owner-supplied kiosk artwork as its physical-device and illustrative-menu reference. The touchscreen and upper pedestal remain visible against a neutral background with a subtle blue tint. This is illustrative product imagery, not a verified live interface screenshot. Only the first card's placeholder is replaced; the other four cards and all text remain unchanged.
 
-Responsive WebP assets: `public/assets/images/platform-self-ordering-v2-{320,640,1280}.webp`, approximately 8KB, 22KB, and 58KB. Integration preserves the five-card grid, uses base-path-safe responsive URLs, lazy loading, explicit dimensions, and alt text. Full prompt, provenance, optimization settings, and verification: [PLATFORM_SELF_ORDERING_ASSET.md](PLATFORM_SELF_ORDERING_ASSET.md).
+Responsive WebP assets: `public/assets/images/platform-self-ordering-v3-{320,640,1280}.webp`, approximately 8KB, 22KB, and 56KB. V3 removes both white logo plates and turns the kiosk to show its left silver edge, with readable non-mirrored text. The studio background remains opaque. Integration preserves the five-card grid, uses base-path-safe responsive URLs, lazy loading, explicit dimensions, and alt text. Full prompt, provenance, optimization settings, and verification: [PLATFORM_SELF_ORDERING_ASSET.md](PLATFORM_SELF_ORDERING_ASSET.md).
 
 Owner review of this sample remains pending; creation of the remaining assets is not implied.
+
+Next proposed card, not generated: Home > One connected platform > POS and checkout. A restrained 4:3 staff-side checkout workstation and receipt context, with the same neutral/cool-blue lighting and charcoal hardware. This must illustrate staff order handling rather than duplicate the customer-facing kiosk or the later payment-terminal close-up. Detailed POS screen content requires actual system references; no fabricated live interface or analytics. Continue one card at a time after owner direction.

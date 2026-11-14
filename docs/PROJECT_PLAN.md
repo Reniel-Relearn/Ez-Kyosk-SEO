@@ -1,10 +1,10 @@
 # Ez Kyosk website roadmap
 
-Last updated: 13 November 2026
+Last updated: 14 November 2026
 
 ## Current status
 
-Latest owner request: enforce Ez Kyosk naming and use the original `assets/ez-kyosk-lockup.png` / matching icon consistently. Shared logo placements, metadata, CSS casing, active kiosk imagery, and current documentation are aligned; see [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md). Technical URLs/identifiers and historical references are preserved.
+Latest owner request: correct only Home's first Self-ordering experience card by removing both logo backing fills and turning the kiosk to the opposite side. V3 is integrated with dark material behind the logos, the left silver edge visible, and readable non-mirrored text. The hero, copy, layout, and remaining four cards are unchanged. Next card is POS and checkout, proposal only; proceed one image card at a time. See [PLATFORM_SELF_ORDERING_ASSET.md](PLATFORM_SELF_ORDERING_ASSET.md). Consistent naming and original logo sources remain governed by [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md).
 
 **Current phase:** action 2 removed; visual assignments, palette, and benefit icon family implemented. The first realistic sample is integrated into Home > From the first tap to the next task. > Self-ordering experience for owner review. Remaining imagery and the four-step journey are pending.
 

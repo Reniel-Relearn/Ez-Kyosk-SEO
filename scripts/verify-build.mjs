@@ -1,6 +1,7 @@
 import { readFile, access, readdir } from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import { verifyHeroImage } from './verify-hero-image.mjs';
+import sharp from 'sharp';
 
 const paths = ['', 'features', 'how-it-works', 'solutions', 'about', 'contact', 'privacy'];
 const basePath = `/${(process.env.BASE_PATH || '').replace(/^\/+|\/+$/g, '')}`.replace(/^\/$/, '');
@@ -74,6 +75,16 @@ const heroVariants = (await readdir('dist/_astro')).filter(file => file.startsWi
 assert.equal(heroVariants.length, 3, 'all three responsive transparent hero variants');
 for (const file of heroVariants) await verifyHeroImage(`dist/_astro/${file}`);
 await assert.rejects(access('dist/assets/images/platform-self-ordering-v1-640.webp'), 'superseded public artwork is not deployed');
+const homeHtml = pages.get('/');
+assert.equal((homeHtml.match(/class="platform-image"/g) || []).length, 1, 'only the first platform card has generated imagery');
+assert.ok(!homeHtml.includes('platform-self-ordering-v2-'), 'home uses the reviewed v3 correction, not the old white logo plates');
+for (const width of [320, 640, 1280]) {
+  const filename = `platform-self-ordering-v3-${width}.webp`;
+  assert.ok(homeHtml.includes(publicPath(`/assets/images/${filename}`)), `home references ${filename}`);
+  const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
+  assert.equal(metadata.width, width, `${filename}: responsive width`);
+  assert.equal(metadata.height, width * 3 / 4, `${filename}: unchanged 4:3 ratio`);
+}
 const notFound = await readFile('dist/404.html', 'utf8');
 assert.ok([...notFound.matchAll(/\bez\s+kyosk\b/gi)].every(match => match[0] === 'Ez Kyosk'), '404: canonical brand spelling');
 console.log('Passed: 7 pages, internal links/anchors/assets, unique metadata, logo/favicon references, indexing controls, sitemap, and configured-site schema/sharing image.');
