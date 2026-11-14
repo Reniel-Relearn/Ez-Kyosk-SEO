@@ -42,7 +42,8 @@ try {
       if (route === '/' || route === '/features/') {
         assert.equal(await page.locator('.payment-terminal-image').count(), 1, 'shared terminal image');
         assert.equal(await page.locator('.payments-section .mini-kiosk').count(), 0, 'first payment placeholder replaced');
-        assert.equal(await page.locator('.payments-section .phone-art').count(), 1, 'second payment placeholder retained');
+        assert.equal(await page.locator('.payment-online-image').count(), 1, 'exact owner-supplied online payment image');
+        assert.equal(await page.locator('.payments-section .phone').count(), 0, 'second payment placeholder replaced');
       }
       if (route === '/') {
         assert.equal(await page.locator('.product-panel-image').count(), 5, 'all five product panels have imagery');

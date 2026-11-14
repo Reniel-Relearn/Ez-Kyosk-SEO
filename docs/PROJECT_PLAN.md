@@ -4,9 +4,9 @@ Last updated: 14 November 2026
 
 ## Current status
 
-Latest owner request: implement the first payment image using the attached two-card screenshot as the close composition reference. Terminal integration now uses a transparent countertop kiosk plus separate terminal, NO hand/card, original-reference logos without white backing plates and a generic matching PHP 300 total. Existing wording/links, second payment placeholder, ten prior card images, hero and page order are retained. This shared component applies to BOTH Home and Product. Next proposal: hand-held phone for QR and e-wallet checkout, not generated. See [PAYMENT_TERMINAL_ASSET.md](PAYMENT_TERMINAL_ASSET.md). Consistent naming and original logo sources remain governed by [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md).
+Latest owner request: use the exact supplied Hand Holding AltPayNet Payment Phone and Cards PNG in the second payment card, with the first attached screenshot as layout reference only. Both payment images are now integrated on Home and Product. PNG is byte-identical, not regenerated/recolored/rebranded/re-encoded. First card artwork/centering, all HTML copy/links, prior images, hero and page order are retained. Next proposal: first Hospitality & food industry image, not generated. See [PAYMENT_ONLINE_ASSET.md](PAYMENT_ONLINE_ASSET.md). Consistent naming and original logo sources remain governed by [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md), with the explicit artwork-specific exception for the exact supplied PNG.
 
-**Current phase:** action 2 removed; visual assignments, palette, and benefit icon family implemented. All five overview cards, all five Home product images and the first shared payment image are integrated for owner review. Second payment/industry imagery, Product deep-dive reuse and the four-step journey remain pending.
+**Current phase:** action 2 removed; visual assignments, palette, and benefit icon family implemented. All five overview cards, all five Home product images and both shared payment images are integrated for owner review. Industry imagery, Product deep-dive reuse and the four-step journey remain pending.
 
 The repository contains the completed local-review redesign: responsive pages, the approved information architecture, owner-confirmed product scope, preview-safe indexing controls, technical SEO foundations, a non-sending local inquiry experience, and automated build/browser/accessibility checks. Production launch remains unauthorized and unconfigured.
 
@@ -41,7 +41,8 @@ The latest task statuses, removed Word-arrangement step, icon exception, and pen
 - [x] Complete the separately authorized Reports & Analytics product image with Sample data labels, retaining the first three artworks, configurable wording and tab behavior.
 - [x] Complete the separately authorized Customers product image with Sample profile and Configurable labels, retaining first four artworks, conditional wording and tab behavior.
 - [x] Implement first shared Home/Product payment image using the newer screenshot-aligned kiosk/terminal composition, no hand/card, retaining existing HTML copy and second payment placeholder.
-- Next card: QR and e-wallet checkout in the shared Home/Product Payments section. Exact hand/phone/illustrative QR composition and provider-mark limitations are documented in [PAYMENT_TERMINAL_ASSET.md](PAYMENT_TERMINAL_ASSET.md). Not generated. Continue one asset at a time; every completion report must give exact next-card details.
+- [x] Integrate the exact owner-supplied PNG in the second shared Home/Product payment card without changing artwork or first-card centering.
+- Next card: Home industry card Hospitality & food. Exact café/bakery/kiosk setting, crops, preserved text and accuracy limits are documented in [PAYMENT_ONLINE_ASSET.md](PAYMENT_ONLINE_ASSET.md). Not generated. Continue one asset at a time; every completion report must give exact next-card details.
 
 ## Status legend
 

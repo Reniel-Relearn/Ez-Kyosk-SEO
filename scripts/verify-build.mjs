@@ -2,6 +2,7 @@ import { readFile, access, readdir } from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import { verifyHeroImage } from './verify-hero-image.mjs';
 import sharp from 'sharp';
+import { createHash } from 'node:crypto';
 
 const paths = ['', 'features', 'how-it-works', 'solutions', 'about', 'contact', 'privacy'];
 const basePath = `/${(process.env.BASE_PATH || '').replace(/^\/+|\/+$/g, '')}`.replace(/^\/$/, '');
@@ -187,8 +188,21 @@ for (const route of ['/', '/features/']) {
   assert.ok(html.includes('Connect a secure payment terminal to the kiosk checkout flow for supported card and in-store payment requirements.'), `${route}: payment description retained`);
   assert.ok(html.includes('Discuss terminal requirements'), `${route}: payment link retained`);
   assert.ok(html.includes('Illustrative Ez Kyosk countertop kiosk'), `${route}: illustrative alt`);
-  assert.equal((html.match(/class="phone-art"/g) || []).length, 1, `${route}: second payment placeholder retained`);
+  assert.equal((html.match(/class="payment-online-image"/g) || []).length, 1, `${route}: second payment image integrated`);
+  assert.ok(!html.includes('class="phone"'), `${route}: online payment CSS placeholder replaced`);
   assert.ok(html.includes('QR and e-wallet checkout</h3>'), `${route}: second payment heading retained`);
+  assert.ok(html.includes('Let customers use supported QR, GCash, Maya, card, and e-wallet payment paths from a mobile device.'), `${route}: second payment description retained`);
+  assert.ok(html.includes('Discuss online payments'), `${route}: second payment link retained`);
+  const onlineTag = html.match(/<img class="payment-online-image"[^>]+>/)?.[0];
+  assert.ok(onlineTag?.includes('Owner-supplied illustration'), `${route}: accurate owner-supplied image alt`);
+  assert.ok(onlineTag.includes('width="1371" height="1148"'), `${route}: original dimensions retained`);
+  const onlineSource = onlineTag.match(/src="([^"]+)"/)?.[1];
+  assert.ok(onlineSource?.endsWith('.png'), `${route}: original PNG, not a generated/re-encoded replacement`);
+  const sourceBytes = await readFile('assets/Hand Holding AltPayNet Payment Phone and Cards.png');
+  const deployedBytes = await readFile(locationFor(outputPath(decodeURIComponent(onlineSource))));
+  const hash = bytes => createHash('sha256').update(bytes).digest('hex');
+  assert.equal(hash(sourceBytes), '6e5c2d1de4e3d0eef00417515d4fa18234a23e68ccd713793d836c01e528124d', 'exact owner-approved source PNG unchanged');
+  assert.equal(hash(deployedBytes), hash(sourceBytes), `${route}: deployed PNG byte-identical to supplied original`);
   for (const width of [360, 720, 1080]) {
     assert.ok(html.includes(publicPath(`/assets/images/payment-terminal-v1-${width}.webp`)), `${route}: base-safe terminal source ${width}`);
   }

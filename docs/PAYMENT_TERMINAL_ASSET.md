@@ -42,6 +42,8 @@ Full-site regression passed 48 responsive route checks and 32 light/dark accessi
 
 ## Exact next card: QR and e-wallet checkout (proposal only)
 
+Historical handoff: owner subsequently supplied an exact PNG and explicitly requested unchanged integration rather than generation. The proposal below is superseded by [PAYMENT_ONLINE_ASSET.md](PAYMENT_ONLINE_ASSET.md). Original terminal artwork and centering remain unchanged.
+
 - Same shared Home/Product section, second card: **Online payments > QR and e-wallet checkout**.
 - Keep existing description: **Let customers use supported QR, GCash, Maya, card, and e-wallet payment paths from a mobile device.** Keep **Discuss online payments** link.
 - Match the supplied screenshot's SECOND image: realistic cropped hand gripping lower/right edges of a slightly angled black portrait smartphone, visible fingers with natural anatomy, no face/full person.
