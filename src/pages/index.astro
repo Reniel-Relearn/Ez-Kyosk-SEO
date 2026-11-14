@@ -19,6 +19,11 @@ const platforms = [
   ['05', 'Configurable extensions', 'Scope reports, customers, loyalty, promotions, and other needs around your operation.'],
 ];
 
+const platformImages: Record<string, { id: string; stem: string; alt: string }> = {
+  '01': { id: 'platform-ordering', stem: 'platform-self-ordering-v3', alt: 'Ez Kyosk kiosk with a café menu on its touchscreen' },
+  '02': { id: 'platform-checkout', stem: 'platform-pos-checkout-v1', alt: 'Illustrative Ez Kyosk checkout workstation with a receipt printer' },
+};
+
 const industries = [
   ['hospitality', 'Hospitality & food', 'Cafés, bakeries, restaurants, and quick-service teams can create a clearer ordering path.'],
   ['retail', 'Retail & shops', 'Bring product discovery, selection, payment, and stock visibility into one guided touchpoint.'],
@@ -46,14 +51,17 @@ const industries = [
 
   <section class="platform-section section-shell" aria-labelledby="platform-title" data-reveal>
     <div class="section-heading"><div><span class="eyebrow">One connected platform</span><h2 id="platform-title">From the first tap to the next task.</h2></div><p>Start with the ordering experience, then connect checkout, payments, inventory, tracking, and the tools your operation requires.</p></div>
-    <div class="platform-grid">{platforms.map(([number, title, body]) => number === '01' ? (
-      <PlatformImageCard id="platform-ordering" title={title} description={body}
-        image={sitePath('/assets/images/platform-self-ordering-v3-640.webp')}
-        imageSrcSet={`${sitePath('/assets/images/platform-self-ordering-v3-320.webp')} 320w, ${sitePath('/assets/images/platform-self-ordering-v3-640.webp')} 640w, ${sitePath('/assets/images/platform-self-ordering-v3-1280.webp')} 1280w`}
-        imageAlt="Ez Kyosk kiosk with a café menu on its touchscreen" />
-    ) : (
-      <article><span>{number}</span><div class="platform-icon" aria-hidden="true"><i></i><i></i><i></i></div><h3>{title}</h3><p>{body}</p></article>
-    ))}</div>
+    <div class="platform-grid">{platforms.map(([number, title, body]) => {
+      const image = platformImages[number];
+      return image ? (
+        <PlatformImageCard id={image.id} title={title} description={body}
+          image={sitePath(`/assets/images/${image.stem}-640.webp`)}
+          imageSrcSet={[320, 640, 1280].map(width => `${sitePath(`/assets/images/${image.stem}-${width}.webp`)} ${width}w`).join(', ')}
+          imageAlt={image.alt} />
+      ) : (
+        <article><span>{number}</span><div class="platform-icon" aria-hidden="true"><i></i><i></i><i></i></div><h3>{title}</h3><p>{body}</p></article>
+      );
+    })}</div>
   </section>
 
   <section class="product-section section-shell" aria-labelledby="product-title" data-reveal>
