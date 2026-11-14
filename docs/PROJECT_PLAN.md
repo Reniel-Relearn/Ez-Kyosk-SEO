@@ -4,9 +4,9 @@ Last updated: 14 November 2026
 
 ## Current status
 
-Latest owner request: generate an original generic menu concept and integrate it into Home's first Explore the product panel, Self-Ordering. The 4:3 image pairs our portrait kiosk with an enlarged matching order review. The supplied screenshot is a layout reference only; the owner approved a generated menu rather than requiring live interface captures. Existing text/tabs, the other four product panels, overview cards, hero, Product page, and page order are unchanged. See [PRODUCT_SELF_ORDERING_ASSET.md](PRODUCT_SELF_ORDERING_ASSET.md). Consistent naming and original logo sources remain governed by [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md).
+Latest owner request: proceed with the next product card and report exact details of the card after it. Home's POS & Checkout panel now has a staff workstation/printer and enlarged generic checkout concept. Self-Ordering artwork, all text/tabs, the three remaining placeholders, overview cards, hero, Product page and page order are unchanged. Inventory is the next written proposal only. See [PRODUCT_POS_CHECKOUT_ASSET.md](PRODUCT_POS_CHECKOUT_ASSET.md). Consistent naming and original logo sources remain governed by [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md).
 
-**Current phase:** action 2 removed; visual assignments, palette, and benefit icon family implemented. All five overview cards and the first Home product-panel image are integrated for owner review. Four product-panel images, later section imagery, and the four-step journey remain pending.
+**Current phase:** action 2 removed; visual assignments, palette, and benefit icon family implemented. All five overview cards and the first two Home product images are integrated for owner review. Three product images, later section imagery and the four-step journey remain pending.
 
 The repository contains the completed local-review redesign: responsive pages, the approved information architecture, owner-confirmed product scope, preview-safe indexing controls, technical SEO foundations, a non-sending local inquiry experience, and automated build/browser/accessibility checks. Production launch remains unauthorized and unconfigured.
 
@@ -36,7 +36,8 @@ The latest task statuses, removed Word-arrangement step, icon exception, and pen
 - [x] Complete the separately authorized Inventory and order tracking image and apply the shared layout to card 4, retaining existing copy.
 - [x] Complete the separately authorized Configurable extensions image and apply the shared layout to card 5, retaining existing copy.
 - [x] Generate and integrate the separately authorized generic menu/cart image into Home's Self-Ordering product panel, retaining copy and tab behavior.
-- Next exact action: propose the POS & Checkout product-panel visual and confirm actual-reference versus illustrative-concept treatment before generation. Continue one asset at a time. Each completion report must state the completed location and exact next action.
+- [x] Complete the separately authorized POS & Checkout product image, retaining first artwork, copy and tab behavior.
+- Next card: Inventory. Its exact composition, sample availability rows, scope and exclusions are documented in [PRODUCT_POS_CHECKOUT_ASSET.md](PRODUCT_POS_CHECKOUT_ASSET.md). Not generated. Continue one asset at a time; each completion report must give the exact next-card details.
 
 ## Status legend
 

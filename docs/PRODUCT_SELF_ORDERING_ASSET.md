@@ -36,6 +36,8 @@ Full-site regression passed 48 responsive route checks and 32 light/dark accessi
 
 ## Exact next action
 
+Historical first-image handoff below. POS & Checkout was subsequently authorized and completed separately; current verification and the detailed next Inventory proposal are in [PRODUCT_POS_CHECKOUT_ASSET.md](PRODUCT_POS_CHECKOUT_ASSET.md).
+
 Present the visual brief for Home > Explore the product > POS & Checkout > Move confirmed orders into checkout. Propose a distinct staff-side checkout/order-queue composition rather than repeating this customer menu. Confirm actual approved UI versus a separately authorized generic illustrative concept before generation. Do not automatically generate the next image or modify the Product page. Every completion report must name the completed location and exact next action.
 
 ## Modified files
