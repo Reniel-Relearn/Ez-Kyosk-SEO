@@ -76,6 +76,20 @@ assert.equal(heroVariants.length, 3, 'all three responsive transparent hero vari
 for (const file of heroVariants) await verifyHeroImage(`dist/_astro/${file}`);
 await assert.rejects(access('dist/assets/images/platform-self-ordering-v1-640.webp'), 'superseded public artwork is not deployed');
 const homeHtml = pages.get('/');
+const selfOrderingPanel = homeHtml.match(/<section class="product-panel" id="panel-self-ordering"[\s\S]*?<\/section>/)?.[0];
+assert.ok(selfOrderingPanel?.includes('product-panel-image'), 'Self-Ordering product panel has its generated concept image');
+assert.ok(selfOrderingPanel.includes('Every choice, clear from the first tap.</h3>'), 'product panel heading retained');
+assert.ok(selfOrderingPanel.includes('Illustrative Ez Kyosk portrait kiosk menu'), 'image described as illustrative, not a live screenshot');
+assert.ok(!selfOrderingPanel.includes('ui-window'), 'only the first product placeholder is replaced');
+assert.equal((homeHtml.match(/class="ui-window"/g) || []).length, 4, 'other four product placeholders retained');
+assert.equal((homeHtml.match(/class="product-panel-image"/g) || []).length, 1, 'only one product image integrated');
+for (const width of [480, 960, 1440]) {
+  const filename = `product-self-ordering-v1-${width}.webp`;
+  assert.ok(selfOrderingPanel.includes(publicPath(`/assets/images/${filename}`)), `product panel uses base-safe ${filename}`);
+  const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
+  assert.equal(metadata.width, width);
+  assert.equal(metadata.height, width * 3 / 4);
+}
 assert.equal((homeHtml.match(/class="platform-image"/g) || []).length, 5, 'all five platform cards have imagery');
 assert.ok(!homeHtml.includes('platform-self-ordering-v2-'), 'home uses the reviewed v3 correction, not the old white logo plates');
 const firstPlatformCard = homeHtml.match(/<article class="platform-card--expandable"[\s\S]*?<\/article>/)?.[0];

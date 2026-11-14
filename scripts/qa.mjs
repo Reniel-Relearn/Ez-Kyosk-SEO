@@ -40,6 +40,12 @@ try {
       assert.equal(state.headings, 1);
       assert.equal(state.brokenImages.length, 0, `${route}: images`);
       if (route === '/') {
+        assert.equal(await page.locator('.product-panel-image').count(), 1, 'only the first product panel has its new image');
+        assert.equal(await page.locator('.product-explorer .ui-window').count(), 4, 'other product placeholders retained');
+        const productImage = await page.locator('#panel-self-ordering .product-panel-image').evaluate(image => ({ source: image.currentSrc, alt: image.alt, ratio: image.getBoundingClientRect().width / image.getBoundingClientRect().height }));
+        assert.ok(productImage.source.includes('product-self-ordering-v1-'));
+        assert.ok(productImage.alt.startsWith('Illustrative Ez Kyosk'));
+        assert.ok(Math.abs(productImage.ratio - 4 / 3) < .01, 'landscape product image is not stretched');
         const hero = await page.locator('.hero-product img').evaluate(image => ({ source: image.currentSrc, filter: getComputedStyle(image).filter }));
         assert.ok(hero.source.includes('hero-kiosk-transparent-v3.'), 'corrected transparent hero is loaded');
         assert.equal(hero.filter, 'none', 'no broad CSS blur/drop-shadow around the cutout');
