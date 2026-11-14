@@ -12,6 +12,7 @@ const cards = [
   { id: 'platform-checkout', title: 'POS and checkout', stem: 'platform-pos-checkout-v1', body: 'Connect confirmed orders to checkout, queueing, and the operational flow defined for your business.' },
   { id: 'platform-payments', title: 'Payments with AltPayNet', stem: 'platform-payments-v1', body: 'Support approved card, QR, GCash, Maya, and e-wallet payment paths.' },
   { id: 'platform-inventory', title: 'Inventory and order tracking', stem: 'platform-inventory-tracking-v1', body: 'Keep inventory visibility and order progress connected to the experience.' },
+  { id: 'platform-extensions', title: 'Configurable extensions', stem: 'platform-configurable-extensions-v1', body: 'Scope reports, customers, loyalty, promotions, and other needs around your operation.' },
 ];
 await mkdir('artifacts', { recursive: true });
 try {
@@ -24,10 +25,10 @@ try {
       await page.setViewportSize({ width, height: 1000 });
       await page.goto(`${base}/`);
       await page.evaluate(() => document.fonts.ready);
-      assert.equal(await page.locator('.platform-card--expandable').count(), 4);
-      assert.deepEqual(await page.locator('.platform-grid > article:not(.platform-card--expandable) > span').allTextContents(), ['05']);
-      assert.deepEqual(await page.locator('.platform-grid > article:not(.platform-card--expandable) h3').allTextContents(), ['Configurable extensions']);
-      assert.equal(await page.locator('.platform-icon').count(), 1);
+      assert.equal(await page.locator('.platform-card--expandable').count(), 5);
+      assert.deepEqual(await page.locator('.platform-grid > article:not(.platform-card--expandable) > span').allTextContents(), []);
+      assert.deepEqual(await page.locator('.platform-grid > article:not(.platform-card--expandable) h3').allTextContents(), []);
+      assert.equal(await page.locator('.platform-icon').count(), 0);
       for (const expected of cards) {
         const card = page.locator(`[aria-labelledby="${expected.id}-title"]`);
         const details = card.locator('details');

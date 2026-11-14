@@ -76,7 +76,7 @@ assert.equal(heroVariants.length, 3, 'all three responsive transparent hero vari
 for (const file of heroVariants) await verifyHeroImage(`dist/_astro/${file}`);
 await assert.rejects(access('dist/assets/images/platform-self-ordering-v1-640.webp'), 'superseded public artwork is not deployed');
 const homeHtml = pages.get('/');
-assert.equal((homeHtml.match(/class="platform-image"/g) || []).length, 4, 'first four platform cards have imagery');
+assert.equal((homeHtml.match(/class="platform-image"/g) || []).length, 5, 'all five platform cards have imagery');
 assert.ok(!homeHtml.includes('platform-self-ordering-v2-'), 'home uses the reviewed v3 correction, not the old white logo plates');
 const firstPlatformCard = homeHtml.match(/<article class="platform-card--expandable"[\s\S]*?<\/article>/)?.[0];
 assert.ok(firstPlatformCard, 'first platform card uses the image-led layout');
@@ -102,7 +102,13 @@ assert.ok(!fourthPlatformCard.includes('<span>04</span>'), 'fourth card number r
 assert.ok(fourthPlatformCard.includes('Keep inventory visibility and order progress connected to the experience.'), 'inventory description stays in initial HTML');
 assert.ok(/<summary[^>]*aria-label="About Inventory and order tracking"/.test(fourthPlatformCard), 'inventory disclosure has an accessible label');
 assert.ok(!/<details[^>]*\sopen(?:[\s=>])/.test(fourthPlatformCard), 'inventory description starts collapsed');
-for (const stem of ['platform-self-ordering-v3', 'platform-pos-checkout-v1', 'platform-payments-v1', 'platform-inventory-tracking-v1']) {
+const fifthPlatformCard = [...homeHtml.matchAll(/<article class="platform-card--expandable"[\s\S]*?<\/article>/g)][4]?.[0];
+assert.ok(fifthPlatformCard?.includes('id="platform-extensions-title">Configurable extensions</h3>'), 'fifth card keeps its original heading');
+assert.ok(!fifthPlatformCard.includes('<span>05</span>'), 'fifth card number removed');
+assert.ok(fifthPlatformCard.includes('Scope reports, customers, loyalty, promotions, and other needs around your operation.'), 'extensions description stays in initial HTML');
+assert.ok(/<summary[^>]*aria-label="About Configurable extensions"/.test(fifthPlatformCard), 'extensions disclosure has an accessible label');
+assert.ok(!/<details[^>]*\sopen(?:[\s=>])/.test(fifthPlatformCard), 'extensions description starts collapsed');
+for (const stem of ['platform-self-ordering-v3', 'platform-pos-checkout-v1', 'platform-payments-v1', 'platform-inventory-tracking-v1', 'platform-configurable-extensions-v1']) {
   for (const width of [320, 640, 1280]) {
     const filename = `${stem}-${width}.webp`;
     assert.ok(homeHtml.includes(publicPath(`/assets/images/${filename}`)), `home references ${filename}`);

@@ -2,6 +2,8 @@
 
 Date: 14 November 2026. Owner authorized card 4 and requested a written proposal for card 5, not its generation.
 
+Historical fourth-card release record below. The owner subsequently authorized card 5 separately; its completed implementation is recorded in [PLATFORM_CONFIGURABLE_EXTENSIONS_ASSET.md](PLATFORM_CONFIGURABLE_EXTENSIONS_ASSET.md). References below to an unchanged fifth placeholder describe the fourth-card release, not current Home.
+
 ## Placement and scope
 
 Home > One connected platform > From the first tap to the next task. > fourth card, **Inventory and order tracking**, between Payments with AltPayNet and Configurable extensions.

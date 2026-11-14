@@ -4,9 +4,9 @@ Last updated: 14 November 2026
 
 ## Current status
 
-Latest owner request: complete the fourth platform card, Inventory and order tracking, and report the fifth card's details. Card 4 now has its stock/order-package/tablet image and the shared edge-to-edge, number-free, plus/minus layout. The existing heading/description, cards 1-3, fifth card, hero, other sections, and page order are retained. Configurable extensions is documented as a proposal only, not generated. See [PLATFORM_INVENTORY_TRACKING_ASSET.md](PLATFORM_INVENTORY_TRACKING_ASSET.md). Consistent naming and original logo sources remain governed by [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md).
+Latest owner request: proceed with the fifth platform card, Configurable extensions. Card 5 now has its laptop/concept-tiles image and the shared edge-to-edge, number-free, plus/minus layout. The existing heading/description, cards 1-4, hero, other sections, and page order are retained. This completes the five-card overview group for owner review, not all website imagery. See [PLATFORM_CONFIGURABLE_EXTENSIONS_ASSET.md](PLATFORM_CONFIGURABLE_EXTENSIONS_ASSET.md). Consistent naming and original logo sources remain governed by [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md).
 
-**Current phase:** action 2 removed; visual assignments, palette, and benefit icon family implemented. The first four platform card images/layouts are integrated for owner review. Remaining imagery and the four-step journey are pending.
+**Current phase:** action 2 removed; visual assignments, palette, and benefit icon family implemented. All five platform card images/layouts are integrated for owner review. Imagery for other sections and the four-step journey are pending.
 
 The repository contains the completed local-review redesign: responsive pages, the approved information architecture, owner-confirmed product scope, preview-safe indexing controls, technical SEO foundations, a non-sending local inquiry experience, and automated build/browser/accessibility checks. Production launch remains unauthorized and unconfigured.
 
@@ -34,7 +34,8 @@ The latest task statuses, removed Word-arrangement step, icon exception, and pen
 - [x] Complete the separately authorized POS and checkout image and apply the shared number-free, expandable-description layout to cards 1-2.
 - [x] Complete the separately authorized Payments with AltPayNet image and apply the shared layout to card 3, retaining existing copy.
 - [x] Complete the separately authorized Inventory and order tracking image and apply the shared layout to card 4, retaining existing copy.
-- Next proposed card: Configurable extensions. Continue one card at a time; remaining imagery and later journey changes are pending.
+- [x] Complete the separately authorized Configurable extensions image and apply the shared layout to card 5, retaining existing copy.
+- All five overview cards are implemented for owner review. Continue one card at a time when directed; imagery for other sections and later journey changes are pending.
 
 ## Status legend
 
