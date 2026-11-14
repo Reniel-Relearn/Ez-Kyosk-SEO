@@ -28,6 +28,7 @@ Both existing gold-wordmark images required raster branding corrections. The bui
 - The old v1 WebPs are retained in `assets/archive/` so they are recoverable but no longer deployed as public files. The original supplied hero/concept images remain untouched as historical references, not active imports.
 - The second overview card uses `public/assets/images/platform-pos-checkout-v1-{320,640,1280}.webp`, generated against the original logo and first-card art direction. Its dark branded idle screen has no white logo backing plate; no detailed POS UI is invented. See [PLATFORM_POS_CHECKOUT_ASSET.md](PLATFORM_POS_CHECKOUT_ASSET.md).
 - The third overview card uses `public/assets/images/platform-payments-v1-{320,640,1280}.webp`, with the original-reference cyan/light logo directly on a dark phone screen, no logo backing panel, and a separate schematic QR cue. No unverified provider marks or actual payment data are included. See [PLATFORM_PAYMENTS_ASSET.md](PLATFORM_PAYMENTS_ASSET.md).
+- The fourth overview card uses `public/assets/images/platform-inventory-tracking-v1-{320,640,1280}.webp`, showing stock and a prepared-order package beside a tablet. Its dark idle screen has the original-reference cyan/light logo without a backing plate; no stock/status UI is invented. See [PLATFORM_INVENTORY_TRACKING_ASSET.md](PLATFORM_INVENTORY_TRACKING_ASSET.md).
 - Existing third-party payment-provider logos are not Ez Kyosk logos and are not replaced.
 
 ## Audit boundary and regression protection

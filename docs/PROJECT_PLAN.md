@@ -4,9 +4,9 @@ Last updated: 14 November 2026
 
 ## Current status
 
-Latest owner request: proceed with the third platform card, Payments with AltPayNet. It now has a contactless-terminal/smartphone image and the shared edge-to-edge, number-free, plus/minus layout. Existing heading/description and cards 1-2 are retained. Cards 4-5, hero, other sections, and page order are unchanged. Next pending card: Inventory and order tracking, not generated. See [PLATFORM_PAYMENTS_ASSET.md](PLATFORM_PAYMENTS_ASSET.md). Consistent naming and original logo sources remain governed by [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md).
+Latest owner request: complete the fourth platform card, Inventory and order tracking, and report the fifth card's details. Card 4 now has its stock/order-package/tablet image and the shared edge-to-edge, number-free, plus/minus layout. The existing heading/description, cards 1-3, fifth card, hero, other sections, and page order are retained. Configurable extensions is documented as a proposal only, not generated. See [PLATFORM_INVENTORY_TRACKING_ASSET.md](PLATFORM_INVENTORY_TRACKING_ASSET.md). Consistent naming and original logo sources remain governed by [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md).
 
-**Current phase:** action 2 removed; visual assignments, palette, and benefit icon family implemented. The first three platform card images/layouts are integrated for owner review. Remaining imagery and the four-step journey are pending.
+**Current phase:** action 2 removed; visual assignments, palette, and benefit icon family implemented. The first four platform card images/layouts are integrated for owner review. Remaining imagery and the four-step journey are pending.
 
 The repository contains the completed local-review redesign: responsive pages, the approved information architecture, owner-confirmed product scope, preview-safe indexing controls, technical SEO foundations, a non-sending local inquiry experience, and automated build/browser/accessibility checks. Production launch remains unauthorized and unconfigured.
 
@@ -33,7 +33,8 @@ The latest task statuses, removed Word-arrangement step, icon exception, and pen
 - [x] Generate, optimize, and integrate the first realistic sample into Home's Self-ordering experience overview card.
 - [x] Complete the separately authorized POS and checkout image and apply the shared number-free, expandable-description layout to cards 1-2.
 - [x] Complete the separately authorized Payments with AltPayNet image and apply the shared layout to card 3, retaining existing copy.
-- Next pending card: Inventory and order tracking. Continue one card at a time; remaining imagery and later journey changes are pending.
+- [x] Complete the separately authorized Inventory and order tracking image and apply the shared layout to card 4, retaining existing copy.
+- Next proposed card: Configurable extensions. Continue one card at a time; remaining imagery and later journey changes are pending.
 
 ## Status legend
 

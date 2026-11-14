@@ -1,6 +1,6 @@
 # Payments with AltPayNet platform card
 
-Date: 14 November 2026. Scope: the owner authorized the third platform card only. Cards 4-5 remain pending.
+Date: 14 November 2026. This is the record of the third-card release, when cards 4-5 were pending. The owner subsequently authorized card 4; see [PLATFORM_INVENTORY_TRACKING_ASSET.md](PLATFORM_INVENTORY_TRACKING_ASSET.md). Historical scope and verification below refer to the third-card release.
 
 ## Placement and integration
 
@@ -36,9 +36,9 @@ Production build and static verification passed, including the three card headin
 
 The three-card browser suite passed 96 closed/open states across six viewport widths and high-density phone/desktop variants, plus 24 platform-section accessibility scans with zero violations. Tests cover edge-to-edge 4:3 geometry, heading placement, 44px control targets, visible focus, Enter/Space, pointer toggling, correct responsive image selection, retained cards 1-2, unchanged cards 4-5, and operation without JavaScript. Full-site regression passed 48 responsive route checks and 32 light/dark accessibility scans, with zero violations, browser errors, or failed requests. No real inquiry was sent.
 
-## Next card, not generated
+## Historical next-card proposal
 
-Home > One connected platform > fourth card, Inventory and order tracking. Its assigned subject remains products/stock context plus an order-status device, distinct from checkout and payments. Keep the same photographic family and shared card layout. Any detailed inventory/order-status interface needs an actual reference; do not invent metrics, customer records, or live software screens. Await owner authorization before generation.
+The owner subsequently authorized Home > One connected platform > fourth card, Inventory and order tracking, implemented with organized stock/order-preparation context and a branded idle tablet. See [PLATFORM_INVENTORY_TRACKING_ASSET.md](PLATFORM_INVENTORY_TRACKING_ASSET.md). Detailed inventory/status UI still requires an approved real reference.
 
 ## Exact built-in ImageGen prompt
 
