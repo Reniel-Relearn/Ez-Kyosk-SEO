@@ -4,9 +4,9 @@ Last updated: 14 November 2026
 
 ## Current status
 
-Latest owner request: implement the new image-led card layout for Home's first platform card only. Self-Ordering Experience has no visible number, its existing corrected v3 image fills the upper card edge-to-edge, and a native plus/minus disclosure reveals the original description beneath the heading. The direction is approved for all five platform cards, but the remaining four retain their current layout and await individual implementation. Hero, other sections, artwork, and page order are unchanged. Next card is POS and checkout, proposal only. See [PLATFORM_SELF_ORDERING_ASSET.md](PLATFORM_SELF_ORDERING_ASSET.md). Consistent naming and original logo sources remain governed by [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md).
+Latest owner request: complete the next platform card, POS and checkout, then report the next card's details. Cards 1-2 now share edge-to-edge images, number-free headings, and native plus/minus description controls. The new POS image shows a staff-side workstation and printer with a branded idle screen, not fabricated detailed software UI. Cards 3-5, hero, other sections, and page order remain unchanged. Next proposal only: Payments with AltPayNet. See [PLATFORM_POS_CHECKOUT_ASSET.md](PLATFORM_POS_CHECKOUT_ASSET.md). Consistent naming and original logo sources remain governed by [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md).
 
-**Current phase:** action 2 removed; visual assignments, palette, and benefit icon family implemented. The first realistic sample is integrated into Home > From the first tap to the next task. > Self-ordering experience for owner review. Remaining imagery and the four-step journey are pending.
+**Current phase:** action 2 removed; visual assignments, palette, and benefit icon family implemented. The first two platform card images/layouts are integrated for owner review. Remaining imagery and the four-step journey are pending.
 
 The repository contains the completed local-review redesign: responsive pages, the approved information architecture, owner-confirmed product scope, preview-safe indexing controls, technical SEO foundations, a non-sending local inquiry experience, and automated build/browser/accessibility checks. Production launch remains unauthorized and unconfigured.
 
@@ -31,7 +31,8 @@ The latest task statuses, removed Word-arrangement step, icon exception, and pen
 - [x] Add the matching More Order Capacity icon and update the second card heading as requested.
 - [x] Add the matching Better Service Flow icon and update the third card heading as requested.
 - [x] Generate, optimize, and integrate the first realistic sample into Home's Self-ordering experience overview card.
-- Review that sample before creating the other four overview images. Remaining imagery and later journey changes are pending.
+- [x] Complete the separately authorized POS and checkout image and apply the shared number-free, expandable-description layout to cards 1-2.
+- Next proposed card: Payments with AltPayNet. Continue one card at a time; remaining imagery and later journey changes are pending.
 
 ## Status legend
 

@@ -175,7 +175,7 @@ html[data-theme='dark'] .theme-sun{display:block}
 .platform-image{display:block;width:100%;height:auto;aspect-ratio:4/3;margin-top:26px;border-radius:var(--radius-sm);background:var(--blue-tint)}
 .platform-icon{display:flex;height:65px;margin-top:26px;align-items:flex-end;gap:7px}.platform-icon i{display:block;width:17px;border:2px solid var(--brand-700);border-radius:5px;background:var(--mist)}.platform-icon i:nth-child(1){height:42px}.platform-icon i:nth-child(2){height:58px;background:var(--brand-500)}.platform-icon i:nth-child(3){height:32px}
 
-/* Image-led platform card pilot: only the first card uses this component. */
+/* Image-led platform cards: rolled out one approved card at a time. */
 .platform-grid article.platform-card--expandable{align-self:start;min-height:0;padding:0;overflow:hidden}
 .platform-card--expandable .platform-image{margin:0;border-radius:0;aspect-ratio:4/3;object-fit:cover}
 .platform-card-body{position:relative;padding:20px}

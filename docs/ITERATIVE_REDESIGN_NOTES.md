@@ -2,11 +2,11 @@
 
 Updated: 14 November 2026
 
-Status: the owner removed action 2 and authorized all three benefit icons, which are implemented. The first realistic sample is now integrated into Home's Self-ordering experience overview card for review. Actions 3 and 4 are documented in the visual asset plan. Action 5 and the benefit text/number cleanup are implemented and verified. Remaining imagery and journey changes stay pending.
+Status: the owner removed action 2; all three benefit icons and the first two platform-card images/layouts are implemented. Actions 3 and 4 are documented in the visual asset plan. Action 5 and the benefit text/number cleanup are implemented and verified. Cards 3-5, other imagery, and journey changes stay pending.
 
 These notes take precedence over earlier proposals where the design direction has changed. Keep completed implementation separate from pending redesign work.
 
-Latest first-card review: the corrected v3 artwork keeps its plate-free logos and opposite-facing kiosk. The owner then approved an image-led, number-free, expandable-description card direction for all five platform cards, with implementation requested for the first card only. Self-Ordering Experience now has an edge-to-edge image, heading below, and native plus/minus disclosure; its original short description starts collapsed but remains in HTML. The other four cards remain unchanged until their individual turns. Review this layout pilot before proceeding to POS and checkout. See [PLATFORM_SELF_ORDERING_ASSET.md](PLATFORM_SELF_ORDERING_ASSET.md).
+Latest iteration: POS and checkout is now the second image-led card, using a staff-side workstation/receipt-printer image and the same number-free, edge-to-edge, plus/minus disclosure layout as Self-Ordering Experience. Its existing description remains in initial HTML, collapsed by default. Cards 3-5 and other sections stay unchanged. Next proposal only: Payments with AltPayNet. Continue one card at a time. See [PLATFORM_POS_CHECKOUT_ASSET.md](PLATFORM_POS_CHECKOUT_ASSET.md).
 
 ## Task register
 
@@ -16,9 +16,9 @@ Latest first-card review: the corrected v3 artwork keeps its plate-free logos an
 | Expand content sizes and reduce side margins | Done for the current layout | Shared responsive gutters are 20px to 64px; additional card and typography adjustments remain part of iterative review. |
 | Expand text widths and reduce unnecessary wrapping | Done for the reviewed payment introduction | Payment heading and description were widened and left-aligned. This does not mean adding more words or enlarging every font. |
 | Finalize and apply color palette | Done and verified | Blue with subtle cyan highlights, exact theme tokens, and component states are applied in the shared stylesheet. See [COLOR_PALETTE.md](COLOR_PALETTE.md). |
-| Visual assignments and shared art direction | Done as planning; first realistic sample in review | [VISUAL_ASSET_PLAN.md](VISUAL_ASSET_PLAN.md) assigns subjects, groups, crops, reuse, and styling. Three benefit icons and the first overview image are implemented; other imagery is pending. |
+| Visual assignments and shared art direction | Done as planning; first two platform cards implemented | [VISUAL_ASSET_PLAN.md](VISUAL_ASSET_PLAN.md) assigns subjects, groups, crops, reuse, and styling. Three benefit icons and the first two overview images are implemented; other imagery is pending. |
 | Three benefit cards under "A better way to take orders" | Titles and all three icons implemented | Titles: "Faster Ordering Experience", "More Order Capacity", and "Better Service Flow"; 01/02/03 are removed. Kiosk/tap, merged-order-path, and sequential-flow/checkmark SVGs share the blue/cyan family and both themes. |
-| Add ultra-realistic images to applicable cards | First overview-card sample integrated for review | Home > From the first tap to the next task. > Self-ordering experience has its generated 4:3 kiosk image. Review it before creating the other four overview images. Other sections are unchanged. See [PLATFORM_SELF_ORDERING_ASSET.md](PLATFORM_SELF_ORDERING_ASSET.md). |
+| Add ultra-realistic images to applicable cards | First two overview cards implemented for review | Home > From the first tap to the next task. > Self-Ordering Experience and POS and checkout have 4:3 images and expandable descriptions. Next proposal: Payments with AltPayNet; not generated. Other sections are unchanged. See [PLATFORM_POS_CHECKOUT_ASSET.md](PLATFORM_POS_CHECKOUT_ASSET.md). |
 | Add visuals to "Five areas. One adaptable system." | Pending | Give each of the five product panels an appropriate, distinct visual, with accurate product/interface references where needed. |
 | Update the customer journey and add images | Pending | New requested sequence: Browse -> Select -> Payment -> Get order. The existing five-step implementation has not yet changed. |
 | Follow the Word document's homepage arrangement | Removed by owner | Action 2 and its dependent homepage-rearrangement step are removed. Retain the current homepage section order; the uploaded documents remain local references. |

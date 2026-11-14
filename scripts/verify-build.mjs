@@ -76,7 +76,7 @@ assert.equal(heroVariants.length, 3, 'all three responsive transparent hero vari
 for (const file of heroVariants) await verifyHeroImage(`dist/_astro/${file}`);
 await assert.rejects(access('dist/assets/images/platform-self-ordering-v1-640.webp'), 'superseded public artwork is not deployed');
 const homeHtml = pages.get('/');
-assert.equal((homeHtml.match(/class="platform-image"/g) || []).length, 1, 'only the first platform card has generated imagery');
+assert.equal((homeHtml.match(/class="platform-image"/g) || []).length, 2, 'first two platform cards have imagery');
 assert.ok(!homeHtml.includes('platform-self-ordering-v2-'), 'home uses the reviewed v3 correction, not the old white logo plates');
 const firstPlatformCard = homeHtml.match(/<article class="platform-card--expandable"[\s\S]*?<\/article>/)?.[0];
 assert.ok(firstPlatformCard, 'first platform card uses the image-led layout');
@@ -85,12 +85,19 @@ assert.ok(firstPlatformCard.includes('Self-Ordering Experience</h3>'), 'first ca
 assert.ok(/<details class="platform-card-details">\s*<summary[^>]*aria-label="About Self-Ordering Experience"/.test(firstPlatformCard), 'native accessible description disclosure');
 assert.ok(!/<details[^>]*\sopen(?:[\s=>])/.test(firstPlatformCard), 'description starts collapsed');
 assert.ok(firstPlatformCard.includes('Let customers browse, select, adjust, review, and confirm from one focused touchscreen.'), 'description remains in the initial HTML');
-for (const width of [320, 640, 1280]) {
-  const filename = `platform-self-ordering-v3-${width}.webp`;
-  assert.ok(homeHtml.includes(publicPath(`/assets/images/${filename}`)), `home references ${filename}`);
-  const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
-  assert.equal(metadata.width, width, `${filename}: responsive width`);
-  assert.equal(metadata.height, width * 3 / 4, `${filename}: unchanged 4:3 ratio`);
+const secondPlatformCard = [...homeHtml.matchAll(/<article class="platform-card--expandable"[\s\S]*?<\/article>/g)][1]?.[0];
+assert.ok(secondPlatformCard?.includes('id="platform-checkout-title">POS and checkout</h3>'), 'second card has its unchanged heading');
+assert.ok(!secondPlatformCard.includes('<span>02</span>'), 'second card has no visible number');
+assert.ok(secondPlatformCard.includes('Connect confirmed orders to checkout, queueing, and the operational flow defined for your business.'), 'checkout description retained in HTML');
+assert.ok(!/<details[^>]*\sopen(?:[\s=>])/.test(secondPlatformCard), 'checkout description starts collapsed');
+for (const stem of ['platform-self-ordering-v3', 'platform-pos-checkout-v1']) {
+  for (const width of [320, 640, 1280]) {
+    const filename = `${stem}-${width}.webp`;
+    assert.ok(homeHtml.includes(publicPath(`/assets/images/${filename}`)), `home references ${filename}`);
+    const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
+    assert.equal(metadata.width, width, `${filename}: responsive width`);
+    assert.equal(metadata.height, width * 3 / 4, `${filename}: unchanged 4:3 ratio`);
+  }
 }
 const notFound = await readFile('dist/404.html', 'utf8');
 assert.ok([...notFound.matchAll(/\bez\s+kyosk\b/gi)].every(match => match[0] === 'Ez Kyosk'), '404: canonical brand spelling');

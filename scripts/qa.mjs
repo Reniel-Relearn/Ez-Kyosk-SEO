@@ -44,12 +44,15 @@ try {
         assert.ok(hero.source.includes('hero-kiosk-transparent-v3.'), 'corrected transparent hero is loaded');
         assert.equal(hero.filter, 'none', 'no broad CSS blur/drop-shadow around the cutout');
         const platformImage = page.locator('.platform-grid .platform-image');
-        assert.equal(await platformImage.count(), 1, 'only the first platform card is changed');
-        assert.equal(await page.locator('.platform-grid .platform-icon').count(), 4, 'other four platform placeholders remain unchanged');
-        assert.ok((await platformImage.evaluate(image => image.currentSrc)).includes('platform-self-ordering-v3-'), 'corrected first card is loaded');
-        assert.equal(await page.locator('.platform-card--expandable').count(), 1, 'only the first card uses the new layout');
-        assert.equal(await page.locator('.platform-card--expandable > span').count(), 0, 'first card number removed');
-        assert.equal(await page.locator('.platform-card-details p').isVisible(), false, 'first description starts collapsed');
+        assert.equal(await platformImage.count(), 2, 'first two platform cards have imagery');
+        assert.equal(await page.locator('.platform-grid .platform-icon').count(), 3, 'remaining three placeholders unchanged');
+        assert.ok((await platformImage.nth(0).evaluate(image => image.currentSrc)).includes('platform-self-ordering-v3-'), 'corrected first card is retained');
+        assert.ok((await platformImage.nth(1).evaluate(image => image.currentSrc)).includes('platform-pos-checkout-v1-'), 'new checkout image is loaded');
+        assert.equal(await page.locator('.platform-card--expandable').count(), 2, 'first two cards use the new layout');
+        assert.equal(await page.locator('.platform-card--expandable > span').count(), 0, 'first two card numbers removed');
+        for (const description of await page.locator('.platform-card-details p').all()) {
+          assert.equal(await description.isVisible(), false, 'descriptions start collapsed');
+        }
       }
       assert.equal(state.logos.length, 2);
       assert.ok(state.logos.every(logo => logo.loaded && Math.abs(logo.ratio - logo.original) < .03), `${route}: undistorted logos`);
@@ -74,12 +77,13 @@ try {
   await page.waitForURL('**/features/');
 
   await page.goto(base);
-  const platformToggle = page.locator('.platform-card-details summary');
-  await platformToggle.focus();
-  await page.keyboard.press('Enter');
-  assert.equal(await page.locator('.platform-card-details p').isVisible(), true, 'Enter expands first card description');
-  await page.keyboard.press('Space');
-  assert.equal(await page.locator('.platform-card-details p').isVisible(), false, 'Space collapses first card description');
+  for (const details of await page.locator('.platform-card-details').all()) {
+    await details.locator('summary').focus();
+    await page.keyboard.press('Enter');
+    assert.equal(await details.locator('p').isVisible(), true, 'Enter expands card description');
+    await page.keyboard.press('Space');
+    assert.equal(await details.locator('p').isVisible(), false, 'Space collapses card description');
+  }
   const faq = page.locator('summary').filter({ hasText: 'Can it accept card, QR, GCash, or Maya payments?' });
   await faq.focus(); await page.keyboard.press('Enter');
   assert.equal(await faq.evaluate(el => el.parentElement.open), true);
