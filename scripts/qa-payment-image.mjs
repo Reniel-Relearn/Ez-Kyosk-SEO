@@ -18,7 +18,7 @@ try {
     const page = await context.newPage();
     page.on('pageerror', error => errors.push(error.message));
     page.on('response', response => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });
-    for (const width of deviceScaleFactor === 1 ? [320, 390, 768, 1024, 1440, 1920] : [390, 1440]) {
+    for (const width of deviceScaleFactor === 1 ? [320, 390, 720, 721, 768, 1024, 1180, 1181, 1400, 1401, 1440, 1920] : [390, 1440]) {
       await page.setViewportSize({ width, height: 1000 });
       for (const route of ['/', '/features/']) {
         await page.goto(`${base}${route}`);
@@ -70,6 +70,9 @@ try {
                 topBreathingRoom: box.top - frameBox.top,
                 bottomBreathingRoom: frameBox.bottom - box.bottom,
                 cardBottomGap: cardBox.bottom - box.bottom,
+                framePaddingTop: getComputedStyle(frame).paddingTop,
+                framePaddingBottom: getComputedStyle(frame).paddingBottom,
+                cardHeight: cardBox.height,
                 contained: box.left >= cardBox.left && box.right <= cardBox.right + 1 && box.bottom <= cardBox.bottom + 1,
                 besideCopy: box.left >= copy.right - 1,
                 noOverflow: document.documentElement.scrollWidth <= innerWidth && card.scrollWidth <= card.clientWidth };
@@ -84,10 +87,12 @@ try {
             assert.equal(geometry.contained, true);
             assert.equal(geometry.noOverflow, true);
             assert.ok(geometry.verticalCenterDelta < 1, 'image centered vertically in its frame');
-            assert.ok(geometry.topBreathingRoom >= 31, 'clear space above image');
-            assert.ok(geometry.bottomBreathingRoom >= 31, 'clear space below image');
-            assert.ok(geometry.cardBottomGap >= 31, 'image is not attached to card bottom');
-            if (width > 1180) assert.equal(geometry.besideCopy, true, 'devices sit to the right of HTML copy');
+            assert.equal(geometry.framePaddingTop, '0px', 'no added image padding at top');
+            assert.equal(geometry.framePaddingBottom, '0px', 'no added image padding at bottom');
+            assert.ok(geometry.cardHeight < (width <= 720 ? 650 : 480), 'compact card, no old 500px minimum');
+            assert.ok(geometry.topBreathingRoom < 16, `${route} ${width} ${expected.name}: no large top gap (${geometry.topBreathingRoom}px in ${geometry.cardHeight}px card)`);
+            assert.ok(geometry.bottomBreathingRoom < 16, `${route} ${width} ${expected.name}: no large bottom gap (${geometry.bottomBreathingRoom}px)`);
+            if (width > 720) assert.equal(geometry.besideCopy, true, 'devices sit to the right of HTML copy');
             assert.ok(geometry.source.includes(expected.source), `correct ${expected.name} artwork: ${geometry.source}`);
             if (expected.name === 'online') assert.ok(geometry.source.endsWith('.png'), 'supplied PNG, no re-encoding');
             if (deviceScaleFactor === 1 && [390, 1440].includes(width)) {

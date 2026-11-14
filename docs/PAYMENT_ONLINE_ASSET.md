@@ -6,7 +6,7 @@ Date: 14 November 2026. Owner requested the first attached image as layout refer
 
 Home AND Product > Payments with AltPayNet > Flexible ways to complete an order. > Online payments > QR and e-wallet checkout.
 
-Replace only the second CSS phone/QR placeholder with the supplied PNG. Preserve the first payment image and its centered spacing, both card headings/descriptions/links, other images, hero and page order. Desktop copy remains left, art right; existing responsive stacking remains. The phone/hand/cards are centered in a clear frame with equal 32px top/bottom padding and contained at their original aspect ratio.
+Original integration replaced only the second CSS phone/QR placeholder with the supplied PNG, preserving the first payment artwork, both card headings/descriptions/links, other images, hero and page order. The initial 32px breathing-room layout is historical: the owner subsequently requested smaller cards with NO added image top/bottom padding. Current compact layout and verification: [PAYMENT_CARD_LAYOUT.md](PAYMENT_CARD_LAYOUT.md). Source PNG remains byte-identical and uncropped.
 
 Retained description: **Let customers use supported QR, GCash, Maya, card, and e-wallet payment paths from a mobile device.** Retained link: **Discuss online payments**. The screenshot's alternate headline/body/CTA is not copied into the HTML.
 
