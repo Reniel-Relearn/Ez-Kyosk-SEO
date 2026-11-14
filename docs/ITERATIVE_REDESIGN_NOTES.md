@@ -1,10 +1,12 @@
 # Iterative redesign notes
 
-Updated: 13 November 2026
+Updated: 14 November 2026
 
 Status: the owner removed action 2 and authorized all three benefit icons, which are implemented. The first realistic sample is now integrated into Home's Self-ordering experience overview card for review. Actions 3 and 4 are documented in the visual asset plan. Action 5 and the benefit text/number cleanup are implemented and verified. Remaining imagery and journey changes stay pending.
 
 These notes take precedence over earlier proposals where the design direction has changed. Keep completed implementation separate from pending redesign work.
+
+Latest first-card review: v3 removes the white backing panels behind both logos and turns the kiosk to show its left silver edge rather than its right. Logo/menu text is not mirrored; the neutral studio background remains. Only Home's Self-ordering experience image changes. Review the corrected sample before generating POS and checkout, and continue one image card at a time. See [PLATFORM_SELF_ORDERING_ASSET.md](PLATFORM_SELF_ORDERING_ASSET.md).
 
 ## Task register
 

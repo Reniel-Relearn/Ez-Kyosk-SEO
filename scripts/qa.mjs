@@ -43,6 +43,10 @@ try {
         const hero = await page.locator('.hero-product img').evaluate(image => ({ source: image.currentSrc, filter: getComputedStyle(image).filter }));
         assert.ok(hero.source.includes('hero-kiosk-transparent-v3.'), 'corrected transparent hero is loaded');
         assert.equal(hero.filter, 'none', 'no broad CSS blur/drop-shadow around the cutout');
+        const platformImage = page.locator('.platform-grid .platform-image');
+        assert.equal(await platformImage.count(), 1, 'only the first platform card is changed');
+        assert.equal(await page.locator('.platform-grid .platform-icon').count(), 4, 'other four platform placeholders remain unchanged');
+        assert.ok((await platformImage.evaluate(image => image.currentSrc)).includes('platform-self-ordering-v3-'), 'corrected first card is loaded');
       }
       assert.equal(state.logos.length, 2);
       assert.ok(state.logos.every(logo => logo.loaded && Math.abs(logo.ratio - logo.original) < .03), `${route}: undistorted logos`);
