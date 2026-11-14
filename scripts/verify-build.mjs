@@ -81,8 +81,20 @@ assert.ok(selfOrderingPanel?.includes('product-panel-image'), 'Self-Ordering pro
 assert.ok(selfOrderingPanel.includes('Every choice, clear from the first tap.</h3>'), 'product panel heading retained');
 assert.ok(selfOrderingPanel.includes('Illustrative Ez Kyosk portrait kiosk menu'), 'image described as illustrative, not a live screenshot');
 assert.ok(!selfOrderingPanel.includes('ui-window'), 'first product placeholder remains replaced');
-assert.equal((homeHtml.match(/class="ui-window"/g) || []).length, 2, 'remaining two product placeholders retained');
-assert.equal((homeHtml.match(/class="product-panel-image"/g) || []).length, 3, 'only three product images integrated');
+assert.equal((homeHtml.match(/class="ui-window"/g) || []).length, 1, 'Customers placeholder retained');
+assert.equal((homeHtml.match(/class="product-panel-image"/g) || []).length, 4, 'only four product images integrated');
+const reportsPanel = homeHtml.match(/<section class="product-panel" id="panel-reports"[\s\S]*?<\/section>/)?.[0];
+assert.ok(reportsPanel?.includes('Shape reporting around the questions you ask.</h3>'), 'Reports heading retained');
+assert.ok(reportsPanel.includes('Reporting and analytics can be configured to the information, roles, and workflows a client needs rather than forcing every business into one template.'), 'configurable reporting description retained');
+assert.ok(reportsPanel.includes('Illustrative Ez Kyosk reporting laptop'), 'Reports image described as illustrative');
+assert.ok(!reportsPanel.includes('ui-window'), 'Reports placeholder replaced');
+for (const width of [480, 960, 1440]) {
+  const filename = `product-reports-v1-${width}.webp`;
+  assert.ok(reportsPanel.includes(publicPath(`/assets/images/${filename}`)), `Reports uses base-safe ${filename}`);
+  const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
+  assert.equal(metadata.width, width);
+  assert.equal(metadata.height, width * 3 / 4);
+}
 const inventoryPanel = homeHtml.match(/<section class="product-panel" id="panel-inventory"[\s\S]*?<\/section>/)?.[0];
 assert.ok(inventoryPanel?.includes('Keep menu availability closer to reality.</h3>'), 'Inventory heading retained');
 assert.ok(inventoryPanel.includes('Real-time inventory support helps the ordering experience reflect operational availability and gives teams a clearer view of stock movement.'), 'Inventory description retained');
