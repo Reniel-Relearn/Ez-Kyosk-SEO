@@ -4,7 +4,19 @@ Updated: 14 November 2026
 
 Branding override: [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md) is authoritative. Display name is Ez Kyosk. Use only original logo/icon assets, not header screenshots. The hero uses transparent v3 artwork without white logo panels; see [HERO_TRANSPARENCY_FIX.md](HERO_TRANSPARENCY_FIX.md). The first overview card now uses v3 without logo backing plates and with the opposite three-quarter kiosk view, as requested on 14 November. Original source images and superseded samples remain reference material, not active page imports.
 
-Actions 3 and 4: visual assignments and shared art direction. All three benefit icons and all five Home platform images/layouts are integrated. The latest card is Configurable extensions. Imagery for other sections and the four-step journey remain pending. The Word-arrangement action is removed; retain the current homepage sequence.
+Actions 3 and 4: visual assignments and shared art direction. All three benefit icons and all five Home platform images/layouts are integrated. Home's first Explore the product panel, Self-Ordering, now has its separately authorized generic-menu concept image. The other four product panels, later section imagery, and four-step journey remain pending. The Word-arrangement action is removed; retain the current homepage sequence.
+
+## First product-panel image: Self-Ordering
+
+Exact location: Home > Explore the product > Five areas. One adaptable system. > Self-Ordering tab > Every choice, clear from the first tap.
+
+The owner explicitly changed this first-panel brief from an actual screenshot to a new generated generic menu and authorized generation plus integration. The supplied screenshot is a layout reference only: portrait kiosk left, enlarged matching order-review panel right, in one 4:3 image. Our existing kiosk artwork supplies hardware/art direction; the original lockup supplies identity. No reference branding, menu, cart, LIVE badge, or dashboard is copied.
+
+Implemented concept: Coffee PHP 100, Sandwich PHP 150, Cookie PHP 50, one of each, total PHP 300. Blue/white UI with subtle cyan, photorealistic hardware/food, cool-gray background, original-reference logos without white backing plates. This is illustrative proposed UI, not a capture or implementation of the live app or a verified SUNMI model. Alt text identifies it as illustrative. This specific exception does not authorize fabricated screens for other panels.
+
+Only the first Home product placeholder is replaced. Existing text, five desktop tabs, keyboard controls, mobile stacking, overview cards, hero, and page order are unchanged. The Product page remains unchanged; planned reuse there is not performed in this iteration. Responsive assets: `public/assets/images/product-self-ordering-v1-{480,960,1440}.webp`. Exact prompt, provenance, optimization and verification: [PRODUCT_SELF_ORDERING_ASSET.md](PRODUCT_SELF_ORDERING_ASSET.md).
+
+Next exact action: present the separate visual brief for Home > Explore the product > POS & Checkout > Move confirmed orders into checkout. Confirm actual-reference versus illustrative-concept treatment before generation. Continue Inventory, Reports & Analytics, Customers, two payment images, four industry scenes, then the coordinated four-step journey, one asset at a time. Every completion report must identify its completed location and exact next action.
 
 ## Image-led platform card layout: all five cards
 
@@ -20,7 +32,7 @@ Implementation is complete for **all five overview cards**. Self-Ordering Experi
 - Use premium, ultra-realistic photography/product imagery for appropriate cards. Use consistent soft daylight, realistic materials, restrained backgrounds, and a coherent kiosk/device reference. Avoid mismatched device designs or exaggerated speed claims.
 - Keep lighting and perspective consistent within each card group. Small overview images use simple compositions, detailed product panels show the relevant capability, and industry scenes show broader environments.
 - Keep card titles and explanatory copy as HTML. Avoid generated labels, unreadable dashboard text, fabricated metrics, invented provider marks, or fake screenshots presented as the actual system.
-- Use actual interface references when showing a specific product function. Missing references require review before depicting detailed interfaces. Configurable features must remain consistent with the existing product scope.
+- Use actual interface references when presenting actual product UI. Missing references require review before depicting detailed interfaces. The owner-approved generic Self-Ordering concept above is a specific exception, not permission to present generated UI as a live screenshot or invent other product screens. Configurable features must remain consistent with the existing product scope.
 - Use one line-icon family for the benefit cards: 64px square artwork, approximately 2.5px strokes, rounded caps and joins, simple silhouettes, transparent background. Icons share optical size and stroke weight.
 - Define mobile crops before integration. Keep essential subjects within a central safe area; do not crop away the interaction or rely on tiny text.
 - Save approved assets with descriptive versioned filenames in `public/assets/images`. Use optimized responsive raster formats for photographs and product imagery. The completed benefit icon family uses SVG, with the first icon as its style reference.
@@ -37,7 +49,7 @@ Implementation is complete for **all five overview cards**. Self-Ordering Experi
 | platform-payments | Home platform overview | Terminal and phone together, explaining the available payment paths at a glance | Realistic product composition, 4:3 |
 | platform-inventory | Home platform overview | Products/stock context with an order-status device, connecting availability and progress | Realistic operational composition, 4:3 |
 | platform-extensions | Home platform overview | Slim laptop and three conceptual report/customer/settings tiles, without fabricated analytics or supplied-module claims | Realistic workstation composition, 4:3 |
-| product-self-ordering | Home product panel and Product deep dive | Actual menu, options, and order review, focused on interface detail | Approved interface/device composition, 4:3 |
+| product-self-ordering | Home product panel implemented; Product deep-dive reuse pending | Owner-approved original generic portrait menu and matching cart, not a live screenshot | Illustrative device/UI composition, 4:3 |
 | product-checkout | Home product panel and Product deep dive | Checkout and order queue/handoff, based on the relevant system reference | Approved interface/device composition, 4:3 |
 | product-inventory | Home product panel and Product deep dive | Item availability and stock visibility, based on the relevant system reference | Approved interface/device composition, 4:3 |
 | product-reports | Home product panel and Product deep dive | Reporting tools matched to verified or configurable scope, with no invented performance claims | Approved interface or reviewed concept composition, 4:3 |
