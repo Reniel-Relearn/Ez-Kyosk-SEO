@@ -39,6 +39,11 @@ try {
       assert.ok(state.brandAlts.every(alt => alt === 'Ez Kyosk'), `${route}: consistent logo alt text`);
       assert.equal(state.headings, 1);
       assert.equal(state.brokenImages.length, 0, `${route}: images`);
+      if (route === '/' || route === '/features/') {
+        assert.equal(await page.locator('.payment-terminal-image').count(), 1, 'shared terminal image');
+        assert.equal(await page.locator('.payments-section .mini-kiosk').count(), 0, 'first payment placeholder replaced');
+        assert.equal(await page.locator('.payments-section .phone-art').count(), 1, 'second payment placeholder retained');
+      }
       if (route === '/') {
         assert.equal(await page.locator('.product-panel-image').count(), 5, 'all five product panels have imagery');
         assert.equal(await page.locator('.product-explorer .ui-window').count(), 0, 'all product placeholders replaced');

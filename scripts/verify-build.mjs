@@ -179,6 +179,38 @@ for (const stem of ['platform-self-ordering-v3', 'platform-pos-checkout-v1', 'pl
     assert.equal(metadata.height, width * 3 / 4, `${filename}: unchanged 4:3 ratio`);
   }
 }
+for (const route of ['/', '/features/']) {
+  const html = pages.get(route);
+  assert.equal((html.match(/class="payment-terminal-image"/g) || []).length, 1, `${route}: one terminal image`);
+  assert.ok(!html.includes('class="mini-kiosk"'), `${route}: terminal CSS placeholder replaced`);
+  assert.ok(html.includes('Terminal integration</h3>'), `${route}: payment heading retained`);
+  assert.ok(html.includes('Connect a secure payment terminal to the kiosk checkout flow for supported card and in-store payment requirements.'), `${route}: payment description retained`);
+  assert.ok(html.includes('Discuss terminal requirements'), `${route}: payment link retained`);
+  assert.ok(html.includes('Illustrative Ez Kyosk countertop kiosk'), `${route}: illustrative alt`);
+  assert.equal((html.match(/class="phone-art"/g) || []).length, 1, `${route}: second payment placeholder retained`);
+  assert.ok(html.includes('QR and e-wallet checkout</h3>'), `${route}: second payment heading retained`);
+  for (const width of [360, 720, 1080]) {
+    assert.ok(html.includes(publicPath(`/assets/images/payment-terminal-v1-${width}.webp`)), `${route}: base-safe terminal source ${width}`);
+  }
+}
+for (const width of [360, 720, 1080]) {
+  const file = `dist/assets/images/payment-terminal-v1-${width}.webp`;
+  const metadata = await sharp(file).metadata();
+  assert.equal(metadata.width, width);
+  assert.equal(metadata.height, width * 4 / 3);
+  assert.equal(metadata.hasAlpha, true, `${file}: alpha channel`);
+  const { data, info } = await sharp(file).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+  let transparent = 0, solid = 0;
+  for (let i = 3; i < data.length; i += info.channels) {
+    if (data[i] === 0) transparent++;
+    // Generated cutout interiors use alpha 252-254; preserve rather than repaint them.
+    if (data[i] >= 250) solid++;
+  }
+  assert.ok(transparent > info.width * info.height * .1, `${file}: genuinely transparent surrounding pixels`);
+  assert.ok(solid > info.width * info.height * .3, `${file}: near-opaque device detail retained`);
+  assert.equal(data[3], 0, `${file}: no baked background at top-left`);
+  assert.equal(data[info.width * info.channels - 1], 0, `${file}: no baked background at top-right`);
+}
 const notFound = await readFile('dist/404.html', 'utf8');
 assert.ok([...notFound.matchAll(/\bez\s+kyosk\b/gi)].every(match => match[0] === 'Ez Kyosk'), '404: canonical brand spelling');
 console.log('Passed: 7 pages, internal links/anchors/assets, unique metadata, logo/favicon references, indexing controls, sitemap, and configured-site schema/sharing image.');
