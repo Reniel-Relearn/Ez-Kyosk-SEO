@@ -36,6 +36,8 @@ Full-site regression passed 48 responsive route checks and 32 light/dark accessi
 
 ## Exact details of the next card: Inventory (proposal only)
 
+Historical second-image handoff below. The owner subsequently authorized Inventory separately; completed implementation and current Reports & Analytics proposal are in [PRODUCT_INVENTORY_ASSET.md](PRODUCT_INVENTORY_ASSET.md).
+
 - Location: Home > Explore the product > Five areas. One adaptable system. > third tab, Inventory.
 - Heading retained exactly: **Keep menu availability closer to reality.**
 - Description retained exactly: **Real-time inventory support helps the ordering experience reflect operational availability and gives teams a clearer view of stock movement.**

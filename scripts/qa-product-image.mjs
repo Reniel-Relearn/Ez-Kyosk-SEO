@@ -8,6 +8,7 @@ const prefix = process.env.QA_SCREENSHOT_PREFIX || 'product-images';
 const cards = [
   { id: 'self-ordering', next: 'pos-checkout', stem: 'product-self-ordering-v1', title: 'Every choice, clear from the first tap.', body: 'Give customers a focused touchscreen journey for exploring the menu, choosing products, adjusting their order, and confirming with confidence.' },
   { id: 'pos-checkout', next: 'inventory', stem: 'product-pos-checkout-v1', title: 'Move confirmed orders into checkout.', body: 'Connect the self-ordering journey with the operational checkout flow, including order queueing and the requirements defined for each deployment.' },
+  { id: 'inventory', next: 'reports', stem: 'product-inventory-v1', title: 'Keep menu availability closer to reality.', body: 'Real-time inventory support helps the ordering experience reflect operational availability and gives teams a clearer view of stock movement.' },
 ];
 const browser = await chromium.launch({ channel: 'msedge', headless: true });
 const results = [], accessibility = [], errors = [];
@@ -22,8 +23,8 @@ try {
       await page.setViewportSize({ width, height: 1000 });
       await page.goto(`${base}/`);
       await page.evaluate(() => document.fonts.ready);
-      assert.equal(await page.locator('.product-panel-image').count(), 2);
-      assert.equal(await page.locator('.product-explorer .ui-window').count(), 3);
+      assert.equal(await page.locator('.product-panel-image').count(), 3);
+      assert.equal(await page.locator('.product-explorer .ui-window').count(), 2);
       for (const expected of cards) {
         const panel = page.locator(`#panel-${expected.id}`);
         if (width > 720) await page.locator(`#tab-${expected.id}`).click();
