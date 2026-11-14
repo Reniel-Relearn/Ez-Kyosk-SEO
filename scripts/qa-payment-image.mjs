@@ -43,11 +43,15 @@ try {
           await page.evaluate(theme => document.documentElement.dataset.theme = theme, theme);
           const geometry = await image.evaluate(image => {
             const box = image.getBoundingClientRect(), frame = image.parentElement, card = frame.parentElement;
-            const cardBox = card.getBoundingClientRect(), copy = card.querySelector('.payment-copy').getBoundingClientRect();
+            const cardBox = card.getBoundingClientRect(), frameBox = frame.getBoundingClientRect(), copy = card.querySelector('.payment-copy').getBoundingClientRect();
             const style = getComputedStyle(image);
             return { ratio: box.width / box.height, naturalRatio: image.naturalWidth / image.naturalHeight,
               source: image.currentSrc, fit: style.objectFit, filter: style.filter,
               backdrop: getComputedStyle(frame).backgroundImage,
+              verticalCenterDelta: Math.abs((box.top + box.bottom) / 2 - (frameBox.top + frameBox.bottom) / 2),
+              topBreathingRoom: box.top - frameBox.top,
+              bottomBreathingRoom: frameBox.bottom - box.bottom,
+              cardBottomGap: cardBox.bottom - box.bottom,
               contained: box.left >= cardBox.left && box.right <= cardBox.right + 1 && box.bottom <= cardBox.bottom + 1,
               besideCopy: box.left >= copy.right - 1,
               noOverflow: document.documentElement.scrollWidth <= innerWidth && card.scrollWidth <= card.clientWidth };
@@ -59,6 +63,10 @@ try {
           assert.equal(geometry.backdrop, 'none');
           assert.equal(geometry.contained, true);
           assert.equal(geometry.noOverflow, true);
+          assert.ok(geometry.verticalCenterDelta < 1, 'image centered vertically in its frame');
+          assert.ok(geometry.topBreathingRoom >= 31, 'clear space above image');
+          assert.ok(geometry.bottomBreathingRoom >= 31, 'clear space below image');
+          assert.ok(geometry.cardBottomGap >= 31, 'image is not attached to card bottom');
           if (width > 1180) assert.equal(geometry.besideCopy, true, 'devices sit to the right of HTML copy');
           assert.ok(geometry.source.includes('payment-terminal-v1-'));
           await link.focus();
