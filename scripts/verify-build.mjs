@@ -78,6 +78,13 @@ await assert.rejects(access('dist/assets/images/platform-self-ordering-v1-640.we
 const homeHtml = pages.get('/');
 assert.equal((homeHtml.match(/class="platform-image"/g) || []).length, 1, 'only the first platform card has generated imagery');
 assert.ok(!homeHtml.includes('platform-self-ordering-v2-'), 'home uses the reviewed v3 correction, not the old white logo plates');
+const firstPlatformCard = homeHtml.match(/<article class="platform-card--expandable"[\s\S]*?<\/article>/)?.[0];
+assert.ok(firstPlatformCard, 'first platform card uses the image-led layout');
+assert.ok(!firstPlatformCard.includes('<span>01</span>'), 'first card has no visible number');
+assert.ok(firstPlatformCard.includes('Self-Ordering Experience</h3>'), 'first card keeps its one requested heading');
+assert.ok(/<details class="platform-card-details">\s*<summary[^>]*aria-label="About Self-Ordering Experience"/.test(firstPlatformCard), 'native accessible description disclosure');
+assert.ok(!/<details[^>]*\sopen(?:[\s=>])/.test(firstPlatformCard), 'description starts collapsed');
+assert.ok(firstPlatformCard.includes('Let customers browse, select, adjust, review, and confirm from one focused touchscreen.'), 'description remains in the initial HTML');
 for (const width of [320, 640, 1280]) {
   const filename = `platform-self-ordering-v3-${width}.webp`;
   assert.ok(homeHtml.includes(publicPath(`/assets/images/${filename}`)), `home references ${filename}`);

@@ -175,6 +175,21 @@ html[data-theme='dark'] .theme-sun{display:block}
 .platform-image{display:block;width:100%;height:auto;aspect-ratio:4/3;margin-top:26px;border-radius:var(--radius-sm);background:var(--blue-tint)}
 .platform-icon{display:flex;height:65px;margin-top:26px;align-items:flex-end;gap:7px}.platform-icon i{display:block;width:17px;border:2px solid var(--brand-700);border-radius:5px;background:var(--mist)}.platform-icon i:nth-child(1){height:42px}.platform-icon i:nth-child(2){height:58px;background:var(--brand-500)}.platform-icon i:nth-child(3){height:32px}
 
+/* Image-led platform card pilot: only the first card uses this component. */
+.platform-grid article.platform-card--expandable{align-self:start;min-height:0;padding:0;overflow:hidden}
+.platform-card--expandable .platform-image{margin:0;border-radius:0;aspect-ratio:4/3;object-fit:cover}
+.platform-card-body{position:relative;padding:20px}
+.platform-grid .platform-card-body h3{display:flex;align-items:center;min-height:44px;margin:0;padding-right:56px;line-height:1.2;text-wrap:initial}
+.platform-card-details summary{position:absolute;top:20px;right:16px;display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid var(--control-border);border-radius:50%;background:var(--surface);color:var(--blue);cursor:pointer;list-style:none}
+.platform-card-details summary::-webkit-details-marker{display:none}
+.platform-card-details summary::marker{content:''}
+.platform-card-details summary:hover{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.platform-card-toggle{position:relative;display:block;width:16px;height:16px}
+.platform-card-toggle::before,.platform-card-toggle::after{content:'';position:absolute;top:7px;left:0;width:16px;height:2px;border-radius:2px;background:currentColor}
+.platform-card-toggle::after{transform:rotate(90deg)}
+.platform-card-details[open] .platform-card-toggle::after{display:none}
+.platform-card-details p{margin-top:14px}
+
 /* Product explorer */
 .product-section{padding-block:var(--section-space);background:var(--ink-950)}
 .product-tabs{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid rgba(255,255,255,.16);border-radius:18px 18px 0 0;overflow:hidden}

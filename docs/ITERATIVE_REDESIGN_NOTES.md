@@ -6,7 +6,7 @@ Status: the owner removed action 2 and authorized all three benefit icons, which
 
 These notes take precedence over earlier proposals where the design direction has changed. Keep completed implementation separate from pending redesign work.
 
-Latest first-card review: v3 removes the white backing panels behind both logos and turns the kiosk to show its left silver edge rather than its right. Logo/menu text is not mirrored; the neutral studio background remains. Only Home's Self-ordering experience image changes. Review the corrected sample before generating POS and checkout, and continue one image card at a time. See [PLATFORM_SELF_ORDERING_ASSET.md](PLATFORM_SELF_ORDERING_ASSET.md).
+Latest first-card review: the corrected v3 artwork keeps its plate-free logos and opposite-facing kiosk. The owner then approved an image-led, number-free, expandable-description card direction for all five platform cards, with implementation requested for the first card only. Self-Ordering Experience now has an edge-to-edge image, heading below, and native plus/minus disclosure; its original short description starts collapsed but remains in HTML. The other four cards remain unchanged until their individual turns. Review this layout pilot before proceeding to POS and checkout. See [PLATFORM_SELF_ORDERING_ASSET.md](PLATFORM_SELF_ORDERING_ASSET.md).
 
 ## Task register
 

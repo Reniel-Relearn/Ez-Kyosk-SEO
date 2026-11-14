@@ -1,0 +1,24 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  imageSrcSet: string;
+  imageAlt: string;
+}
+
+const { id, title, description, image, imageSrcSet, imageAlt } = Astro.props;
+---
+<article class="platform-card--expandable" aria-labelledby={`${id}-title`}>
+  <img class="platform-image" src={image} srcset={imageSrcSet}
+    sizes="(max-width: 720px) calc(100vw - 42px), (max-width: 1180px) 31vw, 20vw"
+    width="640" height="480" alt={imageAlt} loading="lazy" decoding="async" />
+  <div class="platform-card-body">
+    <h3 id={`${id}-title`}>{title}</h3>
+    <details class="platform-card-details">
+      <summary aria-label={`About ${title}`}><span class="platform-card-toggle" aria-hidden="true"></span></summary>
+      <p>{description}</p>
+    </details>
+  </div>
+</article>
