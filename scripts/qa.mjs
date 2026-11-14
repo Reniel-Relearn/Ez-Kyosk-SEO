@@ -40,8 +40,9 @@ try {
       assert.equal(state.headings, 1);
       assert.equal(state.brokenImages.length, 0, `${route}: images`);
       if (route === '/') {
-        assert.equal(await page.locator('.product-panel-image').count(), 1, 'only the first product panel has its new image');
-        assert.equal(await page.locator('.product-explorer .ui-window').count(), 4, 'other product placeholders retained');
+        assert.equal(await page.locator('.product-panel-image').count(), 2, 'first two product panels have imagery');
+        assert.equal(await page.locator('.product-explorer .ui-window').count(), 3, 'remaining three product placeholders retained');
+        assert.ok((await page.locator('#panel-pos-checkout .product-panel-image').getAttribute('src')).includes('product-pos-checkout-v1-'));
         const productImage = await page.locator('#panel-self-ordering .product-panel-image').evaluate(image => ({ source: image.currentSrc, alt: image.alt, ratio: image.getBoundingClientRect().width / image.getBoundingClientRect().height }));
         assert.ok(productImage.source.includes('product-self-ordering-v1-'));
         assert.ok(productImage.alt.startsWith('Illustrative Ez Kyosk'));

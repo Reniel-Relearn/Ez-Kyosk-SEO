@@ -80,9 +80,21 @@ const selfOrderingPanel = homeHtml.match(/<section class="product-panel" id="pan
 assert.ok(selfOrderingPanel?.includes('product-panel-image'), 'Self-Ordering product panel has its generated concept image');
 assert.ok(selfOrderingPanel.includes('Every choice, clear from the first tap.</h3>'), 'product panel heading retained');
 assert.ok(selfOrderingPanel.includes('Illustrative Ez Kyosk portrait kiosk menu'), 'image described as illustrative, not a live screenshot');
-assert.ok(!selfOrderingPanel.includes('ui-window'), 'only the first product placeholder is replaced');
-assert.equal((homeHtml.match(/class="ui-window"/g) || []).length, 4, 'other four product placeholders retained');
-assert.equal((homeHtml.match(/class="product-panel-image"/g) || []).length, 1, 'only one product image integrated');
+assert.ok(!selfOrderingPanel.includes('ui-window'), 'first product placeholder remains replaced');
+assert.equal((homeHtml.match(/class="ui-window"/g) || []).length, 3, 'remaining three product placeholders retained');
+assert.equal((homeHtml.match(/class="product-panel-image"/g) || []).length, 2, 'only two product images integrated');
+const checkoutPanel = homeHtml.match(/<section class="product-panel" id="panel-pos-checkout"[\s\S]*?<\/section>/)?.[0];
+assert.ok(checkoutPanel?.includes('Move confirmed orders into checkout.</h3>'), 'checkout heading retained');
+assert.ok(checkoutPanel.includes('Connect the self-ordering journey with the operational checkout flow, including order queueing and the requirements defined for each deployment.'), 'checkout description retained');
+assert.ok(checkoutPanel.includes('Illustrative Ez Kyosk staff checkout workstation'), 'checkout image described as illustrative');
+assert.ok(!checkoutPanel.includes('ui-window'), 'checkout placeholder replaced');
+for (const width of [480, 960, 1440]) {
+  const filename = `product-pos-checkout-v1-${width}.webp`;
+  assert.ok(checkoutPanel.includes(publicPath(`/assets/images/${filename}`)), `checkout uses base-safe ${filename}`);
+  const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
+  assert.equal(metadata.width, width);
+  assert.equal(metadata.height, width * 3 / 4);
+}
 for (const width of [480, 960, 1440]) {
   const filename = `product-self-ordering-v1-${width}.webp`;
   assert.ok(selfOrderingPanel.includes(publicPath(`/assets/images/${filename}`)), `product panel uses base-safe ${filename}`);
