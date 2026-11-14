@@ -44,12 +44,13 @@ try {
         assert.ok(hero.source.includes('hero-kiosk-transparent-v3.'), 'corrected transparent hero is loaded');
         assert.equal(hero.filter, 'none', 'no broad CSS blur/drop-shadow around the cutout');
         const platformImage = page.locator('.platform-grid .platform-image');
-        assert.equal(await platformImage.count(), 2, 'first two platform cards have imagery');
-        assert.equal(await page.locator('.platform-grid .platform-icon').count(), 3, 'remaining three placeholders unchanged');
+        assert.equal(await platformImage.count(), 3, 'first three platform cards have imagery');
+        assert.equal(await page.locator('.platform-grid .platform-icon').count(), 2, 'remaining two placeholders unchanged');
         assert.ok((await platformImage.nth(0).evaluate(image => image.currentSrc)).includes('platform-self-ordering-v3-'), 'corrected first card is retained');
         assert.ok((await platformImage.nth(1).evaluate(image => image.currentSrc)).includes('platform-pos-checkout-v1-'), 'new checkout image is loaded');
-        assert.equal(await page.locator('.platform-card--expandable').count(), 2, 'first two cards use the new layout');
-        assert.equal(await page.locator('.platform-card--expandable > span').count(), 0, 'first two card numbers removed');
+        assert.ok((await platformImage.nth(2).evaluate(image => image.currentSrc)).includes('platform-payments-v1-'), 'payment image is loaded');
+        assert.equal(await page.locator('.platform-card--expandable').count(), 3, 'first three cards use the new layout');
+        assert.equal(await page.locator('.platform-card--expandable > span').count(), 0, 'first three card numbers removed');
         for (const description of await page.locator('.platform-card-details p').all()) {
           assert.equal(await description.isVisible(), false, 'descriptions start collapsed');
         }

@@ -6,7 +6,7 @@ Status: the owner's 14 November review corrections are integrated in v3: remove 
 
 Home > One connected platform > From the first tap to the next task. > first card, Self-Ordering Experience. The v3 artwork replaced this card's generic bar illustration. Its later layout pilot removes the visible 01, fills the upper card edge-to-edge with the existing 4:3 image, and places one heading plus a description disclosure below. The original description is initially collapsed, remains in HTML, and expands inline through a keyboard-accessible plus/minus control. No new image was generated for the layout change.
 
-At the first-card pilot, only this card used `src/components/PlatformImageCard.astro`. The owner has since authorized the second card, POS and checkout, which now shares that component; see [PLATFORM_POS_CHECKOUT_ASSET.md](PLATFORM_POS_CHECKOUT_ASSET.md). Cards 3-5 keep their numbers, placeholders, and visible descriptions. The five-column/three-column/single-column responsive grid, first-card artwork/layout, hero, other sections, page order, and original image files remain unchanged by that second-card iteration.
+At the first-card pilot, only this card used `src/components/PlatformImageCard.astro`. The owner has since authorized POS and checkout and Payments with AltPayNet, which share that component; see [PLATFORM_POS_CHECKOUT_ASSET.md](PLATFORM_POS_CHECKOUT_ASSET.md) and [PLATFORM_PAYMENTS_ASSET.md](PLATFORM_PAYMENTS_ASSET.md). Cards 4-5 keep their numbers, placeholders, and visible descriptions. The five-column/three-column/single-column responsive grid, first-card artwork/layout, hero, other sections, page order, and original image files remain unchanged by those later iterations.
 
 ## Provenance and visual boundary
 

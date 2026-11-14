@@ -1,12 +1,12 @@
 # POS and checkout platform card
 
-Date: 14 November 2026. Owner authorized the next card only, followed by a report and the next card's details. The third payment card is a proposal, not authorized generation in this iteration.
+Date: 14 November 2026. This record describes the second-card iteration, when the third card was a proposal only. The owner has since separately authorized that third card; current implementation is recorded in [PLATFORM_PAYMENTS_ASSET.md](PLATFORM_PAYMENTS_ASSET.md). Historical second-card verification below retains its original scope.
 
 ## Exact placement and scope
 
 Home > One connected platform > From the first tap to the next task. > second card, **POS and checkout**.
 
-The card now uses the same `PlatformImageCard.astro` component as Self-Ordering Experience: full-width edge-to-edge 4:3 upper image, no visible 02, one unchanged heading below the image, and a plus/minus native disclosure. The description remains verbatim in initial HTML: "Connect confirmed orders to checkout, queueing, and the operational flow defined for your business." It starts collapsed and expands inline. Keyboard, pointer, and no-JavaScript behavior are shared with the first card. The first card and its artwork are retained; cards 3-5 keep their existing numbers, placeholders, headings, and visible copy. Hero and all other sections are unchanged.
+The card uses the same `PlatformImageCard.astro` component as Self-Ordering Experience: full-width edge-to-edge 4:3 upper image, no visible 02, one unchanged heading below the image, and a plus/minus native disclosure. The description remains verbatim in initial HTML: "Connect confirmed orders to checkout, queueing, and the operational flow defined for your business." It starts collapsed and expands inline. At the second-card release, cards 3-5 were unchanged. The separately authorized third-card release retains this card and the first card; cards 4-5, hero, and other sections remain unchanged.
 
 ## Visual and accuracy boundary
 
@@ -30,9 +30,9 @@ Integration uses base-safe URLs, responsive srcset/sizes, lazy loading, asynchro
 
 Production build and static verification passed, including both card headings, retained initial-HTML descriptions, collapsed defaults, six responsive WebP files, and unchanged indexing/metadata controls. The optimized 1280px asset and mobile/desktop light/dark card screenshots were visually inspected. The two-card suite passed 64 closed/open states across six widths and high-density phone/desktop variants, 16 section accessibility scans, Enter/Space and pointer controls, and no-JavaScript operation. Full-site regression passed 48 responsive route checks and 32 light/dark accessibility scans, with zero violations, browser errors, or failed requests. Cards 3-5 retain their original numbers, headings, and placeholders. No real inquiry was sent.
 
-## Next card proposal only: Payments with AltPayNet
+## Historical next-card proposal: Payments with AltPayNet
 
-Exact location: Home > One connected platform > third card. Generate only when the owner asks to continue.
+Exact location: Home > One connected platform > third card. The owner subsequently asked to continue; see [PLATFORM_PAYMENTS_ASSET.md](PLATFORM_PAYMENTS_ASSET.md). The proposal below is preserved as provenance, not a current pending status.
 
 - Purpose: show the two payment paths at a glance, distinct from staff checkout and from later payment-section close-ups.
 - Subject/composition: one compact card/contactless terminal beside one upright smartphone, a simple grouped 4:3 product composition with both devices fully visible and clear at small card sizes.
