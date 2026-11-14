@@ -81,8 +81,20 @@ assert.ok(selfOrderingPanel?.includes('product-panel-image'), 'Self-Ordering pro
 assert.ok(selfOrderingPanel.includes('Every choice, clear from the first tap.</h3>'), 'product panel heading retained');
 assert.ok(selfOrderingPanel.includes('Illustrative Ez Kyosk portrait kiosk menu'), 'image described as illustrative, not a live screenshot');
 assert.ok(!selfOrderingPanel.includes('ui-window'), 'first product placeholder remains replaced');
-assert.equal((homeHtml.match(/class="ui-window"/g) || []).length, 1, 'Customers placeholder retained');
-assert.equal((homeHtml.match(/class="product-panel-image"/g) || []).length, 4, 'only four product images integrated');
+assert.equal((homeHtml.match(/class="ui-window"/g) || []).length, 0, 'all product placeholders replaced');
+assert.equal((homeHtml.match(/class="product-panel-image"/g) || []).length, 5, 'all five product images integrated');
+const customersPanel = homeHtml.match(/<section class="product-panel" id="panel-customers"[\s\S]*?<\/section>/)?.[0];
+assert.ok(customersPanel?.includes('Add customer tools when they serve the experience.</h3>'), 'Customers heading retained');
+assert.ok(customersPanel.includes('Customer profiles, loyalty, promotions, and related tools can be scoped around client needs and the experience they want to provide.'), 'optional customer-tool scoping retained');
+assert.ok(customersPanel.includes('Illustrative Ez Kyosk smartphone sample profile'), 'Customers image described as illustrative');
+assert.ok(!customersPanel.includes('ui-window'), 'Customers placeholder replaced');
+for (const width of [480, 960, 1440]) {
+  const filename = `product-customers-v1-${width}.webp`;
+  assert.ok(customersPanel.includes(publicPath(`/assets/images/${filename}`)), `Customers uses base-safe ${filename}`);
+  const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
+  assert.equal(metadata.width, width);
+  assert.equal(metadata.height, width * 3 / 4);
+}
 const reportsPanel = homeHtml.match(/<section class="product-panel" id="panel-reports"[\s\S]*?<\/section>/)?.[0];
 assert.ok(reportsPanel?.includes('Shape reporting around the questions you ask.</h3>'), 'Reports heading retained');
 assert.ok(reportsPanel.includes('Reporting and analytics can be configured to the information, roles, and workflows a client needs rather than forcing every business into one template.'), 'configurable reporting description retained');

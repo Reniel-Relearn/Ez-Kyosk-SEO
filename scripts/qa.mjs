@@ -40,8 +40,9 @@ try {
       assert.equal(state.headings, 1);
       assert.equal(state.brokenImages.length, 0, `${route}: images`);
       if (route === '/') {
-        assert.equal(await page.locator('.product-panel-image').count(), 4, 'first four product panels have imagery');
-        assert.equal(await page.locator('.product-explorer .ui-window').count(), 1, 'Customers placeholder retained');
+        assert.equal(await page.locator('.product-panel-image').count(), 5, 'all five product panels have imagery');
+        assert.equal(await page.locator('.product-explorer .ui-window').count(), 0, 'all product placeholders replaced');
+        assert.ok((await page.locator('#panel-customers .product-panel-image').getAttribute('src')).includes('product-customers-v1-'));
         assert.ok((await page.locator('#panel-reports .product-panel-image').getAttribute('src')).includes('product-reports-v1-'));
         assert.ok((await page.locator('#panel-inventory .product-panel-image').getAttribute('src')).includes('product-inventory-v1-'));
         assert.ok((await page.locator('#panel-pos-checkout .product-panel-image').getAttribute('src')).includes('product-pos-checkout-v1-'));
