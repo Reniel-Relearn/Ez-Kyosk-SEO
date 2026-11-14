@@ -81,8 +81,20 @@ assert.ok(selfOrderingPanel?.includes('product-panel-image'), 'Self-Ordering pro
 assert.ok(selfOrderingPanel.includes('Every choice, clear from the first tap.</h3>'), 'product panel heading retained');
 assert.ok(selfOrderingPanel.includes('Illustrative Ez Kyosk portrait kiosk menu'), 'image described as illustrative, not a live screenshot');
 assert.ok(!selfOrderingPanel.includes('ui-window'), 'first product placeholder remains replaced');
-assert.equal((homeHtml.match(/class="ui-window"/g) || []).length, 3, 'remaining three product placeholders retained');
-assert.equal((homeHtml.match(/class="product-panel-image"/g) || []).length, 2, 'only two product images integrated');
+assert.equal((homeHtml.match(/class="ui-window"/g) || []).length, 2, 'remaining two product placeholders retained');
+assert.equal((homeHtml.match(/class="product-panel-image"/g) || []).length, 3, 'only three product images integrated');
+const inventoryPanel = homeHtml.match(/<section class="product-panel" id="panel-inventory"[\s\S]*?<\/section>/)?.[0];
+assert.ok(inventoryPanel?.includes('Keep menu availability closer to reality.</h3>'), 'Inventory heading retained');
+assert.ok(inventoryPanel.includes('Real-time inventory support helps the ordering experience reflect operational availability and gives teams a clearer view of stock movement.'), 'Inventory description retained');
+assert.ok(inventoryPanel.includes('Illustrative Ez Kyosk inventory tablet'), 'Inventory image described as illustrative');
+assert.ok(!inventoryPanel.includes('ui-window'), 'Inventory placeholder replaced');
+for (const width of [480, 960, 1440]) {
+  const filename = `product-inventory-v1-${width}.webp`;
+  assert.ok(inventoryPanel.includes(publicPath(`/assets/images/${filename}`)), `Inventory uses base-safe ${filename}`);
+  const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
+  assert.equal(metadata.width, width);
+  assert.equal(metadata.height, width * 3 / 4);
+}
 const checkoutPanel = homeHtml.match(/<section class="product-panel" id="panel-pos-checkout"[\s\S]*?<\/section>/)?.[0];
 assert.ok(checkoutPanel?.includes('Move confirmed orders into checkout.</h3>'), 'checkout heading retained');
 assert.ok(checkoutPanel.includes('Connect the self-ordering journey with the operational checkout flow, including order queueing and the requirements defined for each deployment.'), 'checkout description retained');
