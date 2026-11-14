@@ -6,7 +6,7 @@ Status: the owner removed action 2; all three benefit icons, all five overview c
 
 These notes take precedence over earlier proposals where the design direction has changed. Keep completed implementation separate from pending redesign work.
 
-Latest iteration: QR and e-wallet checkout uses the exact owner-supplied Hand Holding AltPayNet Payment Phone and Cards PNG. Screenshot is layout reference only; no generation or image alterations. Original embedded branding/QR/cards and transparency preserved, with natural aspect ratio and centered breathing room. First payment artwork/centering, both card texts/links, previous images, hero and section order are unchanged. Shared component appears on Home and Product. Next proposal only: Hospitality & food industry image. See [PAYMENT_ONLINE_ASSET.md](PAYMENT_ONLINE_ASSET.md).
+Latest iteration: both shared Home/Product payment cards are compact, with no added image top/bottom padding or 500px minimum. This overrides the earlier breathing-room request. Image columns follow the two different natural ratios; original artwork, exact supplied PNG bytes, branding/QR/cards and transparency remain unchanged. Both card texts/links, previous images, hero and section order are retained. Responsive layout protects text readability at narrower widths. Next proposal remains Hospitality & food industry image, not generated. See [PAYMENT_CARD_LAYOUT.md](PAYMENT_CARD_LAYOUT.md).
 
 ## Task register
 

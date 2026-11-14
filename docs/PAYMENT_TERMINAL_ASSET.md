@@ -32,7 +32,7 @@ New deterministic `scripts/prepare-payment-image.mjs`: 3:4 transparent source, n
 
 Shared PaymentShowcase uses base-safe src/srcset, explicit dimensions, lazy/async loading and illustrative alt. Scoped frame removes the old radial haze and contains the full image without stretching. Image sits right of copy above 1180px; existing smaller-screen stacked layout remains. No new dependency or runtime JavaScript.
 
-Owner spacing correction, 14 November: vertically center the device group instead of bottom-aligning it. Frame now has equal 32px top/bottom padding and centered alignment; image no longer touches the card bottom. This means static visual floating with breathing room, not an animation or regenerated artwork. Original image bytes, text, second card and shared Home/Product scope are unchanged. Build/static verification and all 32 targeted responsive/theme checks plus 8 accessibility scans passed. Targeted regression now asserts center alignment and at least 31px clear space above/below, including the gap to card bottom, across all tested widths/themes. Phone/desktop screenshots were visually reviewed; correction artifacts use the `payment-terminal-centered` prefix.
+Historical spacing correction, 14 November: the owner first requested vertical centering with equal 32px top/bottom padding. That correction passed build/static verification, 32 targeted checks and 8 accessibility scans (`payment-terminal-centered` artifacts). The later owner request supersedes the breathing-room rule: make BOTH cards compact with zero added image top/bottom padding. See [PAYMENT_CARD_LAYOUT.md](PAYMENT_CARD_LAYOUT.md) for current layout and checks. Neither original payment image is regenerated or changed.
 
 ## Verification
 
