@@ -44,14 +44,15 @@ try {
         assert.ok(hero.source.includes('hero-kiosk-transparent-v3.'), 'corrected transparent hero is loaded');
         assert.equal(hero.filter, 'none', 'no broad CSS blur/drop-shadow around the cutout');
         const platformImage = page.locator('.platform-grid .platform-image');
-        assert.equal(await platformImage.count(), 4, 'first four platform cards have imagery');
-        assert.equal(await page.locator('.platform-grid .platform-icon').count(), 1, 'fifth placeholder remains unchanged');
+        assert.equal(await platformImage.count(), 5, 'all five platform cards have imagery');
+        assert.equal(await page.locator('.platform-grid .platform-icon').count(), 0, 'all platform placeholders are replaced');
         assert.ok((await platformImage.nth(0).evaluate(image => image.currentSrc)).includes('platform-self-ordering-v3-'), 'corrected first card is retained');
         assert.ok((await platformImage.nth(1).evaluate(image => image.currentSrc)).includes('platform-pos-checkout-v1-'), 'new checkout image is loaded');
         assert.ok((await platformImage.nth(2).evaluate(image => image.currentSrc)).includes('platform-payments-v1-'), 'payment image is loaded');
         assert.ok((await platformImage.nth(3).evaluate(image => image.currentSrc)).includes('platform-inventory-tracking-v1-'), 'inventory image is loaded');
-        assert.equal(await page.locator('.platform-card--expandable').count(), 4, 'first four cards use the new layout');
-        assert.equal(await page.locator('.platform-card--expandable > span').count(), 0, 'first four card numbers removed');
+        assert.ok((await platformImage.nth(4).evaluate(image => image.currentSrc)).includes('platform-configurable-extensions-v1-'), 'extensions image is loaded');
+        assert.equal(await page.locator('.platform-card--expandable').count(), 5, 'all five cards use the shared layout');
+        assert.equal(await page.locator('.platform-card--expandable > span').count(), 0, 'all five card numbers removed');
         for (const description of await page.locator('.platform-card-details p').all()) {
           assert.equal(await description.isVisible(), false, 'descriptions start collapsed');
         }
