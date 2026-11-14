@@ -36,6 +36,8 @@ Full-site regression passed 48 responsive route checks and 32 light/dark accessi
 
 ## Exact next card details: Reports & Analytics (proposal only)
 
+Historical third-image handoff below. The owner subsequently authorized Reports separately; completed implementation and current Customers proposal are in [PRODUCT_REPORTS_ASSET.md](PRODUCT_REPORTS_ASSET.md).
+
 - Location: Home > Explore the product > Five areas. One adaptable system. > fourth tab, Reports & Analytics.
 - Retain heading: **Shape reporting around the questions you ask.**
 - Retain description: **Reporting and analytics can be configured to the information, roles, and workflows a client needs rather than forcing every business into one template.**

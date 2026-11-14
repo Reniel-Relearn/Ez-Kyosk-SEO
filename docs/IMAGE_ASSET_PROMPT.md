@@ -2,7 +2,7 @@
 
 Saved: 13 November 2026
 
-Status: the owner's prompt below remains saved verbatim. All three benefit icons, all five overview images, and the first three Home product images are implemented for review. Other product/section imagery remains pending. Current assignments/statuses are maintained in [VISUAL_ASSET_PLAN.md](VISUAL_ASSET_PLAN.md).
+Status: the owner's prompt below remains saved verbatim. All three benefit icons, all five overview images, and the first four Home product images are implemented for review. Other product/section imagery remains pending. Current assignments/statuses are maintained in [VISUAL_ASSET_PLAN.md](VISUAL_ASSET_PLAN.md).
 
 The next iterative redesign starts with the homepage, with images for its cards as the core direction. This document preserves the owner's prompt verbatim for that future work. Approved project assets will use `public/assets/images`.
 
