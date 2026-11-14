@@ -4,9 +4,9 @@ Last updated: 14 November 2026
 
 ## Current status
 
-Latest owner request: proceed with Customers. Home's fifth product panel now has the agreed sample-profile phone and configurable-tools detail. All five Home product images are complete for review. First four artworks, conditional wording, tabs, overview cards, hero, Product page and page order are unchanged. Terminal integration is the next written proposal only, not generated. See [PRODUCT_CUSTOMERS_ASSET.md](PRODUCT_CUSTOMERS_ASSET.md). Consistent naming and original logo sources remain governed by [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md).
+Latest owner request: implement the first payment image using the attached two-card screenshot as the close composition reference. Terminal integration now uses a transparent countertop kiosk plus separate terminal, NO hand/card, original-reference logos without white backing plates and a generic matching PHP 300 total. Existing wording/links, second payment placeholder, ten prior card images, hero and page order are retained. This shared component applies to BOTH Home and Product. Next proposal: hand-held phone for QR and e-wallet checkout, not generated. See [PAYMENT_TERMINAL_ASSET.md](PAYMENT_TERMINAL_ASSET.md). Consistent naming and original logo sources remain governed by [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md).
 
-**Current phase:** action 2 removed; visual assignments, palette, and benefit icon family implemented. All five overview cards and all five Home product images are integrated for owner review. Payment/industry imagery, Product deep-dive reuse and the four-step journey remain pending.
+**Current phase:** action 2 removed; visual assignments, palette, and benefit icon family implemented. All five overview cards, all five Home product images and the first shared payment image are integrated for owner review. Second payment/industry imagery, Product deep-dive reuse and the four-step journey remain pending.
 
 The repository contains the completed local-review redesign: responsive pages, the approved information architecture, owner-confirmed product scope, preview-safe indexing controls, technical SEO foundations, a non-sending local inquiry experience, and automated build/browser/accessibility checks. Production launch remains unauthorized and unconfigured.
 
@@ -40,7 +40,8 @@ The latest task statuses, removed Word-arrangement step, icon exception, and pen
 - [x] Complete the separately authorized Inventory product image, retaining the first two artworks, existing copy and tab behavior.
 - [x] Complete the separately authorized Reports & Analytics product image with Sample data labels, retaining the first three artworks, configurable wording and tab behavior.
 - [x] Complete the separately authorized Customers product image with Sample profile and Configurable labels, retaining first four artworks, conditional wording and tab behavior.
-- Next card: Terminal integration in the shared Home/Product Payments section. Exact kiosk/terminal/contactless-card composition, generic amount, provider-mark exclusions and scope are documented in [PRODUCT_CUSTOMERS_ASSET.md](PRODUCT_CUSTOMERS_ASSET.md). Not generated. Continue one asset at a time; every completion report must give exact next-card details.
+- [x] Implement first shared Home/Product payment image using the newer screenshot-aligned kiosk/terminal composition, no hand/card, retaining existing HTML copy and second payment placeholder.
+- Next card: QR and e-wallet checkout in the shared Home/Product Payments section. Exact hand/phone/illustrative QR composition and provider-mark limitations are documented in [PAYMENT_TERMINAL_ASSET.md](PAYMENT_TERMINAL_ASSET.md). Not generated. Continue one asset at a time; every completion report must give exact next-card details.
 
 ## Status legend
 

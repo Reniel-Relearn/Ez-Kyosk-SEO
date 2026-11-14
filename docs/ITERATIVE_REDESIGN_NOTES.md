@@ -2,11 +2,11 @@
 
 Updated: 14 November 2026
 
-Status: the owner removed action 2; all three benefit icons, all five overview cards and all five Home product images are implemented. Actions 3 and 4 are documented in the visual asset plan. Action 5 and benefit text/number cleanup are implemented and verified. Later payment/industry imagery, Product deep-dive reuse and journey changes stay pending.
+Status: the owner removed action 2; all three benefit icons, all five overview cards, all five Home product images and the first shared Home/Product payment image are implemented. Actions 3 and 4 are documented in the visual asset plan. Action 5 and benefit text/number cleanup are implemented and verified. Second payment/industry imagery, Product deep-dive reuse and journey changes stay pending.
 
 These notes take precedence over earlier proposals where the design direction has changed. Keep completed implementation separate from pending redesign work.
 
-Latest iteration: Customers uses a charcoal phone with Guest 01 / Sample profile and enlarged Customer tools panel, with Profile, Loyalty and Promotions each marked Configurable. No personal records or live membership states. First four artworks, conditional text/tabs, mobile stacking, overview cards, hero, Product page and section order are unchanged. Terminal integration is the next detailed proposal only. See [PRODUCT_CUSTOMERS_ASSET.md](PRODUCT_CUSTOMERS_ASSET.md).
+Latest iteration: Terminal integration uses a screenshot-aligned countertop kiosk and separate terminal on stand, with genuine transparent surroundings, original-reference plate-free logos and generic matching PHP 300 total. NO hand/card; the older proposal is superseded. HTML copy/links, second payment placeholder, previous images, hero and section order are unchanged. Shared component appears on Home and Product. Next proposal only: hand-held phone for QR and e-wallet checkout. See [PAYMENT_TERMINAL_ASSET.md](PAYMENT_TERMINAL_ASSET.md).
 
 ## Task register
 
@@ -19,7 +19,8 @@ Latest iteration: Customers uses a charcoal phone with Guest 01 / Sample profile
 | Visual assignments and shared art direction | Done as planning; all five platform cards implemented | [VISUAL_ASSET_PLAN.md](VISUAL_ASSET_PLAN.md) assigns subjects, groups, crops, reuse, and styling. Three benefit icons and all five overview images are implemented; other imagery is pending. |
 | Three benefit cards under "A better way to take orders" | Titles and all three icons implemented | Titles: "Faster Ordering Experience", "More Order Capacity", and "Better Service Flow"; 01/02/03 are removed. Kiosk/tap, merged-order-path, and sequential-flow/checkmark SVGs share the blue/cyan family and both themes. |
 | Add ultra-realistic images to applicable cards | All five overview cards implemented for review | Cards 1-5 have 4:3 images and expandable descriptions. Other sections are unchanged and their imagery remains pending. See [PLATFORM_CONFIGURABLE_EXTENSIONS_ASSET.md](PLATFORM_CONFIGURABLE_EXTENSIONS_ASSET.md). |
-| Add visuals to "Five areas. One adaptable system." | All five Home panels implemented | Self-Ordering, POS & Checkout, Inventory, Reports and Customers use separately authorized illustrative concepts. Exact next Terminal integration proposal is in the latest asset record. Product-page reuse remains pending. |
+| Add visuals to "Five areas. One adaptable system." | All five Home panels implemented | Self-Ordering, POS & Checkout, Inventory, Reports and Customers use separately authorized illustrative concepts. Product-page reuse remains pending. |
+| Replace payment illustrations | First shared Home/Product image implemented | Screenshot-aligned kiosk/terminal cutout, no hand/card. Second QR/e-wallet phone/hand image is detailed in the latest record, not generated. Existing HTML copy remains unchanged. |
 | Update the customer journey and add images | Pending | New requested sequence: Browse -> Select -> Payment -> Get order. The existing five-step implementation has not yet changed. |
 | Follow the Word document's homepage arrangement | Removed by owner | Action 2 and its dependent homepage-rearrangement step are removed. Retain the current homepage section order; the uploaded documents remain local references. |
 

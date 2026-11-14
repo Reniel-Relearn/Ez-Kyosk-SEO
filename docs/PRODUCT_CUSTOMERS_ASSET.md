@@ -36,6 +36,8 @@ Full-site regression passed 48 responsive route checks and 32 light/dark accessi
 
 ## Exact next card: Terminal integration (proposal only)
 
+Historical handoff: the owner subsequently replaced this proposal with the attached two-card payment screenshot as a close composition reference. The hand/card proposal below is superseded. The authorized kiosk-plus-terminal image, with NO hand, is recorded in [PAYMENT_TERMINAL_ASSET.md](PAYMENT_TERMINAL_ASSET.md).
+
 - Location: Payments with AltPayNet > Flexible ways to complete an order. > first card, In-store payments > Terminal integration.
 - Existing body retained: **Connect a secure payment terminal to the kiosk checkout flow for supported card and in-store payment requirements.**
 - Existing link retained: **Discuss terminal requirements**.
