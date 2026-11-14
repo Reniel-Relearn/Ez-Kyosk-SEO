@@ -76,7 +76,7 @@ assert.equal(heroVariants.length, 3, 'all three responsive transparent hero vari
 for (const file of heroVariants) await verifyHeroImage(`dist/_astro/${file}`);
 await assert.rejects(access('dist/assets/images/platform-self-ordering-v1-640.webp'), 'superseded public artwork is not deployed');
 const homeHtml = pages.get('/');
-assert.equal((homeHtml.match(/class="platform-image"/g) || []).length, 2, 'first two platform cards have imagery');
+assert.equal((homeHtml.match(/class="platform-image"/g) || []).length, 3, 'first three platform cards have imagery');
 assert.ok(!homeHtml.includes('platform-self-ordering-v2-'), 'home uses the reviewed v3 correction, not the old white logo plates');
 const firstPlatformCard = homeHtml.match(/<article class="platform-card--expandable"[\s\S]*?<\/article>/)?.[0];
 assert.ok(firstPlatformCard, 'first platform card uses the image-led layout');
@@ -90,7 +90,13 @@ assert.ok(secondPlatformCard?.includes('id="platform-checkout-title">POS and che
 assert.ok(!secondPlatformCard.includes('<span>02</span>'), 'second card has no visible number');
 assert.ok(secondPlatformCard.includes('Connect confirmed orders to checkout, queueing, and the operational flow defined for your business.'), 'checkout description retained in HTML');
 assert.ok(!/<details[^>]*\sopen(?:[\s=>])/.test(secondPlatformCard), 'checkout description starts collapsed');
-for (const stem of ['platform-self-ordering-v3', 'platform-pos-checkout-v1']) {
+const thirdPlatformCard = [...homeHtml.matchAll(/<article class="platform-card--expandable"[\s\S]*?<\/article>/g)][2]?.[0];
+assert.ok(thirdPlatformCard?.includes('id="platform-payments-title">Payments with AltPayNet</h3>'), 'third card keeps its original heading');
+assert.ok(!thirdPlatformCard.includes('<span>03</span>'), 'third card number removed');
+assert.ok(thirdPlatformCard.includes('Support approved card, QR, GCash, Maya, and e-wallet payment paths.'), 'payment description remains in HTML');
+assert.ok(/<summary[^>]*aria-label="About Payments with AltPayNet"/.test(thirdPlatformCard), 'payment disclosure has an accessible label');
+assert.ok(!/<details[^>]*\sopen(?:[\s=>])/.test(thirdPlatformCard), 'payment description starts collapsed');
+for (const stem of ['platform-self-ordering-v3', 'platform-pos-checkout-v1', 'platform-payments-v1']) {
   for (const width of [320, 640, 1280]) {
     const filename = `${stem}-${width}.webp`;
     assert.ok(homeHtml.includes(publicPath(`/assets/images/${filename}`)), `home references ${filename}`);

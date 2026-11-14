@@ -4,15 +4,15 @@ Updated: 14 November 2026
 
 Branding override: [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md) is authoritative. Display name is Ez Kyosk. Use only original logo/icon assets, not header screenshots. The hero uses transparent v3 artwork without white logo panels; see [HERO_TRANSPARENCY_FIX.md](HERO_TRANSPARENCY_FIX.md). The first overview card now uses v3 without logo backing plates and with the opposite three-quarter kiosk view, as requested on 14 November. Original source images and superseded samples remain reference material, not active page imports.
 
-Actions 3 and 4: visual assignments and shared art direction. All three benefit icons are integrated. Home's first two platform cards, Self-Ordering Experience and POS and checkout, now have realistic imagery and the image-led expandable-description layout. Cards 3-5, other imagery, and the four-step journey remain pending. The Word-arrangement action is removed; retain the current homepage sequence.
+Actions 3 and 4: visual assignments and shared art direction. All three benefit icons are integrated. Home's first three platform cards, Self-Ordering Experience, POS and checkout, and Payments with AltPayNet, now have realistic imagery and the image-led expandable-description layout. Cards 4-5, other imagery, and the four-step journey remain pending. The Word-arrangement action is removed; retain the current homepage sequence.
 
-## Image-led platform card layout: first two cards
+## Image-led platform card layout: first three cards
 
 Owner-approved direction for all five Home > One connected platform cards: remove the visible numbers, make the image edge-to-edge across the upper card, show one heading below it, and initially hide the existing short description behind a plus control. Expanding shows the description in the same card; the control becomes a minus for collapse.
 
-Implementation is complete for **cards 1 and 2 only**. Self-Ordering Experience retains its corrected v3 image; POS and checkout adds a staff-side workstation/receipt-printer image. Both have a full-width 4:3 upper image, no visible number, one heading below, and a native HTML details/summary control with a 44px target. Descriptions remain in initial HTML and work without JavaScript. Cards 3-5 retain their existing numbers, placeholders, headings, and visible descriptions until their individual turns. The hero, other sections, and page order are unchanged.
+Implementation is complete for **cards 1-3 only**. Self-Ordering Experience retains its corrected v3 image; POS and checkout shows a staff-side workstation/receipt printer; Payments with AltPayNet pairs a contactless terminal and smartphone with a schematic QR-style cue. All three have a full-width 4:3 upper image, no visible number, one heading below, and a native HTML details/summary control with a 44px target. Descriptions remain in initial HTML and work without JavaScript. Cards 4-5 retain their existing numbers, placeholders, headings, and visible descriptions until their individual turns. The hero, other sections, and page order are unchanged.
 
-`src/components/PlatformImageCard.astro` provides the shared structure. Reuse is not automatic authorization to redesign cards 3-5. The newest asset, exact prompt, accuracy boundary, and next payment-card proposal are recorded in [PLATFORM_POS_CHECKOUT_ASSET.md](PLATFORM_POS_CHECKOUT_ASSET.md).
+`src/components/PlatformImageCard.astro` provides the shared structure. Reuse is not automatic authorization to redesign cards 4-5. The newest asset, exact prompt, and accuracy boundary are recorded in [PLATFORM_PAYMENTS_ASSET.md](PLATFORM_PAYMENTS_ASSET.md). No unverified provider marks or real payment data are included in the image.
 
 ## Shared direction
 
@@ -61,7 +61,7 @@ The Product hero's semantic system map, navigation, FAQ, About principles, Conta
 
 1. Completed: present `benefit-faster` in words and receive the owner's approval to create it.
 2. Completed: owner authorized More Order Capacity and Better Service Flow. All three matching icons are integrated for light/dark review.
-3. First realistic sample and its image-led layout were reviewed iteratively. The owner then authorized POS and checkout, now integrated with the same layout. Continue one card at a time; Payments with AltPayNet is the next proposal only.
+3. The first sample/layout were reviewed iteratively; POS and checkout and then Payments with AltPayNet were separately authorized and integrated. Continue one card at a time. Inventory and order tracking is next, not generated.
 4. Optimize and integrate approved assets section by section; validate responsive crops, light/dark contrast, and page performance.
 
 ## First icon specification and implementation
@@ -102,7 +102,7 @@ Owner authorization: proceed with "Better Service Flow". The third card heading 
 - Family: transparent 64 by 64 canvas, 2.5-unit rounded blue strokes, shared light/dark blue and cyan tokens, and 24px spacing above the heading. Decorative, non-focusable, with all meaningful text retained as HTML.
 - Asset: `public/assets/images/benefit-better-flow-v1.svg`, embedded inline by `src/components/BetterServiceFlowIcon.astro`. No raster generation or additional runtime JavaScript.
 
-All three benefit icons and the first two realistic overview cards are implemented. Remaining imagery and the four-step journey are pending.
+All three benefit icons and the first three realistic overview cards are implemented. Remaining imagery and the four-step journey are pending.
 
 ## First realistic sample: platform-ordering
 
@@ -112,6 +112,8 @@ Generated a restrained 4:3 product composition using the existing owner-supplied
 
 Responsive WebP assets: `public/assets/images/platform-self-ordering-v3-{320,640,1280}.webp`, approximately 8KB, 22KB, and 56KB. V3 removes both white logo plates and turns the kiosk to show its left silver edge, with readable non-mirrored text. The studio background remains opaque. Integration preserves the five-card grid, uses base-path-safe responsive URLs, lazy loading, explicit dimensions, and alt text. Full prompt, provenance, optimization settings, and verification: [PLATFORM_SELF_ORDERING_ASSET.md](PLATFORM_SELF_ORDERING_ASSET.md).
 
-Continue iterative owner review. The second card was separately authorized; creation of cards 3-5 is not implied.
+Continue iterative owner review. Cards 2-3 were separately authorized; creation of cards 4-5 is not implied.
 
-Completed next iteration: POS and checkout now has a restrained 4:3 staff-side workstation and receipt printer, matching the first card's neutral/cool-blue art direction. The screen is a branded idle display, not fabricated detailed POS UI. Responsive assets are `public/assets/images/platform-pos-checkout-v1-{320,640,1280}.webp`. See [PLATFORM_POS_CHECKOUT_ASSET.md](PLATFORM_POS_CHECKOUT_ASSET.md) for provenance and the detailed next proposal: Payments with AltPayNet. That third card has not been generated or redesigned.
+Completed second iteration: POS and checkout has a restrained 4:3 staff-side workstation and receipt printer, matching the first card's neutral/cool-blue art direction. The screen is a branded idle display, not fabricated detailed POS UI. Responsive assets are `public/assets/images/platform-pos-checkout-v1-{320,640,1280}.webp`; see [PLATFORM_POS_CHECKOUT_ASSET.md](PLATFORM_POS_CHECKOUT_ASSET.md).
+
+Completed third iteration: Payments with AltPayNet has a contactless terminal and phone composition in the same photographic family, no visible number, and the shared disclosure layout. Responsive assets are `public/assets/images/platform-payments-v1-{320,640,1280}.webp`, approximately 9KB, 23KB, and 73KB. The phone has a schematic QR cue and plate-free original-reference logo, not a fabricated provider interface or real payment link. See [PLATFORM_PAYMENTS_ASSET.md](PLATFORM_PAYMENTS_ASSET.md). Next pending card: Inventory and order tracking.
