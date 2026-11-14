@@ -36,6 +36,8 @@ Full-site regression passed 48 responsive route checks and 32 light/dark accessi
 
 ## Exact next card details: Customers (proposal only)
 
+Historical handoff below: the owner subsequently authorized Customers, now completed in [PRODUCT_CUSTOMERS_ASSET.md](PRODUCT_CUSTOMERS_ASSET.md). The Reports release scope and verification above remain historical.
+
 - Location: Home > Explore the product > Five areas. One adaptable system. > fifth/final tab, Customers.
 - Retain heading: **Add customer tools when they serve the experience.**
 - Retain description: **Customer profiles, loyalty, promotions, and related tools can be scoped around client needs and the experience they want to provide.**
