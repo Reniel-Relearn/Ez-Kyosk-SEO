@@ -4,7 +4,7 @@ Last updated: 14 November 2026
 
 ## Current status
 
-Latest owner request: correct only Home's first Self-ordering experience card by removing both logo backing fills and turning the kiosk to the opposite side. V3 is integrated with dark material behind the logos, the left silver edge visible, and readable non-mirrored text. The hero, copy, layout, and remaining four cards are unchanged. Next card is POS and checkout, proposal only; proceed one image card at a time. See [PLATFORM_SELF_ORDERING_ASSET.md](PLATFORM_SELF_ORDERING_ASSET.md). Consistent naming and original logo sources remain governed by [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md).
+Latest owner request: implement the new image-led card layout for Home's first platform card only. Self-Ordering Experience has no visible number, its existing corrected v3 image fills the upper card edge-to-edge, and a native plus/minus disclosure reveals the original description beneath the heading. The direction is approved for all five platform cards, but the remaining four retain their current layout and await individual implementation. Hero, other sections, artwork, and page order are unchanged. Next card is POS and checkout, proposal only. See [PLATFORM_SELF_ORDERING_ASSET.md](PLATFORM_SELF_ORDERING_ASSET.md). Consistent naming and original logo sources remain governed by [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md).
 
 **Current phase:** action 2 removed; visual assignments, palette, and benefit icon family implemented. The first realistic sample is integrated into Home > From the first tap to the next task. > Self-ordering experience for owner review. Remaining imagery and the four-step journey are pending.
 

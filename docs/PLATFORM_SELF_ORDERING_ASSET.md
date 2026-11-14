@@ -4,7 +4,9 @@ Status: the owner's 14 November review corrections are integrated in v3: remove 
 
 ## Placement and scope
 
-Home > One connected platform > From the first tap to the next task. > card 01, Self-ordering experience. This replaces only that card's generic bar illustration. Existing hero artwork/copy, card labels/descriptions/numbers, five-card grid, remaining four visuals, product panels, payment cards, industry cards, and journey remain unchanged.
+Home > One connected platform > From the first tap to the next task. > first card, Self-Ordering Experience. The v3 artwork replaced this card's generic bar illustration. Its later layout pilot removes the visible 01, fills the upper card edge-to-edge with the existing 4:3 image, and places one heading plus a description disclosure below. The original description is initially collapsed, remains in HTML, and expands inline through a keyboard-accessible plus/minus control. No new image was generated for the layout change.
+
+Only the first card uses `src/components/PlatformImageCard.astro`. The remaining four cards keep their numbers, placeholders, and visible descriptions. The five-column/three-column/single-column responsive grid, hero, other sections, page order, and original image files remain unchanged. The shared design direction applies to all five cards eventually, but only this first-card pilot is implemented now.
 
 ## Provenance and visual boundary
 
@@ -26,7 +28,13 @@ Integration uses base-path-safe URLs, `srcset`/`sizes`, descriptive alt text, la
 
 `scripts/prepare-platform-ordering.mjs` performs only deterministic WebP resizing/optimization, not visual editing. The original 1448 x 1086 PNG is retained at `C:/Users/galan/.codex/generated_images/01a1c0d8-c8e5-7a93-9967-fb113f664c04/exec-24968caf-d268-4c93-aa7b-844328599f83.png`; all three final website deliverables are saved in the repository. Older v2 WebPs are retained for recovery and are no longer referenced by Home.
 
-## Verification
+## Image-led layout pilot verification
+
+The layout reuses the v3 artwork without regeneration or pixel changes. Build/static checks passed, including one initial-HTML heading, no visible first-card number, a native disclosure closed by default, and retained description text. `node scripts/qa-platform-card.mjs` passed 32 closed/open states across six viewport widths, both themes, and high-density phone/desktop variants. Eight platform-section accessibility scans found zero violations. Tests verify edge-to-edge image geometry, 4:3 proportions, heading below the image, 44px control size, visible keyboard focus, plus/minus state, Enter/Space and pointer behavior, and unchanged cards 2-5. The disclosure also passed with JavaScript disabled. Mobile/desktop screenshots in both states/themes were visually inspected.
+
+The full-site layout-pilot regression also passed: 48 responsive route checks and 32 light/dark accessibility scans, zero violations, browser errors, or failed requests. The first description expands with Enter and collapses with Space; existing navigation, FAQs, product panels, theme persistence, and mocked form behavior remain working.
+
+## Verification of v3 artwork (before the later layout pilot)
 
 V3 production build and static verification passed. Targeted browser checks passed at 320, 390, 768, 1024, 1440, and 1920px in both themes, plus high-density phone/desktop checks (16 combinations total). All five titles, the four unchanged placeholders, original card dimensions, responsive source selection, lazy loading, decoding, and benefit icons remain intact. Four platform-section accessibility scans found zero violations, with no browser errors, failed requests, or horizontal overflow. Optimized master, mobile light/dark cards, and desktop light/dark sections were visually inspected.
 
