@@ -24,6 +24,8 @@ Full-site regression passed 48 responsive route checks and 32 accessibility scan
 
 ## Files and next action
 
+16 November follow-up: the owner requested a fully flush wrist at the second card bottom. The prior less-than-16px slack allowance was insufficient for this visual requirement. The online PNG now bottom-aligns instead of centering, with a strict zero-inner-gap check; first image stays centered. See [FEEDBACK_WRIST_AND_HUMAN_PLAN.md](FEEDBACK_WRIST_AND_HUMAN_PLAN.md). Both image files remain unchanged. The immediate next action is brainstorming the first human-interaction platform card, not generating the industry scene below.
+
 PaymentShowcase second-card modifier and terminal sizes; payment-only stylesheet rules; targeted payment QA; current roadmap/visual/iteration docs and historical asset-record spacing notes. No image file changes or new dependency/runtime logic.
 
 Next remains Home > Designed to adapt > Different operations. One clearer experience. > Hospitality & food. Proposed café/bakery counter scene with our kiosk foreground, pastry display and coffee equipment behind, soft daylight, neutral materials and subtle blue/cyan details. Preserve existing title/description/link as HTML; no real deployment claim. Exact brief is in [PAYMENT_ONLINE_ASSET.md](PAYMENT_ONLINE_ASSET.md). Not generated or integrated now.
