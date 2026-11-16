@@ -12,19 +12,19 @@ import { steps, faqs } from '../data/product';
 import { sitePath } from '../lib/sitePath';
 
 const platforms = [
-  ['01', 'Self-Ordering Experience', 'Let customers browse, select, adjust, review, and confirm from one focused touchscreen.'],
-  ['02', 'POS and checkout', 'Connect confirmed orders to checkout, queueing, and the operational flow defined for your business.'],
-  ['03', 'Payments with AltPayNet', 'Support approved card, QR, GCash, Maya, and e-wallet payment paths.'],
-  ['04', 'Inventory and order tracking', 'Keep inventory visibility and order progress connected to the experience.'],
-  ['05', 'Configurable extensions', 'Scope reports, customers, loyalty, promotions, and other needs around your operation.'],
+  ['01', 'Self-Ordering & Payments', 'Give customers a self-service ordering channel with supported electronic payment paths.'],
+  ['02', 'Order Queue & Tracking', 'Help customers see which orders are being prepared and which are ready for pickup.'],
+  ['03', 'Inventory & Availability', 'Keep item availability and inventory visibility aligned with daily operations.'],
+  ['04', 'Reports & Insights', 'Configure reports around sales, products and the operational questions your business needs to answer.'],
+  ['05', 'Cashier', 'Offer an optional cashier-assisted payment route for customers who prefer to pay in cash.'],
 ];
 
-const platformImages: Record<string, { id: string; stem: string; alt: string }> = {
-  '01': { id: 'platform-ordering', stem: 'platform-self-ordering-v3', alt: 'Ez Kyosk kiosk with a café menu on its touchscreen' },
-  '02': { id: 'platform-checkout', stem: 'platform-pos-checkout-v1', alt: 'Illustrative Ez Kyosk checkout workstation with a receipt printer' },
-  '03': { id: 'platform-payments', stem: 'platform-payments-v1', alt: 'Illustrative contactless payment terminal beside an Ez Kyosk smartphone with a QR-style graphic' },
-  '04': { id: 'platform-inventory', stem: 'platform-inventory-tracking-v1', alt: 'Illustrative organized stock containers and prepared order package beside an Ez Kyosk tablet' },
-  '05': { id: 'platform-extensions', stem: 'platform-configurable-extensions-v1', alt: 'Illustrative Ez Kyosk laptop beside three conceptual report, customer, and settings tiles' },
+const platformImages: Record<string, { id: string; stem: string; alt: string; portrait?: boolean }> = {
+  '01': { id: 'platform-ordering', stem: 'platform-self-ordering-human-v3', portrait: true, alt: 'AI-generated illustration of a customer selecting a café menu item on an Ez Kyosk kiosk with an attached payment terminal' },
+  '02': { id: 'platform-queue', stem: 'platform-order-queue-ceiling-v2', portrait: true, alt: 'AI-generated illustration of a ceiling-mounted Ez Kyosk sample order display with Preparing and Ready for Pickup columns above coffee preparation' },
+  '03': { id: 'platform-inventory', stem: 'platform-inventory-human-v1', portrait: true, alt: 'AI-generated illustration of a team member checking a sample inventory list on an Ez Kyosk tablet beside café stock containers' },
+  '04': { id: 'platform-reports', stem: 'platform-reports-weekly-v1', portrait: true, alt: 'AI-generated illustration of a manager reviewing a sample weekly order-trend chart on an Ez Kyosk laptop' },
+  '05': { id: 'platform-cashier', stem: 'platform-cashier-human-v2', portrait: true, alt: 'AI-generated illustration of a customer offering cash to a café cashier beside a staff-facing Ez Kyosk POS terminal' },
 };
 
 const industries = [
@@ -53,13 +53,15 @@ const industries = [
   </section>
 
   <section class="platform-section section-shell" aria-labelledby="platform-title" data-reveal>
-    <div class="section-heading"><div><span class="eyebrow">One connected platform</span><h2 id="platform-title">From the first tap to the next task.</h2></div><p>Start with the ordering experience, then connect checkout, payments, inventory, tracking, and the tools your operation requires.</p></div>
+    <div class="section-heading"><div><span class="eyebrow">One Connected Platform</span><h2 id="platform-title">From the first tap to the next task.</h2></div><p>Connect ordering and payments with order tracking and inventory visibility. Configure reporting around your business needs, with an optional cashier route for cash payments.</p></div>
     <div class="platform-grid">{platforms.map(([number, title, body]) => {
       const image = platformImages[number];
+      const widths = image?.portrait ? [270, 540, 1080] : [320, 640, 1280];
       return image ? (
         <PlatformImageCard id={image.id} title={title} description={body}
-          image={sitePath(`/assets/images/${image.stem}-640.webp`)}
-          imageSrcSet={[320, 640, 1280].map(width => `${sitePath(`/assets/images/${image.stem}-${width}.webp`)} ${width}w`).join(', ')}
+          image={sitePath(`/assets/images/${image.stem}-${widths[1]}.webp`)}
+          imageSrcSet={widths.map(width => `${sitePath(`/assets/images/${image.stem}-${width}.webp`)} ${width}w`).join(', ')}
+          imageWidth={widths[1]} imageHeight={image.portrait ? 720 : 480}
           imageAlt={image.alt} />
       ) : (
         <article><span>{number}</span><div class="platform-icon" aria-hidden="true"><i></i><i></i><i></i></div><h3>{title}</h3><p>{body}</p></article>

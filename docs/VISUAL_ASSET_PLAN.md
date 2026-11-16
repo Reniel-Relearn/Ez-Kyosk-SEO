@@ -2,11 +2,23 @@
 
 Updated: 16 November 2026
 
-Branding override: [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md) is authoritative. Display name is Ez Kyosk. Use only original logo/icon assets, not header screenshots. The hero uses transparent v3 artwork without white logo panels; see [HERO_TRANSPARENCY_FIX.md](HERO_TRANSPARENCY_FIX.md). The first overview card now uses v3 without logo backing plates and with the opposite three-quarter kiosk view, as requested on 14 November. Original source images and superseded samples remain reference material, not active page imports.
+Current authorized work: equal row bottoms and aligned heading/description areas for the completed five-card platform section, followed by main-branch Pages deployment. Shared responsive tracks preserve approved images/text and independent native disclosures; mobile heights remain natural. [Current alignment/publication record](PLATFORM_ROW_ALIGNMENT.md). Next brainstorm: Home > Designed to adapt > Hospitality & food. Earlier local-only milestones below remain historical.
+
+Latest integration update: owner selected the SECOND Cashier image, corrected human v2. Integrated locally as fifth 3:4 portrait; all FIVE current platform cards now use their approved portraits with unchanged text/order/native disclosures. First four artwork files unchanged. No new generation or deployment. [Asset, exact prompts and checks](PLATFORM_CASHIER_HUMAN_ASSET.md). Next proposal: Home > Designed to adapt > Hospitality & food, before any new generation. Earlier progress notes below are historical.
+
+Latest approved task: FOURTH-card weekly analytics portrait is integrated LOCALLY in full 3:4, with illustrative alt and unchanged configurable description/title/disclosure. Sample analytics / Total orders 132 / Daily orders Mon-Sun values 12/18/15/22/19/25/21. [Asset, prompt and integration checks](PLATFORM_REPORTS_WEEKLY_ASSET.md). First three artwork files unchanged. Next: owner reviews [fifth-card Cashier proposal](PLATFORM_CASHIER_HUMAN_PLAN.md). No fifth generation or deployment. A reproduced card-edge hover oscillation is corrected by keeping expandable cards positionally steady while retaining border/shadow effects.
+
+Current BUSINESS-facing card order is implemented LOCALLY: **Self-Ordering & Payments; Order Queue & Tracking; Inventory & Availability; Reports & Insights; Cashier**. Section identity retained; cashier optional and reports configurable. First human v3, queue ceiling v2, inventory human v1 and reports weekly v1 are full 3:4 portraits. Only Cashier retains legacy 4:3 POS-workstation artwork pending redesign. No deployment. [Current flow](CONNECTED_PLATFORM_BUSINESS_REVIEW.md).
+
+Card TWO, **Order Queue & Tracking**: approved ceiling v2 remains unchanged. Preparing: 104/105/106 left; Ready for Pickup: 101/102 right. [Asset and its earlier integration verification](PLATFORM_ORDER_QUEUE_CEILING_ASSET.md). Third inventory image is now integrated as above. Rejected queue v1 preserved, not imported.
+
+Branding override: [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md) is authoritative. Display name is Ez Kyosk. Use only original logo/icon assets, not header screenshots. The hero uses transparent v3 artwork without white logo panels; see [HERO_TRANSPARENCY_FIX.md](HERO_TRANSPARENCY_FIX.md). The local first overview card uses approved human v3 with attached terminal. Original source images and superseded samples remain reference material, not active page imports.
 
 Actions 3 and 4: visual assignments and shared art direction. All three benefit icons, all five Home overview cards, all five Explore the product images and BOTH shared Home/Product payment images are integrated. Industry imagery, Product deep-dive reuse and the four-step journey remain pending. The Word-arrangement action is removed; retain the current homepage sequence.
 
-Latest priority from GitHub feedback: fix the second payment card's wrist flush to the bottom, then STOP at brainstorming the first human-interaction image for Home > One connected platform > Self-Ordering Experience. The wrist fix bottom-aligns ONLY the existing exact PNG; no image bytes or first-card alignment change. Proposed ultra-realistic customer/kiosk scene and boundaries: [FEEDBACK_WRIST_AND_HUMAN_PLAN.md](FEEDBACK_WRIST_AND_HUMAN_PLAN.md). No human image has been generated or integrated. The older Hospitality & food proposal below remains pending, not the next authorized task.
+GitHub-feedback integration status: wrist correction complete; first human v3 artwork is retained under Self-Ordering & Payments, and queue ceiling v2 is now second. Existing card widths and native disclosures retained. Remaining three images keep 4:3 without crop. No push/deployment. Previous cashier concept is reassigned to fifth and requires a cash-specific brief. Remaining human cards and Hospitality & food imagery remain pending.
+
+Approved first overview artwork: kiosk LEFT/customer RIGHT, candid screen-facing posture, side-mounted terminal and normal-reading logos/menu. Human v3 is the page import; v1/v2 are retained for comparison. This revision is separate from the product panel below.
 
 ## First product-panel image: Self-Ordering
 
@@ -88,7 +100,7 @@ Implementation is complete for **all five overview cards**. Self-Ordering Experi
 | benefit-faster | Home benefit 1 | Kiosk touchscreen and tapping finger: a direct interaction | Line icon, 1:1 |
 | benefit-more | Home benefit 2: More Order Capacity | Two order slips and paths joining a shared queue: an additional ordering channel | Matching line icon, 1:1 |
 | benefit-better | Home benefit 3: Better Service Flow | Connected stages ending in a checkmark: clearer coordinated operations | Matching line icon, 1:1 |
-| platform-ordering | Home platform overview | Kiosk menu/product selection shown as a focused product composition | Realistic device composition, 4:3 |
+| platform-ordering | Home platform overview | Approved human v2: kiosk left, customer right, candid menu selection | Photorealistic illustrative scene, 3:4 portrait |
 | platform-checkout | Home platform overview | Staff checkout workstation receiving a confirmed order | Realistic operational composition, 4:3 |
 | platform-payments | Home platform overview | Terminal and phone together, explaining the available payment paths at a glance | Realistic product composition, 4:3 |
 | platform-inventory | Home platform overview | Products/stock context with an order-status device, connecting availability and progress | Realistic operational composition, 4:3 |

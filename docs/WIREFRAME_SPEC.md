@@ -4,7 +4,11 @@ Branding authority: [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md). Use the original
 
 Status: implemented as the full responsive local-review website.
 
+Latest scoped layout correction: the five One Connected Platform cards share content-driven image/heading/disclosure tracks using CSS subgrid, keeping row bottoms and open paragraph starts aligned in every disclosure combination. Five desktop columns, three tablet columns with alignment per row, one natural-height mobile column. Owner authorized push/Pages design-review publication; see [alignment/publication record](PLATFORM_ROW_ALIGNMENT.md). No fixed card heights, image crop or copy changes.
+
 Last updated: 13 November 2026
+
+Scoped design update, 16 November 2026 (implemented locally): keep **One Connected Platform** for business buyers/operators. Card order: **Self-Ordering & Payments**, **Order Queue & Tracking**, **Inventory & Availability**, **Reports & Insights**, **Cashier**. ALL FIVE approved artworks are full 3:4 portraits (human v3, queue ceiling v2, inventory human v1, reports weekly v1, Cashier human v2). Owner explicitly selected second Cashier image. Cashier optional and reports configurable. Native disclosures retained, with stationary card hover targets and border/shadow feedback. [Current flow](CONNECTED_PLATFORM_BUSINESS_REVIEW.md) and [Cashier integration](PLATFORM_CASHIER_HUMAN_ASSET.md) supersede older card/image notes below. No new generation/deployment in this integration pass.
 
 ## 1. Purpose
 

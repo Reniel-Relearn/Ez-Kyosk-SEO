@@ -62,11 +62,12 @@ try {
         const platformImage = page.locator('.platform-grid .platform-image');
         assert.equal(await platformImage.count(), 5, 'all five platform cards have imagery');
         assert.equal(await page.locator('.platform-grid .platform-icon').count(), 0, 'all platform placeholders are replaced');
-        assert.ok((await platformImage.nth(0).evaluate(image => image.currentSrc)).includes('platform-self-ordering-v3-'), 'corrected first card is retained');
-        assert.ok((await platformImage.nth(1).evaluate(image => image.currentSrc)).includes('platform-pos-checkout-v1-'), 'new checkout image is loaded');
-        assert.ok((await platformImage.nth(2).evaluate(image => image.currentSrc)).includes('platform-payments-v1-'), 'payment image is loaded');
-        assert.ok((await platformImage.nth(3).evaluate(image => image.currentSrc)).includes('platform-inventory-tracking-v1-'), 'inventory image is loaded');
-        assert.ok((await platformImage.nth(4).evaluate(image => image.currentSrc)).includes('platform-configurable-extensions-v1-'), 'extensions image is loaded');
+        assert.ok((await platformImage.nth(0).evaluate(image => image.currentSrc)).includes('platform-self-ordering-human-v3-'), 'approved human portrait with attached terminal is loaded');
+        assert.ok((await platformImage.nth(1).evaluate(image => image.currentSrc)).includes('platform-order-queue-ceiling-v2-'), 'approved customer-facing ceiling display is loaded');
+        assert.ok((await platformImage.nth(2).evaluate(image => image.currentSrc)).includes('platform-inventory-human-v1-'), 'approved inventory portrait is loaded third');
+        assert.ok((await platformImage.nth(3).evaluate(image => image.currentSrc)).includes('platform-reports-weekly-v1-'), 'approved sample weekly analytics portrait is loaded fourth');
+        assert.ok((await platformImage.nth(4).evaluate(image => image.currentSrc)).includes('platform-cashier-human-v2-'), 'approved second Cashier image illustrates optional cash payment fifth');
+        assert.deepEqual(await page.locator('.platform-card--expandable h3').allTextContents(), ['Self-Ordering & Payments', 'Order Queue & Tracking', 'Inventory & Availability', 'Reports & Insights', 'Cashier']);
         assert.equal(await page.locator('.platform-card--expandable').count(), 5, 'all five cards use the shared layout');
         assert.equal(await page.locator('.platform-card--expandable > span').count(), 0, 'all five card numbers removed');
         for (const description of await page.locator('.platform-card-details p').all()) {

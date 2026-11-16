@@ -6,13 +6,13 @@ import { mkdir, writeFile } from 'node:fs/promises';
 const base = process.env.QA_BASE_URL || 'http://127.0.0.1:4322/Ez-Kyosk-SEO';
 const prefix = process.env.QA_SCREENSHOT_PREFIX || 'platform-card-layout';
 const browser = await chromium.launch({ channel: 'msedge', headless: true });
-const errors = [], results = [], accessibility = [];
+const errors = [], results = [], accessibility = [], alignment = [];
 const cards = [
-  { id: 'platform-ordering', title: 'Self-Ordering Experience', stem: 'platform-self-ordering-v3', body: 'Let customers browse, select, adjust, review, and confirm from one focused touchscreen.' },
-  { id: 'platform-checkout', title: 'POS and checkout', stem: 'platform-pos-checkout-v1', body: 'Connect confirmed orders to checkout, queueing, and the operational flow defined for your business.' },
-  { id: 'platform-payments', title: 'Payments with AltPayNet', stem: 'platform-payments-v1', body: 'Support approved card, QR, GCash, Maya, and e-wallet payment paths.' },
-  { id: 'platform-inventory', title: 'Inventory and order tracking', stem: 'platform-inventory-tracking-v1', body: 'Keep inventory visibility and order progress connected to the experience.' },
-  { id: 'platform-extensions', title: 'Configurable extensions', stem: 'platform-configurable-extensions-v1', body: 'Scope reports, customers, loyalty, promotions, and other needs around your operation.' },
+  { id: 'platform-ordering', title: 'Self-Ordering & Payments', stem: 'platform-self-ordering-human-v3', ratio: 3 / 4, body: 'Give customers a self-service ordering channel with supported electronic payment paths.' },
+  { id: 'platform-queue', title: 'Order Queue & Tracking', stem: 'platform-order-queue-ceiling-v2', ratio: 3 / 4, body: 'Help customers see which orders are being prepared and which are ready for pickup.' },
+  { id: 'platform-inventory', title: 'Inventory & Availability', stem: 'platform-inventory-human-v1', ratio: 3 / 4, body: 'Keep item availability and inventory visibility aligned with daily operations.' },
+  { id: 'platform-reports', title: 'Reports & Insights', stem: 'platform-reports-weekly-v1', ratio: 3 / 4, body: 'Configure reports around sales, products and the operational questions your business needs to answer.' },
+  { id: 'platform-cashier', title: 'Cashier', stem: 'platform-cashier-human-v2', ratio: 3 / 4, body: 'Offer an optional cashier-assisted payment route for customers who prefer to pay in cash.' },
 ];
 await mkdir('artifacts', { recursive: true });
 try {
@@ -26,6 +26,8 @@ try {
       await page.goto(`${base}/`);
       await page.evaluate(() => document.fonts.ready);
       assert.equal(await page.locator('.platform-card--expandable').count(), 5);
+      assert.deepEqual(await page.locator('.platform-card--expandable h3').allTextContents(), cards.map(card => card.title), 'approved business-facing order');
+      assert.equal(await page.locator('.platform-section .eyebrow').textContent(), 'One Connected Platform');
       assert.deepEqual(await page.locator('.platform-grid > article:not(.platform-card--expandable) > span').allTextContents(), []);
       assert.deepEqual(await page.locator('.platform-grid > article:not(.platform-card--expandable) h3').allTextContents(), []);
       assert.equal(await page.locator('.platform-icon').count(), 0);
@@ -58,13 +60,16 @@ try {
               return {
                 edgeLeft: img.left - box.left, edgeRight: box.right - img.right, edgeTop: img.top - box.top,
                 imageRatio: img.width / img.height, headingBelow: title.top >= img.bottom,
+                naturalRatio: image.naturalWidth / image.naturalHeight, imageTransform: getComputedStyle(image).transform,
                 toggleWidth: toggle.width, toggleHeight: toggle.height, source: image.currentSrc,
                 plusVertical: getComputedStyle(summary.querySelector('span'), '::after').display,
                 noOverflow: document.documentElement.scrollWidth <= innerWidth && card.scrollWidth <= card.clientWidth,
               };
             });
             assert.ok(Math.abs(geometry.edgeLeft - 1) < .1 && Math.abs(geometry.edgeRight - 1) < .1 && Math.abs(geometry.edgeTop - 1) < .1, 'image flush with the inside card border');
-            assert.ok(Math.abs(geometry.imageRatio - 4 / 3) < .01);
+            assert.ok(Math.abs(geometry.imageRatio - (expected.ratio || 4 / 3)) < .01, 'approved per-card aspect ratio');
+            assert.ok(Math.abs(geometry.imageRatio - geometry.naturalRatio) < .01, 'no crop or stretch');
+            assert.equal(geometry.imageTransform, 'none', 'no CSS mirroring of logo or lettering');
             assert.equal(geometry.headingBelow, true); assert.equal(geometry.noOverflow, true);
             assert.ok(geometry.toggleWidth >= 44 && geometry.toggleHeight >= 44);
             assert.equal(geometry.plusVertical === 'none', open, 'plus becomes minus when expanded');
@@ -81,11 +86,79 @@ try {
           assert.equal(await description.isVisible(), false, 'Space collapses description');
           await summary.click(); assert.equal(await description.isVisible(), true, 'pointer expands description');
           await summary.click(); assert.equal(await description.isVisible(), false, 'pointer collapses description');
+          await card.scrollIntoViewIfNeeded();
+          await page.mouse.move(0, 0);
+          const edgeBox = await card.boundingBox();
+          await page.mouse.move(edgeBox.x + edgeBox.width / 2, edgeBox.y + edgeBox.height - 2);
+          const edgePositions = await card.evaluate(async element => {
+            const tops = [];
+            for (let frame = 0; frame < 12; frame++) {
+              await new Promise(requestAnimationFrame);
+              tops.push(element.getBoundingClientRect().top);
+            }
+            return tops;
+          });
+          assert.ok(Math.max(...edgePositions) - Math.min(...edgePositions) < .1, 'card edge does not oscillate under pointer');
         }
       }
     }
     await context.close();
   }
+  const alignedContext = await browser.newContext({ reducedMotion: 'reduce' });
+  const alignedPage = await alignedContext.newPage();
+  for (const width of [320, 390, 720, 721, 768, 1024, 1180, 1181, 1440, 1920]) {
+    await alignedPage.setViewportSize({ width, height: 1000 });
+    await alignedPage.goto(`${base}/`);
+    await alignedPage.evaluate(async () => {
+      await document.fonts.ready;
+      await Promise.all([...document.querySelectorAll('.platform-image')].map(async image => {
+        image.loading = 'eager';
+        await image.decode();
+      }));
+    });
+    for (const theme of ['light', 'dark']) {
+      await alignedPage.evaluate(theme => document.documentElement.dataset.theme = theme, theme);
+      // Every combination: all collapsed, all expanded, and all mixed states.
+      for (let mask = 0; mask < 32; mask++) {
+        const geometry = await alignedPage.evaluate(mask => {
+          const cards = [...document.querySelectorAll('.platform-card--expandable')];
+          cards.forEach((card, index) => card.querySelector('details').open = Boolean(mask & (1 << index)));
+          return cards.map(card => {
+            const rect = card.getBoundingClientRect();
+            const heading = card.querySelector('h3').getBoundingClientRect();
+            const details = card.querySelector('details');
+            const description = details.querySelector('p').getBoundingClientRect();
+            return { top: rect.top, bottom: rect.bottom, headingTop: heading.top,
+              headingBottom: heading.bottom, descriptionTop: details.open ? description.top : null,
+              overflow: card.scrollWidth > card.clientWidth,
+              pageOverflow: document.documentElement.scrollWidth > innerWidth };
+          });
+        }, mask);
+        const rows = [];
+        for (const card of geometry) {
+          let row = rows.find(row => Math.abs(row[0].top - card.top) < 1);
+          if (!row) rows.push(row = []);
+          row.push(card);
+          assert.equal(card.overflow || card.pageOverflow, false, 'no overflow in simultaneous disclosure states');
+        }
+        for (const row of rows) {
+          for (const key of ['bottom', 'headingTop', 'headingBottom']) {
+            assert.ok(Math.max(...row.map(card => card[key])) - Math.min(...row.map(card => card[key])) < 1,
+              `row ${key} aligned at ${width}px / ${theme} / mask ${mask}`);
+          }
+          const openCards = row.filter(card => card.descriptionTop !== null);
+          if (openCards.length) assert.ok(Math.max(...openCards.map(card => card.descriptionTop)) -
+            Math.min(...openCards.map(card => card.descriptionTop)) < 1, 'expanded descriptions share starting line');
+        }
+        assert.equal(rows.length, width <= 720 ? 5 : width <= 1180 ? 2 : 1, 'responsive row count preserved');
+        if (mask === 31 && [390, 1024, 1440, 1920].includes(width)) {
+          await alignedPage.locator('.platform-grid').screenshot({ path: `artifacts/${prefix}-all-expanded-${width}-${theme}.png` });
+        }
+        alignment.push({ width, theme, mask, rows: rows.length });
+      }
+    }
+  }
+  await alignedContext.close();
   const noJs = await browser.newContext({ javaScriptEnabled: false, reducedMotion: 'reduce' });
   const page = await noJs.newPage();
   await page.setViewportSize({ width: 390, height: 844 });
@@ -97,6 +170,6 @@ try {
   }
   await noJs.close();
   assert.deepEqual(errors, []);
-  await writeFile(`artifacts/${prefix}-report.json`, JSON.stringify({ results, accessibility, errors, withoutJavaScript: 'passed' }, null, 2));
-  console.log(JSON.stringify({ stateChecks: results.length, accessibilityScans: accessibility.length, errors, withoutJavaScript: 'passed' }));
+  await writeFile(`artifacts/${prefix}-report.json`, JSON.stringify({ results, alignment, accessibility, errors, withoutJavaScript: 'passed' }, null, 2));
+  console.log(JSON.stringify({ stateChecks: results.length, alignmentChecks: alignment.length, accessibilityScans: accessibility.length, errors, withoutJavaScript: 'passed' }));
 } finally { await browser.close(); }

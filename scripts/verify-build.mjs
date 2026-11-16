@@ -141,44 +141,90 @@ for (const width of [480, 960, 1440]) {
 }
 assert.equal((homeHtml.match(/class="platform-image"/g) || []).length, 5, 'all five platform cards have imagery');
 assert.ok(!homeHtml.includes('platform-self-ordering-v2-'), 'home uses the reviewed v3 correction, not the old white logo plates');
-const firstPlatformCard = homeHtml.match(/<article class="platform-card--expandable"[\s\S]*?<\/article>/)?.[0];
+const platformCards = [...homeHtml.matchAll(/<article class="platform-card--expandable"[\s\S]*?<\/article>/g)].map(match => match[0].replaceAll('&amp;', '&'));
+assert.equal(platformCards.length, 5, 'five business-facing capabilities');
+assert.ok(homeHtml.includes('>One Connected Platform</span>'), 'section identity retained');
+const firstPlatformCard = platformCards[0];
 assert.ok(firstPlatformCard, 'first platform card uses the image-led layout');
 assert.ok(!firstPlatformCard.includes('<span>01</span>'), 'first card has no visible number');
-assert.ok(firstPlatformCard.includes('Self-Ordering Experience</h3>'), 'first card keeps its one requested heading');
-assert.ok(/<details class="platform-card-details">\s*<summary[^>]*aria-label="About Self-Ordering Experience"/.test(firstPlatformCard), 'native accessible description disclosure');
+assert.ok(firstPlatformCard.includes('Self-Ordering & Payments</h3>'), 'first card combines ordering and electronic payments');
+assert.ok(/<details class="platform-card-details">\s*<summary[^>]*aria-label="About Self-Ordering & Payments"/.test(firstPlatformCard), 'native accessible description disclosure');
 assert.ok(!/<details[^>]*\sopen(?:[\s=>])/.test(firstPlatformCard), 'description starts collapsed');
-assert.ok(firstPlatformCard.includes('Let customers browse, select, adjust, review, and confirm from one focused touchscreen.'), 'description remains in the initial HTML');
-const secondPlatformCard = [...homeHtml.matchAll(/<article class="platform-card--expandable"[\s\S]*?<\/article>/g)][1]?.[0];
-assert.ok(secondPlatformCard?.includes('id="platform-checkout-title">POS and checkout</h3>'), 'second card has its unchanged heading');
+assert.ok(firstPlatformCard.includes('Give customers a self-service ordering channel with supported electronic payment paths.'), 'business-facing description in initial HTML');
+assert.ok(firstPlatformCard.includes('width="540" height="720"'), 'portrait dimensions reserve the correct layout space');
+assert.ok(firstPlatformCard.includes('AI-generated illustration'), 'image alt does not imply an actual client photograph');
+assert.ok(firstPlatformCard.includes('attached payment terminal'), 'first card alt reflects revised hardware');
+assert.ok(!firstPlatformCard.includes('platform-self-ordering-v3-'), 'approved human portrait replaces device-only artwork');
+for (const width of [270, 540, 1080]) {
+  const filename = `platform-self-ordering-human-v3-${width}.webp`;
+  assert.ok(firstPlatformCard.includes(publicPath(`/assets/images/${filename}`)), `first card references ${filename}`);
+  const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
+  assert.equal(metadata.width, width);
+  assert.equal(metadata.height, width * 4 / 3, 'approved 3:4 portrait ratio');
+}
+const secondPlatformCard = platformCards[1];
+assert.ok(secondPlatformCard?.includes('id="platform-queue-title">Order Queue & Tracking</h3>'), 'queue visibility is second');
 assert.ok(!secondPlatformCard.includes('<span>02</span>'), 'second card has no visible number');
-assert.ok(secondPlatformCard.includes('Connect confirmed orders to checkout, queueing, and the operational flow defined for your business.'), 'checkout description retained in HTML');
-assert.ok(!/<details[^>]*\sopen(?:[\s=>])/.test(secondPlatformCard), 'checkout description starts collapsed');
-const thirdPlatformCard = [...homeHtml.matchAll(/<article class="platform-card--expandable"[\s\S]*?<\/article>/g)][2]?.[0];
-assert.ok(thirdPlatformCard?.includes('id="platform-payments-title">Payments with AltPayNet</h3>'), 'third card keeps its original heading');
+assert.ok(secondPlatformCard.includes('Help customers see which orders are being prepared and which are ready for pickup.'), 'customer-facing queue description in HTML');
+assert.ok(!/<details[^>]*\sopen(?:[\s=>])/.test(secondPlatformCard), 'queue description starts collapsed');
+assert.ok(secondPlatformCard.includes('width="540" height="720"'), 'queue portrait reserves layout space');
+assert.ok(secondPlatformCard.includes('AI-generated illustration of a ceiling-mounted Ez Kyosk sample order display'), 'accurate illustrative alt');
+assert.ok(/<summary[^>]*aria-label="About Order Queue & Tracking"/.test(secondPlatformCard), 'queue disclosure has accessible label');
+for (const width of [270, 540, 1080]) {
+  const filename = `platform-order-queue-ceiling-v2-${width}.webp`;
+  assert.ok(secondPlatformCard.includes(publicPath(`/assets/images/${filename}`)), `queue uses base-safe ${filename}`);
+  const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
+  assert.equal(metadata.width, width);
+  assert.equal(metadata.height, width * 4 / 3, 'uncropped 3:4 queue image');
+}
+const thirdPlatformCard = platformCards[2];
+assert.ok(thirdPlatformCard?.includes('id="platform-inventory-title">Inventory & Availability</h3>'), 'inventory is third');
 assert.ok(!thirdPlatformCard.includes('<span>03</span>'), 'third card number removed');
-assert.ok(thirdPlatformCard.includes('Support approved card, QR, GCash, Maya, and e-wallet payment paths.'), 'payment description remains in HTML');
-assert.ok(/<summary[^>]*aria-label="About Payments with AltPayNet"/.test(thirdPlatformCard), 'payment disclosure has an accessible label');
-assert.ok(!/<details[^>]*\sopen(?:[\s=>])/.test(thirdPlatformCard), 'payment description starts collapsed');
-const fourthPlatformCard = [...homeHtml.matchAll(/<article class="platform-card--expandable"[\s\S]*?<\/article>/g)][3]?.[0];
-assert.ok(fourthPlatformCard?.includes('id="platform-inventory-title">Inventory and order tracking</h3>'), 'fourth card keeps its original heading');
+assert.ok(thirdPlatformCard.includes('Keep item availability and inventory visibility aligned with daily operations.'), 'inventory description remains in HTML');
+assert.ok(/<summary[^>]*aria-label="About Inventory & Availability"/.test(thirdPlatformCard), 'inventory disclosure has an accessible label');
+assert.ok(!/<details[^>]*\sopen(?:[\s=>])/.test(thirdPlatformCard), 'inventory description starts collapsed');
+assert.ok(thirdPlatformCard.includes('width="540" height="720"'), 'inventory portrait reserves correct layout space');
+assert.ok(thirdPlatformCard.includes('AI-generated illustration of a team member checking a sample inventory list'), 'inventory alt identifies illustrative content');
+assert.ok(!thirdPlatformCard.includes('platform-inventory-tracking-v1-'), 'approved portrait replaces legacy stock composition');
+for (const width of [270, 540, 1080]) {
+  const filename = `platform-inventory-human-v1-${width}.webp`;
+  assert.ok(thirdPlatformCard.includes(publicPath(`/assets/images/${filename}`)), `inventory uses base-safe ${filename}`);
+  const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
+  assert.equal(metadata.width, width);
+  assert.equal(metadata.height, width * 4 / 3, 'uncropped 3:4 inventory image');
+}
+const fourthPlatformCard = platformCards[3];
+assert.ok(fourthPlatformCard?.includes('id="platform-reports-title">Reports & Insights</h3>'), 'reports are fourth');
 assert.ok(!fourthPlatformCard.includes('<span>04</span>'), 'fourth card number removed');
-assert.ok(fourthPlatformCard.includes('Keep inventory visibility and order progress connected to the experience.'), 'inventory description stays in initial HTML');
-assert.ok(/<summary[^>]*aria-label="About Inventory and order tracking"/.test(fourthPlatformCard), 'inventory disclosure has an accessible label');
-assert.ok(!/<details[^>]*\sopen(?:[\s=>])/.test(fourthPlatformCard), 'inventory description starts collapsed');
-const fifthPlatformCard = [...homeHtml.matchAll(/<article class="platform-card--expandable"[\s\S]*?<\/article>/g)][4]?.[0];
-assert.ok(fifthPlatformCard?.includes('id="platform-extensions-title">Configurable extensions</h3>'), 'fifth card keeps its original heading');
+assert.ok(fourthPlatformCard.includes('Configure reports around sales, products and the operational questions your business needs to answer.'), 'reporting stays configurable');
+assert.ok(/<summary[^>]*aria-label="About Reports & Insights"/.test(fourthPlatformCard), 'reporting disclosure has an accessible label');
+assert.ok(!/<details[^>]*\sopen(?:[\s=>])/.test(fourthPlatformCard), 'reporting description starts collapsed');
+assert.ok(fourthPlatformCard.includes('width="540" height="720"'), 'analytics portrait reserves correct layout space');
+assert.ok(fourthPlatformCard.includes('AI-generated illustration of a manager reviewing a sample weekly order-trend chart'), 'analytics alt identifies illustrative content');
+assert.ok(!fourthPlatformCard.includes('platform-configurable-extensions-v1-'), 'approved analytics portrait replaces legacy laptop artwork');
+for (const width of [270, 540, 1080]) {
+  const filename = `platform-reports-weekly-v1-${width}.webp`;
+  assert.ok(fourthPlatformCard.includes(publicPath(`/assets/images/${filename}`)), `analytics uses base-safe ${filename}`);
+  const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
+  assert.equal(metadata.width, width);
+  assert.equal(metadata.height, width * 4 / 3, 'uncropped 3:4 analytics image');
+}
+const fifthPlatformCard = platformCards[4];
+assert.ok(fifthPlatformCard?.includes('id="platform-cashier-title">Cashier</h3>'), 'optional cashier is fifth');
 assert.ok(!fifthPlatformCard.includes('<span>05</span>'), 'fifth card number removed');
-assert.ok(fifthPlatformCard.includes('Scope reports, customers, loyalty, promotions, and other needs around your operation.'), 'extensions description stays in initial HTML');
-assert.ok(/<summary[^>]*aria-label="About Configurable extensions"/.test(fifthPlatformCard), 'extensions disclosure has an accessible label');
-assert.ok(!/<details[^>]*\sopen(?:[\s=>])/.test(fifthPlatformCard), 'extensions description starts collapsed');
-for (const stem of ['platform-self-ordering-v3', 'platform-pos-checkout-v1', 'platform-payments-v1', 'platform-inventory-tracking-v1', 'platform-configurable-extensions-v1']) {
-  for (const width of [320, 640, 1280]) {
-    const filename = `${stem}-${width}.webp`;
-    assert.ok(homeHtml.includes(publicPath(`/assets/images/${filename}`)), `home references ${filename}`);
-    const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
-    assert.equal(metadata.width, width, `${filename}: responsive width`);
-    assert.equal(metadata.height, width * 3 / 4, `${filename}: unchanged 4:3 ratio`);
-  }
+assert.ok(fifthPlatformCard.includes('Offer an optional cashier-assisted payment route for customers who prefer to pay in cash.'), 'cash payment is explicitly optional');
+assert.ok(/<summary[^>]*aria-label="About Cashier"/.test(fifthPlatformCard), 'cashier disclosure has an accessible label');
+assert.ok(!/<details[^>]*\sopen(?:[\s=>])/.test(fifthPlatformCard), 'cashier description starts collapsed');
+assert.ok(fifthPlatformCard.includes('width="540" height="720"'), 'cashier portrait reserves correct layout space');
+assert.ok(fifthPlatformCard.includes('AI-generated illustration of a customer offering cash to a café cashier beside a staff-facing Ez Kyosk POS terminal'), 'cashier alt describes the illustrative optional-cash scene');
+assert.ok(!fifthPlatformCard.includes('platform-pos-checkout-v1-'), 'approved second Cashier image replaces legacy workstation');
+assert.ok(!platformCards.join('').includes('platform-payments-v1-'), 'redundant payment overview artwork is no longer imported');
+for (const width of [270, 540, 1080]) {
+  const filename = `platform-cashier-human-v2-${width}.webp`;
+  assert.ok(fifthPlatformCard.includes(publicPath(`/assets/images/${filename}`)), `cashier uses base-safe ${filename}`);
+  const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
+  assert.equal(metadata.width, width, `${filename}: responsive width`);
+  assert.equal(metadata.height, width * 4 / 3, `${filename}: uncropped 3:4 ratio`);
 }
 for (const route of ['/', '/features/']) {
   const html = pages.get(route);

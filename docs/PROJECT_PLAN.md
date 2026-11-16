@@ -4,7 +4,19 @@ Last updated: 16 November 2026
 
 ## Current status
 
-Latest owner request: resolve the GitHub wrist-gap comment, then stop for brainstorming the first ultra-realistic human-interaction platform card. Only the online payment PNG bottom-alignment changes; first payment image remains centered, both source artworks and website copy/layout are retained. Immediate next proposal: Home > One connected platform > Self-Ordering Experience with a customer touching the kiosk, NOT generation or industry work. See [FEEDBACK_WRIST_AND_HUMAN_PLAN.md](FEEDBACK_WRIST_AND_HUMAN_PLAN.md). Existing branding/exact supplied PNG policies remain unchanged.
+Current authorized work: align row bottoms, heading areas and paragraph starts for all five One Connected Platform cards, then push/deploy the approved section through existing main-branch GitHub Pages. Responsive CSS subgrid preserves content-driven sizing, full portraits and native disclosures. [Alignment, verification and publication record](PLATFORM_ROW_ALIGNMENT.md) supersedes earlier local-only progress notes below. Next brainstorm: Home > Designed to adapt > Hospitality & food; no image generation yet.
+
+Latest task: owner selected the SECOND Cashier image, corrected human v2; integrated locally as fifth full 3:4 portrait. All five current business-facing cards retain their exact headings/descriptions/order/native disclosures. First four artwork files unchanged; no new generation, push or deployment. [Asset, prompts and current integration checks](PLATFORM_CASHIER_HUMAN_ASSET.md). Next scoped proposal: Home > Designed to adapt > Hospitality & food, with owner approval before generation. Earlier fourth-integration notes below are historical.
+
+Cashier integration verification passed: build/static checks, 160 platform states, 40 section accessibility scans, 80 hover stability checks, pointer/keyboard/no-JavaScript controls, 48 full-site route/viewport checks and 32 light/dark accessibility scans; zero reported browser errors/failed requests. All five current portraits are full 3:4. No actual inquiry sent.
+
+Latest approved task: actual FOURTH-card weekly analytics image integrated LOCALLY with full 3:4, illustrative alt and unchanged text/disclosure/order. First three artwork files unchanged. [Asset and integration checks](PLATFORM_REPORTS_WEEKLY_ASSET.md). A reproduced 5px edge-hover oscillation on expandable cards is fixed by removing their vertical hover translation while retaining border/shadow effects; regression checks added. Next: owner reviews [fifth-card Cashier image proposal](PLATFORM_CASHIER_HUMAN_PLAN.md). No fifth generation, push or deployment.
+
+Current local state: **One Connected Platform** uses **Self-Ordering & Payments; Order Queue & Tracking; Inventory & Availability; Reports & Insights; Cashier**. First four approved images are full 3:4 portraits. Existing 4:3 POS image remains fifth pending redesign. Cashier optional and reports configurable. Hero, other sections, first three artwork files and current card text unchanged in this fourth-image integration.
+
+Fresh reports-integration verification passed after the hover correction: production build/static checks; 160 platform states, 40 section accessibility scans, 80 hover-edge stability checks and no-JavaScript/keyboard/pointer disclosures; 48 full-site route/viewport checks and 32 light/dark accessibility scans, zero reported browser errors/failed requests. Initial two pointer-stability failures and reproduced/fixed cause are recorded in the reports asset note. First four images are full 3:4, fifth remains 4:3. No actual inquiry sent. Hero, payment artwork and unrelated sections unchanged.
+
+Previous cashier image proposal is reassigned to card FIVE and requires a revised cash-payment brief before generation. It is not the second-card image. Existing branding/exact supplied payment PNG policies remain unchanged.
 
 **Current phase:** action 2 removed; visual assignments, palette, and benefit icon family implemented. All five overview cards, all five Home product images and both shared payment images are integrated for owner review. Industry imagery, Product deep-dive reuse and the four-step journey remain pending.
 
@@ -42,7 +54,8 @@ The latest task statuses, removed Word-arrangement step, icon exception, and pen
 - [x] Complete the separately authorized Customers product image with Sample profile and Configurable labels, retaining first four artworks, conditional wording and tab behavior.
 - [x] Implement first shared Home/Product payment image using the newer screenshot-aligned kiosk/terminal composition, no hand/card, retaining existing HTML copy and second payment placeholder.
 - [x] Integrate the exact owner-supplied PNG in the second shared Home/Product payment card without changing artwork or first-card centering.
-- Next card: Home industry card Hospitality & food. Exact café/bakery/kiosk setting, crops, preserved text and accuracy limits are documented in [PAYMENT_ONLINE_ASSET.md](PAYMENT_ONLINE_ASSET.md). Not generated. Continue one asset at a time; every completion report must give exact next-card details.
+- [x] Owner approved human v2; integrate only Self-Ordering Experience locally in full 3:4, retaining copy and disclosure. Publication remains a separate step.
+- [ ] Review the proposed POS and checkout human portrait, then generate only after approval. Remaining human images require separate iterations; no automatic landscape crops. Hospitality & food imagery remains pending. Every completion report must give exact next actions.
 
 ## Status legend
 
