@@ -1,8 +1,14 @@
 # Ez Kyosk website wireframe specification
 
+Latest local industry completion, 16 November 2026: Designed to adapt now has all four owner-approved 4:3 photographs (Hospitality v2, Retail v1, Wellness v1, Services v6). No 01-04 or image placeholders; category badges, visible original descriptions and Explore links retained, four/two/one responsive columns. [Current status/checks](INDUSTRY_SERVICES_ASSET.md). No deployment. Next proposed brainstorm is [four-step customer journey](JOURNEY_REDESIGN_PLAN.md), not yet implemented; current five-step Home/guide/FAQ remain unchanged.
+
 Branding authority: [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md). Use the original assets, not a header screenshot; display name is Ez Kyosk, including CSS-rendered labels. This owner-authorized casing correction does not unlock unrelated hero-copy edits.
 
 Status: implemented as the full responsive local-review website.
+
+Latest Home industry implementation: photo-first 4:3 cards, overlapping category badge, heading, visible description, bottom-aligned Explore; no 01-04 or accordion. Four/two/one responsive columns with shared same-row tracks. Approved Hospitality v2 is first, three remaining image slots reserved pending individual image review. Section copy/order/link destinations unchanged; Solutions page unchanged. Local only. [Current layout](INDUSTRY_CARD_REDESIGN.md).
+
+Next approved Home industry redesign, NOT implemented yet: remove 01-04; four image-led cards with full-width 4:3 photograph, overlapping decorative category icon, heading, visible description and bottom-aligned Explore link. No disclosures; preserve section copy/order and Solutions link destinations. Four/two/one responsive columns, equal row heights, both themes. [Approved plan](INDUSTRY_CARD_REDESIGN.md). First Hospitality & food preview awaits actual-image review before integration.
 
 Current platform-card behavior supersedes all-state bottom stretching: native independent expansion; closed cards keep baseline height; shared image/heading alignment and all-open same-row bottom alignment retained. Mixed open/closed bottoms intentionally differ. See [independent expansion correction](PLATFORM_INDEPENDENT_EXPANSION.md). No copy/image edits.
 

@@ -271,6 +271,52 @@ for (const width of [360, 720, 1080]) {
   assert.equal(data[3], 0, `${file}: no baked background at top-left`);
   assert.equal(data[info.width * info.channels - 1], 0, `${file}: no baked background at top-right`);
 }
+const industrySection = homeHtml.match(/<section class="industries-section[\s\S]*?<\/section>/)?.[0];
+assert.ok(industrySection?.includes('Designed to adapt'), 'industry section identity retained');
+const industryCards = [...industrySection.matchAll(/<a class="industry-card"[\s\S]*?<\/a>/g)].map(match => match[0].replaceAll('&amp;', '&'));
+assert.equal(industryCards.length, 4, 'four single-link industry cards');
+const industryTitles = ['Hospitality & food', 'Retail & shops', 'Wellness & beauty', 'Services & B2B'];
+const industryIds = ['hospitality', 'retail', 'wellness', 'services'];
+const industryBodies = [
+  'Cafés, bakeries, restaurants, and quick-service teams can create a clearer ordering path.',
+  'Bring product discovery, selection, payment, and stock visibility into one guided touchpoint.',
+  'Present services and add-ons with a simple path from selection to checkout.',
+  'Configure a customer-facing flow around the products, services, and approvals your operation needs.',
+];
+industryCards.forEach((card, index) => {
+  assert.ok(card.includes(`id="industry-${industryIds[index]}-title">${industryTitles[index]}</h3>`), 'approved industry order/title');
+  assert.ok(card.includes(industryBodies[index]), 'approved industry description retained');
+  assert.ok(card.includes(`href="${publicPath(`/solutions/#${industryIds[index]}`)}"`), 'base-safe industry destination');
+  assert.ok(!/<details|<button|>0[1-4]</.test(card), 'industry links have no accordion/buttons/numbers');
+  assert.equal((card.match(/class="industry-card-badge"/g) || []).length, 1, 'one decorative category badge');
+  assert.ok(card.includes('>Explore <span'), 'visible Explore link label');
+});
+assert.ok(!industrySection.includes('industry-symbol'), 'large geometric placeholders removed');
+assert.equal((industrySection.match(/class="industry-image"/g) || []).length, 4, 'all four approved photographs integrated');
+assert.equal((industrySection.match(/data-image-status="pending"/g) || []).length, 0, 'no pending industry photographs');
+assert.ok(!industrySection.includes('Image to follow'), 'completed section has no reserved-image labels');
+assert.ok(industryCards[0].includes('AI-generated illustration of a customer using an Ez Kyosk kiosk beside a café counter'), 'illustrative hospitality alt');
+assert.ok(industryCards[0].includes('width="640" height="480"'), 'landscape dimensions reserve layout space');
+assert.ok(!industrySection.includes('industry-hospitality-v1-'), 'superseded first preview not imported');
+assert.ok(industryCards[1].includes('AI-generated illustration of a shopper and shop associate'), 'illustrative retail alt');
+assert.ok(industryCards[1].includes('width="640" height="480"'), 'retail reserves landscape dimensions');
+assert.ok(!industrySection.includes('industry-retail-v2-'), 'owner selected logo-bearing v1, not unbranded v2');
+assert.ok(industryCards[2].includes('AI-generated illustration of a salon client and adviser'), 'illustrative wellness alt');
+assert.ok(industryCards[2].includes('width="640" height="480"'), 'wellness reserves landscape dimensions');
+assert.ok(industryCards[3].includes('AI-generated illustration of a service adviser holding a portrait tablet with a sample Ez Kyosk services dashboard'), 'illustrative sample services alt');
+assert.ok(industryCards[3].includes('width="640" height="480"'), 'services reserves landscape photo dimensions');
+assert.ok(!/industry-services-v[1-5]-/.test(industrySection), 'only owner-approved balanced Services v6 imported');
+for (const [index, stem] of ['industry-hospitality-v2', 'industry-retail-v1', 'industry-wellness-v1', 'industry-services-v6'].entries()) {
+  for (const width of [320, 640, 1280]) {
+    const filename = `${stem}-${width}.webp`;
+    assert.ok(industryCards[index].includes(publicPath(`/assets/images/${filename}`)), 'approved responsive industry source');
+    const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
+    assert.equal(metadata.width, width);
+    assert.equal(metadata.height, width * 3 / 4);
+    assert.equal(createHash('sha256').update(await readFile(`dist/assets/images/${filename}`)).digest('hex'),
+      createHash('sha256').update(await readFile(`public/assets/images/${filename}`)).digest('hex'), 'approved photograph bytes unchanged');
+  }
+}
 const notFound = await readFile('dist/404.html', 'utf8');
 assert.ok([...notFound.matchAll(/\bez\s+kyosk\b/gi)].every(match => match[0] === 'Ez Kyosk'), '404: canonical brand spelling');
 console.log('Passed: 7 pages, internal links/anchors/assets, unique metadata, logo/favicon references, indexing controls, sitemap, and configured-site schema/sharing image.');

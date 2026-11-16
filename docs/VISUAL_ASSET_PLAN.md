@@ -2,6 +2,34 @@
 
 Updated: 16 November 2026
 
+Publication authorized: owner requested deploying completed Designed to adapt to existing main-branch Pages review. Earlier local-only notes are historical. Release includes ONLY approved Hospitality v2, Retail v1, Wellness v1 and Services v6 responsive sources; superseded previews/references stay local. [Scope and verification requirements](DEPLOYMENT_GUIDE.md#designed-to-adapt-publication-16-november-2026). No journey edits/generation or production-indexing launch.
+
+CURRENT completion: actual balanced Services v6 approved and integrated in fourth Home industry card; all FOUR photographs complete locally, no reserved image areas. First three artwork files, shared layout and copy retained. [Integration/checks](INDUSTRY_SERVICES_ASSET.md). No generation/deployment. Next proposed work: [four-step customer journey brainstorm](JOURNEY_REDESIGN_PLAN.md); not implemented/generated automatically. Earlier preview statuses below are historical.
+
+Latest Services & B2B review candidate: [balanced v6](INDUSTRY_SERVICES_ASSET.md), near-upright portrait tablet and reduced turn, secure rear/right-edge grip retained. Generated/saved in three sizes; awaits actual-image approval before integration. Previous art/runtime unchanged, no deployment.
+
+Latest Services revision: [v5 preview](INDUSTRY_SERVICES_ASSET.md), portrait handheld tablet more toward client, left hand behind gripping right edge. Saved three sizes, awaiting actual review before integration. Prior art/runtime unchanged, no deployment.
+
+Latest Services & B2B preview: [PORTRAIT handheld v4](INDUSTRY_SERVICES_ASSET.md), refined slab geometry/angle and supporting grip; three stacked sample service rows, landscape 4:3 photo. Saved three responsive sizes, actual review pending. Previous versions and runtime unchanged, no deployment.
+
+Latest Services & B2B preview: [HANDHELD v3](INDUSTRY_SERVICES_ASSET.md), owner-requested iPad-style slate supported in adviser's left hand, right hand taps sample Services dashboard; no stand. Saved three sizes, awaiting actual review before fourth-card integration. Previous art preserved; no runtime changes/deployment.
+
+Latest preview: Services & B2B revised from laptop to owner-approved illustrative touchscreen dashboard (Services; Consultation / Business Support / Additional Services). [Corrected v2](INDUSTRY_SERVICES_ASSET.md) generated/saved at 320/640/1280 widths. Actual review required before fourth-photo integration. Runtime/first three cards unchanged, no deployment. Earlier proposal/status entries below are historical.
+
+CURRENT: actual Wellness v1 approved and integrated into THIRD Home industry card with unchanged responsive assets. First two cards/layout/copy retained; Services & B2B is final reserved photo. No new generation/deployment. [Integration/checks](INDUSTRY_WELLNESS_ASSET.md); [Services & B2B full proposed story](INDUSTRY_SERVICES_PLAN.md), not yet approved/generated.
+
+Latest preview: owner-approved Wellness & beauty scene generated as [v1](INDUSTRY_WELLNESS_ASSET.md), saved at 320/640/1280 widths but NOT imported. Actual image review required; rear-panel logo versus proposed screen glimpse flagged. Current two-image section unchanged, no deployment. Next after image approval: integrate third photo, verify, then present Services & B2B brief.
+
+CURRENT: owner chose original logo-bearing Retail v1 and authorized integration. Second Home industry photo now uses industry-retail-v1 at 320/640/1280 widths; Hospitality v2 untouched, two remaining image areas pending. No new generation/deployment. [Selection/provenance/checks](INDUSTRY_RETAIL_ASSET.md); [next Wellness & beauty scene proposal](INDUSTRY_WELLNESS_PLAN.md), awaiting approval. Earlier statuses below are historical.
+
+Latest preview task: approved Retail & shops scene generated; [corrected v2 preview](INDUSTRY_RETAIL_ASSET.md) saved in three sizes, awaiting actual-image review before integration. Single correction removed invented rear POS branding. No runtime changes/new deployment; current first Hospitality photograph and shared industry layout retained.
+
+Latest local integration: actual Hospitality v2 accepted; shared four-card Designed to adapt layout implemented, numbers 01-04 removed, first photo integrated, original category vector badges and visible description/Explore links aligned. Other three photos remain reserved, not generated. Current copy/order/destinations retained. No deployment. [Integration](INDUSTRY_CARD_REDESIGN.md); [next Retail image proposal](INDUSTRY_RETAIL_PLAN.md). Earlier preview statuses below are historical.
+
+Latest Hospitality preview: [v2 revision](INDUSTRY_HOSPITALITY_REVISION_V2.md) generated after owner approval of modest arm/sleeve refinement and organized counter-side kiosk placement. Saved three responsive sizes; original v1 retained. Actual-v2 review required before shared industry-layout/first-image integration. Website unchanged; no other-card generation or deployment.
+
+Latest approved direction: redesign ALL FOUR Designed to adapt industry cards to the owner-reference photo/icon/heading/visible-description/Explore layout, removing 01-04. [Approved section plan](INDUSTRY_CARD_REDESIGN.md). Hospitality & food v1 landscape preview is generated and saved, awaiting actual-image review BEFORE layout/image integration. [Preview, prompt and next actions](INDUSTRY_HOSPITALITY_ASSET.md). Website unchanged in this preview pass; remaining three photos not generated; no push/deployment.
+
 Latest correction: independent native expansion, without empty closed-card panels; row headings remain aligned, all-open bottoms align, mixed bottoms may differ. Images and wording unchanged. [Current behavior, checks and next-section action sequence](PLATFORM_INDEPENDENT_EXPANSION.md). Optional Cashier/copy balancing remain proposals, not implemented. Next brainstorm remains first industry card Hospitality & food.
 
 Current authorized work: equal row bottoms and aligned heading/description areas for the completed five-card platform section, followed by main-branch Pages deployment. Shared responsive tracks preserve approved images/text and independent native disclosures; mobile heights remain natural. [Current alignment/publication record](PLATFORM_ROW_ALIGNMENT.md). Next brainstorm: Home > Designed to adapt > Hospitality & food. Earlier local-only milestones below remain historical.

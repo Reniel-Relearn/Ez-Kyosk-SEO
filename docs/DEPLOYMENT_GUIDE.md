@@ -2,6 +2,12 @@
 
 The current GitHub Pages deployment at `https://reniel-relearn.github.io/Ez-Kyosk-SEO/` is a public design-review environment built from `main`. It uses `/Ez-Kyosk-SEO` as its base path and intentionally omits `SITE_URL`, which preserves `noindex, nofollow` metadata and crawl blocking. This is not the production launch.
 
+## Designed to adapt publication, 16 November 2026
+
+Owner authorized pushing/deploying the completed four-card Home section to the existing main-branch Pages review environment. This supersedes earlier local-only/no-deployment notes for this section. Approved sources: industry-hospitality-v2, industry-retail-v1, industry-wellness-v1 and industry-services-v6, each at 320/640/1280 widths. Publish only these new images, section components/styles, checks and related planning/provenance docs. Superseded previews, generated PNG masters, source reference PDF/DOCX, unrelated local assets and ignored QA artifacts are not part of this release.
+
+Pre-push checks: completed production build/static verification, 24 industry layout/theme/density combinations (96 card checks), six section accessibility scans and no-JavaScript links, plus 48 full-site layout checks/32 accessibility scans; no reported browser errors or failed requests. Public inquiry behavior was mocked, no real inquiry sent. Verify the new workflow run and live page after pushing; authorization and local tests alone do not establish successful publication. Keep existing base path/indexing/form controls, hero and unrelated pages unchanged. No customer-journey implementation in this release. [Next brainstorm](JOURNEY_REDESIGN_PLAN.md).
+
 Collaborator instructions are maintained in `docs/COLLABORATOR_FEEDBACK_GUIDE.md`.
 
 Recommended: Cloudflare Workers Static Assets, as current Astro documentation recommends Workers for new Cloudflare projects. Pages remains an option for the same static dist output.

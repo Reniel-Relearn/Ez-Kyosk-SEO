@@ -4,6 +4,34 @@ Last updated: 16 November 2026
 
 ## Current status
 
+Publication authorization, 16 November 2026: owner requested pushing/deploying the complete four-card Designed to adapt section to existing main-branch GitHub Pages design review. Earlier local-only/no-deployment notes for this release are superseded. Publish approved assets only, retain existing preview indexing controls; confirm CI and live page after push. [Release scope/checks](DEPLOYMENT_GUIDE.md#designed-to-adapt-publication-16-november-2026). Journey remains brainstorm-only.
+
+Latest completion: actual Services v6 approved and integrated LOCALLY as fourth Designed to adapt image. All FOUR industry photos filled, zero placeholders; first three artwork files/layout/copy/icons/links retained. [Integration/checks](INDUSTRY_SERVICES_ASSET.md). No new generation/push/deployment. Next proposed brainstorm: [customer journey Browse -> Select -> Payment -> Get order](JOURNEY_REDESIGN_PLAN.md); current five-step runtime unchanged. Earlier preview statuses below are historical.
+
+Latest Services preview: [balanced portrait v6](INDUSTRY_SERVICES_ASSET.md), reduced lean/turn with rear/right-edge grip retained, generated after owner approval. Saved/not imported, actual review pending. Current three-photo industry section unchanged; after acceptance integrate fourth only and verify, then next-section brainstorm. No deployment.
+
+Latest Services preview: [v5](INDUSTRY_SERVICES_ASSET.md) turns portrait tablet more toward client and changes left support to rear/right-edge grip per owner. Saved, not imported, actual-image review pending. Current first three industry images unchanged; after acceptance integrate fourth only, verify, then next-section brainstorm. No deployment.
+
+Latest Services revision: [portrait handheld v4](INDUSTRY_SERVICES_ASSET.md) generated after owner requested corrected tablet geometry/angle and portrait device. Dashboard reflowed to stacked rows; photo remains landscape. Await actual-image approval before fourth integration. Current three-photo section unchanged; no deployment.
+
+Latest Services revision: owner requested HANDHELD iPad-style tablet, not tabletop stand. [v3 preview](INDUSTRY_SERVICES_ASSET.md) generated/saved and awaiting actual review, NOT imported. Current three-photo industry section unchanged. After acceptance: integrate fourth only, verify, then next-section brainstorm. No push/deployment.
+
+Latest preview: owner approved revised Services & B2B TOUCHSCREEN TABLET and illustrative three-service dashboard. [Corrected v2 preview](INDUSTRY_SERVICES_ASSET.md) saved in three responsive sizes, awaiting actual-image review. Website remains at three approved photos/one reserved area, no runtime edits/deployment this pass. After acceptance: integrate fourth only, verify full section, then next-section brainstorm.
+
+Latest integration: owner approved actual Wellness v1, now integrated locally as THIRD Designed to adapt photograph. Existing first two photos/layout/copy retained; only fourth Services & B2B photo remains pending. No new generation/push/deployment. [Integration/checks](INDUSTRY_WELLNESS_ASSET.md); [next exact Services & B2B proposal](INDUSTRY_SERVICES_PLAN.md), awaiting approval. Earlier preview statuses below are historical.
+
+Latest preview: approved Wellness & beauty brief generated/saved as [v1](INDUSTRY_WELLNESS_ASSET.md). Await actual-image review, with rear-panel identity deviation explicitly flagged. No runtime integration/deployment this pass; Hospitality v2 and logo-bearing Retail v1 remain current. After acceptance, integrate third photo, verify, then propose Services & B2B fourth image. Earlier statuses below are historical.
+
+Latest selection/integration: owner preferred logo-bearing Retail v1, now integrated locally as second Designed to adapt photograph. Hospitality v2 and shared layout/copy retained; Wellness/Services image areas remain pending. No new generation/push/deployment. [Selection and checks](INDUSTRY_RETAIL_ASSET.md); [next exact Wellness & beauty image story](INDUSTRY_WELLNESS_PLAN.md), proposed, awaiting approval. Older preview statuses below are historical.
+
+Current image task: approved Retail & shops brief generated as [corrected v2 preview](INDUSTRY_RETAIL_ASSET.md), saved but not imported. Await actual-image review, then integrate only second photo, verify two-image section and present Wellness & beauty brief. No runtime edits/deployment in this preview pass; first Hospitality layout/image retained.
+
+Latest task: owner approved actual Hospitality v2; integrated locally with the approved four-card industry layout, original category icons, no visible 01-04, visible copy and aligned Explore links. Only first photo filled; three image areas remain reserved. No generation/deployment. [Layout/integration](INDUSTRY_CARD_REDESIGN.md), [exact next Retail brief](INDUSTRY_RETAIL_PLAN.md). Earlier preview notes below are historical.
+
+Latest first-industry preview revision: [Hospitality v2](INDUSTRY_HOSPITALITY_REVISION_V2.md) generated/saved with approved arm/sleeve refinement and kiosk organized beside the counter. Await owner review of actual revised image, then implement shared four-card Home layout and first accepted image. Runtime unchanged, no deployment or other-card generation.
+
+Current image task: owner approved Designed to adapt shared layout and Hospitality & food scene. [First 4:3 photographic preview](INDUSTRY_HOSPITALITY_ASSET.md) is generated/saved, not imported. Next: actual-image review, then shared Home card-layout pilot and first-image integration; no other industry generation automatically. [Approved four-card plan](INDUSTRY_CARD_REDESIGN.md). No runtime edits/push/deployment in this preview pass.
+
 Latest behavior correction: owner selected independent platform-card expansion. Closed neighbours must retain their compact height; headings align, and bottom edges align when all cards in a row are open. [Implementation, verification and exact next-section actions](PLATFORM_INDEPENDENT_EXPANSION.md) supersedes earlier all-state stretching below. No artwork or copy changes; Optional Cashier remains a proposed wording change.
 
 Current authorized work: align row bottoms, heading areas and paragraph starts for all five One Connected Platform cards, then push/deploy the approved section through existing main-branch GitHub Pages. Responsive CSS subgrid preserves content-driven sizing, full portraits and native disclosures. [Alignment, verification and publication record](PLATFORM_ROW_ALIGNMENT.md) supersedes earlier local-only progress notes below. Next brainstorm: Home > Designed to adapt > Hospitality & food; no image generation yet.
