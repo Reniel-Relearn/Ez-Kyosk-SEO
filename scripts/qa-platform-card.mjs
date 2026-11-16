@@ -16,7 +16,7 @@ const cards = [
 ];
 await mkdir('artifacts', { recursive: true });
 try {
-  for (const deviceScaleFactor of [1, 2]) {
+  for (const deviceScaleFactor of process.env.QA_ALIGNMENT_ONLY === 'true' ? [] : [1, 2]) {
     const context = await browser.newContext({ reducedMotion: 'reduce', deviceScaleFactor });
     const page = await context.newPage();
     page.on('pageerror', error => errors.push(error.message));
@@ -106,6 +106,8 @@ try {
   }
   const alignedContext = await browser.newContext({ reducedMotion: 'reduce' });
   const alignedPage = await alignedContext.newPage();
+  alignedPage.on('pageerror', error => errors.push(error.message));
+  alignedPage.on('response', response => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });
   for (const width of [320, 390, 720, 721, 768, 1024, 1180, 1181, 1440, 1920]) {
     await alignedPage.setViewportSize({ width, height: 1000 });
     await alignedPage.goto(`${base}/`);
@@ -118,6 +120,7 @@ try {
     });
     for (const theme of ['light', 'dark']) {
       await alignedPage.evaluate(theme => document.documentElement.dataset.theme = theme, theme);
+      let collapsedHeights;
       // Every combination: all collapsed, all expanded, and all mixed states.
       for (let mask = 0; mask < 32; mask++) {
         const geometry = await alignedPage.evaluate(mask => {
@@ -128,12 +131,17 @@ try {
             const heading = card.querySelector('h3').getBoundingClientRect();
             const details = card.querySelector('details');
             const description = details.querySelector('p').getBoundingClientRect();
-            return { top: rect.top, bottom: rect.bottom, headingTop: heading.top,
+            return { top: rect.top, bottom: rect.bottom, height: rect.height, open: details.open, headingTop: heading.top,
               headingBottom: heading.bottom, descriptionTop: details.open ? description.top : null,
               overflow: card.scrollWidth > card.clientWidth,
               pageOverflow: document.documentElement.scrollWidth > innerWidth };
           });
         }, mask);
+        if (mask === 0) collapsedHeights = geometry.map(card => card.height);
+        geometry.forEach((card, index) => {
+          if (!card.open) assert.ok(Math.abs(card.height - collapsedHeights[index]) < 1,
+            `closed card ${index} stays compact at ${width}px / ${theme} / mask ${mask}`);
+        });
         const rows = [];
         for (const card of geometry) {
           let row = rows.find(row => Math.abs(row[0].top - card.top) < 1);
@@ -142,7 +150,7 @@ try {
           assert.equal(card.overflow || card.pageOverflow, false, 'no overflow in simultaneous disclosure states');
         }
         for (const row of rows) {
-          for (const key of ['bottom', 'headingTop', 'headingBottom']) {
+          for (const key of ['headingTop', 'headingBottom', ...(row.every(card => card.open) || row.every(card => !card.open) ? ['bottom'] : [])]) {
             assert.ok(Math.max(...row.map(card => card[key])) - Math.min(...row.map(card => card[key])) < 1,
               `row ${key} aligned at ${width}px / ${theme} / mask ${mask}`);
           }
@@ -151,8 +159,8 @@ try {
             Math.min(...openCards.map(card => card.descriptionTop)) < 1, 'expanded descriptions share starting line');
         }
         assert.equal(rows.length, width <= 720 ? 5 : width <= 1180 ? 2 : 1, 'responsive row count preserved');
-        if (mask === 31 && [390, 1024, 1440, 1920].includes(width)) {
-          await alignedPage.locator('.platform-grid').screenshot({ path: `artifacts/${prefix}-all-expanded-${width}-${theme}.png` });
+        if ([0, 8, 31].includes(mask) && [390, 1024, 1440, 1920].includes(width)) {
+          await alignedPage.locator('.platform-grid').screenshot({ path: `artifacts/${prefix}-mask-${mask}-${width}-${theme}.png` });
         }
         alignment.push({ width, theme, mask, rows: rows.length });
       }
@@ -161,12 +169,24 @@ try {
   await alignedContext.close();
   const noJs = await browser.newContext({ javaScriptEnabled: false, reducedMotion: 'reduce' });
   const page = await noJs.newPage();
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(`${base}/`);
-  for (const details of await page.locator('.platform-card-details').all()) {
-    assert.equal(await details.locator('p').isVisible(), false);
-    await details.locator('summary').click(); assert.equal(await details.locator('p').isVisible(), true);
-    await page.keyboard.press('Space'); assert.equal(await details.locator('p').isVisible(), false);
+  for (const width of [390, 1024, 1920]) {
+    await page.setViewportSize({ width, height: 1000 });
+    await page.goto(`${base}/`);
+    await page.evaluate(async () => {
+      await document.fonts.ready;
+      await Promise.all([...document.querySelectorAll('.platform-image')].map(async image => { image.loading = 'eager'; await image.decode(); }));
+    });
+    const closedHeights = await page.locator('.platform-card--expandable').evaluateAll(cards => cards.map(card => card.getBoundingClientRect().height));
+    for (const [index, details] of (await page.locator('.platform-card-details').all()).entries()) {
+      assert.equal(await details.locator('p').isVisible(), false);
+      await details.locator('summary').click(); assert.equal(await details.locator('p').isVisible(), true);
+      const states = await page.locator('.platform-card--expandable').evaluateAll(cards => cards.map(card => ({ height: card.getBoundingClientRect().height, open: card.querySelector('details').open })));
+      states.forEach((state, other) => {
+        assert.equal(state.open, other === index, 'without JavaScript only clicked card opens');
+        if (other !== index) assert.ok(Math.abs(state.height - closedHeights[other]) < 1, 'without JavaScript closed neighbour stays compact');
+      });
+      await page.keyboard.press('Space'); assert.equal(await details.locator('p').isVisible(), false);
+    }
   }
   await noJs.close();
   assert.deepEqual(errors, []);

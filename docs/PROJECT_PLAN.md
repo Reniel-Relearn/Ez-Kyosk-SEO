@@ -4,6 +4,8 @@ Last updated: 16 November 2026
 
 ## Current status
 
+Latest behavior correction: owner selected independent platform-card expansion. Closed neighbours must retain their compact height; headings align, and bottom edges align when all cards in a row are open. [Implementation, verification and exact next-section actions](PLATFORM_INDEPENDENT_EXPANSION.md) supersedes earlier all-state stretching below. No artwork or copy changes; Optional Cashier remains a proposed wording change.
+
 Current authorized work: align row bottoms, heading areas and paragraph starts for all five One Connected Platform cards, then push/deploy the approved section through existing main-branch GitHub Pages. Responsive CSS subgrid preserves content-driven sizing, full portraits and native disclosures. [Alignment, verification and publication record](PLATFORM_ROW_ALIGNMENT.md) supersedes earlier local-only progress notes below. Next brainstorm: Home > Designed to adapt > Hospitality & food; no image generation yet.
 
 Latest task: owner selected the SECOND Cashier image, corrected human v2; integrated locally as fifth full 3:4 portrait. All five current business-facing cards retain their exact headings/descriptions/order/native disclosures. First four artwork files unchanged; no new generation, push or deployment. [Asset, prompts and current integration checks](PLATFORM_CASHIER_HUMAN_ASSET.md). Next scoped proposal: Home > Designed to adapt > Hospitality & food, with owner approval before generation. Earlier fourth-integration notes below are historical.

@@ -2,6 +2,8 @@
 
 Updated: 16 November 2026
 
+Latest correction: independent native expansion, without empty closed-card panels; row headings remain aligned, all-open bottoms align, mixed bottoms may differ. Images and wording unchanged. [Current behavior, checks and next-section action sequence](PLATFORM_INDEPENDENT_EXPANSION.md). Optional Cashier/copy balancing remain proposals, not implemented. Next brainstorm remains first industry card Hospitality & food.
+
 Current authorized work: equal row bottoms and aligned heading/description areas for the completed five-card platform section, followed by main-branch Pages deployment. Shared responsive tracks preserve approved images/text and independent native disclosures; mobile heights remain natural. [Current alignment/publication record](PLATFORM_ROW_ALIGNMENT.md). Next brainstorm: Home > Designed to adapt > Hospitality & food. Earlier local-only milestones below remain historical.
 
 Latest integration update: owner selected the SECOND Cashier image, corrected human v2. Integrated locally as fifth 3:4 portrait; all FIVE current platform cards now use their approved portraits with unchanged text/order/native disclosures. First four artwork files unchanged. No new generation or deployment. [Asset, exact prompts and checks](PLATFORM_CASHIER_HUMAN_ASSET.md). Next proposal: Home > Designed to adapt > Hospitality & food, before any new generation. Earlier progress notes below are historical.

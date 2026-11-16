@@ -168,7 +168,7 @@ html[data-theme='dark'] .theme-sun{display:block}
 .benefit-grid h3{margin:0 0 16px;font-size:clamp(26px,2.25vw,36px);margin-top:0;max-width:16ch}
 .benefit-grid article:hover p{color:var(--muted)}.benefit-grid article:hover>span{color:var(--brand-300)}
 .platform-section{padding-block:var(--section-space)}
-.platform-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.platform-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0 16px}
 .platform-grid article{min-height:310px;padding:26px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--surface);transition:.22s}
 .platform-grid article:hover{border-color:var(--brand-500);box-shadow:var(--soft-shadow);transform:translateY(-5px)}
 .platform-grid h3{margin:28px 0 13px;font-size:20px}.platform-grid p{font-size:13px}
@@ -176,13 +176,23 @@ html[data-theme='dark'] .theme-sun{display:block}
 .platform-icon{display:flex;height:65px;margin-top:26px;align-items:flex-end;gap:7px}.platform-icon i{display:block;width:17px;border:2px solid var(--brand-700);border-radius:5px;background:var(--mist)}.platform-icon i:nth-child(1){height:42px}.platform-icon i:nth-child(2){height:58px;background:var(--brand-500)}.platform-icon i:nth-child(3){height:32px}
 
 /* Image-led platform cards: rolled out one approved card at a time. */
-/* Share image, heading and disclosure tracks within each responsive card row. */
-.platform-grid article.platform-card--expandable{display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:0;align-self:stretch;min-height:0;padding:0;overflow:hidden}
+/* Closed cards stop after the shared heading track; only open cards span the description track. */
+.platform-grid article.platform-card--expandable{--platform-row:1;--platform-span:2;display:grid;grid-column:calc(var(--platform-index) + 1);grid-row:var(--platform-row)/span var(--platform-span);grid-template-rows:subgrid;row-gap:0;align-self:stretch;min-height:0;padding:0;overflow:hidden}
+.platform-card--expandable:nth-child(1){--platform-index:0}
+.platform-card--expandable:nth-child(2){--platform-index:1}
+.platform-card--expandable:nth-child(3){--platform-index:2}
+.platform-card--expandable:nth-child(4){--platform-index:3}
+.platform-card--expandable:nth-child(5){--platform-index:4}
+.platform-grid article.platform-card--expandable:has(details[open]){--platform-span:3}
 /* Keep disclosure hit targets steady; lifting the card can oscillate at its edge. */
 .platform-grid article.platform-card--expandable:hover{transform:none}
 .platform-card--expandable .platform-image{margin:0;border-radius:0;aspect-ratio:auto;object-fit:cover}
-.platform-card-body{position:relative;display:grid;grid-row:span 2;grid-template-rows:subgrid;row-gap:0;padding:20px}
-.platform-grid .platform-card-body h3{display:flex;align-items:center;min-height:44px;margin:0;padding-right:56px;line-height:1.2;text-wrap:initial}
+.platform-card-body{position:relative;display:grid;grid-row:span calc(var(--platform-span) - 1);grid-template-rows:subgrid;row-gap:0;padding:0 20px}
+.platform-card-details:not([open]){grid-row:1;align-self:start;height:0}
+.platform-card-details[open]{grid-row:2}
+.platform-grid .platform-card-body h3{grid-row:1;display:flex;align-items:center;min-height:84px;margin:0;padding:20px 56px 20px 0;line-height:1.2;text-wrap:initial}
+/* Match the closed card's 1px bottom border at the shared heading boundary. */
+.platform-card--expandable:has(details[open]) h3{margin-bottom:1px}
 .platform-card-details summary{position:absolute;top:20px;right:16px;display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid var(--control-border);border-radius:50%;background:var(--surface);color:var(--blue);cursor:pointer;list-style:none}
 .platform-card-details summary::-webkit-details-marker{display:none}
 .platform-card-details summary::marker{content:''}
@@ -191,7 +201,7 @@ html[data-theme='dark'] .theme-sun{display:block}
 .platform-card-toggle::before,.platform-card-toggle::after{content:'';position:absolute;top:7px;left:0;width:16px;height:2px;border-radius:2px;background:currentColor}
 .platform-card-toggle::after{transform:rotate(90deg)}
 .platform-card-details[open] .platform-card-toggle::after{display:none}
-.platform-card-details p{margin-top:14px}
+.platform-card-details p{margin:0 0 20px}
 
 /* Product explorer */
 .product-section{padding-block:var(--section-space);background:var(--ink-950)}
@@ -284,6 +294,8 @@ html[data-theme='dark'] .brand-mark-adaptive::after{content:'';position:absolute
 }
 
 @media(max-width:1180px){
+  .platform-grid article.platform-card--expandable:nth-child(4){--platform-row:4;grid-column:1;margin-top:16px}
+  .platform-grid article.platform-card--expandable:nth-child(5){--platform-row:4;grid-column:2;margin-top:16px}
   .site-header{gap:16px;background:var(--page);border-bottom-color:var(--line)}.logo img{width:132px}.site-nav{gap:16px;font-size:12px}.header-cta{padding-inline:15px;background:var(--blue);color:var(--on-blue)}
   .home-hero,.page-hero{grid-template-columns:minmax(0,1fr) minmax(340px,.85fr);gap:35px}.product-hero{grid-template-columns:minmax(0,.8fr) minmax(500px,1.2fr)}.platform-grid{grid-template-columns:repeat(3,1fr)}.platform-grid article:nth-child(n+4){min-height:270px}.industry-grid{grid-template-columns:1fr 1fr}.final-cta{align-items:flex-start;flex-direction:column}.final-cta .cta-actions{justify-content:flex-start}
   .terminal-art,.phone-art{min-height:400px}
@@ -300,6 +312,8 @@ html[data-theme='dark'] .brand-mark-adaptive::after{content:'';position:absolute
 }
 
 @media(max-width:720px){
+  .platform-grid article.platform-card--expandable:nth-child(n){--platform-row:calc(var(--platform-index) * 3 + 1);grid-column:1;margin-top:16px}
+  .platform-grid article.platform-card--expandable:first-child{margin-top:0}
   :root{--page-gutter:20px;--section-space:76px}.site-header{padding-inline:20px;background:var(--page);border-bottom-color:var(--line)}.logo img{width:118px}.header-cta{font-size:11px;padding-inline:13px;background:var(--blue);color:var(--on-blue)}.header-cta span{display:none}
   h1{font-size:clamp(43px,12vw,62px)}h2{font-size:clamp(34px,9vw,48px)}
   .home-hero,.page-hero{grid-template-columns:1fr;gap:38px}.page-hero{padding-block:50px}.home-hero::after{width:110vw;height:110vw;background:none}.hero-lead,.page-hero-copy>p{font-size:17px}.hero-actions .button{flex:1 1 190px}.hero-product img{max-height:520px}.hero-orbit{width:82vw;background:radial-gradient(circle,var(--blue-tint),transparent 70%);border-color:var(--line)}

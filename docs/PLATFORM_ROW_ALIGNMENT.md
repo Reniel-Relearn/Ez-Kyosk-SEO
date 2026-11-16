@@ -2,6 +2,8 @@
 
 Date: 16 November 2026. Owner authorized implementation, push and GitHub Pages design-review deployment of the completed five-card section.
 
+SUPERSEDED behavior: the owner subsequently selected independent expansion because shared description space left empty panels in closed neighbours. See [independent expansion correction](PLATFORM_INDEPENDENT_EXPANSION.md) for the new behavior and verification. Historical initial-alignment implementation/results below describe commit 8edc834, not the corrected mixed-state requirement.
+
 ## Issue and scoped correction
 
 The expandable cards used align-self:start, so each card ended at its own content height. One/two-line headings and descriptions of different lengths produced uneven bottoms and paragraph starts.

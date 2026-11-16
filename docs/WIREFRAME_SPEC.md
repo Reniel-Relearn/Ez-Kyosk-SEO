@@ -4,6 +4,8 @@ Branding authority: [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md). Use the original
 
 Status: implemented as the full responsive local-review website.
 
+Current platform-card behavior supersedes all-state bottom stretching: native independent expansion; closed cards keep baseline height; shared image/heading alignment and all-open same-row bottom alignment retained. Mixed open/closed bottoms intentionally differ. See [independent expansion correction](PLATFORM_INDEPENDENT_EXPANSION.md). No copy/image edits.
+
 Latest scoped layout correction: the five One Connected Platform cards share content-driven image/heading/disclosure tracks using CSS subgrid, keeping row bottoms and open paragraph starts aligned in every disclosure combination. Five desktop columns, three tablet columns with alignment per row, one natural-height mobile column. Owner authorized push/Pages design-review publication; see [alignment/publication record](PLATFORM_ROW_ALIGNMENT.md). No fixed card heights, image crop or copy changes.
 
 Last updated: 13 November 2026
