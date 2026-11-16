@@ -4,6 +4,10 @@ Last updated: 16 November 2026
 
 ## Current status
 
+Latest LOCAL refinement: [kiosk geometry/background separation and three payment choices](JOURNEY_GEOMETRY_PAYMENT_REVISION.md) implemented in cards2-4, using unchanged card1 as edit reference. Third caption Choose How to Pay; optional Cash at Cashier alongside Card/E-Wallet. Cards1/5/6 preserved. No deployment; earlier completion-version references below historical.
+
+Latest LOCAL completion: ALL SIX How Ez Kyosk works cards populated, zero placeholders. Corrected cart v4 has aligned contained controls/text, croissant quantity2, total400; remaining payment/tracking/pickup story completed sequentially. [Active assets, exact prompts and passed QA](JOURNEY_SIX_CARDS_COMPLETION.md). Final journey24 combinations/144 card checks/6 accessibility scans and full-site48 layouts/32 accessibility scans passed. Owner-selected first close-up unchanged. Hero/prior artwork and detailed guide/FAQ unchanged; cross-page reconciliation separately scoped. No push/deployment; live release remains aab7020. Next: owner local review, then requested refinements; FAQ is next physical section. Earlier task statuses below are historical.
+
 Publication authorization, 16 November 2026: owner requested pushing/deploying the complete four-card Designed to adapt section to existing main-branch GitHub Pages design review. Earlier local-only/no-deployment notes for this release are superseded. Publish approved assets only, retain existing preview indexing controls; confirm CI and live page after push. [Release scope/checks](DEPLOYMENT_GUIDE.md#designed-to-adapt-publication-16-november-2026). Journey remains brainstorm-only.
 
 Latest completion: actual Services v6 approved and integrated LOCALLY as fourth Designed to adapt image. All FOUR industry photos filled, zero placeholders; first three artwork files/layout/copy/icons/links retained. [Integration/checks](INDUSTRY_SERVICES_ASSET.md). No new generation/push/deployment. Next proposed brainstorm: [customer journey Browse -> Select -> Payment -> Get order](JOURNEY_REDESIGN_PLAN.md); current five-step runtime unchanged. Earlier preview statuses below are historical.

@@ -9,7 +9,9 @@ import MoreOrderCapacityIcon from '../components/MoreOrderCapacityIcon.astro';
 import BetterServiceFlowIcon from '../components/BetterServiceFlowIcon.astro';
 import PlatformImageCard from '../components/PlatformImageCard.astro';
 import IndustryCard from '../components/IndustryCard.astro';
-import { steps, faqs } from '../data/product';
+import JourneyCard from '../components/JourneyCard.astro';
+import { customerJourney, faqs } from '../data/product';
+import { journeyImages } from '../data/journeyImages.mjs';
 import { sitePath } from '../lib/sitePath';
 
 const platforms = [
@@ -87,8 +89,12 @@ const industries: Array<['hospitality' | 'retail' | 'wellness' | 'services', str
   </section>
 
   <section class="how-section section-shell" id="how-it-works" aria-labelledby="how-title" data-reveal>
-    <div class="section-heading inverse"><div><span class="eyebrow eyebrow-light brand-case">How Ez Kyosk works</span><h2 id="how-title">Five simple steps.<br />One confident order.</h2></div><p>Each step keeps the customer oriented while the connected system carries the order toward checkout and fulfillment.</p></div>
-    <ol class="steps">{steps.map(([title, body], index) => <li><span>0{index + 1}</span><div><h3>{title}</h3><p>{body}</p></div></li>)}</ol>
+    <div class="section-heading inverse"><div><span class="eyebrow eyebrow-light brand-case">How Ez Kyosk works</span><h2 id="how-title">Six simple steps.<br />One confident order.</h2></div><p>Each step keeps the customer oriented while the connected system carries the order toward checkout and fulfillment.</p></div>
+    <ol class="customer-journey-grid" role="list">{customerJourney.map(({ id, title, body }) => (
+      <JourneyCard id={id} title={title} description={body}
+        imageStem={journeyImages[id]?.stem}
+        imageAlt={journeyImages[id]?.alt} />
+    ))}</ol>
     <a class="text-link text-link-light" href={sitePath('/how-it-works/')}>See the complete ordering journey <span aria-hidden="true">↗</span></a>
   </section>
 

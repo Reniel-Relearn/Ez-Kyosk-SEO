@@ -1,5 +1,9 @@
 # Iterative redesign notes
 
+Latest approved local refinement: [cards2-4 geometry/separation/payment options](JOURNEY_GEOMETRY_PAYMENT_REVISION.md) complete and QA-passed. Cartv5/paymentv2/scanv2 use unchanged first image directly as angled hardware reference. Third caption Choose How to Pay, Card/E-Wallet/Cash at Cashier. Cards1/5/6 unchanged by hash; no deployment. Earlier completion-version statuses below historical.
+
+Latest update, 16 November 2026: ALL SIX customer-journey images integrated locally in responsive3/2/1 Home grid, zero placeholders. Cart v4 corrected aligned text/buttons and croissant increment arithmetic; payment400, tracking order104Preparing then104Ready and onecoffee/twocroissants at pickup. [Exact assets/prompts and passed final visual/static/browser/full-site checks](JOURNEY_SIX_CARDS_COMPLETION.md). First owner-selected close-up preserved. No deployment (live industry release aab7020), detailed guide/FAQ reconciliation separately scoped. Next owner local review; older task statuses below are historical.
+
 Updated: 14 November 2026
 
 Status: the owner removed action 2; all three benefit icons, all five overview cards, all five Home product images and both shared Home/Product payment images are implemented. Actions 3 and 4 are documented in the visual asset plan. Action 5 and benefit text/number cleanup are implemented and verified. Industry imagery, Product deep-dive reuse and journey changes stay pending.

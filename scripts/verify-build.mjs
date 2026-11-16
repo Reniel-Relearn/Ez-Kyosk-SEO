@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { verifyHeroImage } from './verify-hero-image.mjs';
 import sharp from 'sharp';
 import { createHash } from 'node:crypto';
+import { journeyImages } from '../src/data/journeyImages.mjs';
 
 const paths = ['', 'features', 'how-it-works', 'solutions', 'about', 'contact', 'privacy'];
 const basePath = `/${(process.env.BASE_PATH || '').replace(/^\/+|\/+$/g, '')}`.replace(/^\/$/, '');
@@ -315,6 +316,37 @@ for (const [index, stem] of ['industry-hospitality-v2', 'industry-retail-v1', 'i
     assert.equal(metadata.height, width * 3 / 4);
     assert.equal(createHash('sha256').update(await readFile(`dist/assets/images/${filename}`)).digest('hex'),
       createHash('sha256').update(await readFile(`public/assets/images/${filename}`)).digest('hex'), 'approved photograph bytes unchanged');
+  }
+}
+const customerSection = homeHtml.match(/<section class="how-section[\s\S]*?<\/section>/)?.[0];
+assert.ok(customerSection?.includes('Six simple steps.'), 'Home describes six customer stages');
+assert.ok(customerSection.includes('<ol class="customer-journey-grid" role="list">'), 'ordered customer journey');
+const journeyTitles = ['Start & Select', 'Review & Edit Order', 'Choose How to Pay', 'Scan Your Tracking QR', 'Track Your Queue Status', 'Collect Your Order'];
+const journeyCards = [...customerSection.matchAll(/<li class="customer-journey-card"[\s\S]*?<\/li>/g)].map(match => match[0].replaceAll('&amp;', '&'));
+assert.equal(journeyCards.length, 6, 'all six owner-approved customer stages');
+journeyCards.forEach((card, index) => {
+  assert.ok(card.includes(`<h3>${journeyTitles[index]}</h3>`), 'approved journey order/title');
+  assert.ok(!/<details|<button|<a /.test(card), 'steps are readable, not false interactive controls');
+});
+const journeyExpectedImages = Number(process.env.JOURNEY_EXPECTED_IMAGES || 6);
+assert.equal(Object.keys(journeyImages).length, journeyExpectedImages, 'authorized journey asset count');
+assert.equal((customerSection.match(/class="customer-journey-image"/g) || []).length, journeyExpectedImages, 'all completed journey images integrated');
+assert.equal((customerSection.match(/data-journey-image="pending"/g) || []).length, 6 - journeyExpectedImages, 'no unexpected reserved images');
+assert.ok(journeyCards[0].includes('AI-generated illustration of a Filipina customer with a dark ponytail'), 'first journey image has illustrative alt');
+assert.ok(journeyCards[0].includes('width="640" height="480"'), 'journey photo reserves landscape space');
+assert.ok(customerSection.includes(`href="${publicPath('/how-it-works/')}"`), 'detailed ordering guide link retained');
+for (const [id, { stem, alt }] of Object.entries(journeyImages)) {
+  const card = journeyCards.find(card => card.includes(`id="journey-${id}"`));
+  assert.ok(card?.includes(alt) && alt.startsWith('AI-generated illustration'), 'descriptive illustrative alt');
+  assert.ok(card.includes('width="640" height="480"'), 'reserved landscape image dimensions');
+  for (const width of [320, 640, 1280]) {
+    const filename = `${stem}-${width}.webp`;
+    assert.ok(card.includes(publicPath(`/assets/images/${filename}`)), 'responsive journey source');
+    const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
+    assert.equal(metadata.width, width);
+    assert.equal(metadata.height, width * 3 / 4);
+    assert.equal(createHash('sha256').update(await readFile(`dist/assets/images/${filename}`)).digest('hex'),
+      createHash('sha256').update(await readFile(`public/assets/images/${filename}`)).digest('hex'), 'journey artwork bytes preserved');
   }
 }
 const notFound = await readFile('dist/404.html', 'utf8');

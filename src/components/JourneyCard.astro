@@ -1,0 +1,25 @@
+---
+import { sitePath } from '../lib/sitePath';
+interface Props {
+  id: string;
+  title: string;
+  description: string;
+  imageStem?: string;
+  imageAlt?: string;
+}
+const { id, title, description, imageStem, imageAlt = '' } = Astro.props;
+---
+<li class="customer-journey-card" id={`journey-${id}`}>
+  <div class="customer-journey-media" data-journey-image={imageStem ? 'approved' : 'pending'}>
+    {imageStem ? (
+      <img class="customer-journey-image" src={sitePath(`/assets/images/${imageStem}-640.webp`)}
+        srcset={[320, 640, 1280].map(width => `${sitePath(`/assets/images/${imageStem}-${width}.webp`)} ${width}w`).join(', ')}
+        sizes="(max-width: 720px) calc(100vw - 42px), (max-width: 1180px) 46vw, 31vw"
+        width="640" height="480" alt={imageAlt} loading="lazy" decoding="async" />
+    ) : (
+      <div class="customer-journey-pending" aria-hidden="true">Image to follow</div>
+    )}
+  </div>
+  <h3>{title}</h3>
+  <p>{description}</p>
+</li>

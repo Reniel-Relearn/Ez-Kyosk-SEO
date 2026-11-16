@@ -2,6 +2,14 @@
 
 The current GitHub Pages deployment at `https://reniel-relearn.github.io/Ez-Kyosk-SEO/` is a public design-review environment built from `main`. It uses `/Ez-Kyosk-SEO` as its base path and intentionally omits `SITE_URL`, which preserves `noindex, nofollow` metadata and crawl blocking. This is not the production launch.
 
+## Customer journey publication, 16 November 2026
+
+Owner authorized pushing/deploying all six approved Home customer-journey cards and the later kiosk-perspective/payment-choice corrections. This supersedes earlier local-only/no-deployment notes for that work. Active stems: journey-start-select-v3, journey-review-edit-v5, journey-payment-v2, journey-scan-qr-v2, journey-track-queue-v1 and journey-collect-v1, each at 320/640/1280 widths. Include the Home component/data/styles, static/browser checks and related documentation only. Do not publish superseded image variants, raw generated PNGs, private design PDF/DOCX, unrelated assets or ignored QA reports.
+
+Retain main-branch Pages workflow, /Ez-Kyosk-SEO base, preview noindex/nofollow and robots blocking, form protections and existing hero/other sections. Source provenance records use local master filenames rather than personal absolute machine paths. Prepublication checks include clean release-copy build/static verification; prior local visual, 24-combination journey and 48-layout/32-accessibility full-site checks passed. Wait for actual workflow success and verify live HTML/assets/browser behavior before reporting deployment complete.
+
+Read-only feedback audit before publication: one open shared issue (#1), no open PRs. Translucent/low-opacity sticky header remains unaddressed; existing header has opaque background even though backdrop blur is present. Wrist gap, five human platform images and independent expansion have explicit deployed-resolution replies. This publication does not implement header feedback or close/comment on issues.
+
 ## Designed to adapt publication, 16 November 2026
 
 Owner authorized pushing/deploying the completed four-card Home section to the existing main-branch Pages review environment. This supersedes earlier local-only/no-deployment notes for this section. Approved sources: industry-hospitality-v2, industry-retail-v1, industry-wellness-v1 and industry-services-v6, each at 320/640/1280 widths. Publish only these new images, section components/styles, checks and related planning/provenance docs. Superseded previews, generated PNG masters, source reference PDF/DOCX, unrelated local assets and ignored QA artifacts are not part of this release.

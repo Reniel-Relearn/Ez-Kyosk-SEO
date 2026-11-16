@@ -2,6 +2,10 @@
 
 Updated: 16 November 2026
 
+Latest LOCAL correction: [cards2-4 geometry/separation/payment revision](JOURNEY_GEOMETRY_PAYMENT_REVISION.md). Direct edits of unchanged first image restore angled kiosk, clearer silver casing/matte background, perspectively contained UI. Active cartv5/paymentv2/scanv2, third caption Choose How to Pay with optional Cash at Cashier alongside Card/E-Wallet. Cards1/5/6 byte-preserved, previous files retained. No deployment. Supersedes earlier active-v4/v1/v1 references below.
+
+Latest LOCAL completion: ALL SIX How Ez Kyosk works images integrated after owner explicitly authorized sequential completion/QA/direct integration. First selected close-up unchanged; cart corrected v4, payment v1, scanQR v1, tracking v1, collect v1;18 responsive WebP sources, zero placeholders. [Active manifest, full exact prompts, image-review results and passed final QA](JOURNEY_SIX_CARDS_COMPLETION.md). No push/deployment, other sections untouched. Earlier pending preview/one-card limits below are historical and superseded for this completion task.
+
 Publication authorized: owner requested deploying completed Designed to adapt to existing main-branch Pages review. Earlier local-only notes are historical. Release includes ONLY approved Hospitality v2, Retail v1, Wellness v1 and Services v6 responsive sources; superseded previews/references stay local. [Scope and verification requirements](DEPLOYMENT_GUIDE.md#designed-to-adapt-publication-16-november-2026). No journey edits/generation or production-indexing launch.
 
 CURRENT completion: actual balanced Services v6 approved and integrated in fourth Home industry card; all FOUR photographs complete locally, no reserved image areas. First three artwork files, shared layout and copy retained. [Integration/checks](INDUSTRY_SERVICES_ASSET.md). No generation/deployment. Next proposed work: [four-step customer journey brainstorm](JOURNEY_REDESIGN_PLAN.md); not implemented/generated automatically. Earlier preview statuses below are historical.

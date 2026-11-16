@@ -1,10 +1,10 @@
 import sharp from 'sharp';
 import { access } from 'node:fs/promises';
 
-// Responsive encoding only, based on the existing platform image preparation script.
+// Responsive encoding only for the shared 4:3 industry/journey image families.
 const [source, stem] = process.argv.slice(2);
-if (!source || !/^industry-[a-z0-9-]+-v\d+$/.test(stem || '')) {
-  throw new Error('Pass a 4:3 source and a new versioned industry asset stem.');
+if (!source || !/^(industry|journey)-[a-z0-9-]+-v\d+$/.test(stem || '')) {
+  throw new Error('Pass a 4:3 source and a new versioned industry or journey asset stem.');
 }
 const metadata = await sharp(source).metadata();
 if (Math.abs(metadata.width / metadata.height - 4 / 3) > .001 || metadata.width < 1280) {

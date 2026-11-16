@@ -6,6 +6,16 @@ export const steps = [
   ['Confirm', 'Send the order into the connected checkout flow.'],
 ];
 
+// End-to-end customer journey. The guide's ordering microsteps above are separate.
+export const customerJourney = [
+  { id: 'start-select', title: 'Start & Select', body: 'Tap to begin, browse the menu and choose products.' },
+  { id: 'review-edit', title: 'Review & Edit Order', body: 'Check items, edit quantities or selections, and review the total.' },
+  { id: 'payment', title: 'Choose How to Pay', body: 'Pay by card or e-wallet, or choose cash payment at the cashier.' },
+  { id: 'scan-qr', title: 'Scan Your Tracking QR', body: 'Scan the order-tracking QR to open order tracking.' },
+  { id: 'track-queue', title: 'Track Your Queue Status', body: 'Follow the queue and see when your order is ready for pickup.' },
+  { id: 'collect', title: 'Collect Your Order', body: 'Collect your prepared order when it is ready.' },
+];
+
 export const productCategories = [
   { id: 'self-ordering', label: 'Self-Ordering', eyebrow: 'Customer experience', title: 'Every choice, clear from the first tap.', body: 'Give customers a focused touchscreen journey for exploring the menu, choosing products, adjusting their order, and confirming with confidence.', items: ['Digital menu and categories', 'Product options and quantities', 'Cart and order review', 'Calculated totals', 'Order confirmation'] },
   { id: 'pos-checkout', label: 'POS & Checkout', eyebrow: 'Connected operations', title: 'Move confirmed orders into checkout.', body: 'Connect the self-ordering journey with the operational checkout flow, including order queueing and the requirements defined for each deployment.', items: ['Connected checkout flow', 'Order queueing', 'Order status visibility', 'Counter handoff support', 'Configuration to business requirements'] },

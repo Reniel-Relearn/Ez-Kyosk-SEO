@@ -1,4 +1,14 @@
-# Next brainstorm: four-step customer journey
+# Customer journey: approved six-stage direction
+
+Latest approved local revision: [cards2-4 hardware perspective/background separation and payment options](JOURNEY_GEOMETRY_PAYMENT_REVISION.md). Card1 is unchanged hardware reference; active cartv5/paymentv2/scanv2. Third caption now Choose How to Pay with Card/E-Wallet/Cash at Cashier, optional cash not separate illustrated branch. Cards5/6 unchanged; no deployment.
+
+CURRENT, 16 November 2026: ALL SIX stages complete locally after explicit owner authorization to finish images, QA and integration sequentially. Order: Start & Select / Review & Edit Order / Pay by Card or E-Wallet / Scan Your Tracking QR / Track Your Queue Status / Collect Your Order. Tracking QR is NOT payment QR. [Final active assets, full prompts and passed checks](JOURNEY_SIX_CARDS_COMPLETION.md).
+
+Home now has six ordered image-led cards, three/two/one responsive columns, ALL SIX images populated and zero reserved areas. Section remains after Designed to adapt/before FAQ. No large visible numbers/disclosures/extra card buttons; all captions visible without JS. Hero and prior completed artwork unchanged. Detailed guide/FAQ still describe ordering microsteps, not silently rewritten in this Home image task; coordinate reconciliation after scope approval. No deployment.
+
+First-image selection retained: owner-selected original tighter over-the-shoulder output, journey-start-select-v3, unchanged. Cart active v4 corrects overlap/alignment; later four images completed and checked. Same customer/hair/outfit/venue/light family, illustrative screen content and consistent sample-order narrative. Earlier preview-approval pauses superseded by explicit six-card completion request, not permission to deploy. Next: owner reviews completed local section. FAQ is the next physical section; no automatic redesign/publication.
+
+## Historical four-stage brainstorming, superseded above
 
 Date: 16 November 2026. Planning ONLY after local completion of Designed to adapt. No journey edits or image generation authorized by the Services-image integration request.
 
