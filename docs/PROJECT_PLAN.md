@@ -1,10 +1,10 @@
 # Ez Kyosk website roadmap
 
-Last updated: 14 November 2026
+Last updated: 16 November 2026
 
 ## Current status
 
-Latest owner request: make both payment cards smaller and remove added top/bottom image breathing room, matching the compact reference. This supersedes the previous 32px spacing request. Both original images, exact supplied PNG bytes, HTML copy/links, prior images, hero and page order are retained. Different image-column proportions keep both artworks uncropped and undistorted. Shared Home/Product behavior and responsive readability are maintained. See [PAYMENT_CARD_LAYOUT.md](PAYMENT_CARD_LAYOUT.md). Next proposal remains first Hospitality & food industry image, not generated. Branding remains governed by [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md), with the exact supplied PNG exception.
+Latest owner request: resolve the GitHub wrist-gap comment, then stop for brainstorming the first ultra-realistic human-interaction platform card. Only the online payment PNG bottom-alignment changes; first payment image remains centered, both source artworks and website copy/layout are retained. Immediate next proposal: Home > One connected platform > Self-Ordering Experience with a customer touching the kiosk, NOT generation or industry work. See [FEEDBACK_WRIST_AND_HUMAN_PLAN.md](FEEDBACK_WRIST_AND_HUMAN_PLAN.md). Existing branding/exact supplied PNG policies remain unchanged.
 
 **Current phase:** action 2 removed; visual assignments, palette, and benefit icon family implemented. All five overview cards, all five Home product images and both shared payment images are integrated for owner review. Industry imagery, Product deep-dive reuse and the four-step journey remain pending.
 

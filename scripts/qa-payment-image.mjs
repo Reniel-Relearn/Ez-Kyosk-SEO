@@ -70,6 +70,7 @@ try {
                 topBreathingRoom: box.top - frameBox.top,
                 bottomBreathingRoom: frameBox.bottom - box.bottom,
                 cardBottomGap: cardBox.bottom - box.bottom,
+                cardBorderBottom: parseFloat(getComputedStyle(card).borderBottomWidth),
                 framePaddingTop: getComputedStyle(frame).paddingTop,
                 framePaddingBottom: getComputedStyle(frame).paddingBottom,
                 cardHeight: cardBox.height,
@@ -86,12 +87,18 @@ try {
             assert.equal(geometry.backdrop, 'none');
             assert.equal(geometry.contained, true);
             assert.equal(geometry.noOverflow, true);
-            assert.ok(geometry.verticalCenterDelta < 1, 'image centered vertically in its frame');
+            if (expected.name === 'online') {
+              assert.ok(Math.abs(geometry.bottomBreathingRoom) < .1, 'online image sits flush with frame bottom');
+              assert.ok(Math.abs(geometry.cardBottomGap - geometry.cardBorderBottom) < .1, 'wrist meets card inner bottom edge; border only');
+              assert.ok(geometry.topBreathingRoom < 32, 'compact online image frame retained');
+            } else {
+              assert.ok(geometry.verticalCenterDelta < 1, 'terminal image remains centered');
+              assert.ok(geometry.topBreathingRoom < 16, `${route} ${width} terminal: no large top gap`);
+              assert.ok(geometry.bottomBreathingRoom < 16, `${route} ${width} terminal: no large bottom gap`);
+            }
             assert.equal(geometry.framePaddingTop, '0px', 'no added image padding at top');
             assert.equal(geometry.framePaddingBottom, '0px', 'no added image padding at bottom');
             assert.ok(geometry.cardHeight < (width <= 720 ? 650 : 480), 'compact card, no old 500px minimum');
-            assert.ok(geometry.topBreathingRoom < 16, `${route} ${width} ${expected.name}: no large top gap (${geometry.topBreathingRoom}px in ${geometry.cardHeight}px card)`);
-            assert.ok(geometry.bottomBreathingRoom < 16, `${route} ${width} ${expected.name}: no large bottom gap (${geometry.bottomBreathingRoom}px)`);
             if (width > 720) assert.equal(geometry.besideCopy, true, 'devices sit to the right of HTML copy');
             assert.ok(geometry.source.includes(expected.source), `correct ${expected.name} artwork: ${geometry.source}`);
             if (expected.name === 'online') assert.ok(geometry.source.endsWith('.png'), 'supplied PNG, no re-encoding');

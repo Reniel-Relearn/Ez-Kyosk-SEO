@@ -1,10 +1,12 @@
 # Website visual asset plan
 
-Updated: 14 November 2026
+Updated: 16 November 2026
 
 Branding override: [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md) is authoritative. Display name is Ez Kyosk. Use only original logo/icon assets, not header screenshots. The hero uses transparent v3 artwork without white logo panels; see [HERO_TRANSPARENCY_FIX.md](HERO_TRANSPARENCY_FIX.md). The first overview card now uses v3 without logo backing plates and with the opposite three-quarter kiosk view, as requested on 14 November. Original source images and superseded samples remain reference material, not active page imports.
 
 Actions 3 and 4: visual assignments and shared art direction. All three benefit icons, all five Home overview cards, all five Explore the product images and BOTH shared Home/Product payment images are integrated. Industry imagery, Product deep-dive reuse and the four-step journey remain pending. The Word-arrangement action is removed; retain the current homepage sequence.
+
+Latest priority from GitHub feedback: fix the second payment card's wrist flush to the bottom, then STOP at brainstorming the first human-interaction image for Home > One connected platform > Self-Ordering Experience. The wrist fix bottom-aligns ONLY the existing exact PNG; no image bytes or first-card alignment change. Proposed ultra-realistic customer/kiosk scene and boundaries: [FEEDBACK_WRIST_AND_HUMAN_PLAN.md](FEEDBACK_WRIST_AND_HUMAN_PLAN.md). No human image has been generated or integrated. The older Hospitality & food proposal below remains pending, not the next authorized task.
 
 ## First product-panel image: Self-Ordering
 
