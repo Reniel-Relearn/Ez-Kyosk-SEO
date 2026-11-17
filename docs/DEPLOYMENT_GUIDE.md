@@ -2,6 +2,14 @@
 
 The current GitHub Pages deployment at `https://reniel-relearn.github.io/Ez-Kyosk-SEO/` is a public design-review environment built from `main`. It uses `/Ez-Kyosk-SEO` as its base path and intentionally omits `SITE_URL`, which preserves `noindex, nofollow` metadata and crawl blocking. This is not the production launch.
 
+## Header publication, 17 November 2026
+
+Owner approved the shared50% no-blur header after local review and requested deployment plus resolution of the associated feedback comment. Publish the six scoped files only: src/styles/global.css; scripts/qa-translucent-header.mjs; docs/TRANSLUCENT_HEADER.md; docs/PROJECT_PLAN.md; docs/WIREFRAME_SPEC.md; this guide. No private reference files, unrelated assets, superseded previews or ignored QA artifacts. Main, Pages workflow, base path, unindexed design-review controls and forms remain unchanged.
+
+Header styling is consistent across all eight routes:120deg gradient using existing blue-tint/page colours at50% alpha at both stops; no blur; controls/logo fully opaque; sticky geometry and opaque expanded mobile menu retained. Local targeted352 layout/scroll checks,80 keyboard-menu cycles,32 sampled header axe scans and12 rendered gradient-pixel samples completed without layout/browser/resource errors. Separate worst-case contrast tests have24 failures (minimum nav1.41:1); the test correctly exits1 and the owner-approved visual release is NOT an accessibility-conformance or production-launch claim. See [full record](TRANSLUCENT_HEADER.md). Do not weaken tests to make this known limit appear green.
+
+Before reporting deployed: build/verify an isolated staged-source copy so untracked images/documents cannot leak into the artifact; run full-site regression; push only the scoped commit; verify Pages and Website checks succeed for that SHA; inspect live routes/theme/alpha/no-blur/menu/navigation and preserved indexing controls. Then reply to the original header comment6907239002 with release/checks/known limitation. Keep shared feedback hub#1 usable for new reviews; do not delete or obscure comments.
+
 ## Customer journey publication, 16 November 2026
 
 Owner authorized pushing/deploying all six approved Home customer-journey cards and the later kiosk-perspective/payment-choice corrections. This supersedes earlier local-only/no-deployment notes for that work. Active stems: journey-start-select-v3, journey-review-edit-v5, journey-payment-v2, journey-scan-qr-v2, journey-track-queue-v1 and journey-collect-v1, each at 320/640/1280 widths. Include the Home component/data/styles, static/browser checks and related documentation only. Do not publish superseded image variants, raw generated PNGs, private design PDF/DOCX, unrelated assets or ignored QA reports.

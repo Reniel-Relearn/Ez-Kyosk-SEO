@@ -1,8 +1,14 @@
 # Ez Kyosk website roadmap
 
-Last updated: 16 November 2026
+Last updated: 17 November 2026
 
 ## Current status
+
+17 November HEADER PUBLICATION AUTHORIZED: owner approved the50% no-blur gradient header for the existing main-branch Pages design review and requested a resolution reply to the related feedback. Earlier local-only restrictions below superseded for this header. [Release scope/known contrast limits](TRANSLUCENT_HEADER.md). This is not permission to enable indexing or call the site production-ready.
+
+Recommended NEXT work (proposal, not yet implemented): finish the Home FAQ -> final demo CTA -> footer review, reconciling the FAQ's five ordering microsteps with the six-stage end-to-end journey without changing the protected original hero. Then reconcile How It Works page wording/structure with the approved six-stage journey, followed by Product (five deep-dive visuals still code placeholders), Solutions, About, Contact and Privacy. Apply intent mapping, direct factual answers, internal linking, headings/metadata, mobile/readability and performance checks alongside each page, rather than endlessly redesigning Home or postponing all SEO work. Production domain/indexing, evidence-based claims, inquiry delivery/privacy and measurement remain separate launch gates. No ranking or AI-citation guarantee.
+
+Latest LOCAL visual trial: owner requested removal of header blur and a page-aligned background gradient at50% opacity or lower. Implemented50% in BOTH themes, matching hero120deg blue-tint-to-page gradient. Logo/text/controls remain opaque; sticky sizing and solid mobile dropdown unchanged. No backdrop-filter dependency. [Current trial and QA](TRANSLUCENT_HEADER.md). Not pushed/deployed; live baseline remains f8eee26 and GitHub issue unchanged. Next: owner reviews the trial and its readability limitations before publication.
 
 Latest LOCAL refinement: [kiosk geometry/background separation and three payment choices](JOURNEY_GEOMETRY_PAYMENT_REVISION.md) implemented in cards2-4, using unchanged card1 as edit reference. Third caption Choose How to Pay; optional Cash at Cashier alongside Card/E-Wallet. Cards1/5/6 preserved. No deployment; earlier completion-version references below historical.
 
