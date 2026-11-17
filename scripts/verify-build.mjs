@@ -239,7 +239,8 @@ for (const width of [270, 540, 1080]) {
   assert.equal(metadata.width, width, `${filename}: responsive width`);
   assert.equal(metadata.height, width * 4 / 3, `${filename}: uncropped 3:4 ratio`);
 }
-for (const route of ['/', '/features/']) {
+// The approved artwork remains on frozen Home; redesigned Product uses visual placeholders.
+for (const route of ['/']) {
   const html = pages.get(route);
   assert.equal((html.match(/class="payment-terminal-image"/g) || []).length, 1, `${route}: one terminal image`);
   assert.ok(!html.includes('class="mini-kiosk"'), `${route}: terminal CSS placeholder replaced`);
@@ -362,6 +363,18 @@ for (const [id, { stem, alt }] of Object.entries(journeyImages)) {
   }
 }
 const notFound = await readFile('dist/404.html', 'utf8');
+const productHtml = pages.get('/features/');
+assert.ok(productHtml.includes('class="product-page"'), 'Product has an isolated page wrapper');
+assert.equal((productHtml.match(/data-product-placeholder/g) || []).length, 9, 'nine intentional Product visual slots');
+assert.ok(!/class="payment-terminal-image"|class="payment-online-image"|class="feature-art/.test(productHtml), 'Product no longer repeats Home payment images or fake dashboards');
+assert.equal((productHtml.match(/<img\b/g) || []).length, 2, 'Product imagery is placeholders, apart from shared header/footer logos');
+for (const id of ['product-areas', 'configurable-additions', 'payments', 'purchase-options', 'compatibility', 'self-ordering', 'pos-checkout', 'inventory', 'reports', 'customers']) {
+  assert.ok(productHtml.includes(`id="${id}"`), `Product section/deep link retained: ${id}`);
+}
+for (const phrase of ['They are not automatically included in every package.', 'Scanning is optional.', 'After payment, the cashier can provide the order number', 'Software-only', 'Hardware-only', 'Combined setup', 'Compatibility with an existing POS']) {
+  assert.ok(productHtml.includes(phrase), `Product fact boundary: ${phrase}`);
+}
+assert.ok(!/[\u2014]/.test(productHtml), 'no em dashes in Product output');
 const faqSection = homeHtml.match(/<section class="faq-section[\s\S]*?<\/section>/)?.[0];
 assert.ok(faqSection, 'Home FAQ remains present');
 assert.equal(faqs.length, 10, 'ten owner-approved FAQ entries');

@@ -20,7 +20,8 @@ try {
     page.on('response', response => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });
     for (const width of deviceScaleFactor === 1 ? [320, 390, 720, 721, 768, 1024, 1180, 1181, 1400, 1401, 1440, 1920] : [390, 1440]) {
       await page.setViewportSize({ width, height: 1000 });
-      for (const route of ['/', '/features/']) {
+      // Approved photo showcase is frozen on Home; Product now has its own text/placeholder layout.
+      for (const route of ['/']) {
         await page.goto(`${base}${route}`);
         await page.evaluate(() => document.fonts.ready);
         const section = page.locator('.payments-section');

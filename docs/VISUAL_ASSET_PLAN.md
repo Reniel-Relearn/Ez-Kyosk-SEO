@@ -1,5 +1,9 @@
 # Website visual asset plan
 
+17 November publication authorization: deploy the locally reviewed Product page, retaining all nine placeholders. Image generation stays ON HOLD. Product subnav matches the main header's 50%-alpha, no-blur gradient with opaque text. Frozen Home artwork and unused/untracked variants remain untouched; earlier LOCAL/no-deployment directions are superseded only for this approved release.
+
+17 November LOCAL Product direction: owner approved implementation with ALL Product image slots left as neutral placeholders. Nine slots reserved (hero, four core capabilities, three configurable additions, payment configuration); no image generation/reuse or asset edits this pass. Frozen Home retains all its approved artwork unchanged. [Product local review](PRODUCT_LOCAL_REVIEW.md). Later artwork needs separate approval; Articles deferred.
+
 Updated: 16 November 2026
 
 Latest LOCAL correction: [cards2-4 geometry/separation/payment revision](JOURNEY_GEOMETRY_PAYMENT_REVISION.md). Direct edits of unchanged first image restore angled kiosk, clearer silver casing/matte background, perspectively contained UI. Active cartv5/paymentv2/scanv2, third caption Choose How to Pay with optional Cash at Cashier alongside Card/E-Wallet. Cards1/5/6 byte-preserved, previous files retained. No deployment. Supersedes earlier active-v4/v1/v1 references below.

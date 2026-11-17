@@ -1,6 +1,10 @@
 # SEO, GEO, and AEO strategy
 
-Last updated: 12 November 2026
+Last updated: 17 November 2026
+
+Publication follow-up: owner authorized the reviewed Product revision for the existing GitHub Pages design preview. Prior LOCAL wording below describes implementation history. Nine images remain placeholders/on hold; Home and noindex/robots controls remain unchanged. This is not a production indexing or ranking launch.
+
+LOCAL Product revision: /features/ now addresses business capability/configuration/purchasing questions with original static text, natural Philippine context, direct answers, unique metadata and descriptive links. Inventory automation/reporting/customer additions explicitly quotation-dependent. Legacy Home destinations preserved; frozen Home unchanged. Product-only artwork remains nine labelled layout placeholders and is not launch-ready imagery. No new schema/AI files, rankings claim, indexing or analytics activation. [Implementation and scope](PRODUCT_LOCAL_REVIEW.md). Earlier technical foundations remain subject to owner production launch gates.
 
 ## Search positioning
 
@@ -15,7 +19,7 @@ The homepage retains its original SEO-focused hero eyebrow, H1, description, aud
 | Route | Primary intent | Supporting topics |
 | --- | --- | --- |
 | `/` | Self-ordering kiosk Philippines | Product overview, checkout, payments, inventory, order tracking |
-| `/features/` | Self-ordering kiosk features | POS checkout, AltPayNet, real-time inventory, reports, customer tools |
+| `/features/` | Self-ordering kiosk capabilities and configuration | Checkout, AltPayNet, queue tracking, quotation-dependent inventory/reporting/customer tools, software/hardware purchasing and compatibility |
 | `/how-it-works/` | How a self-ordering kiosk works | Browse, select, adjust, review, confirm, payment and fulfillment handoff |
 | `/solutions/` | Self-ordering kiosk use cases | Hospitality, cafés, restaurants, retail, wellness, services, B2B |
 | `/about/` | Ez Kyosk entity and purpose | Philippine focus, principles, product scope |

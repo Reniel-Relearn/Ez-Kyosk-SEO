@@ -39,11 +39,15 @@ try {
       assert.ok(state.brandAlts.every(alt => alt === 'Ez Kyosk'), `${route}: consistent logo alt text`);
       assert.equal(state.headings, 1);
       assert.equal(state.brokenImages.length, 0, `${route}: images`);
-      if (route === '/' || route === '/features/') {
+      if (route === '/') {
         assert.equal(await page.locator('.payment-terminal-image').count(), 1, 'shared terminal image');
         assert.equal(await page.locator('.payments-section .mini-kiosk').count(), 0, 'first payment placeholder replaced');
         assert.equal(await page.locator('.payment-online-image').count(), 1, 'exact owner-supplied online payment image');
         assert.equal(await page.locator('.payments-section .phone').count(), 0, 'second payment placeholder replaced');
+      }
+      if (route === '/features/') {
+        assert.equal(await page.locator('[data-product-placeholder]').count(), 9, 'Product artwork intentionally reserved');
+        assert.equal(await page.locator('.payment-terminal-image,.payment-online-image').count(), 0, 'Product no longer repeats Home payment cards');
       }
       if (route === '/') {
         assert.equal(await page.locator('.product-panel-image').count(), 5, 'all five product panels have imagery');
@@ -122,7 +126,7 @@ try {
   await page.getByText('Core capabilities include POS checkout, AltPayNet payments, real-time inventory, and order tracking.', { exact: false }).waitFor();
   const pageIdentities = [
     ['/', 'Home', '.hero-product'],
-    ['/features/', 'Product', '.product-system-map'],
+    ['/features/', 'Product', '.product-system-overview'],
     ['/how-it-works/', 'How It Works', '.journey-map'],
     ['/solutions/', 'Solutions', '.solution-orbit'],
     ['/about/', 'About', '.about-logo-panel'],
@@ -136,8 +140,8 @@ try {
     if (route !== '/') assert.equal(await page.locator('.hero-product').count(), 0, `${route}: homepage kiosk hero is not reused`);
   }
   await page.goto(`${base}/features/`);
-  assert.match(await page.locator('.page-hero h1').innerText(), /Five product areas\.\s+One connected system\./);
-  assert.equal(await page.locator('.product-system-links > a').count(), 5);
+  assert.match(await page.locator('.product-intro h1').innerText(), /One connected system\.\s+Defined around your business\./);
+  assert.equal(await page.locator('.product-section-nav > a').count(), 5);
   await page.goto(base);
   const themeToggle = page.locator('.theme-toggle');
   assert.equal(await themeToggle.getAttribute('aria-label'), 'Switch to dark mode');

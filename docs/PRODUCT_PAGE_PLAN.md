@@ -1,6 +1,14 @@
 # Product page: plan after Home freeze
 
-Date: 17 November 2026, Asia/Manila. Plan only; no Product runtime edits or new image generation authorized by the Home icon release.
+Date: 17 November 2026, Asia/Manila. Following local review, the owner authorized pushing and deploying the implemented Product page and its sticky 50%-alpha subheader to the existing main-branch GitHub Pages design review. This supersedes earlier local-only publication restrictions below. All nine images remain placeholders; generation is on hold. Home remains frozen. No production indexing, analytics or form activation authorized. Deployment success must be verified separately, not inferred from this authorization.
+
+## Current implementation authorization
+
+Implement all seven section roles with original, factual business-facing copy based on confirmed scope. Preserve frozen Home and its shared data/components/styles. Use Product-only data, visual-placeholder component and page-scoped CSS. Remove Product's duplicate Home payment showcase without touching Home's shared showcase. Preserve all five Home-to-Product anchors. Reserve nine neutral labelled visual slots: hero, four core capabilities, three additions and payment configuration. No fake dashboards, stock photos or generated imagery. Purchasing/compatibility sections remain text-led.
+
+SEO/AEO/GEO: unique descriptive title/description, one H1, logical headings, direct textual answers, natural terminology/Philippine business context, descriptive internal links and static HTML/no-JavaScript readability. No keyword stuffing, invented statistics, ratings, testimonials, certifications, default automation promises, fake package inclusions or ranking/AI-citation guarantees. Keep configured-site metadata/schema behavior and unindexed preview controls. Official references: https://developers.google.com/search/docs/appearance/ai-features and https://developers.google.com/search/docs/fundamentals/creating-helpful-content.
+
+After implementation: build/static verification, Product responsive/theme/anchor/placeholder/keyboard/accessibility/no-JavaScript QA, full-site regression and frozen Home comparison. Leave local preview available for owner review. Publication requires a separate instruction.
 
 ## Decision and page purpose
 
@@ -25,15 +33,17 @@ These are section roles, not approved final marketing copy or a demand to fill e
 ## Technical and design guardrails
 
 - Keep current route /features/ and Product navigation label. Home already links to /features/#self-ordering, #pos-checkout, #inventory, #reports and #customers; preserve valid, meaningful destinations if sections are regrouped.
+- Preserve sticky Product section navigation below the primary header. The owner confirmed this behavior during local review. Links wrap without horizontal scrolling; on phones, use two columns. Product-only measured offsets keep section destinations clear of both bars, with CSS-only fallbacks and primary mobile-menu stacking preserved.
+- Match the main header's existing 50%-alpha, theme-aware gradient background on the Product subnav, without blur or translucent text. Nine image generations are on hold at the owner's request; retain all placeholders until further approval.
 - Shared productCategories currently supplies BOTH Home and Product. Do not rewrite it globally while Home is frozen. Use Product-specific data/content and scoped presentation for elaboration.
 - Shared PaymentShowcase also renders Home. Leave it untouched; use a Product-specific presentation or reuse approved assets without silently changing Home. Reusing an image is acceptable when useful; repeating the entire information block is not the goal.
 - Scope new styles/components to Product. Shared header/footer, theme palette and Home rendering are protected unless the owner separately approves changes. Use frozen Home source/DOM and content checks during regression; do not mistake shared CSS edits for page-only changes.
 - Retain minimalist wide responsive layout, extra-bold heading family, blue/subtle cyan palette and both themes. Keep important explanatory content as semantic HTML, not burned into images or hidden behind unnecessary interactions.
-- Reuse suitable approved assets before generating new ones. Present an exact per-section visual brief and obtain approval before generation. Artwork remains illustrative, not proof of real client installs or payment/backend behavior.
+- CURRENT PASS: visual placeholders only, no existing product/payment image reuse or new generation. After layout review, present per-section visual briefs for approval. Later artwork remains illustrative, not proof of real installations or software behavior.
 - Unique page-intent metadata, clear answers, descriptive links, dimensions/responsive assets, accessibility, performance and factual review are part of each section. No ranking/AI-citation guarantees, fake proof or automatic FAQ schema.
 - Preserve public design-review noindex/nofollow and robots blocking. This plan does not authorize production indexing, analytics or form activation.
 
-## Exact implementation sequence after plan approval
+## Historical staged sequence, superseded by full local implementation approval
 
 1. Confirm the outline and page-specific product facts. Obtain missing package inclusions, hardware evidence or compatibility details only if the proposed copy needs them; otherwise leave promises out.
 2. Present exact hero headline, introduction, CTA labels and proposed system visual for owner approval. This is the next concrete brainstorming task, not automatic code work.

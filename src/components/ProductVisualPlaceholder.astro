@@ -1,0 +1,11 @@
+---
+interface Props { label: string; hero?: boolean; }
+const { label, hero = false } = Astro.props;
+---
+<div class:list={['product-visual-placeholder', { 'product-system-overview': hero }]} data-product-placeholder aria-hidden="true">
+  <div class="product-placeholder-frame">
+    <span class="product-placeholder-tag">Visual placeholder</span>
+    <span class="product-placeholder-label">{label}</span>
+    <span class="product-placeholder-note">Artwork will follow layout review.</span>
+  </div>
+</div>

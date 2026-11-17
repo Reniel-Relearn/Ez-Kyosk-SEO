@@ -1,5 +1,9 @@
 # Ez Kyosk website wireframe specification
 
+17 November latest owner direction: publish the approved Product redesign and sticky 50%-alpha, no-blur Product subheader. All nine visual slots remain placeholders; generation is on hold. Home stays frozen at5e9adf9, Articles deferred, preview crawl controls retained. Supersedes earlier local-only publication restrictions below for this scoped Product release.
+
+17 November LOCAL Product redesign: seven distinct business-facing sections (introduction; core capabilities; configurable additions; payment configuration; purchasing options; compatibility/quotation; final CTA). Nine labelled placeholders only; no generated/new Product images, duplicated Home payment cards or five-tab explorer. Product-specific stylesheet/data protect frozen Home; all five existing Home-to-Product anchors retained. [Implementation/local review](PRODUCT_LOCAL_REVIEW.md). Owner review required; no deployment. Articles deferred.
+
 17 November OWNER FREEZE: publish approved product-tab icons, verify deployment, then freeze Home in its current full five-tab layout. No Home overview simplification, content/imagery/spacing change or Articles addition authorized. Product may gain distinct deeper content only after page-specific approval, preserving existing Home deep links and shared Home output. [Final proposed Product outline](PRODUCT_PAGE_PLAN.md).
 
 17 November LOCAL Home finishing change: replace five product-tab01-05 labels with decorative20px coordinated outline icons (touchscreen, register, box, chart, customers). Written labels, five-tab/panel content, colours and responsive patterns retained; no new mobile icons where old prefixes were hidden. [Scope/checks/local review](HOME_PRODUCT_TAB_ICONS.md). No deployment; Home simplification and Product redesign remain unimplemented, Articles deferred.
