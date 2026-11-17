@@ -79,6 +79,17 @@ assert.equal(heroVariants.length, 3, 'all three responsive transparent hero vari
 for (const file of heroVariants) await verifyHeroImage(`dist/_astro/${file}`);
 await assert.rejects(access('dist/assets/images/platform-self-ordering-v1-640.webp'), 'superseded public artwork is not deployed');
 const homeHtml = pages.get('/');
+const productTabs = homeHtml.match(/<div class="product-tabs"[\s\S]*?<\/div>/)?.[0];
+assert.ok(productTabs, 'Home product tab bar retained');
+assert.equal((productTabs.match(/role="tab"/g) || []).length, 5, 'five labelled product tabs');
+assert.equal((productTabs.match(/class="product-tab-icon"/g) || []).length, 5, 'five inline category icons');
+assert.ok(!/>0[1-5]</.test(productTabs), 'number labels removed from Home product tabs');
+for (const kind of ['self-ordering', 'pos-checkout', 'inventory', 'reports', 'customers']) {
+  const icon = productTabs.match(new RegExp(`<svg[^>]+data-product-icon="${kind}"[^>]*>`))?.[0];
+  assert.ok(icon?.includes('aria-hidden="true"') && icon.includes('focusable="false"'), 'category icons are decorative, not extra controls');
+  assert.ok(icon.includes('width="20" height="20"'), 'consistent icon dimensions');
+}
+assert.ok(!pages.get('/features/').includes('product-tab-icon'), 'separate Product page unchanged by Home-only icons');
 const selfOrderingPanel = homeHtml.match(/<section class="product-panel" id="panel-self-ordering"[\s\S]*?<\/section>/)?.[0];
 assert.ok(selfOrderingPanel?.includes('product-panel-image'), 'Self-Ordering product panel has its generated concept image');
 assert.ok(selfOrderingPanel.includes('Every choice, clear from the first tap.</h3>'), 'product panel heading retained');

@@ -2,6 +2,12 @@
 
 The current GitHub Pages deployment at `https://reniel-relearn.github.io/Ez-Kyosk-SEO/` is a public design-review environment built from `main`. It uses `/Ez-Kyosk-SEO` as its base path and intentionally omits `SITE_URL`, which preserves `noindex, nofollow` metadata and crawl blocking. This is not the production launch.
 
+## Home product-tab icon publication and freeze, 17 November 2026
+
+Owner accepted the five local outline icons, authorized deployment, then freezing Home. Include ProductTabIcon/ProductExplorer, product-tab-only CSS, static/targeted regression checks and related release/plan docs. No copy/image/other-section changes, new Product runtime or Articles implementation. [Scope/checks](HOME_PRODUCT_TAB_ICONS.md); [next Product plan](PRODUCT_PAGE_PLAN.md).
+
+Verify isolated staged-source build/static checks and prior local browser results; push the bounded release only; confirm actual CI/Pages success and live five-icon mapping, labels, active/hover/keyboard behavior, responsive hiding/stacking, stylesheet hash and preserved review crawl controls. Do not publish private design references, unused previews or ignored QA artifacts. After live verification Home is frozen; any shared change affecting it needs separate owner approval. The existing header contrast limitation remains recorded, not resolved by these icons. No issue mutation requested by this deployment.
+
 ## Home FAQ publication, 17 November 2026
 
 Owner approved exact ten-answer FAQ draft, local integration and subsequent deployment to the existing main-branch Pages review. Include FAQ data, Home decorative-indicator markup/CSS correction, static/full-site/targeted FAQ checks and related docs only. No new article routes/content/navigation, no other page copy/hero/image/header changes, no private references or unused local artwork. [Release scope and facts](HOME_FAQ_REVISION.md); [Articles brainstorm](ARTICLES_PLAN.md) is not implemented.

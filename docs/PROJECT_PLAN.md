@@ -4,6 +4,10 @@ Last updated: 17 November 2026
 
 ## Current status
 
+CURRENT OWNER DIRECTION,17 November: publish approved Home product-tab icons, verify live and FREEZE HOME. Do not simplify/restructure its five-tab product explorer or change any Home copy/images/layout while redesigning Product. Shared data/components/styles affecting Home require separate approval. Articles deferred. Next work is [Product page plan](PRODUCT_PAGE_PLAN.md), not How It Works; planning is not implementation authorization. Prior next-action/local-only statements below are superseded where inconsistent.
+
+Latest approved LOCAL finishing change,17 November: [Home product-tab icons](HOME_PRODUCT_TAB_ICONS.md) replace01-05 with five coordinated outline symbols. Five-tab explorer, written labels, content/images, responsive behavior and interactions retained. No Product-page redesign, Home overview simplification or publication authorized. Articles deferred by owner. Next: review icons locally, then freeze Home and plan Product before How It Works; older roadmap suggestions below are historical where they conflict.
+
 17 November HOME FAQ APPROVED: ten exact owner-approved answers replace the older nine, including optional tracking QR after successful payment, optional cash route, quotation-dependent inventory automation, assessed compatibility and software/hardware/bundled offerings. Owner authorized local integration then Pages deployment. [Scope/facts/tests and remaining consistency flags](HOME_FAQ_REVISION.md). Hero/header/images/other-page copy and preview crawl controls retained. Earlier FAQ-pending notes below superseded for this release. [Articles proposal](ARTICLES_PLAN.md) records the new brainstorm only; no blog implementation or indexing launch authorized.
 
 17 November HEADER PUBLICATION AUTHORIZED: owner approved the50% no-blur gradient header for the existing main-branch Pages design review and requested a resolution reply to the related feedback. Earlier local-only restrictions below superseded for this header. [Release scope/known contrast limits](TRANSLUCENT_HEADER.md). This is not permission to enable indexing or call the site production-ready.

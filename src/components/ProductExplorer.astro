@@ -1,6 +1,7 @@
 ---
 import { productCategories } from '../data/product';
 import { sitePath } from '../lib/sitePath';
+import ProductTabIcon from './ProductTabIcon.astro';
 
 const productImages: Record<string, { stem: string; alt: string }> = {
   'self-ordering': { stem: 'product-self-ordering-v1', alt: 'Illustrative Ez Kyosk portrait kiosk menu with generic café items and an enlarged matching order review' },
@@ -12,7 +13,7 @@ const productImages: Record<string, { stem: string; alt: string }> = {
 ---
 <div class="product-explorer" data-product-explorer>
   <div class="product-tabs" role="tablist" aria-label="Ez Kyosk product areas">
-    {productCategories.map((category, index) => <button type="button" role="tab" id={`tab-${category.id}`} aria-controls={`panel-${category.id}`} aria-selected={index === 0 ? 'true' : 'false'} tabindex={index === 0 ? 0 : -1}><span>0{index + 1}</span>{category.label}</button>)}
+    {productCategories.map((category, index) => <button type="button" role="tab" id={`tab-${category.id}`} aria-controls={`panel-${category.id}`} aria-selected={index === 0 ? 'true' : 'false'} tabindex={index === 0 ? 0 : -1}><ProductTabIcon kind={category.id} />{category.label}</button>)}
   </div>
   <div class="product-panels">
     {productCategories.map((category, index) => <section class="product-panel" id={`panel-${category.id}`} role="tabpanel" aria-labelledby={`tab-${category.id}`} hidden={index !== 0}>
