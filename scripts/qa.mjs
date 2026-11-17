@@ -104,10 +104,10 @@ try {
     await page.keyboard.press('Space');
     assert.equal(await details.locator('p').isVisible(), false, 'Space collapses card description');
   }
-  const faq = page.locator('summary').filter({ hasText: 'Can it accept card, QR, GCash, or Maya payments?' });
+  const faq = page.locator('.faq-list summary').filter({ hasText: 'What payment methods does Ez Kyosk support?' });
   await faq.focus(); await page.keyboard.press('Enter');
   assert.equal(await faq.evaluate(el => el.parentElement.open), true);
-  assert.equal(await page.locator('.faq-list details').count(), 9);
+  assert.equal(await page.locator('.faq-list details').count(), 10);
   assert.equal(await page.locator('[role="tabpanel"]:visible').count(), 5, 'mobile product panels stack visibly');
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto(base);

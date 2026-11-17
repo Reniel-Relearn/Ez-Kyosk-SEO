@@ -1,5 +1,7 @@
 # Ez Kyosk website wireframe specification
 
+17 November HOME FAQ revision: ten approved Q&A items, same section heading/position and native independent disclosures, no images/new layout. Longer questions retain non-shrinking30px decorative indicators; inner plus rotates without circle overflow. Answers distinguish optional tracking QR from payment QR and specify quotation-dependent inventory automation. [Approved release/remaining copy consistency work](HOME_FAQ_REVISION.md). Articles remains [proposal only](ARTICLES_PLAN.md), not a new Home section or navigation item.
+
 17 November PUBLICATION APPROVED: the owner accepted the no-blur50% gradient header and requested deployment plus feedback resolution. Earlier local-only descriptions are historical. Shared geometry and original hero copy remain unchanged; known contrast limitations remain a production accessibility follow-up. [Release record](TRANSLUCENT_HEADER.md).
 
 17 November 2026 LOCAL header visual trial: NO BLUR; page-aligned120deg blue-tint-to-page gradient at50% alpha in both light/dark themes. Supersedes earlier blurred treatments. Shared sticky header retains fully opaque controls/branding and solid expanded mobile panel; heights/logo sizes/navigation unchanged. No backdrop-filter dependency or associated solid fallback. [Current trial, readability limitations and earlier baseline QA](TRANSLUCENT_HEADER.md). Applies to all eight pages; not deployed, GitHub issue unchanged.

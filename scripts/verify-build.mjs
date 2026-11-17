@@ -4,6 +4,7 @@ import { verifyHeroImage } from './verify-hero-image.mjs';
 import sharp from 'sharp';
 import { createHash } from 'node:crypto';
 import { journeyImages } from '../src/data/journeyImages.mjs';
+import { faqs } from '../src/data/product.ts';
 
 const paths = ['', 'features', 'how-it-works', 'solutions', 'about', 'contact', 'privacy'];
 const basePath = `/${(process.env.BASE_PATH || '').replace(/^\/+|\/+$/g, '')}`.replace(/^\/$/, '');
@@ -350,5 +351,19 @@ for (const [id, { stem, alt }] of Object.entries(journeyImages)) {
   }
 }
 const notFound = await readFile('dist/404.html', 'utf8');
+const faqSection = homeHtml.match(/<section class="faq-section[\s\S]*?<\/section>/)?.[0];
+assert.ok(faqSection, 'Home FAQ remains present');
+assert.equal(faqs.length, 10, 'ten owner-approved FAQ entries');
+assert.equal((faqSection.match(/<details[ >]/g) || []).length, 10, 'ten native FAQ disclosures');
+const escapeHtml = text => text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
+for (const [question, answer] of faqs) {
+  assert.ok(faqSection.includes(escapeHtml(question)), `FAQ question in static HTML: ${question}`);
+  assert.ok(faqSection.includes(escapeHtml(answer)), `FAQ answer in static HTML: ${question}`);
+  assert.ok(!/[\u2014]/.test(question + answer), 'no em dashes in FAQ');
+}
+assert.ok(faqSection.includes('Scanning is optional'), 'tracking QR is optional');
+assert.ok(faqSection.includes('both after payment'), 'cash tracking follows payment');
+assert.ok(faqSection.includes('not included automatically in every package'), 'automated inventory is quotation-dependent');
+assert.ok(!faqSection.includes('Browse → Select → Adjust → Review → Confirm'), 'FAQ no longer stops at ordering microsteps');
 assert.ok([...notFound.matchAll(/\bez\s+kyosk\b/gi)].every(match => match[0] === 'Ez Kyosk'), '404: canonical brand spelling');
 console.log('Passed: 7 pages, internal links/anchors/assets, unique metadata, logo/favicon references, indexing controls, sitemap, and configured-site schema/sharing image.');

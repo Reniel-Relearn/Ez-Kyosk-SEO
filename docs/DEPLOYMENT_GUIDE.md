@@ -2,6 +2,12 @@
 
 The current GitHub Pages deployment at `https://reniel-relearn.github.io/Ez-Kyosk-SEO/` is a public design-review environment built from `main`. It uses `/Ez-Kyosk-SEO` as its base path and intentionally omits `SITE_URL`, which preserves `noindex, nofollow` metadata and crawl blocking. This is not the production launch.
 
+## Home FAQ publication, 17 November 2026
+
+Owner approved exact ten-answer FAQ draft, local integration and subsequent deployment to the existing main-branch Pages review. Include FAQ data, Home decorative-indicator markup/CSS correction, static/full-site/targeted FAQ checks and related docs only. No new article routes/content/navigation, no other page copy/hero/image/header changes, no private references or unused local artwork. [Release scope and facts](HOME_FAQ_REVISION.md); [Articles brainstorm](ARTICLES_PLAN.md) is not implemented.
+
+Verify all approved answers in static and rendered HTML, independent native disclosure behavior at mobile/desktop in both themes, keyboard/pointer/no-JavaScript access and no row overflow. Run full-site regression and isolated staged-source build/verify before push. Wait for CI/Pages success for the actual SHA and verify live answers/stylesheet/crawl controls before reporting deployed. Preserve noindex/nofollow and robots blocking; no form activation. Known header contrast limits remain unchanged, not waived by FAQ checks.
+
 ## Header publication, 17 November 2026
 
 Owner approved the shared50% no-blur header after local review and requested deployment plus resolution of the associated feedback comment. Publish the six scoped files only: src/styles/global.css; scripts/qa-translucent-header.mjs; docs/TRANSLUCENT_HEADER.md; docs/PROJECT_PLAN.md; docs/WIREFRAME_SPEC.md; this guide. No private reference files, unrelated assets, superseded previews or ignored QA artifacts. Main, Pages workflow, base path, unindexed design-review controls and forms remain unchanged.
