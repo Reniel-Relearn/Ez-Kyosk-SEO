@@ -4,7 +4,7 @@ Date: 18 November 2026, Asia/Manila.
 
 Companion: [Revision architecture](ARCHITECTURE.md).
 
-Status: PHASE 1 LIVE VERIFIED at e6495cd. PHASE 2 ACCEPTED LOCALLY AND AUTHORIZED FOR DEPLOYMENT (19 November 2026); live verification in progress. Phase 3 remains unapproved. Previous freezes/page plans are historical where superseded by the latest owner decisions.
+Status: PHASE 1 LIVE VERIFIED at e6495cd. PHASE 2 COMPLETE: source release 330aedb deployed and live verified on 19 November 2026; [closure and evidence](PHASE_2_RELEASE.md). Phase 3 remains unapproved/not started. Previous freezes/page plans are historical where superseded by the latest owner decisions.
 
 ## Workflow for every phase
 
@@ -64,7 +64,7 @@ Status: Complete and live verified at e6495cd; [Hero issue resolution](https://g
 
 Goal: one dependency-safe migration, with no broken navigation release.
 
-Status: Owner accepted the [reviewed implementation](PHASE_2_LOCAL_REVIEW.md) and authorized push/deployment and phase closure on 19 November 2026. Publish scoped files and verify the live release before marking complete. No new issue reply or Phase 3 implementation authorized.
+Status: COMPLETE. Owner accepted the [reviewed implementation](PHASE_2_LOCAL_REVIEW.md), authorized publication and phase closure; source release 330aedb was deployed and live verified on 19 November 2026. See [closure, live checks and remaining limitations](PHASE_2_RELEASE.md). No new issue reply or Phase 3 implementation authorized.
 
 Local-review correction approved on 19 November: swap the intact Home How It Works and Industries sections. Order is now Products -> Payments -> How It Works -> Industries -> FAQs, matching the header's relative order. Do not change either section's copy, artwork or functionality; keep all other sections in place and recheck their navigation targets locally.
 

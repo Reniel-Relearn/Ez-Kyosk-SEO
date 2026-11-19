@@ -2,6 +2,8 @@
 
 ## Current authority: 18 November 2026 revision planning
 
+Current closure, 19 November: Phase 2 is COMPLETE. Source release 330aedb is deployed, both GitHub workflows succeeded, and public document hashes/navigation/complete-frame checks passed. See [Phase 2 release and closure](PHASE_2_RELEASE.md). Phase 3, A better way to take orders, is the next proposed phase and awaits explicit approval. This record supersedes earlier local-only and deployment-in-progress status below; held work remains held.
+
 Latest release gate, 19 November: the owner finished reviewing Phase 2, accepted its refinements and authorized push/deployment and phase closure after live verification. This supersedes the local-only records below. Phase 3 and held work remain unapproved. See the Phase 2 review and phase plan for scope and evidence.
 
 Latest direction, 19 November: Phase 1 is live verified at e6495cd and its Hero comment has a resolution reply. Phase 2 is approved for LOCAL implementation with Home | Products | How It Works | Industries | Plans & Pricing | About Us | Articles. No Phase 2 publication or issue mutation authorized. See the architecture and phase plan for the updated authority; older local-only and publication-in-progress records below are historical.
