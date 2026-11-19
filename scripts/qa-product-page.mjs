@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { coreCapabilities, configurableAdditions, productPageMeta } from '../src/data/productPage.ts';
+import { assertPhase1Preservation } from './phase1-preservation.mjs';
 
 const base = process.env.QA_BASE_URL || 'http://127.0.0.1:4323/Ez-Kyosk-SEO';
 const layouts = [], accessibility = [], anchors = [], stickyNavigation = [], noJavaScript = [], errors = [];
@@ -42,10 +43,12 @@ async function assertAnchorClear(page, href) {
 }
 const hash = value => createHash('sha256').update(value).digest('hex');
 await mkdir('artifacts', { recursive: true });
-// The local review build must preserve the exact frozen Home document and its assets.
+// The original complete freeze remains applicable until the explicitly approved Phase 1 marker exists.
 const frozenHome = JSON.parse(await readFile(new URL('./fixtures/home-freeze.json', import.meta.url), 'utf8'));
 const currentHome = await readFile('dist/index.html');
-assert.equal(hash(currentHome), frozenHome.htmlSha256, 'frozen Home HTML byte-identical to approved5e9adf9');
+const phase1Home = currentHome.includes('data-home-hero="true"');
+const phase1Preservation = phase1Home ? await assertPhase1Preservation() : undefined;
+if (!phase1Home) assert.equal(hash(currentHome), frozenHome.htmlSha256, 'frozen Home HTML byte-identical to approved5e9adf9');
 for (const [relative, expectedHash] of Object.entries(frozenHome.assets)) {
   assert.equal(hash(await readFile(`dist/${relative}`)), expectedHash, 'frozen Home asset byte-preserved');
 }
@@ -137,7 +140,9 @@ try {
   }
   assert.deepEqual(errors, []);
   await writeFile('artifacts/product-page-report.json', JSON.stringify({ base, layouts, accessibility, anchors, stickyNavigation, noJavaScript,
-    frozenHomeSha256: hash(currentHome), homeHtmlAndAssetsUnchanged: true, errors }, null, 2));
+    homeSha256: hash(currentHome), homeHeroChangedByApprovedPhase1: phase1Home, phase1Preservation,
+    homeOutsideApprovedScopeUnchanged: true, errors }, null, 2));
   console.log(JSON.stringify({ layoutThemeDensityChecks: layouts.length, sectionAccessibilityScans: accessibility.length,
-    anchorChecks: anchors.length, stickyNavigationChecks: stickyNavigation.length, noJavaScriptChecks: noJavaScript.length, homeHtmlAndAssetsUnchanged: true, errors }));
+    anchorChecks: anchors.length, stickyNavigationChecks: stickyNavigation.length, noJavaScriptChecks: noJavaScript.length,
+    homeHeroChangedByApprovedPhase1: phase1Home, homeOutsideApprovedScopeUnchanged: true, errors }));
 } finally { await browser.close(); }

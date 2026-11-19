@@ -5,6 +5,7 @@ import { sitePath } from '../lib/sitePath';
 import '../styles/global.css';
 
 const {
+  homeHero = false,
   title = 'Self-Ordering Kiosk Philippines | Ez Kyosk',
   description = 'Ez Kyosk is self-ordering kiosk software for Philippine hospitality, retail, wellness, and service businesses. Explore the product or request a demo.',
 } = Astro.props;
@@ -67,7 +68,7 @@ const schema = canonical ? {
     {schema && <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\u003c')} />}
     {!Astro.site && <meta name="robots" content="noindex, nofollow" />}
   </head>
-  <body>
+  <body data-home-hero={homeHero ? 'true' : undefined}>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header" data-site-header>
       <BrandLogo eager />

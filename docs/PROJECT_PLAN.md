@@ -1,5 +1,15 @@
 # Ez Kyosk website roadmap
 
+## Current authority: 18 November 2026 revision planning
+
+19 November release gate: the owner accepted Phase 1 including the centered hero/header container and authorized deployment plus a reply to the specific Hero Section comment in issue #1. Verify the live release before reporting completion. Phase 2 remains unapproved; held image/research work remains held. This instruction supersedes the local-only status recorded below.
+
+Use [ARCHITECTURE.md](ARCHITECTURE.md) for target structure and approval/release gates, and [DIVIDE_AND_CONQUER_PLAN.md](DIVIDE_AND_CONQUER_PLAN.md) for exact phase actions. On 19 November, the owner approved Phase 1 Hero Section for local implementation. It is now awaiting [local review](PHASE_1_HERO_LOCAL_REVIEW.md), not deployment approval. Image generation/raster revisions, research, screenshot references and overlapping four-card platform restructuring remain on hold. Target primary pages are Home, Offers and Articles; Contact/Privacy remain utilities. Target normal enhanced section navigation is hash-free; that migration belongs to the unapproved Phase 2. No commit, push, deployment or issue changes have been performed for Phase 1.
+
+The dated records below are historical. Their Home freeze, standalone Product work and Articles deferral are superseded where inconsistent with the latest owner decisions. Preserve their evidence; do not use them to undo the new architecture.
+
+## Historical roadmap record
+
 Last updated: 17 November 2026
 
 ## Current status

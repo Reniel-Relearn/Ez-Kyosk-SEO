@@ -79,6 +79,13 @@ assert.equal(heroVariants.length, 3, 'all three responsive transparent hero vari
 for (const file of heroVariants) await verifyHeroImage(`dist/_astro/${file}`);
 await assert.rejects(access('dist/assets/images/platform-self-ordering-v1-640.webp'), 'superseded public artwork is not deployed');
 const homeHtml = pages.get('/');
+const approvedHero = homeHtml.match(/<section class="home-hero[\s\S]*?<\/section>/)?.[0];
+assert.ok(approvedHero, 'Home hero remains present');
+assert.ok(homeHtml.includes('data-home-hero="true"'), 'Home-only background scope');
+assert.ok(!/hero-note|<figcaption/.test(approvedHero), 'only approved hero supporting lines removed');
+assert.ok(approvedHero.includes('Self-Ordering<br><span>Made Easy</span><br>for Your Business.') || approvedHero.includes('Self-Ordering<br /><span>Made Easy</span><br />for Your Business.'), 'original hero heading retained');
+assert.ok(approvedHero.includes('Give customers the freedom to explore your menu, select their favorites, and review their orders, all from one touchscreen.'), 'original hero lead retained');
+assert.ok(homeHtml.includes('Your Menu. Their Order. One Simple Screen.'), 'footer tagline retained');
 const productTabs = homeHtml.match(/<div class="product-tabs"[\s\S]*?<\/div>/)?.[0];
 assert.ok(productTabs, 'Home product tab bar retained');
 assert.equal((productTabs.match(/role="tab"/g) || []).length, 5, 'five labelled product tabs');

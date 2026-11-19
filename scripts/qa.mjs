@@ -122,8 +122,8 @@ try {
   assert.match(await page.locator('.hero-copy h1').innerText(), /Self-Ordering\s+Made Easy\s+for Your Business\./);
   await page.getByText('Give customers the freedom to explore your menu, select their favorites, and review their orders, all from one touchscreen.', { exact: true }).waitFor();
   await page.getByText('For cafés, bakeries, restaurants & quick-service businesses.', { exact: true }).waitFor();
-  await page.getByText('Your Menu. Their Order. One Simple Screen.', { exact: true }).first().waitFor();
-  await page.getByText('Core capabilities include POS checkout, AltPayNet payments, real-time inventory, and order tracking.', { exact: false }).waitFor();
+  assert.equal(await page.locator('.hero-note,.hero-product figcaption').count(), 0, 'only approved hero supporting lines removed');
+  await page.locator('.footer-bottom').getByText('Your Menu. Their Order. One Simple Screen.', { exact: true }).waitFor();
   const pageIdentities = [
     ['/', 'Home', '.hero-product'],
     ['/features/', 'Product', '.product-system-overview'],
