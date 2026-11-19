@@ -69,7 +69,7 @@ try {
           if (!row) rows.push(row = []);
           row.push(item);
         }
-        assert.equal(rows.length, width <= 720 ? 6 : width <= 1180 ? 3 : 2);
+        assert.equal(rows.length, width <= 720 ? 6 : width <= 1180 ? 3 : 1);
         for (const row of rows) for (const [box, edge] of [['card', 'bottom'], ['media', 'bottom'], ['heading', 'top'], ['body', 'top']]) {
           assert.ok(Math.max(...row.map(item => item[box][edge])) - Math.min(...row.map(item => item[box][edge])) < 1, `${box} ${edge} aligns per row`);
         }
@@ -93,12 +93,10 @@ try {
     await page.goto(`${base}/`);
     assert.deepEqual(await page.locator('.customer-journey-card h3').allTextContents(), titles);
     for (const card of await page.locator('.customer-journey-card').all()) assert.equal(await card.isVisible(), true);
-    const guide = page.locator('#how-it-works > a');
-    await guide.focus(); await page.keyboard.press('Enter');
-    await page.waitForURL(`${base}/how-it-works/`);
+    assert.equal(await page.locator('#how-it-works > a').count(),0,'retired detailed guide is not duplicated');
     await context.close();
   }
   assert.deepEqual(errors, []);
-  await writeFile(`artifacts/${prefix}-report.json`, JSON.stringify({ layouts, accessibility, errors, noJavaScriptGuideLink: 'passed at 390/1024/1440' }, null, 2));
-  console.log(JSON.stringify({ layouts: layouts.length, cardChecks: layouts.length * 6, accessibilityScans: accessibility.length, errors, noJavaScriptGuideLink: 'passed' }));
+  await writeFile(`artifacts/${prefix}-report.json`, JSON.stringify({ layouts, accessibility, errors, noJavaScriptReading: 'passed at 390/1024/1440' }, null, 2));
+  console.log(JSON.stringify({ layouts: layouts.length, cardChecks: layouts.length * 6, accessibilityScans: accessibility.length, errors, noJavaScriptReading: 'passed' }));
 } finally { await browser.close(); }

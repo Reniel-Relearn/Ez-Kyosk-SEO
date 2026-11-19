@@ -1,10 +1,10 @@
 import { chromium } from '@playwright/test';
 import assert from 'node:assert/strict';
 import { mkdir, writeFile } from 'node:fs/promises';
-import { assertPhase1Preservation } from './phase1-preservation.mjs';
+import { assertPhase2Preservation } from './phase2-preservation.mjs';
 
 const base = process.env.QA_BASE_URL || 'http://127.0.0.1:4323/Ez-Kyosk-SEO';
-const preservation = await assertPhase1Preservation();
+const preservation = await assertPhase2Preservation();
 const browser = await chromium.launch({ channel: 'msedge', headless: true });
 const results = [], errors = [];
 await mkdir('artifacts/phase1', { recursive: true });
@@ -40,12 +40,12 @@ try {
         assert.ok(Math.abs(state.leftMargin-state.headerLeft)<1 && Math.abs(state.rightMargin-state.headerRight)<1,'header and hero share content boundaries');
         assert.ok(Math.abs(state.logoLeft-state.leftMargin)<1,'logo aligns with hero left edge');
         assert.ok(Math.abs(width-state.leftMargin-state.rightMargin-Math.min(1200,width-40))<1,'centered content is at most 1200px wide');
-        if(width>980) assert.ok(Math.abs(state.headerCtaRight-(width-state.rightMargin))<1,'desktop header CTA aligns with content right edge');
+        if(width>1180) assert.ok(Math.abs(state.headerCtaRight-(width-state.rightMargin))<1,'desktop header CTA aligns with content right edge');
         assert.equal(state.heading,'Self-OrderingMade Easyfor Your Business.');
         assert.equal(state.opacity,'1');
         assert.equal(state.blur,'none');
         assert.equal((state.background.match(/rgba\([^)]*, 0\.5\)/g)||[]).length,2);
-        assert.equal(state.gradientTop,-state.headerHeight,'gradient extends behind header');
+        if(javaScriptEnabled || width>1180) assert.equal(state.gradientTop,-state.headerHeight,'gradient extends behind header');
         assert.equal(await page.locator('.hero-note,.hero-product figcaption').count(),0);
         assert.ok(await page.locator('.hero-product img').getAttribute('alt'));
         assert.equal(await page.locator('.hero-actions a').first().getAttribute('href'),'https://reniel-relearn.github.io/EZ-Kyosk/');

@@ -2,7 +2,7 @@
 
 Date: 18 November 2026, Asia/Manila.
 
-Status: PLANNING ONLY. Companion: [Divide and Conquer step by step actions planning](DIVIDE_AND_CONQUER_PLAN.md). Writing these documents does not authorize website implementation, image generation/editing, commit, push, deployment or GitHub issue changes.
+Status: Phase 1 published and verified at e6495cd. Phase 2 accepted after local review and authorized for deployment on 19 November 2026; release verification in progress. Companion: [Divide and Conquer step by step actions planning](DIVIDE_AND_CONQUER_PLAN.md). Later phases, image generation/editing and research remain unapproved/on hold.
 
 ## 1. Purpose and authority
 
@@ -49,9 +49,9 @@ Current content routes: Home, Product (`/features/`), How It Works, Solutions, A
 
 No article subdomain or custom-domain setup now. Use `sitePath` for the existing `/Ez-Kyosk-SEO` Pages prefix and future root hosting.
 
-Exact header order: **Home | Product | How it Works | Solutions | Offers | About us | Articles**.
+Exact header order, updated by owner on 19 November: **Home | Products | How It Works | Industries | Plans & Pricing | About Us | Articles**. Flat menu without dropdowns.
 
-Product, How it Works, Solutions and About us target Home sections. Offers and Articles open their pages. Retain the original logo, separate Request a Demo CTA to Contact, theme control and accessible mobile menu. Center the navigation group without overlap; do not force all links into a phone row.
+Products, How It Works, Industries and About Us target Home sections. Plans & Pricing opens `/offers/`; Articles opens `/articles/`. Retain the original logo, separate Request a Demo CTA to Contact, theme control and accessible mobile menu. Center the navigation group without overlap; do not force all links into a phone row.
 
 Exact Home sequence:
 
@@ -60,8 +60,8 @@ Exact Home sequence:
 3. One Connected Platform.
 4. Products, retaining Home's current five-tab explorer.
 5. Payments with AltPayNet.
-6. Solutions: Designed to adapt.
-7. How it works: How Ez Kyosk works.
+6. How it works: How Ez Kyosk works.
+7. Industries: Designed to adapt.
 8. FAQs.
 9. About us, adapted from existing About content.
 10. Existing contact/demo and ending content.

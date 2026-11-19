@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Articles | Ez Kyosk" description="Article layout preview for Ez Kyosk. Educational content will be researched and prepared in a future phase.">
+  <section class="wireframe-page section-shell" aria-labelledby="articles-title">
+    <header><span class="eyebrow">Articles</span><h1 id="articles-title">Practical insights for your operation.</h1><p>This is a design-review wireframe. Articles are not published yet. Research and editorial content remain on hold.</p></header>
+    <div class="wireframe-grid">{[1,2,3].map(number=><div class="wireframe-slot" data-article-placeholder><div class="visual-slot" aria-hidden="true">Image placeholder</div><h2>Reserved article space {number}</h2><p>Article title and summary will appear here after research and approval.</p></div>)}</div>
+  </section>
+</Layout>

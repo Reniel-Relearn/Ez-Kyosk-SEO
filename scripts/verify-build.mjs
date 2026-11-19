@@ -6,7 +6,8 @@ import { createHash } from 'node:crypto';
 import { journeyImages } from '../src/data/journeyImages.mjs';
 import { faqs } from '../src/data/product.ts';
 
-const paths = ['', 'features', 'how-it-works', 'solutions', 'about', 'contact', 'privacy'];
+const paths = ['', 'offers', 'articles', 'features', 'how-it-works', 'solutions', 'about', 'contact', 'privacy'];
+const retired = ['features','how-it-works','solutions','about'];
 const basePath = `/${(process.env.BASE_PATH || '').replace(/^\/+|\/+$/g, '')}`.replace(/^\/$/, '');
 const pages = new Map();
 const titles = new Set();
@@ -36,7 +37,7 @@ for (const path of paths) {
   if (process.env.SITE_URL) {
     const expected = new URL(publicPath(url), process.env.SITE_URL).href;
     assert.ok(html.includes(`rel="canonical" href="${expected}"`), `${url}: canonical`);
-    assert.ok(!html.includes('noindex, nofollow'), `${url}: indexing`);
+    assert.equal(html.includes('noindex, nofollow'), retired.includes(path), `${url}: legacy routes stay noindex`);
     assert.ok(html.includes('property="og:image"'), `${url}: sharing image`);
     const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([^<]+)<\/script>/)?.[1]);
     const nodes = schema['@graph'] || [schema];
@@ -70,7 +71,7 @@ for (const [pageUrl, html] of pages) {
 const robots = await readFile('dist/robots.txt', 'utf8');
 assert.ok(robots.includes(process.env.SITE_URL ? 'Allow: /' : 'Disallow: /'));
 const sitemap = await readFile('dist/sitemap.xml', 'utf8');
-assert.equal((sitemap.match(/<loc>/g) || []).length, process.env.SITE_URL ? 7 : 0);
+assert.equal((sitemap.match(/<loc>/g) || []).length, process.env.SITE_URL ? 5 : 0);
 await access('dist/favicon.png');
 await access('dist/brand-social.png');
 await verifyHeroImage('assets/hero-kiosk-transparent-v3.webp');
@@ -79,6 +80,9 @@ assert.equal(heroVariants.length, 3, 'all three responsive transparent hero vari
 for (const file of heroVariants) await verifyHeroImage(`dist/_astro/${file}`);
 await assert.rejects(access('dist/assets/images/platform-self-ordering-v1-640.webp'), 'superseded public artwork is not deployed');
 const homeHtml = pages.get('/');
+const homeOrder=['home-hero','benefits-section','platform-section','product-section','payments-section','how-section','industries-section','faq-section','home-about','final-cta'];
+const homePositions=homeOrder.map(name=>homeHtml.indexOf(`class="${name}`));
+assert.ok(homePositions.every((position,index)=>position>=0 && (index===0 || position>homePositions[index-1])),'approved Home order: How It Works before Industries, all other sections retained');
 const approvedHero = homeHtml.match(/<section class="home-hero[\s\S]*?<\/section>/)?.[0];
 assert.ok(approvedHero, 'Home hero remains present');
 assert.ok(homeHtml.includes('data-home-hero="true"'), 'Home-only background scope');
@@ -307,10 +311,10 @@ const industryBodies = [
 industryCards.forEach((card, index) => {
   assert.ok(card.includes(`id="industry-${industryIds[index]}-title">${industryTitles[index]}</h3>`), 'approved industry order/title');
   assert.ok(card.includes(industryBodies[index]), 'approved industry description retained');
-  assert.ok(card.includes(`href="${publicPath(`/solutions/#${industryIds[index]}`)}"`), 'base-safe industry destination');
+  assert.ok(card.includes(`href="${publicPath('/contact/')}"`), 'industry inquiry destination');
   assert.ok(!/<details|<button|>0[1-4]</.test(card), 'industry links have no accordion/buttons/numbers');
   assert.equal((card.match(/class="industry-card-badge"/g) || []).length, 1, 'one decorative category badge');
-  assert.ok(card.includes('>Explore <span'), 'visible Explore link label');
+  assert.ok(card.includes('>Discuss this use case <span'), 'clear industry inquiry label');
 });
 assert.ok(!industrySection.includes('industry-symbol'), 'large geometric placeholders removed');
 assert.equal((industrySection.match(/class="industry-image"/g) || []).length, 4, 'all four approved photographs integrated');
@@ -354,7 +358,7 @@ assert.equal((customerSection.match(/class="customer-journey-image"/g) || []).le
 assert.equal((customerSection.match(/data-journey-image="pending"/g) || []).length, 6 - journeyExpectedImages, 'no unexpected reserved images');
 assert.ok(journeyCards[0].includes('AI-generated illustration of a Filipina customer with a dark ponytail'), 'first journey image has illustrative alt');
 assert.ok(journeyCards[0].includes('width="640" height="480"'), 'journey photo reserves landscape space');
-assert.ok(customerSection.includes(`href="${publicPath('/how-it-works/')}"`), 'detailed ordering guide link retained');
+assert.ok(!customerSection.includes(`href="${publicPath('/how-it-works/')}"`), 'obsolete detailed guide link removed');
 for (const [id, { stem, alt }] of Object.entries(journeyImages)) {
   const card = journeyCards.find(card => card.includes(`id="journey-${id}"`));
   assert.ok(card?.includes(alt) && alt.startsWith('AI-generated illustration'), 'descriptive illustrative alt');
@@ -370,18 +374,25 @@ for (const [id, { stem, alt }] of Object.entries(journeyImages)) {
   }
 }
 const notFound = await readFile('dist/404.html', 'utf8');
-const productHtml = pages.get('/features/');
-assert.ok(productHtml.includes('class="product-page"'), 'Product has an isolated page wrapper');
-assert.equal((productHtml.match(/data-product-placeholder/g) || []).length, 9, 'nine intentional Product visual slots');
-assert.ok(!/class="payment-terminal-image"|class="payment-online-image"|class="feature-art/.test(productHtml), 'Product no longer repeats Home payment images or fake dashboards');
-assert.equal((productHtml.match(/<img\b/g) || []).length, 2, 'Product imagery is placeholders, apart from shared header/footer logos');
-for (const id of ['product-areas', 'configurable-additions', 'payments', 'purchase-options', 'compatibility', 'self-ordering', 'pos-checkout', 'inventory', 'reports', 'customers']) {
-  assert.ok(productHtml.includes(`id="${id}"`), `Product section/deep link retained: ${id}`);
+for (const [path,section] of [['features','products'],['how-it-works','how-it-works'],['solutions','industries'],['about','about-us']]) {
+  const html=pages.get('/'+path+'/');
+  assert.ok(html.includes('data-legacy-section="'+section+'"'),'legacy fallback destination');
+  assert.ok(!/product-section-nav|product-page|journey-map|solution-orbit|about-story/.test(html),'old content removed');
+  assert.equal((html.match(/<img\b/g)||[]).length,2,'legacy pages retain branding only');
 }
-for (const phrase of ['They are not automatically included in every package.', 'Scanning is optional.', 'After payment, the cashier can provide the order number', 'Software-only', 'Hardware-only', 'Combined setup', 'Compatibility with an existing POS']) {
-  assert.ok(productHtml.includes(phrase), `Product fact boundary: ${phrase}`);
+const navLabels=['Home','Products','How It Works','Industries','Plans &amp; Pricing','About Us','Articles'];
+for(const html of pages.values()){
+  const nav=html.match(/<nav id="main-navigation"[\s\S]*?<\/nav>/)?.[0];
+  for(const label of navLabels) assert.ok(nav?.includes('>'+label+'</a>'),'all seven labels');
+  assert.ok(!/href="[^"]*\/(?:features|how-it-works|solutions|about)\//.test(html.split('</head>')[1]),'no retired internal navigation destinations');
+  assert.ok(!/[\u2014]/.test(html),'no em dashes');
 }
-assert.ok(!/[\u2014]/.test(productHtml), 'no em dashes in Product output');
+assert.equal((pages.get('/offers/').match(/data-plan-placeholder/g)||[]).length,3);
+assert.equal((pages.get('/articles/').match(/data-article-placeholder/g)||[]).length,3);
+assert.ok(!/<time\b|Read more/.test(pages.get('/articles/')),'no fabricated articles');
+assert.ok(!/features\/|how-it-works\/|solutions\/|about\//.test(sitemap),'legacy pages omitted from sitemap');
+for(const target of ['home','products','industries','how-it-works','about-us']) assert.ok(homeHtml.includes('id="'+target+'"'),'Home target');
+assert.ok(homeHtml.indexOf('class="faq-section')<homeHtml.indexOf('id="about-us"') && homeHtml.indexOf('id="about-us"')<homeHtml.indexOf('class="final-cta"'),'About follows FAQ and precedes final CTA');
 const faqSection = homeHtml.match(/<section class="faq-section[\s\S]*?<\/section>/)?.[0];
 assert.ok(faqSection, 'Home FAQ remains present');
 assert.equal(faqs.length, 10, 'ten owner-approved FAQ entries');
@@ -397,4 +408,4 @@ assert.ok(faqSection.includes('both after payment'), 'cash tracking follows paym
 assert.ok(faqSection.includes('not included automatically in every package'), 'automated inventory is quotation-dependent');
 assert.ok(!faqSection.includes('Browse → Select → Adjust → Review → Confirm'), 'FAQ no longer stops at ordering microsteps');
 assert.ok([...notFound.matchAll(/\bez\s+kyosk\b/gi)].every(match => match[0] === 'Ez Kyosk'), '404: canonical brand spelling');
-console.log('Passed: 7 pages, internal links/anchors/assets, unique metadata, logo/favicon references, indexing controls, sitemap, and configured-site schema/sharing image.');
+console.log('Passed: 9 content/compatibility documents plus custom 404, internal links/anchors/assets, metadata, indexing controls, sitemap, configured-site schema, Home content and migration contracts.');

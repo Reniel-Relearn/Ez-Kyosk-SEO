@@ -8,7 +8,7 @@ const browser = await chromium.launch({ channel: 'msedge', headless: true });
 const context = await browser.newContext();
 const page = await context.newPage();
 const errors = [], failedRequests = [], layouts = [], accessibility = [];
-const routes = ['/', '/features/', '/how-it-works/', '/solutions/', '/about/', '/contact/', '/privacy/', '/404.html'];
+const routes = ['/', '/offers/', '/articles/', '/contact/', '/privacy/', '/404.html'];
 page.on('pageerror', error => errors.push(error.message));
 page.on('response', response => { if (response.status() >= 400) failedRequests.push({ url: response.url(), status: response.status() }); });
 await mkdir('artifacts', { recursive: true });
@@ -97,8 +97,9 @@ try {
   assert.equal(await menu.getAttribute('aria-expanded'), 'false');
   assert.equal(await menu.evaluate(element => element === document.activeElement), true);
   await menu.click();
-  await page.getByRole('navigation').getByRole('link', { name: 'Product', exact: true }).click();
-  await page.waitForURL('**/features/');
+  await page.getByRole('navigation').getByRole('link', { name: 'Products', exact: true }).click();
+  assert.equal(new URL(page.url()).hash, '');
+  assert.equal(await menu.getAttribute('aria-expanded'),'false');
 
   await page.goto(base);
   for (const details of await page.locator('.platform-card-details').all()) {
@@ -116,32 +117,19 @@ try {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto(base);
   const primaryNav = page.locator('#main-navigation > a:not(.nav-mobile-cta)');
-  assert.deepEqual(await primaryNav.allTextContents(), ['Home', 'Product', 'How It Works', 'Solutions', 'About']);
+  assert.deepEqual(await primaryNav.allTextContents(), ['Home', 'Products', 'How It Works', 'Industries', 'Plans & Pricing', 'About Us', 'Articles']);
   assert.equal(await page.locator('#main-navigation > a[aria-current="page"]').innerText(), 'Home');
-  assert.equal(await page.locator('#main-navigation > a', { hasText: 'Industries' }).count(), 0, 'Industries is grouped under Solutions, not duplicated in primary navigation');
+  assert.equal(await page.locator('#main-navigation > a', { hasText: 'Industries' }).count(), 1);
   assert.match(await page.locator('.hero-copy h1').innerText(), /Self-Ordering\s+Made Easy\s+for Your Business\./);
   await page.getByText('Give customers the freedom to explore your menu, select their favorites, and review their orders, all from one touchscreen.', { exact: true }).waitFor();
   await page.getByText('For cafés, bakeries, restaurants & quick-service businesses.', { exact: true }).waitFor();
   assert.equal(await page.locator('.hero-note,.hero-product figcaption').count(), 0, 'only approved hero supporting lines removed');
   await page.locator('.footer-bottom').getByText('Your Menu. Their Order. One Simple Screen.', { exact: true }).waitFor();
-  const pageIdentities = [
-    ['/', 'Home', '.hero-product'],
-    ['/features/', 'Product', '.product-system-overview'],
-    ['/how-it-works/', 'How It Works', '.journey-map'],
-    ['/solutions/', 'Solutions', '.solution-orbit'],
-    ['/about/', 'About', '.about-logo-panel'],
-  ];
-  for (const [route, label, visual] of pageIdentities) {
-    await page.goto(`${base}${route}`);
-    const current = page.locator('#main-navigation > a[aria-current="page"]');
-    assert.equal(await current.count(), 1, `${route}: exactly one active navigation item`);
-    assert.equal(await current.innerText(), label, `${route}: correct active navigation item`);
-    assert.equal(await page.locator(visual).count(), 1, `${route}: distinct page identity`);
-    if (route !== '/') assert.equal(await page.locator('.hero-product').count(), 0, `${route}: homepage kiosk hero is not reused`);
+  for(const [route,label] of [['/','Home'],['/offers/','Plans & Pricing'],['/articles/','Articles']]) {
+    await page.goto(base+route);
+    assert.equal(await page.locator('#main-navigation > a[aria-current="page"]').innerText(),label);
+    assert.equal(await page.locator('.product-section-nav').count(),0);
   }
-  await page.goto(`${base}/features/`);
-  assert.match(await page.locator('.product-intro h1').innerText(), /One connected system\.\s+Defined around your business\./);
-  assert.equal(await page.locator('.product-section-nav > a').count(), 5);
   await page.goto(base);
   const themeToggle = page.locator('.theme-toggle');
   assert.equal(await themeToggle.getAttribute('aria-label'), 'Switch to dark mode');

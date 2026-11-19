@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {sitePath} from '../lib/sitePath';
+const {section,label}=Astro.props;
+---
+<Layout title={`${label} has moved | Ez Kyosk`} description={`Find ${label.toLowerCase()} in the Ez Kyosk Home page. This former page provides a link to the current content.`} legacy>
+  <section class="legacy-page section-shell" data-legacy-section={section}>
+    <span class="eyebrow">Content has moved</span><h1>{label} is now on Home.</h1>
+    <p>Continue to the Home page to explore this section. With JavaScript available, this page takes you there automatically.</p>
+    <a class="button" href={sitePath('/')} data-section={section}>Continue to {label}</a>
+  </section>
+</Layout>

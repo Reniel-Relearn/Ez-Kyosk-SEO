@@ -4,7 +4,7 @@ Date: 18 November 2026, Asia/Manila.
 
 Companion: [Revision architecture](ARCHITECTURE.md).
 
-Status: PHASE 1 ACCEPTED LOCALLY; DEPLOYMENT AND MATCHING HERO ISSUE REPLY AUTHORIZED (19 November 2026). Verify publication before reporting complete. Phase 2 has not started. Previous freezes/page plans are historical where superseded by the latest owner decisions.
+Status: PHASE 1 LIVE VERIFIED at e6495cd. PHASE 2 ACCEPTED LOCALLY AND AUTHORIZED FOR DEPLOYMENT (19 November 2026); live verification in progress. Phase 3 remains unapproved. Previous freezes/page plans are historical where superseded by the latest owner decisions.
 
 ## Workflow for every phase
 
@@ -34,7 +34,7 @@ Status sequence: Planned -> Awaiting phase approval -> Implementing locally -> A
 
 ## Phase 1: Hero Section
 
-Status: Accepted locally, deployment authorized and in progress. See [Phase 1 local review](PHASE_1_HERO_LOCAL_REVIEW.md). Phase 2 remains unapproved. This is the first implementation phase, not a hidden prerequisite phase.
+Status: Complete and live verified at e6495cd; [Hero issue resolution](https://github.com/Reniel-Relearn/Ez-Kyosk-SEO/issues/1#issuecomment-6998792723) posted. See [Phase 1 local review](PHASE_1_HERO_LOCAL_REVIEW.md) for implementation evidence.
 
 ### Exact actions
 
@@ -64,9 +64,17 @@ Status: Accepted locally, deployment authorized and in progress. See [Phase 1 lo
 
 Goal: one dependency-safe migration, with no broken navigation release.
 
+Status: Owner accepted the [reviewed implementation](PHASE_2_LOCAL_REVIEW.md) and authorized push/deployment and phase closure on 19 November 2026. Publish scoped files and verify the live release before marking complete. No new issue reply or Phase 3 implementation authorized.
+
+Local-review correction approved on 19 November: swap the intact Home How It Works and Industries sections. Order is now Products -> Payments -> How It Works -> Industries -> FAQs, matching the header's relative order. Do not change either section's copy, artwork or functionality; keep all other sections in place and recheck their navigation targets locally.
+
+Further local-review refinement approved on 19 November: reduce excessive top/bottom/internal spacing and make readable desktop layout/type/image adjustments for Products, How It Works, Industries and About Us. Center the complete content frame beneath the sticky header when it fits, rather than aligning its top edge. Preserve all content/assets, clean URLs and focus. Tall/small/zoomed layouts retain normal vertical scrolling without scaling/clipping. The desktop six-card journey row is brought forward only for this specifically approved refinement; all unrelated later-phase work remains pending. See the local review for measurements and checks.
+
+Owner naming decision, 19 November 2026: use the exact labels below, including **Products**, not Platform. This Phase 2 naming update supersedes earlier navigation-label wording in the architecture document; it does not authorize implementation. Products, How It Works, Industries and About Us target Home sections. Plans & Pricing targets the planned `/offers/` page; Articles targets `/articles/`. Existing route plans remain unchanged. Keep the separate Request a Demo CTA. No dropdown is added by this naming decision.
+
 ### Exact actions
 
-1. Establish a shared mapping in this exact order: Home | Product | How it Works | Solutions | Offers | About us | Articles.
+1. Establish a shared mapping in this exact order: Home | Products | How It Works | Industries | Plans & Pricing | About Us | Articles.
 2. Center the navigation group without overlap. Keep logo, separate Request a Demo to Contact, theme control, accessible mobile menu, sticky positioning, 50% alpha and no blur.
 3. Add stable Home targets. Adapt existing About content into Home after FAQs and before existing demo/ending content. Preserve the owner's exact Home sequence; do not transplant standalone Product content.
 4. Create valid minimum `/offers/` and `/articles/` wireframes before linking to them. Offers awaits its full content phase; Articles has neutral placeholders, no fake posts/dates or dead links.
@@ -152,6 +160,8 @@ Files: PaymentShowcase HTML/scoped CSS and layout tests. No marketing-site payme
 Files: Home industry section, IndustryCard, scoped styles and use-case destination/layout tests. No new photos or industry pages.
 
 ## Phase 8: How Ez Kyosk works
+
+Phase 2 local-review exception: the owner-approved complete-frame navigation refinement already introduces one six-card desktop row at 1181px and above, with tighter readable spacing. Preserve that accepted direction when reviewing this phase; do not reset it to the earlier three-column desktop layout. Remaining Phase 8 review/factual-caption actions still require approval.
 
 ### Exact actions
 

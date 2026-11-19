@@ -1,0 +1,27 @@
+/* Approved desktop framing refinement: preserve content and images, remove excess space. */
+@media(min-width:1181px){
+  body[data-home-hero] :is(#products,#how-it-works,#industries,#about-us){padding-block:24px}
+  body[data-home-hero] :is(#products,#how-it-works,#industries) .section-heading{gap:32px;margin-bottom:20px;align-items:center}
+  body[data-home-hero] :is(#products,#how-it-works,#industries,#about-us) h2{font-size:clamp(34px,2.8vw,44px);line-height:1.12}
+  body[data-home-hero] :is(#products,#how-it-works,#industries,#about-us) .eyebrow{margin-bottom:10px}
+  body[data-home-hero] :is(#products,#how-it-works,#industries) .section-heading>p{font-size:15px;line-height:1.55}
+  #products .product-tabs button{min-height:52px;padding:12px 14px}
+  #products .product-panel{min-height:0;gap:32px;padding:24px;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
+  #products .product-panel-copy h3{font-size:clamp(28px,2.2vw,36px);line-height:1.15}
+  #products .product-panel-copy>p{margin:12px 0;font-size:15px;line-height:1.55}
+  #products .check-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 16px;margin:14px 0;font-size:14px;line-height:1.5}
+  #products .product-panel-visual--image{width:100%;max-width:440px;justify-self:center}
+  #products .product-panel-image{max-height:330px}
+  #how-it-works .customer-journey-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin:0}
+  #how-it-works .customer-journey-card h3{padding:16px 14px 0;font-size:17px}
+  #how-it-works .customer-journey-card p{padding:10px 14px 16px;font-size:14px;line-height:1.55}
+  #industries .industry-card-content{padding:32px 20px 20px}
+  #industries .industry-card-cta{margin-top:16px}
+  #about-us .home-about-intro{max-width:1100px;margin-bottom:20px}
+  #about-us .home-about-intro p{margin-top:10px;font-size:15px;line-height:1.55}
+  #about-us .value-grid{margin-top:20px}
+  #about-us .value-grid article{min-height:0;padding:20px}
+  #about-us .value-grid h3{font-size:24px;margin-bottom:10px}
+  #about-us .value-grid p{font-size:14px;line-height:1.55}
+  #about-us>p.home-about-intro{margin-top:16px;margin-bottom:0}
+}

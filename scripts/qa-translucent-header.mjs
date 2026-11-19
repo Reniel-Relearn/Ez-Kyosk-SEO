@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import { mkdir, writeFile } from 'node:fs/promises';
 
 const base = process.env.QA_BASE_URL || 'http://127.0.0.1:4323/Ez-Kyosk-SEO';
-const routes = ['/', '/features/', '/how-it-works/', '/solutions/', '/about/', '/contact/', '/privacy/', '/404.html'];
+const routes = ['/', '/offers/', '/articles/', '/contact/', '/privacy/', '/404.html'];
 const widths = [320, 390, 720, 768, 980, 981, 1024, 1180, 1181, 1440, 1920];
 const layouts = [], contrastChecks = [], accessibility = [], errors = [];
 const readabilityFailures = [];
@@ -72,7 +72,7 @@ try {
           assert.equal(rgba(header.background)[3], 0, 'no extra opaque fill beneath gradient');
           layouts.push({ route, width, theme: appearance, scroll, ...header });
         }
-        if (width <= 980) {
+        if (width <= 1180) {
           const menu = page.locator('.menu-toggle');
           await menu.focus(); await page.keyboard.press('Enter');
           assert.equal(await menu.getAttribute('aria-expanded'), 'true');
@@ -179,8 +179,8 @@ try {
   const staticPage = await noJs.newPage(); await staticPage.goto(`${base}/`);
   await staticPage.evaluate(() => scrollTo({ top: 600, behavior: 'instant' }));
   assert.equal((await state(staticPage)).filter, 'none');
-  await staticPage.locator('#main-navigation a[href$="/features/"]').focus();
-  await staticPage.keyboard.press('Enter'); await staticPage.waitForURL(`${base}/features/`); await noJs.close();
+  await staticPage.locator('#main-navigation a[data-section="products"]').focus();
+  await staticPage.keyboard.press('Enter'); await staticPage.waitForURL(`${base}/`); await noJs.close();
   assert.deepEqual(errors, []);
   await writeFile('artifacts/header-glass-report.json', JSON.stringify({ layouts, accessibility, contrastChecks, noJavaScriptDesktop: 'passed', readabilityFailures, errors }, null, 2));
   console.log(JSON.stringify({ layoutScrollChecks: layouts.length, headerAccessibilityScans: accessibility.length,

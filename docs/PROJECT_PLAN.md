@@ -2,6 +2,14 @@
 
 ## Current authority: 18 November 2026 revision planning
 
+Latest release gate, 19 November: the owner finished reviewing Phase 2, accepted its refinements and authorized push/deployment and phase closure after live verification. This supersedes the local-only records below. Phase 3 and held work remain unapproved. See the Phase 2 review and phase plan for scope and evidence.
+
+Latest direction, 19 November: Phase 1 is live verified at e6495cd and its Hero comment has a resolution reply. Phase 2 is approved for LOCAL implementation with Home | Products | How It Works | Industries | Plans & Pricing | About Us | Articles. No Phase 2 publication or issue mutation authorized. See the architecture and phase plan for the updated authority; older local-only and publication-in-progress records below are historical.
+
+Phase 2 is now implemented and verified locally, awaiting [owner review](PHASE_2_LOCAL_REVIEW.md). Root/subpath navigation, compatibility/fallbacks, full-site/hero checks and scoped image/content preservation passed. Known synthetic-backdrop header contrast failures remain documented, not waived. No Phase 3 work has started.
+
+Latest Phase 2 local-review corrections: How It Works now precedes Industries. Approved compact desktop section frames and centered content-frame navigation are implemented locally, preserving copy and imagery. Smaller/taller layouts continue scrolling naturally without zoom or clipping. No deployment or issue reply authorized.
+
 19 November release gate: the owner accepted Phase 1 including the centered hero/header container and authorized deployment plus a reply to the specific Hero Section comment in issue #1. Verify the live release before reporting completion. Phase 2 remains unapproved; held image/research work remains held. This instruction supersedes the local-only status recorded below.
 
 Use [ARCHITECTURE.md](ARCHITECTURE.md) for target structure and approval/release gates, and [DIVIDE_AND_CONQUER_PLAN.md](DIVIDE_AND_CONQUER_PLAN.md) for exact phase actions. On 19 November, the owner approved Phase 1 Hero Section for local implementation. It is now awaiting [local review](PHASE_1_HERO_LOCAL_REVIEW.md), not deployment approval. Image generation/raster revisions, research, screenshot references and overlapping four-card platform restructuring remain on hold. Target primary pages are Home, Offers and Articles; Contact/Privacy remain utilities. Target normal enhanced section navigation is hash-free; that migration belongs to the unapproved Phase 2. No commit, push, deployment or issue changes have been performed for Phase 1.
