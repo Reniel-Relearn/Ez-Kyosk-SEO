@@ -238,6 +238,8 @@ Files: DemoCTA, Layout footer, Contact/Privacy only for necessary scoped layout/
 
 Approved locally with Phases 10/12. Record the exact public copy and source reconciliation in the phase brief before coding; approval of this phase authorizes that source-faithful implementation, not invented commercial terms. Separate local commit, no deployment.
 
+Implemented and verified locally; see [exact copy brief](PHASE_11_COPY_BRIEF.md) and [Phase 11 review](PHASE_11_LOCAL_REVIEW.md). Approved pricing, package boundaries, quotation exclusions, future-only YourAI and five Contact actions delivered with neutral placeholders. No publication yet.
+
 ### Exact actions
 
 1. Expand the scaffold using pages 4-6 of `DESIGN-FOR-WEBSITE_Revised.pdf`; present exact public copy in the phase brief before implementation.

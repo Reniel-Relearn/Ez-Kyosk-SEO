@@ -1,11 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import {sitePath} from '../lib/sitePath';
+import {offers} from '../data/offers.mjs';
+import '../styles/offers.css';
 ---
-<Layout title="Plans & Pricing | Ez Kyosk" description="Plans and pricing page layout for Ez Kyosk. Discuss your requirements while the detailed package presentation is prepared.">
-  <section class="wireframe-page section-shell" aria-labelledby="plans-title">
-    <header><span class="eyebrow">Plans & Pricing</span><h1 id="plans-title">A setup around your business.</h1><p>This page is a design-review wireframe. Package details, prices and visual assets will be presented in the dedicated Plans & Pricing phase.</p></header>
-    <div class="wireframe-grid">{['Demo','Starter','Complete'].map(title=><article class="wireframe-slot" data-plan-placeholder><div class="visual-slot" aria-hidden="true">Visual placeholder</div><h2>{title}</h2><p>Package information reserved for the approved pricing presentation.</p></article>)}</div>
-    <p style="margin-top:32px"><a class="button" href={sitePath('/contact/')}>Discuss your requirements</a></p>
+<Layout title="Plans & Pricing | Ez Kyosk" description="Compare the free Ez Kyosk software demo, Starter and Complete plans, kiosk costs, setup and quotation requirements.">
+  <section class="offers-section section-shell" aria-labelledby="plans-title">
+    <header class="offers-intro"><span class="eyebrow">Plans & Pricing</span><h1 id="plans-title">Find the right Ez Kyosk for your business.</h1><p class="offers-lead">One kiosk. Simple pricing. Built around your business.</p><p>Start with a free demo or choose a complete self-ordering setup for your café, bakery, or restaurant.</p></header>
+    <div class="offers-grid">{offers.map(offer=><article class="offer-card" data-offer-plan={offer.id} aria-labelledby={`offer-${offer.id}`}>
+      <div class="offer-visual" aria-hidden="true">Visual placeholder</div>
+      <h2 id={`offer-${offer.id}`}>{offer.title}</h2><p class="offer-price">{offer.price}</p><p class="offer-tagline">{offer.tagline}</p><p>{offer.description}</p>
+      {offer.costs.length>0 && <div class="offer-costs"><h3>One-time costs</h3><dl>{offer.costs.map(([label,amount])=><div><dt>{label}</dt><dd>{amount}</dd></div>)}</dl></div>}
+      <h3>What's included</h3><ul>{offer.items.map(item=><li>{item}</li>)}</ul><p>{offer.note}</p>
+      <a class="button offer-action" href={sitePath('/contact/')}>{offer.action}</a>
+    </article>)}</div>
+    <aside class="offer-terms" aria-labelledby="quotation-title"><h2 id="quotation-title">Quotation details</h2><p>Payment terminal hardware, transaction fees, printers, and additional equipment are quoted separately. Integration availability and compatibility must be confirmed.</p><p>Hardware pricing, setup scope, monthly billing units, and supported integrations will be confirmed in an official quotation.</p></aside>
+  </section>
+  <section class="offers-section offer-upgrade section-shell" aria-labelledby="yourai-title">
+    <div class="offers-intro"><span class="eyebrow">Want your kiosk to talk?</span><h2 id="yourai-title">Meet YourAI, the conversational upgrade.</h2><p>What if customers could simply tell your kiosk what they want?</p><blockquote>“One iced latte and a croissant, please.”</blockquote><p>Bring a more interactive ordering experience to your business with our planned conversational kiosk upgrade.</p><p class="offer-future">YourAI conversational ordering is an optional future upgrade. Pricing and availability are not yet finalized.</p><a class="button" href={sitePath('/contact/')}>Ask about YourAI</a></div>
+  </section>
+  <section class="offers-section section-shell" aria-labelledby="offer-help"><div class="offers-intro"><h2 id="offer-help">Not sure which package fits?</h2><p>Start with a free demo. See how Ez Kyosk can display your menu and guide customers through ordering before you make a decision.</p><a class="button" href={sitePath('/contact/')}>Try Ez Kyosk for Free</a></div>
   </section>
 </Layout>

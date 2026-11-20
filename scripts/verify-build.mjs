@@ -387,7 +387,10 @@ for(const html of pages.values()){
   assert.ok(!/href="[^"]*\/(?:features|how-it-works|solutions|about)\//.test(html.split('</head>')[1]),'no retired internal navigation destinations');
   assert.ok(!/[\u2014]/.test(html),'no em dashes');
 }
-assert.equal((pages.get('/offers/').match(/data-plan-placeholder/g)||[]).length,3);
+assert.equal((pages.get('/offers/').match(/data-offer-plan=/g)||[]).length,3);
+for(const amount of ['PHP 0','PHP 1,990/month','PHP 3,990/month','PHP 89,000','PHP 9,900','PHP 14,900']) assert.ok(pages.get('/offers/').includes(amount),'approved offer amount: '+amount);
+assert.ok(pages.get('/offers/').includes('optional future upgrade') && pages.get('/offers/').includes('quoted separately'),'offer limitations remain explicit');
+assert.ok(!pages.get('/offers/').includes('Pricing shown is proposed'),'later commercial approval reflected');
 assert.equal((pages.get('/articles/').match(/data-article-placeholder/g)||[]).length,3);
 assert.ok(!/<time\b|Read more/.test(pages.get('/articles/')),'no fabricated articles');
 assert.ok(!/features\/|how-it-works\/|solutions\/|about\//.test(sitemap),'legacy pages omitted from sitemap');
