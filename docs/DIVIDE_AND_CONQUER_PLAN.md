@@ -4,7 +4,7 @@ Date: 18 November 2026, Asia/Manila.
 
 Companion: [Revision architecture](ARCHITECTURE.md).
 
-Status: PHASES 1-7 COMPLETE and live verified; Phase 7 source dfde5f7 deployed and verified on 20 November; see [closure](PHASE_7_RELEASE.md). Phase 8 is implemented and verified locally, ready for [owner review](PHASE_8_LOCAL_REVIEW.md), NOT published. Later phases and held work remain unapproved. Previous freezes/page plans are historical where superseded by the latest owner decisions.
+Status: PHASES 1-8 COMPLETE and live verified; Phase 8 source c41e2d7 deployed and verified on 20 November; see [closure](PHASE_8_RELEASE.md). Phase 9 is approved locally only, including exact FAQ alignment revisions. Later phases and held work remain unapproved. Previous freezes/page plans are historical where superseded by the latest owner decisions.
 
 ## Workflow for every phase
 
@@ -179,7 +179,7 @@ Files: Home industry section, IndustryCard, scoped styles and use-case destinati
 
 Approved on 20 November for local implementation/review after verified Phase 7 publication. No Phase 8 deployment or image generation/editing authorized. The minimal caption correction is: "After payment, optionally scan the order-tracking QR to view order status." Keep all six titles and other descriptions/FAQ unchanged.
 
-Local implementation and QA complete; see [Phase 8 review](PHASE_8_LOCAL_REVIEW.md). Centered introduction/card headings, compact spacing, preserved six-card desktop frame and three/two/one-column reflow verified. Approved images and all other captions/FAQ unchanged. Await owner review and separate publication approval before closing Phase 8.
+COMPLETE: accepted Phase 8 source c41e2d7 deployed and verified live; see [closure](PHASE_8_RELEASE.md). Approved images and all other captions/FAQ unchanged. Actions below record the accepted scope.
 
 Phase 2 local-review exception: the owner-approved complete-frame navigation refinement already introduces one six-card desktop row at 1181px and above, with tighter readable spacing. Preserve that accepted direction; do not reset it to the earlier three-column desktop layout. The current local approval covers the exact actions below; publication still requires separate approval.
 
@@ -198,10 +198,12 @@ Files: Home journey/data only for specifically approved wording, JourneyCard lay
 
 ## Phase 9: FAQs and About us
 
+Approved for full local implementation/review after verified Phase 8 publication. No Phase 9 deployment authorized. Latest FAQ direction is explicit: center the title/introduction above one centered column; keep question and answer text flush left, natural ragged right, NOT fully justified. Align expand/collapse icons right. Preserve whole-row click/tap targets, subtle dividers, restrained blue highlights, visible keyboard focus and multiple independently open answers. Do not switch to two FAQ columns or center answer text.
+
 ### Exact actions
 
 1. Preserve the current ten FAQ questions and answers exactly, not the older six-question screenshot.
-2. Center FAQ title/introduction while retaining usable question/indicator alignment, focus and independent native disclosures. Align FAQ and About section top/bottom spacing with the shared compact Phase 3/4 baseline (32-56px per side), retaining hero-aligned side margins; test actual gaps in mixed/all-open states.
+2. Center FAQ title/introduction over a single-column accordion centered inside hero-aligned outer margins. Keep questions/answers left-aligned with a natural right edge, never fully justified. Keep icons consistently right-aligned, whole-row targets, subtle dividers, visible focus and independent native disclosures. Align FAQ and About section top/bottom spacing with the shared compact Phase 3/4 baseline (32-56px per side); test actual gaps in closed/mixed/all-open states.
 3. Verify static answers, pointer/keyboard/no-JavaScript, long wrapping and all-open/mixed states.
 4. Refine the adapted About section introduced in Phase 2, after FAQs and before the existing demo/end content. Center approved headings/introduction and retain original website branding.
 5. Use existing approved purpose/principles material. No invented company history, credentials, clients, addresses or automatic package inclusions. Keep standalone About retired.
