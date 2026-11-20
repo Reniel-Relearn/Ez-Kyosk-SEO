@@ -1,0 +1,28 @@
+/* Phase 8: retain six approved illustrations and readable, ordered journey text. */
+body[data-home-hero] #how-it-works { padding-block: clamp(32px, 4vw, 56px); }
+body[data-home-hero] #how-it-works .section-heading {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+body[data-home-hero] #how-it-works .section-heading .eyebrow { justify-content: center; }
+body[data-home-hero] #how-it-works .section-heading h2 {
+  font-size: clamp(34px, 2.8vw, 44px);
+  line-height: 1.12;
+}
+body[data-home-hero] #how-it-works .section-heading > p {
+  width: 100%;
+  max-width: 80ch;
+  margin: 0 auto;
+  justify-self: center;
+}
+body[data-home-hero] #how-it-works .customer-journey-grid { margin-block: 0; }
+body[data-home-hero] #how-it-works .customer-journey-card h3 { text-align: center; }
+/* Three readable tablet columns before the already-approved six-card desktop row.
+   Existing two-column and single-column breakpoints remain unchanged. */
+@media (min-width: 1025px) and (max-width: 1180px) {
+  body[data-home-hero] #how-it-works .customer-journey-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

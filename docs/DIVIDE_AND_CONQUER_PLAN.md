@@ -4,7 +4,7 @@ Date: 18 November 2026, Asia/Manila.
 
 Companion: [Revision architecture](ARCHITECTURE.md).
 
-Status: PHASES 1-7 COMPLETE and live verified; Phase 7 source dfde5f7 deployed and verified on 20 November; see [closure](PHASE_7_RELEASE.md). Phase 8 is approved locally only. Later phases and held work remain unapproved. Previous freezes/page plans are historical where superseded by the latest owner decisions.
+Status: PHASES 1-7 COMPLETE and live verified; Phase 7 source dfde5f7 deployed and verified on 20 November; see [closure](PHASE_7_RELEASE.md). Phase 8 is implemented and verified locally, ready for [owner review](PHASE_8_LOCAL_REVIEW.md), NOT published. Later phases and held work remain unapproved. Previous freezes/page plans are historical where superseded by the latest owner decisions.
 
 ## Workflow for every phase
 
@@ -179,7 +179,9 @@ Files: Home industry section, IndustryCard, scoped styles and use-case destinati
 
 Approved on 20 November for local implementation/review after verified Phase 7 publication. No Phase 8 deployment or image generation/editing authorized. The minimal caption correction is: "After payment, optionally scan the order-tracking QR to view order status." Keep all six titles and other descriptions/FAQ unchanged.
 
-Phase 2 local-review exception: the owner-approved complete-frame navigation refinement already introduces one six-card desktop row at 1181px and above, with tighter readable spacing. Preserve that accepted direction when reviewing this phase; do not reset it to the earlier three-column desktop layout. Remaining Phase 8 review/factual-caption actions still require approval.
+Local implementation and QA complete; see [Phase 8 review](PHASE_8_LOCAL_REVIEW.md). Centered introduction/card headings, compact spacing, preserved six-card desktop frame and three/two/one-column reflow verified. Approved images and all other captions/FAQ unchanged. Await owner review and separate publication approval before closing Phase 8.
+
+Phase 2 local-review exception: the owner-approved complete-frame navigation refinement already introduces one six-card desktop row at 1181px and above, with tighter readable spacing. Preserve that accepted direction; do not reset it to the earlier three-column desktop layout. The current local approval covers the exact actions below; publication still requires separate approval.
 
 ### Exact actions
 

@@ -11,7 +11,7 @@ export const customerJourney = [
   { id: 'start-select', title: 'Start & Select', body: 'Tap to begin, browse the menu and choose products.' },
   { id: 'review-edit', title: 'Review & Edit Order', body: 'Check items, edit quantities or selections, and review the total.' },
   { id: 'payment', title: 'Choose How to Pay', body: 'Pay by card or e-wallet, or choose cash payment at the cashier.' },
-  { id: 'scan-qr', title: 'Scan Your Tracking QR', body: 'Scan the order-tracking QR to open order tracking.' },
+  { id: 'scan-qr', title: 'Scan Your Tracking QR', body: 'After payment, optionally scan the order-tracking QR to view order status.' },
   { id: 'track-queue', title: 'Track Your Queue Status', body: 'Follow the queue and see when your order is ready for pickup.' },
   { id: 'collect', title: 'Collect Your Order', body: 'Collect your prepared order when it is ready.' },
 ];
