@@ -2,6 +2,10 @@
 
 ## Latest direction: 20 November 2026
 
+Release gate: owner accepted Phase 5 and the final Phase 4 single-line heading/spacing correction, requesting separate commits/pushes. Publish and verify live through Phase 5, then implement Phase 6 locally only. Phase 6 payment raster corrections remain held. Report separate live/local URLs; do not publish Phase 6 source or mutate GitHub issues. Earlier local-only authority below is superseded by this instruction.
+
+Phase 5 approved for local implementation only. Home Products now has centered headings/supporting text, readable left-aligned feature lists, centered tabs/actions and compact 32-56px top/bottom spacing with existing hero-aligned side margins. A verified mobile legacy detail-link bug is corrected so the requested stacked panel is revealed/focused; ordinary Products navigation retains whole-section framing. Existing ProductExplorer, data, icons and photos are unchanged. See [Phase 5 review](PHASE_5_LOCAL_REVIEW.md). No push, deployment, issue writes or Phase 6 implementation authorized. Older records describing Phase 5 as unapproved are historical.
+
 Current closure: Phase 4 is COMPLETE. Source ab9d059 deployed successfully; both workflows passed. Public hashes match the approved build; live platform spacing/alignment passed 640 cases and shared Home margins passed 40 layouts. See [Phase 4 closure and exact Phase 5 actions](PHASE_4_RELEASE.md). Phase 5 and later section plans now include consistent compact top/bottom spacing; no later-phase implementation authorized. Holds remain held. Earlier local-only/deployment-in-progress records below are historical.
 
 Publication gate: owner accepted Phase 4 including the compact 32-56px top/bottom spacing and authorized push, deployment and closure after live verification. Also add consistent compact vertical spacing to Phase 5 and subsequent section action plans, preserving hero-aligned side margins and the approved hero/header composition. Planning only for later phases: no Phase 5 implementation, image generation or issue writes authorized. This supersedes earlier Phase 4 local-only status below.

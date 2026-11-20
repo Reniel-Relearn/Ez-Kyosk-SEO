@@ -22,17 +22,23 @@ async function jump(section: string, detail?: string) {
   const target = document.getElementById(section);
   if (!target) return;
   if (detail) document.getElementById(`tab-${detail}`)?.click();
-  const focus = target.querySelector<HTMLElement>('h1,h2,h3') || target;
+  const requestedPanel = section === 'products' && detail ? document.getElementById(`panel-${detail}`) : null;
+  // On phones all five panels are stacked. Detail links must reveal that panel,
+  // not just the beginning of the entire Products section. Normal nav stays unchanged.
+  const stackedPanels = [...target.querySelectorAll<HTMLElement>('[role="tabpanel"]')].filter(panel => panel.getClientRects().length > 0).length > 1;
+  const frameTarget = requestedPanel && stackedPanels ? requestedPanel : target;
+  const focusTarget = requestedPanel || target;
+  const focus = focusTarget.querySelector<HTMLElement>('h1,h2,h3') || focusTarget;
   focus.setAttribute('tabindex','-1');
   focus.focus({ preventScroll:true });
   const headerHeight = header?.getBoundingClientRect().height || 92;
   // Layout coordinates exclude the existing reveal animation's temporary translateY.
   let targetTop = 0;
-  for (let node: HTMLElement | null = target; node; node = node.offsetParent as HTMLElement | null) targetTop += node.offsetTop;
-  const style = getComputedStyle(target);
+  for (let node: HTMLElement | null = frameTarget; node; node = node.offsetParent as HTMLElement | null) targetTop += node.offsetTop;
+  const style = getComputedStyle(frameTarget);
   const paddingTop = parseFloat(style.paddingTop) || 0;
   const paddingBottom = parseFloat(style.paddingBottom) || 0;
-  const frameHeight = target.offsetHeight - paddingTop - paddingBottom;
+  const frameHeight = frameTarget.offsetHeight - paddingTop - paddingBottom;
   const available = innerHeight - headerHeight;
   // Center the complete content frame, not the section's decorative outer padding.
   // Taller frames keep a readable start position and ordinary vertical scrolling.

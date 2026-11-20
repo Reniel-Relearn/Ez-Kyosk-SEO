@@ -4,7 +4,7 @@ Date: 18 November 2026, Asia/Manila.
 
 Companion: [Revision architecture](ARCHITECTURE.md).
 
-Status: PHASES 1-4 COMPLETE and live verified. Phase 4 source ab9d059 published and verified on 20 November; see [closure](PHASE_4_RELEASE.md). Phase 5 and subsequent section plans explicitly include consistent compact vertical spacing, but implementation remains unapproved. Previous freezes/page plans are historical where superseded by the latest owner decisions.
+Status: PHASES 1-4 complete. Final Phase 4 heading correction and Phase 5 accepted for separate publication on 20 November; live verification in progress. After that release, Phase 6 is approved locally only; do not publish it. Later phases and held work remain unapproved. Previous freezes/page plans are historical where superseded by the latest owner decisions.
 
 ## Workflow for every phase
 
@@ -129,6 +129,8 @@ COMPLETE: local result including compact spacing accepted, published and live ve
 Files: Home platform markup, PlatformImageCard styles and independent-expansion checks. No photo transfer or category restructuring.
 
 ## Phase 5: Products Section on Home
+
+Local result accepted on 20 November and separate Phase 5 commit/push/deployment authorized. Publish and verify live before closure. Current text/images remain; image generation and overlapping-section restructure remain held.
 
 ### Exact actions
 

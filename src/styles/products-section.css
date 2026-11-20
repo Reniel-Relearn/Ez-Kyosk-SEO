@@ -1,0 +1,34 @@
+/* Phase 5: Home-only presentation. Keep original copy, media and tab behavior. */
+body[data-home-hero] #products { padding-block: clamp(32px, 4vw, 56px); }
+body[data-home-hero] #products .section-heading {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+body[data-home-hero] #products .section-heading .eyebrow,
+body[data-home-hero] #products .product-panel-copy > .eyebrow { justify-content: center; }
+body[data-home-hero] #products .section-heading > p {
+  width: 100%;
+  max-width: 80ch;
+  justify-self: center;
+  margin: 0 auto;
+}
+body[data-home-hero] #products .product-tabs button {
+  justify-content: center;
+  text-align: center;
+}
+body[data-home-hero] #products .product-panel-copy h3,
+body[data-home-hero] #products .product-panel-copy > p { text-align: center; }
+body[data-home-hero] #products .product-panel-copy > .text-link {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+}
+/* Scan-friendly lists retain their left-aligned labels and existing checkmarks. */
+body[data-home-hero] #products .check-list { text-align: left; }
+body[data-home-hero] #products .product-panel h3:focus {
+  outline: 2px solid var(--blue);
+  outline-offset: 8px;
+}
