@@ -70,6 +70,11 @@ for (const [pageUrl, html] of pages) {
 
 const robots = await readFile('dist/robots.txt', 'utf8');
 assert.ok(robots.includes(process.env.SITE_URL ? 'Allow: /' : 'Disallow: /'));
+if (process.env.SITE_URL) {
+  assert.equal(robots.match(/^Sitemap: (.+)$/m)?.[1], new URL(publicPath('/sitemap.xml'), process.env.SITE_URL).href, 'robots advertises exact base-aware sitemap URL');
+} else {
+  assert.equal(robots, 'User-agent: *\nDisallow: /\n', 'preview remains blocked without an advertised sitemap');
+}
 const sitemap = await readFile('dist/sitemap.xml', 'utf8');
 assert.equal((sitemap.match(/<loc>/g) || []).length, process.env.SITE_URL ? 5 : 0);
 await access('dist/favicon.png');

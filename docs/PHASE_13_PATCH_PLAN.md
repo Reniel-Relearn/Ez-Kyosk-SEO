@@ -22,6 +22,8 @@ Files: src/styles/navigation.css, src/styles/products-section.css, src/styles/in
 
 ## B. Configured-subpath robots sitemap URL
 
+Status: implemented locally and verified with scripts/qa-robots-matrix.mjs. All four configurations pass the build verifier: unconfigured root, configured root, configured subpath and unconfigured Pages subpath. Local dist is restored to the blocked/noindex Pages preview. No real domain, indexing or production environment enabled.
+
 Verified configuration-only bug: SITE_URL=https://example.test and BASE_PATH=/Ez-Kyosk-SEO generate correct subpath canonicals/sitemap entries, but robots advertises https://example.test/sitemap.xml instead of https://example.test/Ez-Kyosk-SEO/sitemap.xml. Current preview has no SITE_URL and correctly blocks indexing; it is unaffected.
 
 Exact proposed local actions:
