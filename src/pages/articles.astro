@@ -7,6 +7,6 @@ import '../styles/articles.css';
   <section class="articles-index section-shell" aria-labelledby="articles-title">
     <header><span class="eyebrow">Articles</span><h1 id="articles-title">Practical insights for your operation.</h1><p>No articles are published yet. This page reserves the layout for future content. Research and editorial work remain on hold.</p></header>
     <ul class="article-wireframes" role="list" aria-label="Reserved article layouts">{[1,2,3].map(number=><li class="article-wireframe" data-article-placeholder><div class="article-visual" aria-hidden="true">Image placeholder</div><div class="article-wireframe-copy"><h2>Reserved article space {number}</h2><p>Article title and summary will appear here after research and approval.</p></div></li>)}</ul>
-    <nav class="article-destinations" aria-label="Useful destinations"><a class="button button-secondary" href={sitePath('/')}>Back to Home</a><a class="button" href={sitePath('/contact/')}>Discuss your requirements</a></nav>
+    <nav class="article-destinations" aria-label="Useful destinations"><a class="button button-secondary" href={sitePath('/')}>Back to Home</a><a class="text-link" href={sitePath('/contact/')}>Discuss your requirements</a></nav>
   </section>
 </Layout>

@@ -26,7 +26,7 @@ try{
      overflow:document.documentElement.scrollWidth>innerWidth,
      cards:[...el.querySelectorAll('.payment-card')].map(card=>{
       const copy=card.querySelector('.payment-copy'),link=copy.querySelector('a'),a=link.getBoundingClientRect(),r=copy.getBoundingClientRect();
-      return {title:copy.querySelector('h3').textContent,centered:getComputedStyle(copy).textAlign==='center',linkCentered:Math.abs(a.left+a.width/2-r.left-r.width/2)<2,
+      return {title:copy.querySelector('h3').textContent,leftAligned:getComputedStyle(copy).textAlign==='left',linkLeftAligned:Math.abs(a.left-r.left-parseFloat(getComputedStyle(copy).paddingLeft))<2,
        href:link.getAttribute('href'),actionHeight:a.height,overflow:card.scrollWidth>card.clientWidth,
        actionLines:(()=>{const range=document.createRange();range.selectNode(link.firstChild);return range.getClientRects().length;})(),
        actionOverflow:link.scrollWidth>link.clientWidth+1,
@@ -36,7 +36,8 @@ try{
    const expected=Math.min(56,Math.max(32,width*.04));assert.ok(Math.abs(state.paddingTop-expected)<.1&&Math.abs(state.paddingBottom-expected)<.1);
    assert.equal(state.sameMargins,true);assert.equal(state.headingCentered,true);assert.equal(state.introCentered,true);assert.equal(state.overflow,false);
    assert.deepEqual(state.cards.map(card=>card.title),['Terminal integration','QR and e-wallet checkout']);
-   for(const card of state.cards){assert.equal(card.centered,true);assert.equal(card.linkCentered,true);assert.equal(card.href,new URL(base+'/contact/').pathname);assert.ok(card.actionHeight>=44);assert.equal(card.overflow,false);assert.equal(card.clipped,false);}
+   // Phase 13 D explicitly approves left-aligned payment copy and contextual links.
+   for(const card of state.cards){assert.equal(card.leftAligned,true);assert.equal(card.linkLeftAligned,true);assert.equal(card.href,new URL(base+'/contact/').pathname);assert.ok(card.actionHeight>=44);assert.equal(card.overflow,false);assert.equal(card.clipped,false);}
    assert.equal(state.cards[1].actionLines,1,'Discuss online payments stays on one line');
    assert.equal(state.cards[1].actionOverflow,false,'online action fits its column');
    const onlineAction=section.locator('.payment-card--online .text-link');await onlineAction.hover();await page.waitForTimeout(250);

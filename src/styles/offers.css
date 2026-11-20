@@ -6,6 +6,7 @@
 .offers-intro p{margin-top:16px;color:var(--text-muted)}
 .offers-intro .offers-lead{font-size:20px;font-weight:700;color:var(--text)}
 .offers-intro .button{margin-top:24px}
+.offers-intro > .text-link{margin-top:24px}
 .offers-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:32px}
 .offer-card{display:flex;min-width:0;flex-direction:column;gap:16px;padding:24px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--surface)}
 .offer-visual{display:grid;place-items:center;min-height:100px;border:1px dashed var(--line);border-radius:12px;background:var(--blue-tint);color:var(--text-muted);font-size:13px}

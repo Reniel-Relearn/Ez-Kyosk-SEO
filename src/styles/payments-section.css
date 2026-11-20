@@ -20,13 +20,13 @@ body[data-home-hero] #payments .section-heading > p {
 }
 body[data-home-hero] #payments .payment-copy {
   min-width: 0;
-  text-align: center;
+  text-align: left;
 }
 body[data-home-hero] #payments .payment-copy > .text-link {
   display: flex;
   width: fit-content;
   max-width: 100%;
-  margin-inline: auto;
+  margin-inline: 0;
 }
 /* Keep the complete label and arrow inside the narrow desktop copy column,
    including hover: this scoped gap overrides the shared expanding-link gap. */

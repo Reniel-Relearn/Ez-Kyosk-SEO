@@ -1,6 +1,6 @@
-# Phase 13 design decisions awaiting review
+# Phase 13 approved design decisions
 
-20 November 2026. These are exact proposals, not applied website changes. The patch plan requires owner selection of the section map and explicit review of CTA wording and page corrections. A general request to execute the plan does not resolve the specific choices below. Patch A and B can be reviewed locally independently.
+20 November 2026. The owner explicitly approved C's exact map, D's documented CTA map and F's visual corrections in the clarification replies. This document retains the approved before/after specifications. See PHASE_13_PATCH_PLAN.md for implementation and verification status; approval does not authorize publication or issue mutation.
 
 ## C. Proposed complete Home surface map
 
@@ -22,7 +22,7 @@ Keep all section content, assets, dimensions and spacing unchanged. Apply only t
 
 Implementation after selection: scope a Home-only surface stylesheet; use theme text/muted tokens for Products and How It Works instead of inverse-white rules; retain white card surfaces in light mode and raised theme surfaces in dark mode, with existing border tokens for separation. Do not recolor embedded images. Verify rest/hover/active text and icons, contrast, card separation, theme persistence and no-JavaScript. Recheck all section-framing tests without changing their thresholds. Header contrast remains E, not a hidden part of C.
 
-Decision needed: approve this exact map and the final CTA exception, or identify changed rows.
+Decision received: this exact map and the final CTA exception are approved and implemented locally.
 
 ## D. Proposed CTA role and wording map
 
@@ -54,7 +54,7 @@ Visual system after approval: use existing blue/on-blue filled controls for prim
 
 Verification after implementation: compare rendered accessible labels and exact hrefs across all six routes; both themes and mobile/tablet/desktop; primary/secondary rest/hover/focus/pressed/disabled states; form preview plus mocked success/failure without real inquiries. Validate that any retained long label wraps safely on phones.
 
-Decision needed: approve the exact old-to-new label map and role treatment before copy/style changes. The Offers wording currently comes from an approved earlier phase, so this proposal does not silently override it.
+Decision received: the exact old-to-new label map and role treatment are approved and implemented locally. This explicit approval supersedes the prior Offers CTA labels without changing commercial terms.
 
 ## F. Verified retained-page mismatches and exact corrections
 
@@ -79,4 +79,4 @@ Implementation after approval: import a route-scoped retained-pages stylesheet f
 
 Verification after implementation: assert equal header/content margins at desktop widths, centered reading column, compact spacing, expected title sizing, no horizontal overflow and no clipped text at 320/390/768/1024/1440/1920px in both themes. Compare existing text/metadata/form attributes before and after. Run keyboard/skip/menu and no-JavaScript checks; no-send preview must issue zero POST requests. Use mocked successful and failed endpoint responses only, never real inquiry submissions. Verify the sidebar and all controls with accessibility checks and show local screenshots for review.
 
-Decision needed: approve these exact presentation corrections before implementation. Any CTA wording changes follow D's separate map; no privacy-policy rewrite is proposed.
+Decision received: these exact presentation corrections are approved. Any CTA wording changes follow D's separate map; no privacy-policy rewrite is proposed. See the patch plan for implementation progress.

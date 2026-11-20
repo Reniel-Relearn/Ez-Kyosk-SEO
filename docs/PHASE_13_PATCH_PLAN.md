@@ -53,7 +53,7 @@ Owner selection received: the complete map and ending exception in docs/PHASE_13
 
 ## D. CTA consistency brief
 
-Status: six-route CTA inventory reviewed; exact old-to-new wording and role/alignment proposal recorded in docs/PHASE_13_DESIGN_DECISIONS.md, scope D. No CTA wording/style changes applied; awaiting required selection.
+Status: owner approved the exact CTA map. Implemented locally: product-specific inquiry labels; revised Offers labels; outlined external exploration controls; contextual YourAI/Articles inquiries; View Products on 404; left-aligned payment copy/actions. Hero words, prices, destinations and form behavior retained. scripts/qa-cta-consistency.mjs passes 60 route/theme/width checks; updated payment regression passes 52 layouts and 104 card checks. Not published.
 
 Use the captured six-route inventory to approve a role-based system: primary inquiry/demo, secondary live-kiosk exploration, contextual quote/support and navigation. Preserve real destinations and truthful distinctions (request versus actual instant demo; planned YourAI versus working voice product).
 
