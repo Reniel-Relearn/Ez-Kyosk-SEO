@@ -2,7 +2,7 @@
 
 Date: 18 November 2026, Asia/Manila.
 
-Status: PHASES 1-4 complete. Final Phase 4 heading fix and Phase 5 accepted for separate publication on 20 November; release verification in progress. Companion: [Divide and Conquer step by step actions planning](DIVIDE_AND_CONQUER_PLAN.md). After live verification, Phase 6 is approved for local implementation/review only. Its source must not be deployed. Image generation/editing, research and other held work remain on hold.
+Status: PHASES 1-5 COMPLETE and live verified, including separate Phase 4 heading-fix and Phase 5 releases on 20 November; see [Phase 5 closure](PHASE_5_RELEASE.md). Companion: [Divide and Conquer step by step actions planning](DIVIDE_AND_CONQUER_PLAN.md). Phase 6 is approved locally only; its source must not be deployed without later approval. Image generation/editing, research and other held work remain on hold.
 
 ## 1. Purpose and authority
 

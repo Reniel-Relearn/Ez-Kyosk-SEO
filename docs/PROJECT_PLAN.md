@@ -2,6 +2,8 @@
 
 ## Latest direction: 20 November 2026
 
+Current closure: Phase 4 heading correction ca34718 and Phase 5 source 9b03f6b were separately committed, pushed, deployed and live verified. Phase 5 is COMPLETE; see [release evidence](PHASE_5_RELEASE.md). Phase 6 is now approved for local implementation/review only; live remains through Phase 5 until separate publication approval. Holds and no-issue-write boundary remain in force. Earlier release-in-progress/local-only Phase 5 records are historical.
+
 Release gate: owner accepted Phase 5 and the final Phase 4 single-line heading/spacing correction, requesting separate commits/pushes. Publish and verify live through Phase 5, then implement Phase 6 locally only. Phase 6 payment raster corrections remain held. Report separate live/local URLs; do not publish Phase 6 source or mutate GitHub issues. Earlier local-only authority below is superseded by this instruction.
 
 Phase 5 approved for local implementation only. Home Products now has centered headings/supporting text, readable left-aligned feature lists, centered tabs/actions and compact 32-56px top/bottom spacing with existing hero-aligned side margins. A verified mobile legacy detail-link bug is corrected so the requested stacked panel is revealed/focused; ordinary Products navigation retains whole-section framing. Existing ProductExplorer, data, icons and photos are unchanged. See [Phase 5 review](PHASE_5_LOCAL_REVIEW.md). No push, deployment, issue writes or Phase 6 implementation authorized. Older records describing Phase 5 as unapproved are historical.

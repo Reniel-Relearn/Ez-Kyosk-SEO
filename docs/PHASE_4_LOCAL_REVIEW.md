@@ -8,7 +8,7 @@ Local review: http://127.0.0.1:4323/Ez-Kyosk-SEO/
 
 ## Post-release local correction requested during Phase 5 review
 
-Publication approval, 20 November: the owner accepted the final continuous-heading/clear-word-spacing correction and requested its own commit and push, separate from Phase 5. Verification of that release is pending. Earlier local-only/two-line notes below are historical; the final title has no forced break. Phase 5 and subsequent implementation authority follow the latest roadmap, not older status statements in this release-history document.
+Publication closure, 20 November: final continuous-heading/word-spacing correction published separately as ca34718; both workflows succeeded and 640 live alignment/heading cases plus no-JavaScript passed before Phase 5 was pushed. See [separate release evidence](PHASE_5_RELEASE.md). Earlier local-only/two-line notes below are historical; the final title has no forced break. Current implementation authority follows the latest roadmap, not older statements in this release-history document.
 
 Latest direction, 20 November: the owner prefers “Powerful features. Stronger together.” as one continuous heading. Removed the forced break and its narrow-phone sizing exception; retained clearer word spacing. It is one line on suitable desktop widths and wraps naturally on phones without overflow. This supersedes the two-line direction/history below. Changes remain local and preserve ongoing Phase 5 work.
 

@@ -4,7 +4,7 @@ Date: 18 November 2026, Asia/Manila.
 
 Companion: [Revision architecture](ARCHITECTURE.md).
 
-Status: PHASES 1-4 complete. Final Phase 4 heading correction and Phase 5 accepted for separate publication on 20 November; live verification in progress. After that release, Phase 6 is approved locally only; do not publish it. Later phases and held work remain unapproved. Previous freezes/page plans are historical where superseded by the latest owner decisions.
+Status: PHASES 1-5 COMPLETE and live verified on 20 November, including separately pushed Phase 4 fix ca34718 and Phase 5 source 9b03f6b; see [release evidence](PHASE_5_RELEASE.md). Phase 6 is approved locally only; do not publish it. Later phases and held work remain unapproved. Previous freezes/page plans are historical where superseded by the latest owner decisions.
 
 ## Workflow for every phase
 
@@ -130,7 +130,7 @@ Files: Home platform markup, PlatformImageCard styles and independent-expansion 
 
 ## Phase 5: Products Section on Home
 
-Local result accepted on 20 November and separate Phase 5 commit/push/deployment authorized. Publish and verify live before closure. Current text/images remain; image generation and overlapping-section restructure remain held.
+COMPLETE: local result accepted, separately pushed/deployed as 9b03f6b and live verified on 20 November; see [closure](PHASE_5_RELEASE.md). Actions below are retained as the accepted scope. Current text/images remain; image generation and overlapping-section restructure remain held.
 
 ### Exact actions
 
@@ -144,6 +144,8 @@ Local result accepted on 20 November and separate Phase 5 commit/push/deployment
 Files: ProductExplorer, scoped product styles, approved display/link data changes only and explorer regression tests. No new capability promises or Product page.
 
 ## Phase 6: Payments with AltPayNet
+
+Approved on 20 November for local implementation and owner review only after the verified Phase 5 release. Do not publish Phase 6 source or change held payment rasters. Stop for local review and separate deployment approval.
 
 ### Exact actions
 

@@ -2,7 +2,7 @@
 
 Date: 20 November 2026, Asia/Manila.
 
-Status: owner accepted Phase 5 on 20 November and authorized its own separate commit/push and deployment. Verification in progress before phase closure. The Phase 4 heading fix is a separate release; Phase 6 is authorized for subsequent local implementation only, not publication.
+Status: Phase 5 COMPLETE, accepted, separately published and live verified on 20 November; see [release and closure](PHASE_5_RELEASE.md). Phase 4 heading correction was a separate commit/push/deployment. Review steps below are retained as implementation history. Phase 6 is approved locally only, not publication.
 
 Local review: http://127.0.0.1:4323/Ez-Kyosk-SEO/
 
