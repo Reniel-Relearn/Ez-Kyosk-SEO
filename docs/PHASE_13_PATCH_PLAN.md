@@ -53,6 +53,8 @@ Needs owner selection/approval of the exact full section map and ending exceptio
 
 ## D. CTA consistency brief
 
+Status: six-route CTA inventory reviewed; exact old-to-new wording and role/alignment proposal recorded in docs/PHASE_13_DESIGN_DECISIONS.md, scope D. No CTA wording/style changes applied; awaiting required selection.
+
 Use the captured six-route inventory to approve a role-based system: primary inquiry/demo, secondary live-kiosk exploration, contextual quote/support and navigation. Preserve real destinations and truthful distinctions (request versus actual instant demo; planned YourAI versus working voice product).
 
 Approve exact old-to-new labels/colors/alignment per control before copy changes. Hero words remain protected unless specifically released. Keep minimum interactive targets, focus, contrast, accessible names, no-send form boundary and no fake conversion claims. Test all pages/themes/widths and final action states. No endpoint/analytics activation.
