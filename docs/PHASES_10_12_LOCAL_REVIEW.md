@@ -1,6 +1,6 @@
 # Local handoff: Phases 10-12
 
-20 November 2026, Asia/Manila. Three separate local commits, not pushed. Public website remains verified Phase 9, source e4b7ac6 and closure 9f82077.
+20 November 2026, Asia/Manila. Historical local review: all three results were subsequently accepted, separately pushed and verified live; see [release/closure](PHASES_10_12_RELEASE.md). Live includes Phase 12. Instructions below record the prior local gate. Phase 13 has not started and is explicitly deferred.
 
 Live: https://reniel-relearn.github.io/Ez-Kyosk-SEO/
 

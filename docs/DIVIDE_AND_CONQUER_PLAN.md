@@ -4,7 +4,7 @@ Date: 18 November 2026, Asia/Manila.
 
 Companion: [Revision architecture](ARCHITECTURE.md).
 
-Status: PHASES 1-9 COMPLETE and live verified; Phase 9 source e4b7ac6 verified on 20 November; see [closure](PHASE_9_RELEASE.md). Phases 10-12 implemented and verified locally in separate commits, awaiting review and later separate pushes; see [handoff](PHASES_10_12_LOCAL_REVIEW.md). Phase 13 and held work remain unapproved. Earlier local-only status is historical where superseded.
+Status: PHASES 1-12 COMPLETE for accepted scope and live verified. Phases 10-12 separately pushed, deployed and verified; see [closure](PHASES_10_12_RELEASE.md). Phase 13 NOT STARTED and explicitly deferred by the owner. Held work remains unapproved. Earlier local-only status/actions below are historical where superseded.
 
 ## Workflow for every phase
 
@@ -274,6 +274,8 @@ Implemented and verified locally; see [Phase 12 review](PHASE_12_LOCAL_REVIEW.md
 Files: Articles route and minimal components/styles/tests. No CMS or publishing automation.
 
 ## Phase 13: Integrated Bug Audit, Technical SEO and Handoff
+
+NOT STARTED. Owner explicitly instructed not to proceed when authorizing separate Phase 10-12 publication. The following remains a future plan, not current implementation authority.
 
 ### Exact actions
 

@@ -2,6 +2,8 @@
 
 ## Latest direction: 20 November 2026
 
+Current closure: Phases 10 ff74986, 11 8371461 and 12 6757342 were separately pushed, deployed and verified live, in sequence. All six source workflows succeeded; each release's public documents/styles matched its deployment artifact; scoped live checks passed. See [release/closure](PHASES_10_12_RELEASE.md). Live now includes accepted Phases 1-12. Phase 13 NOT STARTED and explicitly deferred. No held work, issue writes or production launch activation authorized. Earlier local-only entries below are historical.
+
 Current local review: Phases 10-12 implemented and verified locally in separate commits. Phase 10 ff74986 refines the existing ending/footer, retaining Contact/Privacy/form boundaries. Phase 11 8371461 implements source-verified approved pricing/quotation exclusions and future-only YourAI with placeholders. Phase 12 refines the honest reserved Articles index, no fabricated posts. See [local handoff and exact next actions](PHASES_10_12_LOCAL_REVIEW.md). Root/Pages builds, scoped layout/accessibility/link suites, full-site/mock-form, margin/frame and preservation regressions passed. Live remains Phase 9; no Phase 10-12 push authorized/performed. Review locally before separate pushes/releases. Phase 13 and held work remain unapproved. Earlier status entries below are historical where inconsistent.
 
 Current release: Phase 9 source e4b7ac6 accepted, deployed and verified live; see [closure](PHASE_9_RELEASE.md). Owner authorized local Phases 10-12, each in a separate commit, then later separate pushes after review. Keep live through Phase 9. Phase 13, held image/research/reference work, issue writes and live delivery remain unauthorized. Earlier local-only Phase 9 authority below is historical.

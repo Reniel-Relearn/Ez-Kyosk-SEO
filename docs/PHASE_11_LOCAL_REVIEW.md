@@ -1,6 +1,6 @@
 # Phase 11: Offers / Plans & Pricing
 
-20 November 2026. Implemented and verified locally, ready for full copy/layout review. Separate commit; not published. Live remains Phase 9.
+20 November 2026. COMPLETE: accepted 8371461 separately pushed, deployed and verified live; see [closure](PHASES_10_12_RELEASE.md). Details below are accepted local implementation history.
 
 Implemented the exact [pre-implementation copy brief](PHASE_11_COPY_BRIEF.md), using revised PDF pages 4-6 and the later owner-approved commercial status. Demo PHP 0/up to 10 items, Starter PHP 1,990/month/up to 50 items, Complete PHP 3,990/month; machine PHP 89,000, setup PHP 9,900 or PHP 14,900 shown separately. Exact inclusion lists, optional supported payment paths, printer connectivity versus hardware distinction, terminal/fees/equipment exclusions and quotation/compatibility boundaries visible.
 

@@ -1,6 +1,6 @@
 # Phase 12: Articles wireframe
 
-20 November 2026. Implemented and verified locally, ready for review. Separate commit, NOT published; live remains Phase 9.
+20 November 2026. COMPLETE: accepted 6757342 separately pushed, deployed and verified live; see [closure](PHASES_10_12_RELEASE.md). Details below are accepted local implementation history. Phase 13 explicitly deferred, not started.
 
 Refined the same-site `/articles/` index with centered heading/introduction, explicit no-published-articles notice, compact 32-56px spacing and three neutral reserved-content list items. Responsive single-column phone/tablet layout, reserved 16:9 media slots, no generated imagery. Cards are non-interactive wireframes, not purported posts; no fabricated authors, dates, researched titles, excerpts, views, sources or customer results.
 

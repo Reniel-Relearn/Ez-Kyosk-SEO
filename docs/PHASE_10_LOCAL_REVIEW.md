@@ -1,6 +1,6 @@
 # Phase 10: Existing Contact, End Section and Footer
 
-20 November 2026, Asia/Manila. Implemented and verified locally, ready for review; separate local commit. NOT published; live remains Phase 9.
+20 November 2026, Asia/Manila. COMPLETE: accepted ff74986 separately pushed, deployed and verified live; see [closure](PHASES_10_12_RELEASE.md). Details below are accepted local implementation history.
 
 Centered the existing Home ending label/title/copy/actions, matched 32-56px section padding and retained hero-aligned side margins. Footer top/bottom now follows the same compact baseline across existing routes; reduced excess internal footer-grid bottom space to 32px. Footer group labels/text/logo remain left-aligned as a readability exception, not centered into hard-to-scan columns. No new ending, form, CTA copy, destinations, footer content or branding.
 
