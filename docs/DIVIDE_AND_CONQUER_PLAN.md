@@ -4,7 +4,7 @@ Date: 18 November 2026, Asia/Manila.
 
 Companion: [Revision architecture](ARCHITECTURE.md).
 
-Status: PHASES 1-9 COMPLETE and live verified; Phase 9 source e4b7ac6 verified on 20 November; see [closure](PHASE_9_RELEASE.md). Phases 10-12 approved locally only, each separately committed and later separately pushed after review. Phase 13 and held work remain unapproved. Earlier local-only status is historical where superseded.
+Status: PHASES 1-9 COMPLETE and live verified; Phase 9 source e4b7ac6 verified on 20 November; see [closure](PHASE_9_RELEASE.md). Phases 10-12 implemented and verified locally in separate commits, awaiting review and later separate pushes; see [handoff](PHASES_10_12_LOCAL_REVIEW.md). Phase 13 and held work remain unapproved. Earlier local-only status is historical where superseded.
 
 ## Workflow for every phase
 
@@ -258,6 +258,8 @@ Files: Offers route, optional structured offer data/components, scoped styles an
 ## Phase 12: Articles Wireframes and Placeholders
 
 Approved locally with Phases 10/11. Separate local commit, no deployment. Research, actual posts, generated imagery and CMS work remain held.
+
+Implemented and verified locally; see [Phase 12 review](PHASE_12_LOCAL_REVIEW.md). Honest reserved index, centered heading, neutral non-interactive list cards, useful destinations and preview metadata retained. No actual article library or publication.
 
 ### Exact actions
 

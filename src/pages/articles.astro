@@ -1,9 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import {sitePath} from '../lib/sitePath';
+import '../styles/articles.css';
 ---
-<Layout title="Articles | Ez Kyosk" description="Article layout preview for Ez Kyosk. Educational content will be researched and prepared in a future phase.">
-  <section class="wireframe-page section-shell" aria-labelledby="articles-title">
-    <header><span class="eyebrow">Articles</span><h1 id="articles-title">Practical insights for your operation.</h1><p>This is a design-review wireframe. Articles are not published yet. Research and editorial content remain on hold.</p></header>
-    <div class="wireframe-grid">{[1,2,3].map(number=><div class="wireframe-slot" data-article-placeholder><div class="visual-slot" aria-hidden="true">Image placeholder</div><h2>Reserved article space {number}</h2><p>Article title and summary will appear here after research and approval.</p></div>)}</div>
+<Layout title="Articles | Ez Kyosk" description="Preview the Ez Kyosk Articles layout. No articles are published yet; research and editorial content remain on hold.">
+  <section class="articles-index section-shell" aria-labelledby="articles-title">
+    <header><span class="eyebrow">Articles</span><h1 id="articles-title">Practical insights for your operation.</h1><p>No articles are published yet. This page reserves the layout for future content. Research and editorial work remain on hold.</p></header>
+    <ul class="article-wireframes" role="list" aria-label="Reserved article layouts">{[1,2,3].map(number=><li class="article-wireframe" data-article-placeholder><div class="article-visual" aria-hidden="true">Image placeholder</div><div class="article-wireframe-copy"><h2>Reserved article space {number}</h2><p>Article title and summary will appear here after research and approval.</p></div></li>)}</ul>
+    <nav class="article-destinations" aria-label="Useful destinations"><a class="button button-secondary" href={sitePath('/')}>Back to Home</a><a class="button" href={sitePath('/contact/')}>Discuss your requirements</a></nav>
   </section>
 </Layout>
