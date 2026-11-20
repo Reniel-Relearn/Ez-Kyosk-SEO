@@ -2,6 +2,8 @@
 
 Date: 18 November 2026, Asia/Manila.
 
+Latest publication: Phase 13 accepted runtime scopes A/B/C/D/F and follow-ups are deployed and live-verified from c1177b2. See [release evidence](PHASE_13_RELEASE.md). #30 is resolved; #1 remains open for held work. This supersedes the pre-publication status wording below, without clearing E's launch/asset holds.
+
 Status: PHASES 1-12 COMPLETE for accepted scope and live verified. Phase 13 A/B/C/D/F and both follow-up revisions are implemented, locally tested and owner-approved for publication in separate commits. See [patch status](PHASE_13_PATCH_PLAN.md) and [approved decisions](PHASE_13_DESIGN_DECISIONS.md). The original [audit](PHASE_13_AUDIT.md) and [feedback matrix](PHASE_13_FEEDBACK_MATRIX.md) retain dated evidence; their initial pending states are superseded by the patch plan. Image/research holds and header-contrast launch concern remain. Companion: [phase plan](DIVIDE_AND_CONQUER_PLAN.md).
 
 ## 1. Purpose and authority

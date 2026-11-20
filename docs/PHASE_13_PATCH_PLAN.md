@@ -1,5 +1,7 @@
 # Phase 13 proposed patch scopes: approval required
 
+Superseding publication status: A/B/C/D/F and the approved follow-ups are deployed and live-verified from c1177b2. See [release evidence and issue disposition](PHASE_13_RELEASE.md). The local-only/not-published notes below record the implementation-stage history, not the current publication state. E and unfinished #1 artwork/research remain held. #30 is closed after all five comments were verified; #1 remains open with a status reply.
+
 20 November 2026. Owner requested local implementation and separate letter commits. Publication and issue mutation remain outside this request. Per-letter status below distinguishes implemented fixes from proposals that retain explicit design-approval gates.
 
 ## A. Pointer-navigation focus rectangle and two-pulse title glow

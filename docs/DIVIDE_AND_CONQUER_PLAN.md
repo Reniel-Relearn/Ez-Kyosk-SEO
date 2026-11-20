@@ -2,6 +2,8 @@
 
 Date: 18 November 2026, Asia/Manila.
 
+Latest release: approved Phase 13 runtime fixes and follow-ups are deployed and live-verified from c1177b2. See [publication and issue disposition](PHASE_13_RELEASE.md). #30 is closed; #1 and the held artwork/research/header-readability scope remain open. Earlier pre-publication entries are historical where superseded.
+
 Companion: [Revision architecture](ARCHITECTURE.md).
 
 Status: PHASES 1-12 COMPLETE for accepted scope and live verified. Phase 13 A/B/C/D/F and follow-ups are implemented and locally tested in separate commits; owner has approved publication and conditional issue closure. See [current patch status](PHASE_13_PATCH_PLAN.md), [approved decisions](PHASE_13_DESIGN_DECISIONS.md), original [audit](PHASE_13_AUDIT.md) and [feedback matrix](PHASE_13_FEEDBACK_MATRIX.md). Held artwork/research and the header-contrast concern remain unresolved. Older audit-only/deferral states below are historical where superseded.
