@@ -4,11 +4,11 @@ Date: 18 November 2026, Asia/Manila.
 
 Companion: [Revision architecture](ARCHITECTURE.md).
 
-Status: PHASE 1 LIVE VERIFIED at e6495cd. PHASE 2 COMPLETE: source release 330aedb deployed and live verified on 19 November 2026; [closure and evidence](PHASE_2_RELEASE.md). Phase 3 approved on 20 November and integrated locally, awaiting [owner review](PHASE_3_LOCAL_REVIEW.md) and separate deployment approval. Previous freezes/page plans are historical where superseded by the latest owner decisions.
+Status: PHASES 1 AND 2 LIVE VERIFIED. PHASE 3 COMPLETE: source release 6117fc3 deployed and live verified on 20 November 2026; [closure and evidence](PHASE_3_RELEASE.md). Phase 4 awaits explicit approval. Previous freezes/page plans are historical where superseded by the latest owner decisions.
 
 ## Workflow for every phase
 
-Shared layout requirement, approved 20 November: Phase 3 and every succeeding Home section use the same centered content boundary and equal side margins as the hero/header (1200px maximum content width, minimum 20px gutters). This includes the final CTA and footer; backgrounds remain edge-to-edge. Preserve these boundaries in all later phases. Resize typography/cards only as needed for readable fit, retaining accessible controls, natural wrapping and responsive stacking. This spacing refinement is integrated locally, not deployed; other phase-specific changes still require approval.
+Shared layout requirement, approved and published 20 November: Phase 3 and every succeeding Home section use the same centered content boundary and equal side margins as the hero/header (1200px maximum content width, minimum 20px gutters). This includes the final CTA and footer; backgrounds remain edge-to-edge. Preserve these boundaries in all later phases. Resize typography/cards only as needed for readable fit, retaining accessible controls, natural wrapping and responsive stacking. Other phase-specific changes still require approval.
 
 1. Present the phase's exact actions, boundaries, likely files, tests and completion criteria.
 2. Stop for owner approval. The first "approved, proceed" authorizes that specified local implementation only.
@@ -96,6 +96,8 @@ Files: Layout/navigation mapping/helper; Home/adapted About component; Offers/Ar
 Acceptance: all seven links have valid destinations; enhanced navigation is hash-free; old content/subheader is gone; fallbacks are usable; no new backend, real articles, artwork or indexing. After local review and verified publication, present Phase 3.
 
 ## Phase 3: A better way to take orders
+
+COMPLETE: owner-approved scope and spacing refinements published and live verified on 20 November; see [release record](PHASE_3_RELEASE.md). Actions below are retained as the approved scope, not outstanding tasks.
 
 ### Exact actions
 

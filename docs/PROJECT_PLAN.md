@@ -2,6 +2,8 @@
 
 ## Latest direction: 20 November 2026
 
+Current closure: Phase 3 is COMPLETE. Source commit 6117fc3 deployed successfully; both GitHub workflows passed. Public documents/styles match the approved build, and live benefits (32 layouts), shared margins (40 layouts) and section frames (68 checks) passed. See [Phase 3 release and next-phase actions](PHASE_3_RELEASE.md). Phase 4 awaits approval; all held work remains held. This supersedes local-only/deployment-in-progress records below.
+
 Publication gate: the owner accepted Phase 3 including shared hero-aligned Home margins and reduced benefits vertical spacing, and authorized push, deployment and phase closure. Publish only approved Phase 3 source/tests/status documents; verify Pages and live output before recording completion. No issue writes or Phase 4 implementation authorized by this release request. Earlier local-only status below is historical.
 
 Owner review refinement: align all Home section content after the hero, plus final CTA/footer, with the hero/header's centered maximum 1200px content width and equal responsive margins. Implemented locally through `home-content.css`; benefits typography/padding and desktop platform/industry typography are more compact, and payment columns/text are balanced for the narrower cards. Words/images and phase-specific content changes remain untouched. Retain this shared width in succeeding phases. Await local review; no publication authorized.

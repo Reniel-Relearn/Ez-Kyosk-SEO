@@ -2,7 +2,7 @@
 
 Date: 18 November 2026, Asia/Manila.
 
-Status: Phase 1 published and verified at e6495cd. Phase 2 COMPLETE: source release 330aedb deployed and live verified on 19 November 2026. See [Phase 2 closure](PHASE_2_RELEASE.md). Companion: [Divide and Conquer step by step actions planning](DIVIDE_AND_CONQUER_PLAN.md). Phase 3 approved on 20 November and integrated locally for [owner review](PHASE_3_LOCAL_REVIEW.md), not publication. Later phases, image generation/editing and research remain unapproved/on hold.
+Status: Phases 1 and 2 published and verified. Phase 3 COMPLETE: source release 6117fc3 deployed and live verified on 20 November 2026; see [Phase 3 closure](PHASE_3_RELEASE.md). Companion: [Divide and Conquer step by step actions planning](DIVIDE_AND_CONQUER_PLAN.md). Phase 4 awaits approval. Image generation/editing, research and other held work remain on hold.
 
 ## 1. Purpose and authority
 
