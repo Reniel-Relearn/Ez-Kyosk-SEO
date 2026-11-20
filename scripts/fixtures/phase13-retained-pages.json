@@ -1,0 +1,232 @@
+{
+  "/contact/": {
+    "title": "Request an Ez Kyosk Demo",
+    "description": "Request an Ez Kyosk self-ordering kiosk demo and discuss checkout, payments, inventory, order tracking, hardware, and configuration requirements.",
+    "text": [
+      "Let’s shape a clearerordering experience.",
+      "Share your business type, current workflow, and what you want customers or staff to accomplish. This helps frame a useful product conversation.",
+      "Walk through the current ordering and checkout experience.",
+      "Discuss payments, inventory, tracking, hardware, and integrations.",
+      "Identify configurable features and the information needed for a quotation.",
+      "Start the conversation.",
+      "Your name",
+      "Email address",
+      "Business name (optional)",
+      "Phone (optional)",
+      "Type of businessPlease selectCafé / Coffee shopBakery / Pastry shopRestaurant / Quick serviceRetail / ShopWellness / BeautyServices / B2BOther",
+      "What would you like to explore?",
+      "Leave empty",
+      "Please avoid sharing confidential information. Read the privacy notice before sending.",
+      "",
+      "From customer screen to operational flow.",
+      "Self-ordering journey and interface",
+      "POS and checkout requirements",
+      "AltPayNet payment paths",
+      "Real-time inventory and order tracking",
+      "Hardware, printing, and handoff needs",
+      "Reports, customers, loyalty, promotions, and custom features",
+      "Pricing and implementation scope depend on the approved requirements and quotation."
+    ],
+    "controls": [
+      {
+        "tag": "INPUT",
+        "attrs": [
+          [
+            "name",
+            "name"
+          ],
+          [
+            "autocomplete",
+            "name"
+          ],
+          [
+            "required",
+            ""
+          ],
+          [
+            "maxlength",
+            "100"
+          ]
+        ],
+        "text": ""
+      },
+      {
+        "tag": "INPUT",
+        "attrs": [
+          [
+            "type",
+            "email"
+          ],
+          [
+            "name",
+            "email"
+          ],
+          [
+            "autocomplete",
+            "email"
+          ],
+          [
+            "required",
+            ""
+          ],
+          [
+            "maxlength",
+            "254"
+          ]
+        ],
+        "text": ""
+      },
+      {
+        "tag": "INPUT",
+        "attrs": [
+          [
+            "name",
+            "business"
+          ],
+          [
+            "autocomplete",
+            "organization"
+          ],
+          [
+            "maxlength",
+            "150"
+          ]
+        ],
+        "text": ""
+      },
+      {
+        "tag": "INPUT",
+        "attrs": [
+          [
+            "name",
+            "phone"
+          ],
+          [
+            "type",
+            "tel"
+          ],
+          [
+            "autocomplete",
+            "tel"
+          ],
+          [
+            "maxlength",
+            "40"
+          ]
+        ],
+        "text": ""
+      },
+      {
+        "tag": "SELECT",
+        "attrs": [
+          [
+            "name",
+            "business_type"
+          ],
+          [
+            "required",
+            ""
+          ]
+        ],
+        "text": "Please selectCafé / Coffee shopBakery / Pastry shopRestaurant / Quick serviceRetail / ShopWellness / BeautyServices / B2BOther"
+      },
+      {
+        "tag": "TEXTAREA",
+        "attrs": [
+          [
+            "name",
+            "message"
+          ],
+          [
+            "required",
+            ""
+          ],
+          [
+            "maxlength",
+            "3000"
+          ],
+          [
+            "placeholder",
+            "Tell us about your menu or catalog, ordering flow, payments, integrations, and goals."
+          ]
+        ],
+        "text": ""
+      },
+      {
+        "tag": "INPUT",
+        "attrs": [
+          [
+            "name",
+            "_gotcha"
+          ],
+          [
+            "tabindex",
+            "-1"
+          ],
+          [
+            "autocomplete",
+            "off"
+          ]
+        ],
+        "text": ""
+      },
+      {
+        "tag": "BUTTON",
+        "attrs": [
+          [
+            "type",
+            "submit"
+          ]
+        ],
+        "text": "Preview inquiry ↗"
+      }
+    ],
+    "form": [
+      [
+        "method",
+        "POST"
+      ],
+      [
+        "data-live",
+        "false"
+      ]
+    ],
+    "links": [
+      {
+        "text": "privacy notice",
+        "href": "/Ez-Kyosk-SEO/privacy/",
+        "target": "",
+        "rel": ""
+      },
+      {
+        "text": "Explore Ez Kyosk ↗",
+        "href": "https://reniel-relearn.github.io/EZ-Kyosk/",
+        "target": "_blank",
+        "rel": "noopener"
+      }
+    ]
+  },
+  "/privacy/": {
+    "title": "Privacy Notice | Ez Kyosk",
+    "description": "Read how the Ez Kyosk website handles local-review inquiry information and which details must be confirmed before production inquiry processing is enabled.",
+    "text": [
+      "Your information.Handled with clarity.",
+      "Local-review notice · Updated 11 November 2026.",
+      "Information shown in the inquiry form",
+      "The form asks for a name, email address, business type, requirements message, and optional business name and phone number. In the default local-review configuration, this information stays in the browser and is not submitted by Ez Kyosk.",
+      "Why the form exists",
+      "The intended purpose is to receive product-demo and business-requirement inquiries. Production processing will not be enabled until the owner approves the form provider, processing purpose, privacy contact, retention period, and request-handling procedures.",
+      "Hosting and technical requests",
+      "A production hosting provider may process technical request information, such as an IP address, requested URL, browser details, and timestamps, to deliver and secure the website. The provider and applicable retention terms will be named before launch.",
+      "Fonts, analytics, and cookies",
+      "Website fonts are served locally. No analytics, advertising pixels, embedded videos, or non-essential cookie tools are enabled in this repository. If those tools are adopted later, this notice and any required consent controls must be updated first.",
+      "Access, correction, deletion, and contact",
+      "The responsible business identity, privacy contact, response procedure, and retention schedule are pending owner and legal confirmation. Those details must be added before production inquiry collection begins.",
+      "Local-review guidance",
+      "Do not enter sensitive, confidential, payment, medical, or identity-document information into the preview form. Use test information only while reviewing the website locally."
+    ],
+    "controls": [],
+    "form": null,
+    "links": []
+  }
+}

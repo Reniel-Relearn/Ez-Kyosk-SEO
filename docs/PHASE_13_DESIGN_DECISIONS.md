@@ -79,4 +79,4 @@ Implementation after approval: import a route-scoped retained-pages stylesheet f
 
 Verification after implementation: assert equal header/content margins at desktop widths, centered reading column, compact spacing, expected title sizing, no horizontal overflow and no clipped text at 320/390/768/1024/1440/1920px in both themes. Compare existing text/metadata/form attributes before and after. Run keyboard/skip/menu and no-JavaScript checks; no-send preview must issue zero POST requests. Use mocked successful and failed endpoint responses only, never real inquiry submissions. Verify the sidebar and all controls with accessibility checks and show local screenshots for review.
 
-Decision received: these exact presentation corrections are approved. Any CTA wording changes follow D's separate map; no privacy-policy rewrite is proposed. See the patch plan for implementation progress.
+Decision received: these exact presentation corrections are approved and implemented locally. Any CTA wording changes follow D's separate map; no privacy-policy rewrite was performed. See the patch plan for completed QA and local handoff.

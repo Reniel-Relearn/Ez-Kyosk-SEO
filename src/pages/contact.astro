@@ -1,11 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { sitePath } from '../lib/sitePath';
+import ContactProcessIcon from '../components/ContactProcessIcon.astro';
+import '../styles/retained-pages.css';
 const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT;
 const email = import.meta.env.PUBLIC_CONTACT_EMAIL;
 ---
-<Layout title="Request an Ez Kyosk Demo" description="Request an Ez Kyosk self-ordering kiosk demo and discuss checkout, payments, inventory, order tracking, hardware, and configuration requirements.">
-  <section class="page-hero text-hero contact-hero section-shell"><div class="page-hero-copy" data-reveal><span class="eyebrow">Request a Demo · Tell us about your operation</span><h1>Let’s shape a clearer<br /><span>ordering experience.</span></h1><p>Share your business type, current workflow, and what you want customers or staff to accomplish. This helps frame a useful product conversation.</p></div><div class="contact-points" data-reveal><div><span>01</span><p>Walk through the current ordering and checkout experience.</p></div><div><span>02</span><p>Discuss payments, inventory, tracking, hardware, and integrations.</p></div><div><span>03</span><p>Identify configurable features and the information needed for a quotation.</p></div></div></section>
+<Layout retainedPage title="Request an Ez Kyosk Demo" description="Request an Ez Kyosk self-ordering kiosk demo and discuss checkout, payments, inventory, order tracking, hardware, and configuration requirements.">
+  <section class="page-hero text-hero contact-hero section-shell"><div class="page-hero-copy" data-reveal><span class="eyebrow">Request a Demo · Tell us about your operation</span><h1>Let’s shape a clearer<br /><span>ordering experience.</span></h1><p>Share your business type, current workflow, and what you want customers or staff to accomplish. This helps frame a useful product conversation.</p></div><div class="contact-points" data-reveal><div><span><ContactProcessIcon kind="workflow" /></span><p>Walk through the current ordering and checkout experience.</p></div><div><span><ContactProcessIcon kind="operations" /></span><p>Discuss payments, inventory, tracking, hardware, and integrations.</p></div><div><span><ContactProcessIcon kind="quotation" /></span><p>Identify configurable features and the information needed for a quotation.</p></div></div></section>
   <section class="contact-section section-shell">
     <div class="contact-form-wrap" data-reveal>
       <span class="eyebrow">Your requirements</span><h2>Start the conversation.</h2>

@@ -67,7 +67,7 @@ The approved 50%-alpha header still needs a contrast decision before production;
 
 ## F. Request a Demo and Privacy Notice alignment
 
-Status: audit completed in 24 read-only route/width/theme samples. Exact measured mismatches and proposed corrections are documented in docs/PHASE_13_DESIGN_DECISIONS.md, scope F. Existing navigation/logo are already shared correctly; the verified issues are the older page margins, title scale, large vertical spacing, Contact number badges and Privacy's left-anchored reading block. No page presentation/copy changes applied; awaiting the required correction review.
+Status: owner approved the exact visual corrections. Implemented locally using a retained-page marker, scoped stylesheet and three decorative outline icons. Contact/Privacy header and section margins now share Home's 1200px boundary; compact section spacing/title sizing and centered Privacy reading column are applied. scripts/qa-retained-pages.mjs passes 24 layout/content comparisons against a committed pre-F fixture, eight scoped axe checks, four no-JavaScript pages and zero preview POSTs. Text, metadata, links, field attributes and form behavior preserved. Desktop/mobile screenshots visually inspected. Not published.
 
 New verified feedback: [issue #30 comment, 20 November 2026](https://github.com/Reniel-Relearn/Ez-Kyosk-SEO/issues/30#issuecomment-7040415383) requests checking and aligning the Request a Demo and Privacy Notice pages with the current website revisions. The relevant existing pages are src/pages/contact.astro and src/pages/privacy.astro. Record this as a separate scope, not an automatic extension of A.
 
@@ -79,4 +79,10 @@ Exact proposed local actions:
 4. Preserve truthful privacy disclosures and distinguish confirmed website behavior from production details still awaiting owner confirmation. Do not invent a provider, legal identity, retention period, privacy contact or legal assurance.
 5. Once the precise corrections are approved, implement and test locally in both themes and at mobile, tablet and desktop widths. Check form preview and mocked success/failure behavior without sending real inquiries. Present both pages for owner review before separate publication approval.
 
-Next: review local A/B and approve or revise the exact C/D/F proposals in docs/PHASE_13_DESIGN_DECISIONS.md. The owner has been asked for these outstanding selections. E remains held. Separate local commits record each letter's actual state; documentation-only proposals must not be described as implemented website fixes. No push, issue mutation or deployment is included.
+## Integrated local handoff
+
+A, B, C, D and F are implemented locally; E's explicit holds remain. C/D/F were each implemented after the owner's specific selections and committed separately from one another and A/B. Earlier documentation-only commits retain their history; implementation statuses above supersede those proposals, not the holds.
+
+Final Pages-shaped preview build and static verifier pass. Integrated site QA passes 36 layout checks and 24 sampled accessibility checks with no page errors or failed requests, zero preview POSTs, mocked form success/failure and keyboard controls passing. Final navigation regression passes 168 layouts, 72 section jumps, 16 legacy targets, 50 no-JavaScript checks and four normal-motion jumps; section-frame regression passes 68 checks. Title-glow regression passes again after integration. These samples do not override E's known scrolled-header contrast problem or constitute production accessibility certification.
+
+Local review: http://127.0.0.1:4323/Ez-Kyosk-SEO/ ; retained pages at contact/ and privacy/ under the same base. The preview remains noindex with robots Disallow:/. No real domain, form endpoint or analytics enabled. No push, issue mutation or deployment performed. Next: owner visual review of the integrated changes, then separate publication approval; decide E's header/asset scopes independently.

@@ -9,6 +9,7 @@ import { navigation } from '../data/navigation';
 
 const {
   homeHero = false,
+  retainedPage = false,
   legacy = false,
   title = 'Self-Ordering Kiosk Philippines | Ez Kyosk',
   description = 'Ez Kyosk is self-ordering kiosk software for Philippine hospitality, retail, wellness, and service businesses. Explore the product or request a demo.',
@@ -65,7 +66,7 @@ const schema = canonical ? {
     {schema && <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\u003c')} />}
     {(!Astro.site || legacy) && <meta name="robots" content="noindex, nofollow" />}
   </head>
-  <body data-home-hero={homeHero ? 'true' : undefined} data-home-url={sitePath('/')}>
+  <body data-home-hero={homeHero ? 'true' : undefined} data-retained-page={retainedPage ? 'true' : undefined} data-home-url={sitePath('/')}>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header" data-site-header>
       <BrandLogo eager />

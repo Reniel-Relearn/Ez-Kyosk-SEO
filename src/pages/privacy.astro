@@ -1,8 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import '../styles/retained-pages.css';
 const live = Boolean(import.meta.env.PUBLIC_FORM_ENDPOINT);
 ---
-<Layout title="Privacy Notice | Ez Kyosk" description="Read how the Ez Kyosk website handles local-review inquiry information and which details must be confirmed before production inquiry processing is enabled.">
+<Layout retainedPage title="Privacy Notice | Ez Kyosk" description="Read how the Ez Kyosk website handles local-review inquiry information and which details must be confirmed before production inquiry processing is enabled.">
   <section class="page-hero text-hero legal-hero section-shell"><div class="page-hero-copy"><span class="eyebrow">Privacy · Clear by design</span><h1>Your information.<br /><span>Handled with clarity.</span></h1><p>Local-review notice · Updated 11 November 2026.</p></div></section>
   <article class="legal-content section-shell">
     <div class="notice">{live ? 'An inquiry endpoint is configured in this environment. The provider, purpose, retention period, access arrangements, and privacy contact still require owner confirmation before public launch.' : 'This local-review version does not transmit or save information entered in the inquiry form.'}</div>

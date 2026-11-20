@@ -1,0 +1,31 @@
+/* Phase 13 F: Contact and Privacy only; preserve form and legal content. */
+body[data-retained-page] {
+  --retained-inline-space: max(20px, calc((100% - 1200px) / 2));
+  --retained-section-space: clamp(32px, 4vw, 56px);
+}
+body[data-retained-page] :is(.site-header, .site-footer),
+body[data-retained-page] main > .section-shell:not(.legal-content) {
+  padding-inline: var(--retained-inline-space);
+}
+body[data-retained-page] .page-hero,
+body[data-retained-page] .contact-section {
+  min-height: 0;
+  padding-block: var(--retained-section-space);
+}
+body[data-retained-page] .page-hero h1 {
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.12;
+}
+body[data-retained-page] .contact-points svg { display: block; }
+body[data-retained-page] :is(.contact-form-wrap, .contact-aside) { min-width: 0; }
+body[data-retained-page] .contact-form-wrap { background: var(--surface); }
+body[data-retained-page] .contact-aside .button { max-width: 100%; }
+body[data-retained-page] .legal-content {
+  width: min(calc(100% - 40px), 960px);
+  max-width: none;
+  margin-inline: auto;
+  padding: 0 0 var(--retained-section-space);
+  text-align: left;
+}
+body[data-retained-page] .legal-content section { padding-block: 28px; }
+body[data-retained-page] .legal-content p { max-width: none; }
