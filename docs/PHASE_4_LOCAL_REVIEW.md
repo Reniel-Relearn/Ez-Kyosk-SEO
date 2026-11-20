@@ -6,6 +6,18 @@ Status: local result and compact-spacing refinement accepted, published and live
 
 Local review: http://127.0.0.1:4323/Ez-Kyosk-SEO/
 
+## Post-release local correction requested during Phase 5 review
+
+Publication approval, 20 November: the owner accepted the final continuous-heading/clear-word-spacing correction and requested its own commit and push, separate from Phase 5. Verification of that release is pending. Earlier local-only/two-line notes below are historical; the final title has no forced break. Phase 5 and subsequent implementation authority follow the latest roadmap, not older status statements in this release-history document.
+
+Latest direction, 20 November: the owner prefers “Powerful features. Stronger together.” as one continuous heading. Removed the forced break and its narrow-phone sizing exception; retained clearer word spacing. It is one line on suitable desktop widths and wraps naturally on phones without overflow. This supersedes the two-line direction/history below. Changes remain local and preserve ongoing Phase 5 work.
+
+Latest verification: build/static checks, 640 platform alignment cases (including single-line desktop rendering, word gap and no overflow) and the Phase 5 recheck (36 layouts, 180 panel cases, ten detail links) passed. No browser errors or source/image preservation failures. Desktop measurement/capture confirms one rendered line. No commit, push or deployment performed for this correction.
+
+20 November: heading now explicitly breaks after “Powerful features.”, with “Stronger together.” on the second line. Source inspection confirmed an existing normal word space; scoped word spacing is slightly increased to make that separation visually clear. The sentences/meaning remain unchanged. This correction is local only and does not change the published Phase 4 release record or authorize deployment. Existing Phase 5 work remains intact. Heading tests now check the explicit break, two rendered lines and a visible measured gap between Stronger and together across responsive widths/themes.
+
+At widths up to 360px, only this heading's font size scales slightly lower so both sentences remain single lines (30.4px at a 320px viewport). Build/static verification and 640 platform alignment cases passed, including explicit two-line/word-gap assertions and no-JavaScript behavior. Phase 5 recheck passed 36 layouts, 180 panel cases and ten detail links, with original source/image preservation. Phone/desktop heading captures under ignored `artifacts/phase4/heading-*.png` were visually checked. No push or deployment performed.
+
 ## Implemented scope
 
 Owner-requested local spacing refinement: Phase 4 top and bottom padding now match Phase 3 at responsive 32–56px per side, replacing the shared 76–140px spacing. Side margins, internal card spacing, images, text and disclosure behavior are unchanged. The responsive alignment suite checks both compact padding values in every width/theme case.

@@ -121,7 +121,17 @@ try {
     });
     for (const theme of ['light', 'dark']) {
       await alignedPage.evaluate(theme => document.documentElement.dataset.theme = theme, theme);
-      assert.equal(await alignedPage.locator('#platform-title').textContent(), 'Powerful features. Stronger together.');
+      assert.equal((await alignedPage.locator('#platform-title').innerText()).replace(/\s+/g,' '), 'Powerful features. Stronger together.');
+      assert.equal(await alignedPage.locator('#platform-title br').count(),0,'no forced heading break');
+      const headingLines=await alignedPage.locator('#platform-title').evaluate(el=>{
+        const node=el.firstChild,index=node.textContent.indexOf('Stronger'),range=document.createRange();range.selectNodeContents(node);
+        const word=(start,end)=>{const r=document.createRange();r.setStart(node,start);r.setEnd(node,end);return r.getBoundingClientRect();};
+        const stronger=word(index,index+7),together=word(index+8,index+16);
+        return {lines:range.getClientRects().length,overflow:el.scrollWidth>el.clientWidth,sameWordLine:Math.abs(stronger.top-together.top)<1,wordGap:together.left-stronger.right};
+      });
+      if(width>1180) assert.equal(headingLines.lines,1,'single-line desktop heading');
+      assert.equal(headingLines.overflow,false,'heading wraps naturally without overflow');
+      if(headingLines.sameWordLine) assert.ok(headingLines.wordGap>=3,'visible space between Stronger and together');
       const presentation = await alignedPage.locator('.platform-section').evaluate(section => {
         const heading=section.querySelector('.section-heading'),intro=heading.querySelector('p'),r=intro.getBoundingClientRect();
         const heroStyle=getComputedStyle(document.querySelector('.home-hero')),sectionStyle=getComputedStyle(section);
