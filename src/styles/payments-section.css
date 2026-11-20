@@ -1,0 +1,47 @@
+/* Phase 6: Home payment presentation only; retain both original raster assets. */
+body[data-home-hero] #payments { padding-block: clamp(32px, 4vw, 56px); }
+body[data-home-hero] #payments .section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+body[data-home-hero] #payments .section-heading .eyebrow { justify-content: center; }
+body[data-home-hero] #payments .section-heading h2 {
+  font-size: clamp(34px, 3.6vw, 52px);
+  line-height: 1.12;
+}
+body[data-home-hero] #payments .section-heading > p {
+  width: 100%;
+  max-width: 80ch;
+  justify-self: center;
+  margin: 0 auto;
+}
+body[data-home-hero] #payments .payment-copy {
+  min-width: 0;
+  text-align: center;
+}
+body[data-home-hero] #payments .payment-copy > .text-link {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+}
+/* Keep the complete label and arrow inside the narrow desktop copy column,
+   including hover: this scoped gap overrides the shared expanding-link gap. */
+body[data-home-hero] #payments .payment-card--online .payment-copy > .text-link {
+  white-space: nowrap;
+  gap: 6px;
+}
+/* Flexible media columns accept later approved artwork without a fixed-size box.
+   Do not crop/transform current media or change the online image's bottom anchor. */
+body[data-home-hero] #payments :is(.terminal-art--image, .phone-art--image) {
+  min-width: 0;
+  max-width: 100%;
+}
+body[data-home-hero] #payments :is(.payment-terminal-image, .payment-online-image) {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}

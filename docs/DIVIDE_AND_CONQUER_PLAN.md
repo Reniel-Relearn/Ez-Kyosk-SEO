@@ -4,7 +4,7 @@ Date: 18 November 2026, Asia/Manila.
 
 Companion: [Revision architecture](ARCHITECTURE.md).
 
-Status: PHASES 1-5 COMPLETE and live verified on 20 November, including separately pushed Phase 4 fix ca34718 and Phase 5 source 9b03f6b; see [release evidence](PHASE_5_RELEASE.md). Phase 6 is approved locally only; do not publish it. Later phases and held work remain unapproved. Previous freezes/page plans are historical where superseded by the latest owner decisions.
+Status: PHASES 1-5 complete and live verified. Phase 6 accepted for publication on 20 November; live verification in progress; see [accepted review](PHASE_6_LOCAL_REVIEW.md). Phase 7 is approved for subsequent local implementation only. Later phases and held work remain unapproved. Previous freezes/page plans are historical where superseded by the latest owner decisions.
 
 ## Workflow for every phase
 
@@ -145,7 +145,7 @@ Files: ProductExplorer, scoped product styles, approved display/link data change
 
 ## Phase 6: Payments with AltPayNet
 
-Approved on 20 November for local implementation and owner review only after the verified Phase 5 release. Do not publish Phase 6 source or change held payment rasters. Stop for local review and separate deployment approval.
+Local Phase 6 result, including the one-line action correction, accepted on 20 November and publication authorized. Verify live before closure. Image corrections remain held. Phase 7 is then authorized locally only.
 
 ### Exact actions
 
@@ -164,7 +164,7 @@ Files: PaymentShowcase HTML/scoped CSS and layout tests. No marketing-site payme
 
 1. Retain Hospitality & food, Retail & shops, Wellness & beauty, Services & B2B and their approved photos.
 2. Center section introduction/card headings and refine spacing, preserving category badges, readable descriptions and image proportions. Align section top/bottom spacing with the shared compact Phase 3/4 baseline (32-56px per side), preserving hero-aligned side margins and readable navigation landing.
-3. Use Home Solutions navigation and meaningful internal industry targets where compatibility needs them, without normal hash URLs.
+3. Retain the approved Home Industries navigation label and meaningful internal industry targets. Legacy Solutions routes remain compatibility forwards to these targets, not a renamed navigation item or separate content page. Keep normal enhanced section navigation hash-free.
 4. Verify reviewed use-case Contact actions; remove surviving retired-Solutions links or pointless self-links.
 5. Test four/two/one-column behavior, row alignment, focus, loading and themes. Do not imply every workflow is a standard inclusion.
 6. Integrate locally, review, obtain deployment approval and verify live. Next: Phase 8.

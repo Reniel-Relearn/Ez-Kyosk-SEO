@@ -2,6 +2,10 @@
 
 ## Latest direction: 20 November 2026
 
+Publication gate: owner accepted Phase 6 including the one-line online-payment action and authorized push/deployment, followed by local Phase 7 implementation. Verify the Phase 6 live release before advancing; do not deploy Phase 7. Preserve all held rasters and image assignments. The Phase 7 plan now explicitly retains the approved Industries navigation label while supporting old Solutions links as compatibility forwards. Earlier Phase 6 local-only status below is historical.
+
+Current local review: Phase 6 payment presentation is implemented and verified locally (centered headings/copy/actions, compact spacing, preserved facts/photos/wrist fit and flexible media containers). See [Phase 6 review](PHASE_6_LOCAL_REVIEW.md). Source is not committed/pushed; live remains verified Phase 5. Review locally and obtain separate Phase 6 publication approval. Later phase implementation and held image work remain unapproved.
+
 Current closure: Phase 4 heading correction ca34718 and Phase 5 source 9b03f6b were separately committed, pushed, deployed and live verified. Phase 5 is COMPLETE; see [release evidence](PHASE_5_RELEASE.md). Phase 6 is now approved for local implementation/review only; live remains through Phase 5 until separate publication approval. Holds and no-issue-write boundary remain in force. Earlier release-in-progress/local-only Phase 5 records are historical.
 
 Release gate: owner accepted Phase 5 and the final Phase 4 single-line heading/spacing correction, requesting separate commits/pushes. Publish and verify live through Phase 5, then implement Phase 6 locally only. Phase 6 payment raster corrections remain held. Report separate live/local URLs; do not publish Phase 6 source or mutate GitHub issues. Earlier local-only authority below is superseded by this instruction.
