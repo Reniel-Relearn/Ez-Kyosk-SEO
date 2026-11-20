@@ -67,6 +67,8 @@ The approved 50%-alpha header still needs a contrast decision before production;
 
 ## F. Request a Demo and Privacy Notice alignment
 
+Status: audit completed in 24 read-only route/width/theme samples. Exact measured mismatches and proposed corrections are documented in docs/PHASE_13_DESIGN_DECISIONS.md, scope F. Existing navigation/logo are already shared correctly; the verified issues are the older page margins, title scale, large vertical spacing, Contact number badges and Privacy's left-anchored reading block. No page presentation/copy changes applied; awaiting the required correction review.
+
 New verified feedback: [issue #30 comment, 20 November 2026](https://github.com/Reniel-Relearn/Ez-Kyosk-SEO/issues/30#issuecomment-7040415383) requests checking and aligning the Request a Demo and Privacy Notice pages with the current website revisions. The relevant existing pages are src/pages/contact.astro and src/pages/privacy.astro. Record this as a separate scope, not an automatic extension of A.
 
 Exact proposed local actions:
@@ -77,4 +79,4 @@ Exact proposed local actions:
 4. Preserve truthful privacy disclosures and distinguish confirmed website behavior from production details still awaiting owner confirmation. Do not invent a provider, legal identity, retention period, privacy contact or legal assurance.
 5. Once the precise corrections are approved, implement and test locally in both themes and at mobile, tablet and desktop widths. Check form preview and mocked success/failure behavior without sending real inquiries. Present both pages for owner review before separate publication approval.
 
-Next: approve a selected local implementation scope individually. A's two-pulse visual behavior is agreed, while this turn updates documentation only. B remains separate; palette/CTA choices and F's exact page corrections need their own review. No website patch, issue mutation or deployment is included in this documentation update.
+Next: review local A/B and approve or revise the exact C/D/F proposals in docs/PHASE_13_DESIGN_DECISIONS.md. The owner has been asked for these outstanding selections. E remains held. Separate local commits record each letter's actual state; documentation-only proposals must not be described as implemented website fixes. No push, issue mutation or deployment is included.

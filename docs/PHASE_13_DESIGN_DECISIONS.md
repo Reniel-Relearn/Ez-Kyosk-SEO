@@ -55,3 +55,28 @@ Visual system after approval: use existing blue/on-blue filled controls for prim
 Verification after implementation: compare rendered accessible labels and exact hrefs across all six routes; both themes and mobile/tablet/desktop; primary/secondary rest/hover/focus/pressed/disabled states; form preview plus mocked success/failure without real inquiries. Validate that any retained long label wraps safely on phones.
 
 Decision needed: approve the exact old-to-new label map and role treatment before copy/style changes. The Offers wording currently comes from an approved earlier phase, so this proposal does not silently override it.
+
+## F. Verified retained-page mismatches and exact corrections
+
+Read-only browser evidence: scripts/qa-page-alignment-audit.mjs; 24 route/width/theme samples at 390, 768, 1440 and 1920px; screenshots and measured results in ignored artifacts/phase13/page-alignment. No horizontal overflow was observed. Both pages already share the correct seven-destination navigation and supplied logo; do not rebuild or replace those components.
+
+At 1440px viewport, measured in light mode:
+
+| Element | Existing measured state | Proposed correction |
+| --- | --- | --- |
+| Home header and Hero | 120px equal content margins, 1200px content boundary | Reference only; do not alter Home |
+| Contact and Privacy headers | 36px equal content margins | Scope the same centered 1200px content boundary to these two routes |
+| Contact Hero | 36px content margins; 115.2px top/bottom padding; minimum height 680px; h1 82px | Equal Home-aligned content margins; padding clamp(32px,4vw,56px); remove legacy minimum height; h1 clamp(34px,4vw,52px) with 1.12 line height |
+| Contact form section | 36px content margins; 129.6px top/bottom padding | Same 1200px content boundary and compact 32-56px section spacing; retain accessible field sizing and two-column desktop / stacked mobile structure |
+| Contact information badges | Visible 01, 02, 03 | Three decorative inline outline icons for workflow, payment/operations and quotation; retain all three explanatory paragraphs in order; no raster generation |
+| Privacy Hero | 36px margins; 115.2px top/bottom padding; minimum height 460px; h1 82px | Home-aligned content margins; compact 32-56px padding and same title scale; no fixed/minimum hero height |
+| Privacy reading block | 980px outer width anchored at x=0; content edges 36px and 496px from viewport edges | Full-width background with centered readable column: width min(100% - 40px, 960px), margin-inline:auto, no asymmetric inner gutter; retain left-aligned paragraphs and natural line endings |
+| Both page colors | Existing shared blue/cyan theme tokens | Retain tokens and use page/surface plus text/muted tokens consistently; Contact aside may remain a deliberate dark panel with inverse text/links |
+
+Keep existing visible headings, paragraphs, page titles, descriptions, field labels, required/optional flags, input lengths, honeypot, validation, status announcements, endpoint conditions and success/failure handling. Do not stamp a new legal revision date merely for a CSS edit. Keep current factual privacy caveats; do not add legal identity, provider retention promises or production data collection. The header's 50% transparency and contrast issue remain E's separate decision.
+
+Implementation after approval: import a route-scoped retained-pages stylesheet from Contact and Privacy; mark only those page bodies or their existing route wrappers for scoping; adjust presentation without altering other routes. Add three decorative SVG icons inline or via the existing icon approach, with aria-hidden and no new focusable controls. Preserve branding assets and the shared navigation script. The form privacy link stays inline.
+
+Verification after implementation: assert equal header/content margins at desktop widths, centered reading column, compact spacing, expected title sizing, no horizontal overflow and no clipped text at 320/390/768/1024/1440/1920px in both themes. Compare existing text/metadata/form attributes before and after. Run keyboard/skip/menu and no-JavaScript checks; no-send preview must issue zero POST requests. Use mocked successful and failed endpoint responses only, never real inquiry submissions. Verify the sidebar and all controls with accessibility checks and show local screenshots for review.
+
+Decision needed: approve these exact presentation corrections before implementation. Any CTA wording changes follow D's separate map; no privacy-policy rewrite is proposed.
