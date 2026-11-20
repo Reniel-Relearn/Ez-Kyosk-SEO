@@ -37,6 +37,8 @@ Separate future launch decision, not automatically included in B: configured bui
 
 ## C. Section-background alternation brief
 
+Status: exact section-by-section proposal prepared in docs/PHASE_13_DESIGN_DECISIONS.md, scope C. No palette changes applied; awaiting the required map/ending selection.
+
 Verified #30 visual request is not implemented uniformly. Suggested review mapping, not an applied change:
 
 - Preserve approved Hero/header gradient composition.
