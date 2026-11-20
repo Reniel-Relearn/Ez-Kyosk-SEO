@@ -4,7 +4,7 @@ Date: 18 November 2026, Asia/Manila.
 
 Companion: [Revision architecture](ARCHITECTURE.md).
 
-Status: PHASES 1-6 COMPLETE and live verified; Phase 6 source 57c504e deployed and verified on 20 November; see [closure](PHASE_6_RELEASE.md). Phase 7 is implemented and verified locally, ready for [owner review](PHASE_7_LOCAL_REVIEW.md), NOT published. Later phases and held work remain unapproved. Previous freezes/page plans are historical where superseded by the latest owner decisions.
+Status: PHASES 1-7 COMPLETE and live verified; Phase 7 source dfde5f7 deployed and verified on 20 November; see [closure](PHASE_7_RELEASE.md). Phase 8 is approved locally only. Later phases and held work remain unapproved. Previous freezes/page plans are historical where superseded by the latest owner decisions.
 
 ## Workflow for every phase
 
@@ -162,7 +162,7 @@ Files: PaymentShowcase HTML/scoped CSS and layout tests. No marketing-site payme
 
 Approved on 20 November for local implementation/review after the verified Phase 6 release. Keep the actual navigation label Industries. Do not deploy Phase 7 or generate/edit photos without later approval.
 
-Local implementation and QA complete; see [Phase 7 review](PHASE_7_LOCAL_REVIEW.md). Centered headings/introduction, compact spacing and existing Contact actions verified; corrected an existing accessible-name mismatch without visible wording changes. Photos/badges/industry facts preserved. Await owner review and separate publication approval before phase closure.
+COMPLETE: accepted Phase 7 source dfde5f7 deployed and live verified; see [closure](PHASE_7_RELEASE.md). Actions below record accepted scope; photos/badges/industry facts preserved.
 
 ### Exact actions
 
@@ -177,13 +177,15 @@ Files: Home industry section, IndustryCard, scoped styles and use-case destinati
 
 ## Phase 8: How Ez Kyosk works
 
+Approved on 20 November for local implementation/review after verified Phase 7 publication. No Phase 8 deployment or image generation/editing authorized. The minimal caption correction is: "After payment, optionally scan the order-tracking QR to view order status." Keep all six titles and other descriptions/FAQ unchanged.
+
 Phase 2 local-review exception: the owner-approved complete-frame navigation refinement already introduces one six-card desktop row at 1181px and above, with tighter readable spacing. Preserve that accepted direction when reviewing this phase; do not reset it to the earlier three-column desktop layout. Remaining Phase 8 review/factual-caption actions still require approval.
 
 ### Exact actions
 
 1. Retain six steps in order: Start & Select; Review & Edit Order; Choose How to Pay; Scan Your Tracking QR; Track Your Queue Status; Collect Your Order.
 2. Center title/introduction/card headings; preserve the six approved images and sequence. Align section top/bottom spacing with the shared compact Phase 3/4 baseline (32-56px per side) and retain hero-aligned side margins; verify complete-frame navigation or natural scrolling at each breakpoint.
-3. Use a readable single horizontal six-card row on suitable desktop widths, initially 1280px and above. Reduce media/type/spacing proportionately, not through clipping or a scrolling carousel.
+3. Preserve the accepted readable single horizontal six-card row at 1181px and above. Reduce media/type/spacing proportionately, not through clipping or a scrolling carousel.
 4. Reflow to practical three/two-column tablet layouts and one vertical phone column. At zoom/narrow widths, prioritize readable reflow over forcing six columns.
 5. Keep payment before tracking, optional cashier cash and optional QR scanning. Include any minimal correction to compulsory-sounding QR caption text in this phase's exact-copy approval; do not silently rewrite FAQ answers.
 6. Preserve the ordered list and visible text outside images. Remove any surviving retired-guide CTA rather than creating another duplicate walkthrough.

@@ -2,9 +2,9 @@
 
 Date: 20 November 2026, Asia/Manila.
 
-Status: owner accepted the local result and authorized Phase 7 push/deployment on 20 November, followed by local Phase 8 implementation. Publication in progress; do not mark complete until live verification. Review details below record the accepted implementation. Earlier local-only status is superseded by this approval.
+Status: owner accepted the local result; Phase 7 source dfde5f7 is now deployed and verified live. See [release and closure](PHASE_7_RELEASE.md). Review details below record implementation history. Phase 8 is approved locally only.
 
-- Live through Phase 6: https://reniel-relearn.github.io/Ez-Kyosk-SEO/
+- Live through Phase 7: https://reniel-relearn.github.io/Ez-Kyosk-SEO/
 - Local through Phase 7: http://127.0.0.1:4323/Ez-Kyosk-SEO/
 
 ## Implemented scope
