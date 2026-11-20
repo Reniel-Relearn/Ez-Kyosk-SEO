@@ -39,7 +39,7 @@ Separate future launch decision, not automatically included in B: configured bui
 
 ## C. Section-background alternation brief
 
-Status: exact section-by-section proposal prepared in docs/PHASE_13_DESIGN_DECISIONS.md, scope C. No palette changes applied; awaiting the required map/ending selection.
+Status: owner approved the exact map and dark ending exception. Implemented locally in src/styles/home-surfaces.css. scripts/qa-home-surfaces.mjs passes 12 theme/width layouts, four main-scoped axe checks, hover icon colors and two no-JavaScript checks. Hero/header and final CTA gradients preserved. Not published.
 
 Verified #30 visual request is not implemented uniformly. Suggested review mapping, not an applied change:
 
@@ -49,7 +49,7 @@ Verified #30 visual request is not implemented uniformly. Suggested review mappi
 - Keep brand blue/subtle cyan accents and all assets/layout/copy unchanged. Test rest/hover/text/icon contrast, card/background separation, theme persistence and no-JavaScript.
 - Do not include a header-opacity change in this patch without separately approving it.
 
-Needs owner selection/approval of the exact full section map and ending exception before local implementation. This is not a broken-route fix.
+Owner selection received: the complete map and ending exception in docs/PHASE_13_DESIGN_DECISIONS.md are approved. This is a presentation revision, not a broken-route fix.
 
 ## D. CTA consistency brief
 

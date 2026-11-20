@@ -1,0 +1,33 @@
+/* Phase 13 C: approved alternating surfaces; no layout, Hero or header changes. */
+body[data-home-hero] {
+  --home-base-surface: #ffffff;
+  --home-alt-surface: #f5f5f5;
+  --home-card-surface: #ffffff;
+}
+html[data-theme='dark'] body[data-home-hero] {
+  --home-base-surface: #080d16;
+  --home-alt-surface: #111827;
+  --home-card-surface: var(--surface-raised);
+}
+body[data-home-hero] :is(.benefits-section, #products, #how-it-works, .faq-section) {
+  background: var(--home-alt-surface);
+}
+body[data-home-hero] :is(.platform-section, #payments, #industries, #about-us) {
+  background: var(--home-base-surface);
+}
+body[data-home-hero] :is(#products, #how-it-works) .section-heading h2 {
+  color: var(--text);
+}
+body[data-home-hero] :is(#products, #how-it-works) .section-heading > p {
+  color: var(--text-muted);
+}
+body[data-home-hero] :is(#products, #how-it-works) .section-heading .eyebrow {
+  color: var(--blue);
+}
+body[data-home-hero] :is(.benefit-grid, .platform-card--expandable, .product-panel, .payment-card, .customer-journey-card, .industry-card),
+body[data-home-hero] #about-us .value-grid article {
+  background: var(--home-card-surface);
+}
+body[data-home-hero] .product-tabs,
+body[data-home-hero] .product-tabs button { border-color: var(--line); }
+body[data-home-hero] .product-tabs button:hover .product-tab-icon { color: var(--on-blue); }
