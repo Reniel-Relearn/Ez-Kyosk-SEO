@@ -2,7 +2,7 @@
 
 Date: 20 November 2026, Asia/Manila.
 
-Status: owner accepted Phase 6, including the one-line online-payment action fix, and authorized publication on 20 November. Verify live before phase closure. Phase 7 is approved for subsequent local implementation only. Held payment-artwork corrections remain unresolved.
+Status: Phase 6 COMPLETE for presentation scope, accepted, deployed and live verified on 20 November; see [release and closure](PHASE_6_RELEASE.md). Review steps below are implementation history. Phase 7 is approved locally only. Held payment-artwork corrections remain unresolved.
 
 - Live through Phase 5: https://reniel-relearn.github.io/Ez-Kyosk-SEO/
 - Local through Phase 6: http://127.0.0.1:4323/Ez-Kyosk-SEO/

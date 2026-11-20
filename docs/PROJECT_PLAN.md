@@ -2,6 +2,8 @@
 
 ## Latest direction: 20 November 2026
 
+Current closure: Phase 6 presentation source 57c504e is deployed and live verified. Both workflows, public document/style hashes, 52 payment layouts/104 card checks and 56 payment-image cases/four scoped accessibility scans passed. See [Phase 6 closure](PHASE_6_RELEASE.md). Phase 7 is approved locally only; keep live through Phase 6 until separate publication approval. Held image corrections remain unresolved. Earlier Phase 6 local-only/deployment-in-progress entries below are historical.
+
 Publication gate: owner accepted Phase 6 including the one-line online-payment action and authorized push/deployment, followed by local Phase 7 implementation. Verify the Phase 6 live release before advancing; do not deploy Phase 7. Preserve all held rasters and image assignments. The Phase 7 plan now explicitly retains the approved Industries navigation label while supporting old Solutions links as compatibility forwards. Earlier Phase 6 local-only status below is historical.
 
 Current local review: Phase 6 payment presentation is implemented and verified locally (centered headings/copy/actions, compact spacing, preserved facts/photos/wrist fit and flexible media containers). See [Phase 6 review](PHASE_6_LOCAL_REVIEW.md). Source is not committed/pushed; live remains verified Phase 5. Review locally and obtain separate Phase 6 publication approval. Later phase implementation and held image work remain unapproved.

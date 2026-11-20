@@ -2,7 +2,7 @@
 
 Date: 18 November 2026, Asia/Manila.
 
-Status: PHASES 1-5 complete and live verified. Phase 6 accepted for publication on 20 November; verification in progress; see [accepted review](PHASE_6_LOCAL_REVIEW.md). After live verification, Phase 7 is approved locally only. Companion: [Divide and Conquer step by step actions planning](DIVIDE_AND_CONQUER_PLAN.md). Image generation/editing, research and other held work remain on hold.
+Status: PHASES 1-6 COMPLETE and live verified; Phase 6 source 57c504e published on 20 November; see [closure](PHASE_6_RELEASE.md). Phase 7 is approved locally only. Companion: [Divide and Conquer step by step actions planning](DIVIDE_AND_CONQUER_PLAN.md). Image generation/editing, research and other held work remain on hold.
 
 ## 1. Purpose and authority
 

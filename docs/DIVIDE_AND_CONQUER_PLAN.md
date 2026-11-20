@@ -4,7 +4,7 @@ Date: 18 November 2026, Asia/Manila.
 
 Companion: [Revision architecture](ARCHITECTURE.md).
 
-Status: PHASES 1-5 complete and live verified. Phase 6 accepted for publication on 20 November; live verification in progress; see [accepted review](PHASE_6_LOCAL_REVIEW.md). Phase 7 is approved for subsequent local implementation only. Later phases and held work remain unapproved. Previous freezes/page plans are historical where superseded by the latest owner decisions.
+Status: PHASES 1-6 COMPLETE and live verified; Phase 6 source 57c504e deployed and verified on 20 November; see [closure](PHASE_6_RELEASE.md). Phase 7 is approved locally only. Later phases and held work remain unapproved. Previous freezes/page plans are historical where superseded by the latest owner decisions.
 
 ## Workflow for every phase
 
@@ -145,7 +145,7 @@ Files: ProductExplorer, scoped product styles, approved display/link data change
 
 ## Phase 6: Payments with AltPayNet
 
-Local Phase 6 result, including the one-line action correction, accepted on 20 November and publication authorized. Verify live before closure. Image corrections remain held. Phase 7 is then authorized locally only.
+COMPLETE: accepted local Phase 6 result, including the one-line action correction, deployed as 57c504e and live verified on 20 November; see [release record](PHASE_6_RELEASE.md). Actions below are retained as accepted scope. Image corrections remain held.
 
 ### Exact actions
 
@@ -159,6 +159,8 @@ Local Phase 6 result, including the one-line action correction, accepted on 20 N
 Files: PaymentShowcase HTML/scoped CSS and layout tests. No marketing-site payment processing is added.
 
 ## Phase 7: Solutions - Designed to adapt
+
+Approved on 20 November for local implementation/review after the verified Phase 6 release. Keep the actual navigation label Industries. Do not deploy Phase 7 or generate/edit photos without later approval.
 
 ### Exact actions
 
