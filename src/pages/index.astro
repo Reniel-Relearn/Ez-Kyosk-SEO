@@ -17,6 +17,7 @@ import '../styles/home-hero.css';
 import '../styles/section-frames.css';
 import '../styles/benefits.css';
 import '../styles/home-content.css';
+import '../styles/platform-section.css';
 import HomeAbout from '../components/HomeAbout.astro';
 
 const platforms = [
@@ -60,7 +61,7 @@ const industries: Array<['hospitality' | 'retail' | 'wellness' | 'services', str
   </section>
 
   <section class="platform-section section-shell" aria-labelledby="platform-title" data-reveal>
-    <div class="section-heading"><div><span class="eyebrow">One Connected Platform</span><h2 id="platform-title">From the first tap to the next task.</h2></div><p>Connect ordering and payments with order tracking and inventory visibility. Configure reporting around your business needs, with an optional cashier route for cash payments.</p></div>
+    <div class="section-heading"><div><span class="eyebrow">One Connected Platform</span><h2 id="platform-title">Powerful features. Stronger together.</h2></div><p>Connect ordering and payments with order tracking and inventory visibility. Configure reporting around your business needs, with an optional cashier route for cash payments.</p></div>
     <div class="platform-grid">{platforms.map(([number, title, body]) => {
       const image = platformImages[number];
       const widths = image?.portrait ? [270, 540, 1080] : [320, 640, 1280];

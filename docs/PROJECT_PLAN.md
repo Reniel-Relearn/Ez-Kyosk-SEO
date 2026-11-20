@@ -2,6 +2,10 @@
 
 ## Latest direction: 20 November 2026
 
+Publication gate: owner accepted Phase 4 including the compact 32-56px top/bottom spacing and authorized push, deployment and closure after live verification. Also add consistent compact vertical spacing to Phase 5 and subsequent section action plans, preserving hero-aligned side margins and the approved hero/header composition. Planning only for later phases: no Phase 5 implementation, image generation or issue writes authorized. This supersedes earlier Phase 4 local-only status below.
+
+Phase 4 is now approved for local implementation only. One Connected Platform retains its five photos, card titles/descriptions, hero-aligned side margins and native independent disclosures. Its h2 is now “Powerful features. Stronger together.”; section heading/intro and card title presentation are centered. See [Phase 4 local review](PHASE_4_LOCAL_REVIEW.md). No push, deployment, issue mutation or Phase 5 work authorized. This supersedes earlier records describing Phase 4 as unapproved.
+
 Current closure: Phase 3 is COMPLETE. Source commit 6117fc3 deployed successfully; both GitHub workflows passed. Public documents/styles match the approved build, and live benefits (32 layouts), shared margins (40 layouts) and section frames (68 checks) passed. See [Phase 3 release and next-phase actions](PHASE_3_RELEASE.md). Phase 4 awaits approval; all held work remains held. This supersedes local-only/deployment-in-progress records below.
 
 Publication gate: the owner accepted Phase 3 including shared hero-aligned Home margins and reduced benefits vertical spacing, and authorized push, deployment and phase closure. Publish only approved Phase 3 source/tests/status documents; verify Pages and live output before recording completion. No issue writes or Phase 4 implementation authorized by this release request. Earlier local-only status below is historical.

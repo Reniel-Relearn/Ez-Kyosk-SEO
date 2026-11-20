@@ -2,6 +2,7 @@ import { chromium } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import assert from 'node:assert/strict';
 import { mkdir, writeFile } from 'node:fs/promises';
+import { assertPhase2Preservation } from './phase2-preservation.mjs';
 
 const base = process.env.QA_BASE_URL || 'http://127.0.0.1:4322/Ez-Kyosk-SEO';
 const prefix = process.env.QA_SCREENSHOT_PREFIX || 'platform-card-layout';
@@ -120,6 +121,17 @@ try {
     });
     for (const theme of ['light', 'dark']) {
       await alignedPage.evaluate(theme => document.documentElement.dataset.theme = theme, theme);
+      assert.equal(await alignedPage.locator('#platform-title').textContent(), 'Powerful features. Stronger together.');
+      const presentation = await alignedPage.locator('.platform-section').evaluate(section => {
+        const heading=section.querySelector('.section-heading'),intro=heading.querySelector('p'),r=intro.getBoundingClientRect();
+        const heroStyle=getComputedStyle(document.querySelector('.home-hero')),sectionStyle=getComputedStyle(section);
+        const compactPadding=Math.min(56,Math.max(32,innerWidth*.04));
+        return {compactSpacing:Math.abs(parseFloat(sectionStyle.paddingTop)-compactPadding)<.1&&Math.abs(parseFloat(sectionStyle.paddingBottom)-compactPadding)<.1,
+          headingCentered:getComputedStyle(heading).textAlign==='center',introCentered:Math.abs(r.left+r.width/2-innerWidth/2)<2,
+          sameMargins:heroStyle.paddingLeft===sectionStyle.paddingLeft&&heroStyle.paddingRight===sectionStyle.paddingRight,
+          titlesCentered:[...section.querySelectorAll('.platform-card-body h3')].every(n=>getComputedStyle(n).textAlign==='center'&&getComputedStyle(n).justifyContent==='center')};
+      });
+      assert.deepEqual(presentation,{compactSpacing:true,headingCentered:true,introCentered:true,sameMargins:true,titlesCentered:true});
       let collapsedHeights;
       // Every combination: all collapsed, all expanded, and all mixed states.
       for (let mask = 0; mask < 32; mask++) {
@@ -190,6 +202,7 @@ try {
   }
   await noJs.close();
   assert.deepEqual(errors, []);
-  await writeFile(`artifacts/${prefix}-report.json`, JSON.stringify({ results, alignment, accessibility, errors, withoutJavaScript: 'passed' }, null, 2));
-  console.log(JSON.stringify({ stateChecks: results.length, alignmentChecks: alignment.length, accessibilityScans: accessibility.length, errors, withoutJavaScript: 'passed' }));
+  const preservation=await assertPhase2Preservation();
+  await writeFile(`artifacts/${prefix}-report.json`, JSON.stringify({ results, alignment, accessibility, errors, preservation, withoutJavaScript: 'passed' }, null, 2));
+  console.log(JSON.stringify({ stateChecks: results.length, alignmentChecks: alignment.length, accessibilityScans: accessibility.length, errors, preservation, withoutJavaScript: 'passed' }));
 } finally { await browser.close(); }

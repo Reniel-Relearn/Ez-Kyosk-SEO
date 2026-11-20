@@ -4,11 +4,13 @@ Date: 18 November 2026, Asia/Manila.
 
 Companion: [Revision architecture](ARCHITECTURE.md).
 
-Status: PHASES 1 AND 2 LIVE VERIFIED. PHASE 3 COMPLETE: source release 6117fc3 deployed and live verified on 20 November 2026; [closure and evidence](PHASE_3_RELEASE.md). Phase 4 awaits explicit approval. Previous freezes/page plans are historical where superseded by the latest owner decisions.
+Status: PHASES 1-3 LIVE VERIFIED. Phase 4 accepted and authorized for publication on 20 November; verification in progress; see [accepted review](PHASE_4_LOCAL_REVIEW.md). Phase 5 and subsequent section plans now explicitly include consistent compact vertical spacing, but implementation remains unapproved. Previous freezes/page plans are historical where superseded by the latest owner decisions.
 
 ## Workflow for every phase
 
 Shared layout requirement, approved and published 20 November: Phase 3 and every succeeding Home section use the same centered content boundary and equal side margins as the hero/header (1200px maximum content width, minimum 20px gutters). This includes the final CTA and footer; backgrounds remain edge-to-edge. Preserve these boundaries in all later phases. Resize typography/cards only as needed for readable fit, retaining accessible controls, natural wrapping and responsive stacking. Other phase-specific changes still require approval.
+
+Additional spacing direction, 20 November: Phase 5 and subsequent section phases must align top/bottom whitespace with the accepted compact preceding sections. Use the Phase 3/4 responsive baseline, `padding-block: clamp(32px, 4vw, 56px)`, for regular section boundaries; keep the already approved hero/header composition, side gutters and content/card spacing intact. Do not assume the hero has identical symmetrical padding or reset it. Check actual visible whitespace between sections, both themes, mobile/zoom reflow and navigation landing; use natural scrolling if a whole content frame cannot fit. Later Offers/Articles section layouts should follow the same compact rhythm when their phases are approved. Record and review any necessary layout-specific exception rather than silently restoring oversized spacing. This is a planning requirement only for unapproved phases, not authority to implement them now.
 
 1. Present the phase's exact actions, boundaries, likely files, tests and completion criteria.
 2. Stop for owner approval. The first "approved, proceed" authorizes that specified local implementation only.
@@ -112,6 +114,8 @@ Files: Home benefits markup, existing icon presentation styles and targeted layo
 
 ## Phase 4: One Connected Platform
 
+Local result including compact spacing accepted on 20 November; publication authorized and verification in progress. Do not record phase completion until live verification passes. Photos, image-related issue requests and four-card restructuring remain on hold.
+
 ### Exact actions
 
 1. Retain One Connected Platform and the existing five-card structure.
@@ -129,10 +133,10 @@ Files: Home platform markup, PlatformImageCard styles and independent-expansion 
 ### Exact actions
 
 1. Retain the five-tab Home explorer, icons, categories, copy and current images. Do not import the removed Product page or its nine placeholders.
-2. Center section/subsection headings and supporting presentation; keep controls/lists readable and panel relationships intact.
+2. Center section/subsection headings and supporting presentation; keep controls/lists readable and panel relationships intact. Align Products top and bottom spacing to the accepted compact preceding sections, using the Phase 3/4 responsive 32-56px-per-side baseline; preserve hero-aligned side margins and verify actual gaps with adjacent sections.
 3. Preserve selection, pointer/Arrow/Home/End keyboard behavior, tab labels and mobile stacked content. Reveal/focus a relevant panel when an internal target requires it.
 4. Verify contact actions replace deleted-page links and do not point back to the same panel without useful effect.
-5. Test both themes, breakpoint/zoom reflow, image ratios, tabs/panels, no-JavaScript readability and no overflow. Keep existing rasters until references/asset approval.
+5. Test both themes, breakpoint/zoom reflow, image ratios, tabs/panels, no-JavaScript readability and no overflow. Assert responsive top/bottom spacing, preserved side margins and section-navigation framing below the sticky header; tall frames must scroll naturally without clipping. Keep existing rasters until references/asset approval.
 6. Integrate locally, review, obtain deployment approval and verify live. Report alignment/usability complete; overlap and realistic-image work remain held. Next: Phase 6.
 
 Files: ProductExplorer, scoped product styles, approved display/link data changes only and explorer regression tests. No new capability promises or Product page.
@@ -141,7 +145,7 @@ Files: ProductExplorer, scoped product styles, approved display/link data change
 
 ### Exact actions
 
-1. Center section/card headings and supporting HTML presentation. Retain compact cards, visible actions and current online-image wrist-to-bottom alignment.
+1. Center section/card headings and supporting HTML presentation. Align section top/bottom spacing with the shared compact Phase 3/4 baseline (32-56px per side) and retain hero-aligned side margins. Retain compact cards, visible actions and current online-image wrist-to-bottom alignment.
 2. Preserve payment facts and Contact actions. Removing GCash/Maya artwork marks later does not remove supported paths from the preserved FAQ.
 3. Prepare responsive media containers for the later terminal-only and revised-phone assets without collapsing text, adding overflow or publishing blank replacements.
 4. Do not crop, regenerate or edit either raster while held. Record the future terminal-only and phone-logo/content shift, with AltPayNet/Visa/Mastercard retained and GCash/Maya marks removed.
@@ -155,7 +159,7 @@ Files: PaymentShowcase HTML/scoped CSS and layout tests. No marketing-site payme
 ### Exact actions
 
 1. Retain Hospitality & food, Retail & shops, Wellness & beauty, Services & B2B and their approved photos.
-2. Center section introduction/card headings and refine spacing, preserving category badges, readable descriptions and image proportions.
+2. Center section introduction/card headings and refine spacing, preserving category badges, readable descriptions and image proportions. Align section top/bottom spacing with the shared compact Phase 3/4 baseline (32-56px per side), preserving hero-aligned side margins and readable navigation landing.
 3. Use Home Solutions navigation and meaningful internal industry targets where compatibility needs them, without normal hash URLs.
 4. Verify reviewed use-case Contact actions; remove surviving retired-Solutions links or pointless self-links.
 5. Test four/two/one-column behavior, row alignment, focus, loading and themes. Do not imply every workflow is a standard inclusion.
@@ -170,7 +174,7 @@ Phase 2 local-review exception: the owner-approved complete-frame navigation ref
 ### Exact actions
 
 1. Retain six steps in order: Start & Select; Review & Edit Order; Choose How to Pay; Scan Your Tracking QR; Track Your Queue Status; Collect Your Order.
-2. Center title/introduction/card headings; preserve the six approved images and sequence.
+2. Center title/introduction/card headings; preserve the six approved images and sequence. Align section top/bottom spacing with the shared compact Phase 3/4 baseline (32-56px per side) and retain hero-aligned side margins; verify complete-frame navigation or natural scrolling at each breakpoint.
 3. Use a readable single horizontal six-card row on suitable desktop widths, initially 1280px and above. Reduce media/type/spacing proportionately, not through clipping or a scrolling carousel.
 4. Reflow to practical three/two-column tablet layouts and one vertical phone column. At zoom/narrow widths, prioritize readable reflow over forcing six columns.
 5. Keep payment before tracking, optional cashier cash and optional QR scanning. Include any minimal correction to compulsory-sounding QR caption text in this phase's exact-copy approval; do not silently rewrite FAQ answers.
@@ -185,7 +189,7 @@ Files: Home journey/data only for specifically approved wording, JourneyCard lay
 ### Exact actions
 
 1. Preserve the current ten FAQ questions and answers exactly, not the older six-question screenshot.
-2. Center FAQ title/introduction while retaining usable question/indicator alignment, focus and independent native disclosures.
+2. Center FAQ title/introduction while retaining usable question/indicator alignment, focus and independent native disclosures. Align FAQ and About section top/bottom spacing with the shared compact Phase 3/4 baseline (32-56px per side), retaining hero-aligned side margins; test actual gaps in mixed/all-open states.
 3. Verify static answers, pointer/keyboard/no-JavaScript, long wrapping and all-open/mixed states.
 4. Refine the adapted About section introduced in Phase 2, after FAQs and before the existing demo/end content. Center approved headings/introduction and retain original website branding.
 5. Use existing approved purpose/principles material. No invented company history, credentials, clients, addresses or automatic package inclusions. Keep standalone About retired.
@@ -201,7 +205,7 @@ Files: FAQ presentation, adapted About component, scoped styles and exact-answer
 1. Retain the existing Home final demo CTA/footer as the contact/ending experience; no new Home form or unsolicited end section.
 2. Keep Contact and Privacy routes. Preserve fields, validation, honeypot, preview notices and unconfigured delivery boundary.
 3. Verify Request a Demo links reach Contact and the external kiosk demo works. Preserve header/footer identity.
-4. Center approved titles/supporting presentation and fix scoped spacing bugs without redesigning the inquiry workflow.
+4. Center approved titles/supporting presentation and fix scoped spacing bugs without redesigning the inquiry workflow. Align ending-section/footer whitespace with the shared compact Phase 3/4 rhythm (32-56px section-boundary baseline); preserve readable internal footer groups, hero-aligned Home side margins and existing Contact/Privacy functionality. Record any reviewed layout-specific exception.
 5. Audit footer links against the new map and retain Privacy access. No deleted content destinations or dummy anchors.
 6. Test keyboard, native validation and no-send preview. Configured-mode checks use intercepted mock outcomes, never real data delivery.
 7. Integrate locally, review, obtain deployment approval and verify live. Next: Phase 11.
@@ -219,7 +223,7 @@ Files: DemoCTA, Layout footer, Contact/Privacy only for necessary scoped layout/
 5. Keep terminal hardware, transaction fees, printers/additional equipment separately quoted where specified. Connectivity is not a promise of included printer hardware.
 6. Include YourAI only as the optional planned future upgrade with pricing/availability not finalized. No voice/assistant implementation or invented launch date.
 7. Send demo/quote/upgrade-interest actions to existing Contact with truthful labels. No purchasing backend, fake free-service automation or dead Learn more link.
-8. Use shared tokens, responsive semantic offer layouts and neutral placeholders where artwork is absent. Normalize Ez Kyosk casing and punctuation without changing meaning.
+8. Use shared tokens, responsive semantic offer layouts and neutral placeholders where artwork is absent. Normalize Ez Kyosk casing and punctuation without changing meaning. Plan compact section top/bottom spacing consistent with the Phase 3/4 32-56px baseline, without altering approved hero/header composition; verify responsive readability and document any reviewed exception.
 9. Test exact prices/limits/exclusions, mobile readability, headings/metadata, action links, preview controls and no fabricated Offer/Product schema. Flag any FAQ conflict without automatically changing the protected answers.
 10. Integrate locally, review full copy/layout, obtain deployment approval and verify live. Next: Phase 12.
 
@@ -234,7 +238,7 @@ Files: Offers route, optional structured offer data/components, scoped styles an
 3. Keep only usable Home/Contact/section destinations. Placeholder cards do not link to nonexistent posts or `#` targets.
 4. Do not fabricate researched titles, dates, authors, sources, excerpts, views or customer results. Do not add thin article-detail routes merely to fill a grid.
 5. Keep image generation, search/question research, article drafting and screenshot collection held; reserve visual space without generating assets.
-6. Test responsive spacing, centered headings, semantics/focus, Articles active state, clean Home navigation, unique index metadata and noindex. No Article schema for placeholders.
+6. Test responsive spacing, centered headings, semantics/focus, Articles active state, clean Home navigation, unique index metadata and noindex. Align section top/bottom spacing with the compact Phase 3/4 32-56px baseline and review layout-specific exceptions, preserving hero/header composition. No Article schema for placeholders.
 7. Integrate locally, review, obtain deployment approval and verify live. Report a wireframe, not a launched SEO article library. Next: Phase 13.
 
 Files: Articles route and minimal components/styles/tests. No CMS or publishing automation.
@@ -247,7 +251,7 @@ Files: Articles route and minimal components/styles/tests. No CMS or publishing 
 2. Recheck every header/footer/CTA/industry/product destination from primary/utility pages: clean URLs, offsets, compatibility, history/focus, storage failures and no-JavaScript content.
 3. Verify root/Pages builds, referenced assets, unique metadata, heading structure, truthful copy, punctuation and removal of duplicate old content pages.
 4. Verify future configured-site sitemap/canonical behavior without activating it on the preview. Retain noindex/nofollow, robots blocking, local fonts and no live analytics/form transmission.
-5. Run full responsive/theme, keyboard/menu, tabs/disclosures, journey, mocked-form, image-loading/performance and accessibility regressions. Record existing contrast failures; fix new regressions only within approved scope or return for review.
+5. Run full responsive/theme, keyboard/menu, tabs/disclosures, journey, mocked-form, image-loading/performance and accessibility regressions. Audit consistent compact top/bottom section spacing, shared side margins, reviewed exceptions and navigation framing. Record existing contrast failures; fix new regressions only within approved scope or return for review.
 6. Confirm original assets/deferred assignments were not accidentally changed and no new artwork/research/placeholder article is misrepresented as completed work.
 7. Produce an issue matrix: original comment, accepted action, implementation, evidence/release and held sub-actions. Image feedback remains partially pending where only layout/text changed.
 8. Present any integration fixes as an exact local patch scope, then obtain local/publication approval. This phase is not blanket authority to redesign earlier sections.

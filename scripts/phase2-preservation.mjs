@@ -8,7 +8,12 @@ export async function collectPhase2Preservation(){
   for(const name of ['home-hero','benefits-section','platform-section','faq-section']){
     const html=home.match(new RegExp(`<section class="${name}[^>]*>[\\s\\S]*?<\\/section>`))?.[0];
     assert.ok(html,`${name} present`);
-    sections[name]=hash(html.replace(/ id="home"| data-section-target(?:="true")?/g,''));
+    // Phase 4 explicitly approves only this h2 replacement. Keep the original
+    // golden hash protecting every other byte of platform copy/markup/artwork.
+    const normalized=name==='platform-section'
+      ? html.replace('<h2 id="platform-title">Powerful features. Stronger together.</h2>','<h2 id="platform-title">From the first tap to the next task.</h2>')
+      : html;
+    sections[name]=hash(normalized.replace(/ id="home"| data-section-target(?:="true")?/g,''));
   }
   const artwork=[...home.matchAll(/<img\b[^>]*>/g)].map(match=>match[0]);
   const sources=new Set(artwork.flatMap(html=>[...html.matchAll(/\/Ez-Kyosk-SEO\/([^"'\s,]+\.(?:webp|png|svg|jpg))/g)].map(m=>`dist/${decodeURIComponent(m[1])}`)));
@@ -20,7 +25,7 @@ export async function collectPhase2Preservation(){
 }
 export async function assertPhase2Preservation(){
   const baseline=JSON.parse(await readFile(new URL('./fixtures/home-phase2-preservation.json',import.meta.url),'utf8'));
-  assert.deepEqual(await collectPhase2Preservation(),baseline,'hero, benefits, platform, FAQs, all Home images and existing styles preserved');
-  return {unchangedSections:4,allHomeImagesUnchanged:true,protectedAssets:baseline.assetCount};
+  assert.deepEqual(await collectPhase2Preservation(),baseline,'protected sections preserved except explicitly normalized Phase 4 h2; all Home images and existing styles preserved');
+  return {comparedSections:4,approvedPlatformHeadingNormalization:true,allHomeImagesUnchanged:true,protectedAssets:baseline.assetCount};
 }
 if(process.argv.includes('--baseline')) console.log(JSON.stringify(await collectPhase2Preservation(),null,2));
