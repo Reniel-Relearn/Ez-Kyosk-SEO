@@ -10,7 +10,7 @@ interface Props {
 }
 const { id, title, description, imageStem, imageAlt = '' } = Astro.props;
 ---
-<a class="industry-card" id={`industry-${id}`} data-section-target href={sitePath('/contact/')} aria-label={`Discuss ${title} requirements`}>
+<a class="industry-card" id={`industry-${id}`} data-section-target href={sitePath('/contact/')}>
   <div class="industry-card-media" data-image-status={imageStem ? 'approved' : 'pending'}>
     {imageStem ? (
       <img class="industry-image" src={sitePath(`/assets/images/${imageStem}-640.webp`)}

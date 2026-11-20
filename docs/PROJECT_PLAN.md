@@ -2,6 +2,8 @@
 
 ## Latest direction: 20 November 2026
 
+Current local review: Phase 7 Designed to adapt / Industries is implemented and verified locally. Centered introduction/card headings and compact 32-56px spacing preserve approved photos, copy, badges, Contact links and responsive columns. Removed an existing whole-card accessible-name override that omitted visible text. See [Phase 7 review and QA](PHASE_7_LOCAL_REVIEW.md). Live remains Phase 6, independently hash-verified after the local build. Review Phase 7, then obtain separate publication approval; Phase 8 and held work remain unapproved. Earlier local Phase 6 records below are historical.
+
 Current closure: Phase 6 presentation source 57c504e is deployed and live verified. Both workflows, public document/style hashes, 52 payment layouts/104 card checks and 56 payment-image cases/four scoped accessibility scans passed. See [Phase 6 closure](PHASE_6_RELEASE.md). Phase 7 is approved locally only; keep live through Phase 6 until separate publication approval. Held image corrections remain unresolved. Earlier Phase 6 local-only/deployment-in-progress entries below are historical.
 
 Publication gate: owner accepted Phase 6 including the one-line online-payment action and authorized push/deployment, followed by local Phase 7 implementation. Verify the Phase 6 live release before advancing; do not deploy Phase 7. Preserve all held rasters and image assignments. The Phase 7 plan now explicitly retains the approved Industries navigation label while supporting old Solutions links as compatibility forwards. Earlier Phase 6 local-only status below is historical.

@@ -1,7 +1,9 @@
 import { chromium } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import assert from 'node:assert/strict';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { assertPhase2Preservation } from './phase2-preservation.mjs';
 
 const base = process.env.QA_BASE_URL || 'http://127.0.0.1:4323/Ez-Kyosk-SEO';
 const prefix = process.env.QA_SCREENSHOT_PREFIX || 'industry-complete-integrated';
@@ -14,6 +16,18 @@ const descriptions = [
   'Configure a customer-facing flow around the products, services, and approvals your operation needs.',
 ];
 const errors = [], layouts = [], accessibility = [];
+for (const [file, expected] of [
+  ['src/components/IndustryCard.astro', '8e4fbeebb70b4fc3d2801f6bd153c8dde1be831f2942a653bdfbfab62c498645'],
+  ['src/components/IndustryIcon.astro', '7887736637f1a214684c1ede02ecf8ebed529975438657ef54e15ace8a05102e'],
+]) {
+  let source = (await readFile(file, 'utf8')).replaceAll('\r\n', '\n');
+  // Only the audited accessible-name correction may differ from the original card.
+  if (file.endsWith('IndustryCard.astro')) source = source.replace(
+    'data-section-target href={sitePath(\'/contact/\')}>',
+    'data-section-target href={sitePath(\'/contact/\')} aria-label={`Discuss ${title} requirements`}>',
+  );
+  assert.equal(createHash('sha256').update(source).digest('hex'), expected, `${file} preserved except explicit accessible-name correction`);
+}
 await mkdir('artifacts', { recursive: true });
 const browser = await chromium.launch({ channel: 'msedge', headless: true });
 try {
@@ -45,7 +59,9 @@ try {
       for (const theme of ['light', 'dark']) {
         await page.evaluate(theme => document.documentElement.dataset.theme = theme, theme);
         for (const [index, link] of (await page.locator('.industry-card').all()).entries()) {
-          assert.equal(await link.getAttribute('href'), `/Ez-Kyosk-SEO/solutions/#${ids[index]}`);
+          assert.equal(await link.getAttribute('href'), new URL(`${base}/contact/`).pathname);
+          assert.equal(await link.getAttribute('aria-label'), null);
+          assert.equal(await link.getAttribute('aria-labelledby'), null);
           await link.focus(); await page.keyboard.press('Tab'); await page.keyboard.press('Shift+Tab');
           assert.equal(await link.evaluate(element => element.matches(':focus-visible')), true);
           assert.equal(await link.evaluate(element => getComputedStyle(element).outlineStyle), 'solid');
@@ -59,6 +75,25 @@ try {
             overflow: card.scrollWidth > card.clientWidth || document.documentElement.scrollWidth > innerWidth };
         }));
         const rows = [];
+        const presentation = await page.locator('#industries').evaluate(section => {
+          const style = getComputedStyle(section), rect = section.getBoundingClientRect();
+          const heading = section.querySelector('.section-heading'), intro = heading.querySelector(':scope > p');
+          const center = element => { const box = element.getBoundingClientRect(); return box.left + box.width / 2; };
+          const hero = document.querySelector('.home-hero');
+          return { top: parseFloat(style.paddingTop), bottom: parseFloat(style.paddingBottom),
+            left: parseFloat(style.paddingLeft), right: parseFloat(style.paddingRight),
+            heroLeft: parseFloat(getComputedStyle(hero).paddingLeft),
+            center: rect.left + rect.width / 2, introCenter: center(intro),
+            headingAlign: getComputedStyle(heading).textAlign,
+            cardHeadings: [...section.querySelectorAll('.industry-card h3')].map(h3 => getComputedStyle(h3).textAlign) };
+        });
+        assert.ok(Math.abs(presentation.top - Math.min(56, Math.max(32, width * .04))) < .1);
+        assert.equal(presentation.top, presentation.bottom);
+        assert.equal(presentation.left, presentation.right);
+        assert.ok(Math.abs(presentation.left - presentation.heroLeft) < .1, 'hero-aligned side margins');
+        assert.ok(Math.abs(presentation.introCenter - presentation.center) < 1);
+        assert.equal(presentation.headingAlign, 'center');
+        assert.deepEqual(presentation.cardHeadings, ['center', 'center', 'center', 'center']);
         for (const item of geometry) {
           assert.equal(item.overflow, false);
           assert.ok(Math.abs(item.image.width / item.image.height - 4 / 3) < .01, 'uniform landscape frame');
@@ -66,7 +101,7 @@ try {
           assert.ok(item.badge.top < item.image.bottom && item.badge.bottom > item.image.bottom, 'icon overlaps photo/body boundary');
           assert.ok(item.heading.top > item.badge.bottom, 'heading clears badge');
           assert.ok(item.description.top > item.heading.bottom, 'description below heading');
-          assert.ok(item.cta.top > item.description.bottom, 'Explore clears description');
+          assert.ok(item.cta.top > item.description.bottom, 'Contact action clears description');
           let row = rows.find(row => Math.abs(row[0].card.top - item.card.top) < 1);
           if (!row) rows.push(row = []);
           row.push(item);
@@ -93,16 +128,17 @@ try {
   }
   const noJs = await browser.newContext({ javaScriptEnabled: false, reducedMotion: 'reduce', viewport: { width: 1440, height: 1000 } });
   const page = await noJs.newPage();
-  for (const [index, id] of ids.entries()) {
+  for (const [index] of ids.entries()) {
     await page.goto(`${base}/`);
     const link = page.locator('.industry-card').nth(index);
     await link.focus();
     if (index === 0) await page.keyboard.press('Enter'); else await link.click();
-    await page.waitForURL(`${base}/solutions/#${id}`);
-    assert.equal(await page.locator(`article#${id}`).count(), 1);
+    await page.waitForURL(`${base}/contact/`);
+    assert.equal(await page.locator('form[data-live="false"]').count(), 1);
   }
   await noJs.close();
+  const preservation = await assertPhase2Preservation();
   assert.deepEqual(errors, []);
-  await writeFile(`artifacts/${prefix}-report.json`, JSON.stringify({ layouts, accessibility, errors, linksWithoutJavaScript: 'passed' }, null, 2));
-  console.log(JSON.stringify({ layouts: layouts.length, cardChecks: layouts.length * 4, accessibilityScans: accessibility.length, errors, linksWithoutJavaScript: 'passed' }));
+  await writeFile(`artifacts/${prefix}-report.json`, JSON.stringify({ layouts, accessibility, errors, preservation, linksWithoutJavaScript: 'passed' }, null, 2));
+  console.log(JSON.stringify({ layouts: layouts.length, cardChecks: layouts.length * 4, accessibilityScans: accessibility.length, errors, preservation, linksWithoutJavaScript: 'passed' }));
 } finally { await browser.close(); }

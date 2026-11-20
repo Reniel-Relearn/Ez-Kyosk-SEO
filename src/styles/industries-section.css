@@ -1,0 +1,25 @@
+/* Phase 7: Home presentation only. Preserve approved photos, badges and copy. */
+body[data-home-hero] #industries { padding-block: clamp(32px, 4vw, 56px); }
+body[data-home-hero] #industries .section-heading {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+body[data-home-hero] #industries .section-heading .eyebrow { justify-content: center; }
+body[data-home-hero] #industries .section-heading h2 {
+  font-size: clamp(34px, 2.8vw, 44px);
+  line-height: 1.12;
+}
+body[data-home-hero] #industries .section-heading > p {
+  width: 100%;
+  max-width: 80ch;
+  margin: 0 auto;
+  justify-self: center;
+}
+body[data-home-hero] #industries .industry-card h3 { text-align: center; }
+/* Legacy detail navigation focuses a heading; retain a visible focus indicator. */
+body[data-home-hero] #industries .industry-card h3:focus {
+  outline: 2px solid var(--blue);
+  outline-offset: 6px;
+}
