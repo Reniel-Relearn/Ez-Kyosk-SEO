@@ -4,7 +4,7 @@ Date: 18 November 2026, Asia/Manila.
 
 Companion: [Revision architecture](ARCHITECTURE.md).
 
-Status: PHASES 1-8 COMPLETE and live verified; Phase 8 source c41e2d7 deployed and verified on 20 November; see [closure](PHASE_8_RELEASE.md). Phase 9 is fully implemented and verified locally, ready for [owner review](PHASE_9_LOCAL_REVIEW.md), NOT published. Later phases and held work remain unapproved. Previous freezes/page plans are historical where superseded by the latest owner decisions.
+Status: PHASES 1-9 COMPLETE and live verified; Phase 9 source e4b7ac6 verified on 20 November; see [closure](PHASE_9_RELEASE.md). Phases 10-12 approved locally only, each separately committed and later separately pushed after review. Phase 13 and held work remain unapproved. Earlier local-only status is historical where superseded.
 
 ## Workflow for every phase
 
@@ -218,6 +218,8 @@ Files: FAQ presentation, adapted About component, scoped styles and exact-answer
 
 ## Phase 10: Existing Contact, End Section and Footer
 
+Approved locally with Phases 11-12; separate commit per phase. No publication until local acceptance and later separate pushes. Existing Contact/Privacy content and form delivery boundary must be preserved.
+
 ### Exact actions
 
 1. Retain the existing Home final demo CTA/footer as the contact/ending experience; no new Home form or unsolicited end section.
@@ -231,6 +233,8 @@ Files: FAQ presentation, adapted About component, scoped styles and exact-answer
 Files: DemoCTA, Layout footer, Contact/Privacy only for necessary scoped layout/link changes, styles and mocked inquiry/navigation checks. No endpoint, email setup or analytics activation.
 
 ## Phase 11: Offers Page
+
+Approved locally with Phases 10/12. Record the exact public copy and source reconciliation in the phase brief before coding; approval of this phase authorizes that source-faithful implementation, not invented commercial terms. Separate local commit, no deployment.
 
 ### Exact actions
 
@@ -248,6 +252,8 @@ Files: DemoCTA, Layout footer, Contact/Privacy only for necessary scoped layout/
 Files: Offers route, optional structured offer data/components, scoped styles and amount/copy/link tests. No commercial checkout.
 
 ## Phase 12: Articles Wireframes and Placeholders
+
+Approved locally with Phases 10/11. Separate local commit, no deployment. Research, actual posts, generated imagery and CMS work remain held.
 
 ### Exact actions
 

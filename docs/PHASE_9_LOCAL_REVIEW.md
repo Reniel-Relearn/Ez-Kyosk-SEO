@@ -2,9 +2,9 @@
 
 Date: 20 November 2026, Asia/Manila.
 
-Status: owner accepted Phase 9, including the bottom-left FAQ Contact action, and authorized publication followed by local Phases 10-12 in separate commits. Publication in progress; close only after live verification. Details below record accepted implementation history.
+Status: accepted Phase 9 source e4b7ac6 is deployed and verified live; see [closure](PHASE_9_RELEASE.md). Details below record accepted implementation history. Phases 10-12 are approved locally, in separate commits, not for deployment.
 
-- Live through Phase 8: https://reniel-relearn.github.io/Ez-Kyosk-SEO/
+- Live through Phase 9: https://reniel-relearn.github.io/Ez-Kyosk-SEO/
 - Local through Phase 9: http://127.0.0.1:4323/Ez-Kyosk-SEO/
 
 ## Exact approved FAQ alignment, implemented

@@ -2,7 +2,7 @@
 
 Date: 18 November 2026, Asia/Manila.
 
-Status: PHASES 1-8 COMPLETE and live verified; Phase 8 source c41e2d7 published on 20 November; see [closure](PHASE_8_RELEASE.md). Phase 9 is fully implemented and verified locally, ready for [owner review](PHASE_9_LOCAL_REVIEW.md), NOT published. Companion: [Divide and Conquer step by step actions planning](DIVIDE_AND_CONQUER_PLAN.md). Image generation/editing, research and other held work remain on hold.
+Status: PHASES 1-9 COMPLETE and live verified; Phase 9 source e4b7ac6 published on 20 November; see [closure](PHASE_9_RELEASE.md). Phases 10-12 approved locally only, each separately committed, with later separate publication after review. Companion: [Divide and Conquer step by step actions planning](DIVIDE_AND_CONQUER_PLAN.md). Held work remains on hold.
 
 ## 1. Purpose and authority
 
