@@ -4,18 +4,51 @@ const homePath = new URL(home, location.origin).pathname;
 const isHome = location.pathname.replace(/\/$/,'') === homePath.replace(/\/$/,'');
 const header = document.querySelector<HTMLElement>('[data-site-header]');
 const links = [...document.querySelectorAll<HTMLAnchorElement>('#main-navigation > a:not(.nav-mobile-cta)')];
-type Intent = { section: string; detail?: string; at: number };
+type Intent = { section: string; detail?: string; at: number; pointer?: boolean };
 
-function storeIntent(section: string, detail?: string) {
-  try { sessionStorage.setItem(intentKey, JSON.stringify({ section, detail, at: Date.now() })); } catch { /* Clean Home fallback remains usable. */ }
+function storeIntent(section: string, detail?: string, pointer = false) {
+  try { sessionStorage.setItem(intentKey, JSON.stringify({ section, detail, at: Date.now(), pointer })); } catch { /* Clean Home fallback remains usable. */ }
 }
 function closeMenu() {
   header?.classList.remove('nav-open');
   document.querySelector('.menu-toggle')?.setAttribute('aria-expanded','false');
 }
 let jumpVersion = 0;
-async function jump(section: string, detail?: string) {
+let titleGlow: Animation | undefined;
+let pointerHeading: HTMLElement | undefined;
+
+// Observe actual scroll settling, including no-op jumps, instead of guessing a scroll duration.
+async function glowAfterScroll(title: HTMLElement, version: number) {
+  const started = performance.now();
+  let lastY = scrollY, stableSince = started;
+  const settled = await new Promise<boolean>(resolve => {
+    function sample(now: number) {
+      if (version !== jumpVersion || !title.isConnected) { resolve(false); return; }
+      if (Math.abs(scrollY - lastY) > .5) stableSince = now;
+      lastY = scrollY;
+      if (now - started >= 150 && now - stableSince >= 120) { resolve(true); return; }
+      if (now - started > 3000) { resolve(false); return; }
+      requestAnimationFrame(sample);
+    }
+    requestAnimationFrame(sample);
+  });
+  if (!settled || version !== jumpVersion) return;
+  const halo = '0 0 5px rgba(37,99,235,.65), 0 0 14px rgba(6,182,212,.45)';
+  const rest = getComputedStyle(title).textShadow;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  titleGlow = title.animate(reduced ? [
+    { textShadow: halo, offset: 0 }, { textShadow: halo, offset: .7 }, { textShadow: rest, offset: 1 },
+  ] : [
+    { textShadow: rest, offset: 0 }, { textShadow: halo, offset: .22 },
+    { textShadow: rest, offset: .48 }, { textShadow: halo, offset: .72 },
+    { textShadow: rest, offset: 1 },
+  ], { duration: reduced ? 650 : 1800, easing: 'ease-in-out' });
+}
+
+async function jump(section: string, detail?: string, pointer = false) {
   const version = ++jumpVersion;
+  titleGlow?.cancel();
+  pointerHeading?.classList.remove('section-pointer-focus');
   await document.fonts.ready;
   await new Promise(requestAnimationFrame);
   if (version !== jumpVersion) return;
@@ -29,6 +62,8 @@ async function jump(section: string, detail?: string) {
   const frameTarget = requestedPanel && stackedPanels ? requestedPanel : target;
   const focusTarget = requestedPanel || target;
   const focus = focusTarget.querySelector<HTMLElement>('h1,h2,h3') || focusTarget;
+  pointerHeading = pointer ? focus : undefined;
+  focus.classList.toggle('section-pointer-focus', pointer);
   focus.setAttribute('tabindex','-1');
   focus.focus({ preventScroll:true });
   const headerHeight = header?.getBoundingClientRect().height || 92;
@@ -46,7 +81,16 @@ async function jump(section: string, detail?: string) {
   window.scrollTo({ top:section === 'home' ? 0 : targetTop + paddingTop - headerHeight - inset,
     behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
   links.forEach(link => { link.removeAttribute('aria-current'); if (link.dataset.section === section) link.setAttribute('aria-current','location'); });
+  if (pointer) void glowAfterScroll(focus, version);
 }
+
+// A later keyboard interaction must not inherit pointer-only outline suppression.
+document.addEventListener('keydown', () => {
+  pointerHeading?.classList.remove('section-pointer-focus');
+  pointerHeading = undefined;
+  titleGlow?.cancel();
+  ++jumpVersion;
+});
 
 document.addEventListener('click', event => {
   if (!(event.target instanceof Element) || event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
@@ -56,8 +100,8 @@ document.addEventListener('click', event => {
   if (isHome && document.getElementById(section)) {
     event.preventDefault();
     if (location.hash) history.replaceState(history.state,'',location.pathname+location.search);
-    closeMenu(); jump(section);
-  } else storeIntent(section);
+    closeMenu(); void jump(section, undefined, event.detail > 0);
+  } else storeIntent(section, undefined, event.detail > 0);
 });
 
 const legacy = document.querySelector<HTMLElement>('[data-legacy-section]');
@@ -83,7 +127,7 @@ if (legacy) {
       Promise.all([document.fonts.ready, new Promise(resolve => {
         if (document.readyState === 'complete') resolve(null);
         else window.addEventListener('load',resolve,{once:true});
-      })]).then(() => requestAnimationFrame(() => jump(intent.section,intent.detail)));
+      })]).then(() => requestAnimationFrame(() => jump(intent.section,intent.detail,intent.pointer === true)));
     }
   } catch { /* Blocked storage or invalid data falls back to the complete Home page. */ }
   let scheduled = false;

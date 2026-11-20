@@ -28,7 +28,8 @@ body[data-home-hero] #products .product-panel-copy > .text-link {
 }
 /* Scan-friendly lists retain their left-aligned labels and existing checkmarks. */
 body[data-home-hero] #products .check-list { text-align: left; }
-body[data-home-hero] #products .product-panel h3:focus {
+body[data-home-hero] #products .product-panel h3:focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 8px;
 }
+body[data-home-hero] #products .product-panel h3.section-pointer-focus:focus { outline: none; }

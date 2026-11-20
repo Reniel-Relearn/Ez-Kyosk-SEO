@@ -19,7 +19,8 @@ body[data-home-hero] #industries .section-heading > p {
 }
 body[data-home-hero] #industries .industry-card h3 { text-align: center; }
 /* Legacy detail navigation focuses a heading; retain a visible focus indicator. */
-body[data-home-hero] #industries .industry-card h3:focus {
+body[data-home-hero] #industries .industry-card h3:focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 6px;
 }
+body[data-home-hero] #industries .industry-card h3.section-pointer-focus:focus { outline: none; }
