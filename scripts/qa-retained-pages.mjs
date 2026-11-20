@@ -37,8 +37,9 @@ try {
         assert.deepEqual(await content(page), baseline[route], `${route}: text/metadata/form safeguards preserved`);
         const state = await page.evaluate(() => {
           const header = document.querySelector('.site-header'), hero = document.querySelector('.page-hero'), hs = getComputedStyle(header), s = getComputedStyle(hero), h1 = getComputedStyle(document.querySelector('h1'));
-          const legal = document.querySelector('.legal-content')?.getBoundingClientRect();
-          return { overflow: document.documentElement.scrollWidth > innerWidth, left: parseFloat(s.paddingLeft), right: parseFloat(s.paddingRight), headerLeft: parseFloat(hs.paddingLeft), headerRight: parseFloat(hs.paddingRight), top: parseFloat(s.paddingTop), bottom: parseFloat(s.paddingBottom), minHeight: s.minHeight, titleSize: parseFloat(h1.fontSize), legal: legal && { left: legal.left, right: innerWidth - legal.right, width: legal.width }, iconCount: document.querySelectorAll('.contact-points svg[aria-hidden="true"][focusable="false"]').length, oldBadges: [...document.querySelectorAll('.contact-points>div>span')].some(el => /^0[123]$/.test(el.textContent)) };
+          const legal = document.querySelector('.legal-content section')?.getBoundingClientRect();
+          const notice = document.querySelector('.legal-content > .notice')?.getBoundingClientRect();
+          return { overflow: document.documentElement.scrollWidth > innerWidth, left: parseFloat(s.paddingLeft), right: parseFloat(s.paddingRight), headerLeft: parseFloat(hs.paddingLeft), headerRight: parseFloat(hs.paddingRight), top: parseFloat(s.paddingTop), bottom: parseFloat(s.paddingBottom), minHeight: s.minHeight, titleSize: parseFloat(h1.fontSize), titleLeft: document.querySelector('h1').getBoundingClientRect().left, noticeLeft: notice?.left, legal: legal && { left: legal.left, right: innerWidth - legal.right, width: legal.width }, iconCount: document.querySelectorAll('.contact-points svg[aria-hidden="true"][focusable="false"]').length, oldBadges: [...document.querySelectorAll('.contact-points>div>span')].some(el => /^0[123]$/.test(el.textContent)) };
         });
         const margin = Math.max(20, (width - 1200) / 2), padding = Math.max(32, Math.min(56, width * .04));
         for (const value of [state.left, state.right, state.headerLeft, state.headerRight]) assert.ok(Math.abs(value - margin) < .1);
@@ -46,7 +47,11 @@ try {
         assert.ok(Math.abs(state.top - padding) < .1 && Math.abs(state.bottom - padding) < .1);
         assert.equal(state.minHeight, '0px');
         assert.ok(Math.abs(state.titleSize - Math.max(34, Math.min(52, width * .04))) < .1);
-        if (route === '/privacy/') { assert.ok(Math.abs(state.legal.left - state.legal.right) < 1); assert.ok(Math.abs(state.legal.width - Math.min(width - 40, 960)) < 1); }
+        if (route === '/privacy/') {
+          assert.ok(Math.abs(state.legal.left - state.titleLeft) < 1, 'body and Hero share a left edge');
+          assert.ok(Math.abs(state.noticeLeft - state.titleLeft) < 1, 'notice shares Hero left edge');
+          assert.ok(Math.abs(state.legal.width - Math.min(width - 2 * margin, 960)) < 1, 'readable maximum width retained');
+        }
         else { assert.equal(state.iconCount, 3); assert.equal(state.oldBadges, false); }
         if ([390, 1440].includes(width)) {
           const axe = await new AxeBuilder({ page }).include('main').analyze();

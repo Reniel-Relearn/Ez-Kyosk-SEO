@@ -81,6 +81,8 @@ Exact proposed local actions:
 
 ## Integrated local handoff
 
+Approved F follow-up: Privacy's readable body is now left-anchored to the Hero/header gutter instead of independently centered. Notice, body headings and dividers share the title's left edge; the 960px reading limit and mobile gutters remain. Updated retained-page regression passes 24 layout/content comparisons, eight scoped axe checks, four no-JavaScript pages and zero preview POSTs. No legal copy, dates or form behavior changed. Committed separately from the ending/footer follow-up.
+
 A, B, C, D and F are implemented locally; E's explicit holds remain. C/D/F were each implemented after the owner's specific selections and committed separately from one another and A/B. Earlier documentation-only commits retain their history; implementation statuses above supersede those proposals, not the holds.
 
 Final Pages-shaped preview build and static verifier pass. Integrated site QA passes 36 layout checks and 24 sampled accessibility checks with no page errors or failed requests, zero preview POSTs, mocked form success/failure and keyboard controls passing. Final navigation regression passes 168 layouts, 72 section jumps, 16 legacy targets, 50 no-JavaScript checks and four normal-motion jumps; section-frame regression passes 68 checks. Title-glow regression passes again after integration. These samples do not override E's known scrolled-header contrast problem or constitute production accessibility certification.

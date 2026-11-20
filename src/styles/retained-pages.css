@@ -21,11 +21,13 @@ body[data-retained-page] :is(.contact-form-wrap, .contact-aside) { min-width: 0;
 body[data-retained-page] .contact-form-wrap { background: var(--surface); }
 body[data-retained-page] .contact-aside .button { max-width: 100%; }
 body[data-retained-page] .legal-content {
-  width: min(calc(100% - 40px), 960px);
+  width: 100%;
   max-width: none;
-  margin-inline: auto;
-  padding: 0 0 var(--retained-section-space);
+  margin-inline: 0;
+  padding: 0 var(--retained-inline-space) var(--retained-section-space);
   text-align: left;
 }
+/* Left-anchor the readable column to the Hero, not to a separate centered grid. */
+body[data-retained-page] .legal-content > * { max-width: 960px; }
 body[data-retained-page] .legal-content section { padding-block: 28px; }
 body[data-retained-page] .legal-content p { max-width: none; }
