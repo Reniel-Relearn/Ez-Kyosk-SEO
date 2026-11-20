@@ -2,13 +2,13 @@
 
 Date: 18 November 2026, Asia/Manila.
 
-Status: Phases 1-3 published and verified; see [Phase 3 closure](PHASE_3_RELEASE.md). Companion: [Divide and Conquer step by step actions planning](DIVIDE_AND_CONQUER_PLAN.md). Phase 4 accepted and authorized for publication on 20 November; deployment verification in progress; see [accepted review](PHASE_4_LOCAL_REVIEW.md). Phase 5 spacing actions updated in planning only; implementation awaits approval. Image generation/editing, research and other held work remain on hold.
+Status: PHASES 1-4 COMPLETE and live verified; Phase 4 source ab9d059 published and checked on 20 November; see [Phase 4 closure](PHASE_4_RELEASE.md). Companion: [Divide and Conquer step by step actions planning](DIVIDE_AND_CONQUER_PLAN.md). Phase 5 spacing actions updated in planning only; implementation awaits approval. Image generation/editing, research and other held work remain on hold.
 
 ## 1. Purpose and authority
 
 20 November layout refinement: all succeeding Home sections, final call-to-action and footer share the approved hero/header centered 1200px maximum content boundary and equal responsive side margins (minimum 20px). Section backgrounds remain full width. Elements may be proportionately resized to fit without rewriting copy, changing artwork, shrinking interactive targets or clipping content. This cross-section spacing requirement is approved locally; it does not authorize later phases' content/image changes or publication.
 
-Latest 20 November direction: Phase 4, including compact top/bottom spacing, is accepted and authorized for publication and closure after live verification. Phase 5 and remaining section plans must adopt consistent compact vertical spacing using the accepted Phase 3/4 responsive 32-56px-per-side baseline, checking actual adjacent-section gaps, side margins, sticky-header landing and readable reflow. Preserve the existing hero/header composition; its asymmetrical padding is not a request to reset it. Later phase implementation still requires approval; record layout-specific exceptions for review.
+Latest 20 November direction: Phase 4, including compact top/bottom spacing, is published and live verified. Phase 5 and remaining section plans must adopt consistent compact vertical spacing using the accepted Phase 3/4 responsive 32-56px-per-side baseline, checking actual adjacent-section gaps, side margins, sticky-header landing and readable reflow. Preserve the existing hero/header composition; its asymmetrical padding is not a request to reset it. Later phase implementation still requires approval; record layout-specific exceptions for review.
 
 This architecture defines the target website and how to deliver it through separately approved, locally reviewed phases. The companion plan defines exact actions, tests and handoffs, beginning with Phase 1: Hero Section.
 

@@ -2,7 +2,7 @@
 
 Date: 20 November 2026, Asia/Manila.
 
-Status: owner accepted the local result and compact-spacing refinement on 20 November and authorized publication and phase closure after live verification. Deployment verification in progress; not yet a completed live-release record.
+Status: local result and compact-spacing refinement accepted, published and live verified on 20 November. Phase 4 COMPLETE; see [release and closure](PHASE_4_RELEASE.md). Review steps below are retained as implementation history. Phase 5 implementation remains unapproved; its action plan now includes compact top/bottom spacing.
 
 Local review: http://127.0.0.1:4323/Ez-Kyosk-SEO/
 

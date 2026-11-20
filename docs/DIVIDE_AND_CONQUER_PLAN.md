@@ -4,7 +4,7 @@ Date: 18 November 2026, Asia/Manila.
 
 Companion: [Revision architecture](ARCHITECTURE.md).
 
-Status: PHASES 1-3 LIVE VERIFIED. Phase 4 accepted and authorized for publication on 20 November; verification in progress; see [accepted review](PHASE_4_LOCAL_REVIEW.md). Phase 5 and subsequent section plans now explicitly include consistent compact vertical spacing, but implementation remains unapproved. Previous freezes/page plans are historical where superseded by the latest owner decisions.
+Status: PHASES 1-4 COMPLETE and live verified. Phase 4 source ab9d059 published and verified on 20 November; see [closure](PHASE_4_RELEASE.md). Phase 5 and subsequent section plans explicitly include consistent compact vertical spacing, but implementation remains unapproved. Previous freezes/page plans are historical where superseded by the latest owner decisions.
 
 ## Workflow for every phase
 
@@ -114,7 +114,7 @@ Files: Home benefits markup, existing icon presentation styles and targeted layo
 
 ## Phase 4: One Connected Platform
 
-Local result including compact spacing accepted on 20 November; publication authorized and verification in progress. Do not record phase completion until live verification passes. Photos, image-related issue requests and four-card restructuring remain on hold.
+COMPLETE: local result including compact spacing accepted, published and live verified on 20 November; see [release record](PHASE_4_RELEASE.md). Actions below are retained as the accepted scope, not pending implementation. Photos, image-related issue requests and four-card restructuring remain on hold.
 
 ### Exact actions
 
