@@ -75,7 +75,7 @@ try {
         if (width <= 1180) {
           const menu = page.locator('.menu-toggle');
           await menu.focus(); await page.keyboard.press('Enter');
-          assert.equal(await menu.getAttribute('aria-expanded'), 'true');
+          assert.equal(await menu.getAttribute('aria-expanded'), 'true', `${route}/${width}/${appearance}: keyboard menu opens`);
           const panel = await page.locator('#main-navigation').evaluate(el => {
             const s = getComputedStyle(el); return { background: s.backgroundColor, opacity: s.opacity };
           });

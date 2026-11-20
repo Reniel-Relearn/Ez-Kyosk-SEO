@@ -6,12 +6,18 @@ import {productCategories} from '../src/data/product.ts';
 import {assertPhase2Preservation} from './phase2-preservation.mjs';
 
 const base=process.env.QA_BASE_URL||'http://127.0.0.1:4323/Ez-Kyosk-SEO';
-// Phase 4 source baseline: protect exact content, original icons and tab implementation.
+// Preserve original icons/data and the explicitly approved Phase 13 D CTA component.
 for(const [file,expected] of [
- ['src/components/ProductExplorer.astro','4e265cb498558537dd0fb1df47dc923f5972575a3029527e3b61a66cf6800610'],
+ ['src/components/ProductExplorer.astro','5b87652032d5c8cb67d3f7e193db17802d66dddc6af068e24b2200f6d3536915'],
  ['src/components/ProductTabIcon.astro','3f946e446d094e23e3247cfdc48e209b3863bd71e6c63783eda52ef0a8118adf'],
  ['src/data/product.ts','e35f434877e7886c9b58f7cf0de97202ff95ebd6914eb9b021b949bb5019234c']
-]) assert.equal(createHash('sha256').update((await readFile(file,'utf8')).replaceAll('\r\n','\n')).digest('hex'),expected,file+' unchanged');
+]) {
+ let source=(await readFile(file,'utf8')).replaceAll('\r\n','\n');
+ // Phase 8 explicitly approved this journey-only caption. Keep the old hash
+ // protecting every byte of product categories, FAQ and the rest of the data.
+ if(file==='src/data/product.ts') source=source.replace('After payment, optionally scan the order-tracking QR to view order status.','Scan the order-tracking QR to open order tracking.');
+ assert.equal(createHash('sha256').update(source).digest('hex'),expected,file+' matches approved source (Phase 13 D CTA / exact Phase 8 tracking caption only)');
+}
 const browser=await chromium.launch({channel:'msedge',headless:true});
 const layouts=[],panels=[],detailLinks=[],errors=[];
 await mkdir('artifacts/phase5',{recursive:true});

@@ -2,7 +2,7 @@
 
 Date: 18 November 2026, Asia/Manila.
 
-Status: PHASES 1-12 COMPLETE for accepted scope and live verified. Phases 10-12 separately pushed/deployed/verified on 20 November; see [release and closure](PHASES_10_12_RELEASE.md). Companion: [phase plan](DIVIDE_AND_CONQUER_PLAN.md). Phase 13 NOT STARTED, explicitly deferred by the owner. Held work remains on hold.
+Status: PHASES 1-12 COMPLETE for accepted scope and live verified. Phase 13 A/B/C/D/F and both follow-up revisions are implemented, locally tested and owner-approved for publication in separate commits. See [patch status](PHASE_13_PATCH_PLAN.md) and [approved decisions](PHASE_13_DESIGN_DECISIONS.md). The original [audit](PHASE_13_AUDIT.md) and [feedback matrix](PHASE_13_FEEDBACK_MATRIX.md) retain dated evidence; their initial pending states are superseded by the patch plan. Image/research holds and header-contrast launch concern remain. Companion: [phase plan](DIVIDE_AND_CONQUER_PLAN.md).
 
 ## 1. Purpose and authority
 

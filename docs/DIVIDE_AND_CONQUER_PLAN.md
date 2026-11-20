@@ -4,7 +4,7 @@ Date: 18 November 2026, Asia/Manila.
 
 Companion: [Revision architecture](ARCHITECTURE.md).
 
-Status: PHASES 1-12 COMPLETE for accepted scope and live verified. Phases 10-12 separately pushed, deployed and verified; see [closure](PHASES_10_12_RELEASE.md). Phase 13 NOT STARTED and explicitly deferred by the owner. Held work remains unapproved. Earlier local-only status/actions below are historical where superseded.
+Status: PHASES 1-12 COMPLETE for accepted scope and live verified. Phase 13 A/B/C/D/F and follow-ups are implemented and locally tested in separate commits; owner has approved publication and conditional issue closure. See [current patch status](PHASE_13_PATCH_PLAN.md), [approved decisions](PHASE_13_DESIGN_DECISIONS.md), original [audit](PHASE_13_AUDIT.md) and [feedback matrix](PHASE_13_FEEDBACK_MATRIX.md). Held artwork/research and the header-contrast concern remain unresolved. Older audit-only/deferral states below are historical where superseded.
 
 ## Workflow for every phase
 
@@ -275,7 +275,7 @@ Files: Articles route and minimal components/styles/tests. No CMS or publishing 
 
 ## Phase 13: Integrated Bug Audit, Technical SEO and Handoff
 
-NOT STARTED. Owner explicitly instructed not to proceed when authorizing separate Phase 10-12 publication. The following remains a future plan, not current implementation authority.
+Subsequently APPROVED by the owner on 20 November. Integrated audit completed locally against 25232b0; see [findings](PHASE_13_AUDIT.md), [matrix](PHASE_13_FEEDBACK_MATRIX.md) and [patch proposals](PHASE_13_PATCH_PLAN.md). Existing header contrast fails; verified focus/palette/CTA feedback and configured-subpath robots issue remain explicit. Per action 8, runtime patches need exact-scope local approval and later publication approval. Audit-only QA maintenance reconciled the stale Products caption hash and added header assertion context without weakening checks. Not yet a closed runtime release or production-ready approval.
 
 ### Exact actions
 
