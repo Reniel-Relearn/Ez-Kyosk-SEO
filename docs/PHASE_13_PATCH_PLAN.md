@@ -61,6 +61,8 @@ Approve exact old-to-new labels/colors/alignment per control before copy changes
 
 ## E. Existing launch/asset holds, not hidden fixes
 
+Status: holds preserved. No header opacity/blur change, payment-asset conversion, image generation, research, article creation, embedded-brand cleanup or platform consolidation performed. The audit's existing 32 header readability failures remain unresolved; A/B do not change the header background/opacity rules. Do not describe the preview as production-accessibility certified.
+
 The approved 50%-alpha header still needs a contrast decision before production; maintain failing thresholds and current visual approval history. Do not silently change opacity or add blur. Large supplied payment PNG is a performance opportunity, but exact-original/image holds remain; a separately approved lossless derivative/format trial must preserve original assets and transparency, pass visual QA, then be reviewed. Research, article writing, embedded-brand cleanup and four-card platform overlap remain held.
 
 ## F. Request a Demo and Privacy Notice alignment
