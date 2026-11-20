@@ -1,0 +1,34 @@
+/* Phase 3: Home benefits only. Preserve shared styles and existing artwork. */
+.benefits-section { padding-block: clamp(32px, 4vw, 56px); }
+.benefits-section .section-heading {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+.benefits-section .section-heading .eyebrow { justify-content: center; }
+.benefits-section .section-heading > p {
+  width: 100%;
+  max-width: 76ch;
+  margin: 0 auto;
+  justify-self: center;
+}
+.benefits-section .benefit-grid article {
+  min-width: 0;
+  text-align: center;
+  padding: clamp(28px, 3vw, 42px);
+}
+.benefits-section .benefit-icon { margin: 0 auto 24px; }
+.benefits-section .benefit-grid h3 { margin: 0 auto 16px; }
+.benefits-section .benefit-grid article > p {
+  max-width: 42ch;
+  margin: 0 auto;
+}
+/* Shared natural-height rows align headings and descriptions without clipping. */
+@media (min-width: 981px) {
+  .benefits-section .benefit-grid { grid-template-rows: auto auto auto; }
+  .benefits-section .benefit-grid article {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+  }
+}

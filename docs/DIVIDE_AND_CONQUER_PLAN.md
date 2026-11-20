@@ -4,9 +4,11 @@ Date: 18 November 2026, Asia/Manila.
 
 Companion: [Revision architecture](ARCHITECTURE.md).
 
-Status: PHASE 1 LIVE VERIFIED at e6495cd. PHASE 2 COMPLETE: source release 330aedb deployed and live verified on 19 November 2026; [closure and evidence](PHASE_2_RELEASE.md). Phase 3 remains unapproved/not started. Previous freezes/page plans are historical where superseded by the latest owner decisions.
+Status: PHASE 1 LIVE VERIFIED at e6495cd. PHASE 2 COMPLETE: source release 330aedb deployed and live verified on 19 November 2026; [closure and evidence](PHASE_2_RELEASE.md). Phase 3 approved on 20 November and integrated locally, awaiting [owner review](PHASE_3_LOCAL_REVIEW.md) and separate deployment approval. Previous freezes/page plans are historical where superseded by the latest owner decisions.
 
 ## Workflow for every phase
+
+Shared layout requirement, approved 20 November: Phase 3 and every succeeding Home section use the same centered content boundary and equal side margins as the hero/header (1200px maximum content width, minimum 20px gutters). This includes the final CTA and footer; backgrounds remain edge-to-edge. Preserve these boundaries in all later phases. Resize typography/cards only as needed for readable fit, retaining accessible controls, natural wrapping and responsive stacking. This spacing refinement is integrated locally, not deployed; other phase-specific changes still require approval.
 
 1. Present the phase's exact actions, boundaries, likely files, tests and completion criteria.
 2. Stop for owner approval. The first "approved, proceed" authorizes that specified local implementation only.

@@ -2,9 +2,11 @@
 
 Date: 18 November 2026, Asia/Manila.
 
-Status: Phase 1 published and verified at e6495cd. Phase 2 COMPLETE: source release 330aedb deployed and live verified on 19 November 2026. See [Phase 2 closure](PHASE_2_RELEASE.md). Companion: [Divide and Conquer step by step actions planning](DIVIDE_AND_CONQUER_PLAN.md). Phase 3 is not started; later phases, image generation/editing and research remain unapproved/on hold.
+Status: Phase 1 published and verified at e6495cd. Phase 2 COMPLETE: source release 330aedb deployed and live verified on 19 November 2026. See [Phase 2 closure](PHASE_2_RELEASE.md). Companion: [Divide and Conquer step by step actions planning](DIVIDE_AND_CONQUER_PLAN.md). Phase 3 approved on 20 November and integrated locally for [owner review](PHASE_3_LOCAL_REVIEW.md), not publication. Later phases, image generation/editing and research remain unapproved/on hold.
 
 ## 1. Purpose and authority
+
+20 November layout refinement: all succeeding Home sections, final call-to-action and footer share the approved hero/header centered 1200px maximum content boundary and equal responsive side margins (minimum 20px). Section backgrounds remain full width. Elements may be proportionately resized to fit without rewriting copy, changing artwork, shrinking interactive targets or clipping content. This cross-section spacing requirement is approved locally; it does not authorize later phases' content/image changes or publication.
 
 This architecture defines the target website and how to deliver it through separately approved, locally reviewed phases. The companion plan defines exact actions, tests and handoffs, beginning with Phase 1: Hero Section.
 

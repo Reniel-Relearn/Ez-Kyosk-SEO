@@ -1,5 +1,13 @@
 # Ez Kyosk website roadmap
 
+## Latest direction: 20 November 2026
+
+Publication gate: the owner accepted Phase 3 including shared hero-aligned Home margins and reduced benefits vertical spacing, and authorized push, deployment and phase closure. Publish only approved Phase 3 source/tests/status documents; verify Pages and live output before recording completion. No issue writes or Phase 4 implementation authorized by this release request. Earlier local-only status below is historical.
+
+Owner review refinement: align all Home section content after the hero, plus final CTA/footer, with the hero/header's centered maximum 1200px content width and equal responsive margins. Implemented locally through `home-content.css`; benefits typography/padding and desktop platform/industry typography are more compact, and payment columns/text are balanced for the narrower cards. Words/images and phase-specific content changes remain untouched. Retain this shared width in succeeding phases. Await local review; no publication authorized.
+
+Phase 3, A better way to take orders, is approved and integrated locally for [owner review](PHASE_3_LOCAL_REVIEW.md). Only its centered heading/introduction, existing icon presentation, card alignment and scoped responsive styling changed. Exact benefits copy, SVG assets, all Home image markup and protected sections remain unchanged. No commit, push, deployment or issue writes authorized or performed. Phase 4 and held work remain unapproved. This supersedes earlier records describing Phase 3 as unapproved/not started.
+
 ## Current authority: 18 November 2026 revision planning
 
 Current closure, 19 November: Phase 2 is COMPLETE. Source release 330aedb is deployed, both GitHub workflows succeeded, and public document hashes/navigation/complete-frame checks passed. See [Phase 2 release and closure](PHASE_2_RELEASE.md). Phase 3, A better way to take orders, is the next proposed phase and awaits explicit approval. This record supersedes earlier local-only and deployment-in-progress status below; held work remains held.
