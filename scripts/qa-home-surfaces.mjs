@@ -19,6 +19,7 @@ try {
         inverseTitles: [...document.querySelectorAll('#products .section-heading h2,#how-it-works .section-heading h2')].map(el => getComputedStyle(el).color),
         hero: getComputedStyle(document.querySelector('#home'), '::before').backgroundImage,
         ending: getComputedStyle(document.querySelector('.final-cta')).backgroundImage,
+        endingColor: getComputedStyle(document.querySelector('.final-cta')).backgroundColor,
         header: getComputedStyle(document.querySelector('.site-header')).backdropFilter };
     });
     const baseColor = theme === 'light' ? 'rgb(255, 255, 255)' : 'rgb(8, 13, 22)';
@@ -28,7 +29,8 @@ try {
     assert.ok(state.inverseTitles.every(c => c === (theme === 'light' ? 'rgb(15, 23, 42)' : 'rgb(248, 250, 252)')));
     assert.equal(state.overflow, false);
     assert.ok(state.hero.includes('linear-gradient'));
-    assert.ok(state.ending.includes('linear-gradient'));
+    if (theme === 'light') { assert.equal(state.ending, 'none'); assert.equal(state.endingColor, alt); }
+    else assert.ok(state.ending.includes('linear-gradient'));
     assert.equal(state.header, 'none');
     const secondTab = page.locator('#tab-pos-checkout');
     if (width > 720) {

@@ -17,3 +17,54 @@ body[data-home-hero] .final-cta .cta-actions { justify-content: center; flex-wra
 body .site-footer { padding-block: clamp(32px, 4vw, 56px); }
 body .site-footer .footer-grid { padding-bottom: 32px; }
 /* Footer groups retain left-aligned text and logo for scannability. */
+
+/* #30: the light-mode CTA continues the white/white-smoke sequence. */
+html:not([data-theme='dark']) body[data-home-hero] .final-cta {
+  background: #f5f5f5;
+  color: var(--text);
+}
+html:not([data-theme='dark']) body[data-home-hero] .final-cta p { color: var(--text-muted); }
+html:not([data-theme='dark']) body[data-home-hero] .final-cta .eyebrow { color: var(--blue); }
+html:not([data-theme='dark']) body[data-home-hero] .final-cta .button-light {
+  background: var(--blue); border-color: var(--blue); color: var(--on-blue);
+}
+html:not([data-theme='dark']) body[data-home-hero] .final-cta .button-light:hover {
+  background: var(--blue-hover); border-color: var(--blue-hover); color: var(--on-blue);
+}
+html:not([data-theme='dark']) body[data-home-hero] .final-cta .button-light:active {
+  background: var(--blue-pressed); border-color: var(--blue-pressed); color: var(--on-blue);
+}
+html:not([data-theme='dark']) body[data-home-hero] .final-cta .button-ghost-light {
+  background: transparent; border-color: var(--control-border); color: var(--blue);
+}
+html:not([data-theme='dark']) body[data-home-hero] .final-cta .button-ghost-light:is(:hover,:active) {
+  background: var(--blue-tint); border-color: var(--control-border); color: var(--blue-hover);
+}
+
+/* A permanent dark footer, isolated from the surrounding page's theme. */
+body .site-footer {
+  color-scheme: dark;
+  --page: #080d16;
+  --text: #f8fafc;
+  --text-muted: #cbd5e1;
+  --muted: #cbd5e1;
+  --blue: #60a5fa;
+  --blue-hover: #93c5fd;
+  --blue-pressed: #3b82f6;
+  --brand-700: #60a5fa;
+  --on-blue: #0f172a;
+  --blue-tint: #10213a;
+  --cyan: #22d3ee;
+  --control-border: #64748b;
+  --line: #253247;
+  --glow: 0 0 0 4px rgba(34,211,238,.08),0 12px 32px rgba(0,0,0,.24);
+  background: var(--page);
+  color: var(--text);
+  border-color: var(--line);
+}
+/* Reuse the existing asset mask used by dark mode, without editing logo pixels. */
+.site-footer .brand-mark-adaptive::after {
+  content: ''; position: absolute; inset: 0; background: #f8fafc;
+  mask: var(--brand-mask) center/100% 100% no-repeat; mask-mode: alpha;
+  clip-path: inset(0 0 0 52%); pointer-events: none;
+}

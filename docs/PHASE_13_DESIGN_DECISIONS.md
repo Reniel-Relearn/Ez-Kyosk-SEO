@@ -4,7 +4,7 @@
 
 ## C. Proposed complete Home surface map
 
-Keep all section content, assets, dimensions and spacing unchanged. Apply only to Home; preserve the header's current alpha and no-blur treatment. Proposed ending choice: retain the dark final CTA as a deliberate exception rather than silently recolor its inverse controls.
+Keep all section content, assets, dimensions and spacing unchanged. Home alternation remains Home-only; the owner-approved follow-up makes the shared footer dark across all routes. Preserve the header's current alpha and no-blur treatment. The latest ending choice supersedes the initial dark-CTA exception: white-smoke final CTA in light mode, existing dark CTA in dark mode, and a permanently dark footer.
 
 | Section in current order | Light mode | Dark mode |
 | --- | --- | --- |
@@ -17,12 +17,12 @@ Keep all section content, assets, dimensions and spacing unchanged. Apply only t
 | Industries / Designed to adapt | White `#FFFFFF` | Page `#080D16` |
 | FAQs | White-smoke `#F5F5F5` | Surface `#111827` |
 | About Us | White `#FFFFFF` | Page `#080D16` |
-| Final CTA | Existing dark treatment, deliberate exception | Existing dark treatment |
-| Footer | Existing shared treatment | Existing shared treatment |
+| Final CTA | White-smoke `#F5F5F5`, theme-appropriate text and buttons | Existing dark treatment |
+| Footer, shared across routes | Dark `#080D16`, same text/link/button/border/logo treatment as dark mode | Dark `#080D16`, existing dark-mode palette |
 
 Implementation after selection: scope a Home-only surface stylesheet; use theme text/muted tokens for Products and How It Works instead of inverse-white rules; retain white card surfaces in light mode and raised theme surfaces in dark mode, with existing border tokens for separation. Do not recolor embedded images. Verify rest/hover/active text and icons, contrast, card separation, theme persistence and no-JavaScript. Recheck all section-framing tests without changing their thresholds. Header contrast remains E, not a hidden part of C.
 
-Decision received: this exact map and the final CTA exception are approved and implemented locally.
+Decision received: the initial map was implemented; the owner then approved the [latest issue #30 ending/footer revision](https://github.com/Reniel-Relearn/Ez-Kyosk-SEO/issues/30#issuecomment-7041684385). The table above reflects the superseding choice. The footer's dark palette is scoped locally rather than switching the entire page to dark mode.
 
 ## D. Proposed CTA role and wording map
 
@@ -50,7 +50,7 @@ The six-route audit inventory was read before preparing this map. Destinations a
 | Shared footer | Explore the kiosk experience | Explore Ez Kyosk | Secondary external exploration; existing footer grouping |
 | 404 | Return home / Explore the product / Request a Demo | Return home / View Products / Request a Demo | Navigation / section navigation / inquiry; retain existing destination behavior |
 
-Visual system after approval: use existing blue/on-blue filled controls for primary demo/quote requests, existing outlined controls for secondary exploration, and current blue text-link styling for contextual inquiries. Retain the dark final CTA's inverse button variants until C's ending choice is approved. Use existing hover/pressed tokens, never brightness alone, and preserve native focus, minimum targets, readable contrast, disabled/sending states and responsive wrapping. Do not center FAQ text, convert legal links to buttons, add tracking, change destinations or enable the form service.
+Visual system after approval: use existing blue/on-blue filled controls for primary demo/quote requests, existing outlined controls for secondary exploration, and current blue text-link styling for contextual inquiries. The final CTA uses the normal light-theme filled/outlined treatments in light mode and preserves its inverse variants in dark mode. Use existing hover/pressed tokens, never brightness alone, and preserve native focus, minimum targets, readable contrast, disabled/sending states and responsive wrapping. Do not center FAQ text, convert legal links to buttons, add tracking, change destinations or enable the form service.
 
 Verification after implementation: compare rendered accessible labels and exact hrefs across all six routes; both themes and mobile/tablet/desktop; primary/secondary rest/hover/focus/pressed/disabled states; form preview plus mocked success/failure without real inquiries. Validate that any retained long label wraps safely on phones.
 

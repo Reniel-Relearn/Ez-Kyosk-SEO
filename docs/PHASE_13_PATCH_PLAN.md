@@ -39,7 +39,7 @@ Separate future launch decision, not automatically included in B: configured bui
 
 ## C. Section-background alternation brief
 
-Status: owner approved the exact map and dark ending exception. Implemented locally in src/styles/home-surfaces.css. scripts/qa-home-surfaces.mjs passes 12 theme/width layouts, four main-scoped axe checks, hover icon colors and two no-JavaScript checks. Hero/header and final CTA gradients preserved. Not published.
+Status: approved map implemented locally. The owner subsequently approved replacing the light-mode dark ending exception: final CTA is now white-smoke in light mode, existing dark gradient in dark mode; the shared footer uses its dark-mode palette in both themes. Implemented in src/styles/home-surfaces.css and src/styles/ending.css. Updated surface regression passes 12 theme/width layouts, four main-scoped axe checks, hover colors and two no-JavaScript checks. Hero/header untouched. Not published.
 
 Verified #30 visual request is not implemented uniformly. Suggested review mapping, not an applied change:
 
@@ -49,7 +49,7 @@ Verified #30 visual request is not implemented uniformly. Suggested review mappi
 - Keep brand blue/subtle cyan accents and all assets/layout/copy unchanged. Test rest/hover/text/icon contrast, card/background separation, theme persistence and no-JavaScript.
 - Do not include a header-opacity change in this patch without separately approving it.
 
-Owner selection received: the complete map and ending exception in docs/PHASE_13_DESIGN_DECISIONS.md are approved. This is a presentation revision, not a broken-route fix.
+Owner selection received: the complete map in docs/PHASE_13_DESIGN_DECISIONS.md is approved, including the superseding light-CTA/dark-footer follow-up from issue #30. This is a presentation revision, not a broken-route fix.
 
 ## D. CTA consistency brief
 
@@ -80,6 +80,8 @@ Exact proposed local actions:
 5. Once the precise corrections are approved, implement and test locally in both themes and at mobile, tablet and desktop widths. Check form preview and mocked success/failure behavior without sending real inquiries. Present both pages for owner review before separate publication approval.
 
 ## Integrated local handoff
+
+Approved C follow-up from issue #30: the light-mode final CTA now continues alternation with white-smoke and readable light-theme text/buttons. The shared footer is dark in both themes, including its text, borders, link/button states, keyboard ring and existing logo mask. Dark-mode CTA is unchanged. New ending regression passes 30 route/width pairs in both themes, 24 footer axe scans, four CTA axe scans, identical footer rest/hover/pressed/focus/logo colors and two no-JavaScript cases. Integrated site QA and the static build verifier pass. No content, destinations, raster assets or header treatment changed. Committed separately from the Privacy alignment follow-up; no push, issue closure or deployment performed.
 
 Approved F follow-up: Privacy's readable body is now left-anchored to the Hero/header gutter instead of independently centered. Notice, body headings and dividers share the title's left edge; the 960px reading limit and mobile gutters remain. Updated retained-page regression passes 24 layout/content comparisons, eight scoped axe checks, four no-JavaScript pages and zero preview POSTs. No legal copy, dates or form behavior changed. Committed separately from the ending/footer follow-up.
 
