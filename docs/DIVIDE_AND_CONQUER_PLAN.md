@@ -220,6 +220,8 @@ Files: FAQ presentation, adapted About component, scoped styles and exact-answer
 
 Approved locally with Phases 11-12; separate commit per phase. No publication until local acceptance and later separate pushes. Existing Contact/Privacy content and form delivery boundary must be preserved.
 
+Implemented/verified locally; see [Phase 10 review](PHASE_10_LOCAL_REVIEW.md). Centered existing ending, compact shared footer, original Contact/Privacy/form/links retained. No publication yet.
+
 ### Exact actions
 
 1. Retain the existing Home final demo CTA/footer as the contact/ending experience; no new Home form or unsolicited end section.
