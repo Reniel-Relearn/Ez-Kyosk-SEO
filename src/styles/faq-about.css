@@ -1,0 +1,61 @@
+/* Phase 9: presentation only; preserve all ten native disclosures and About facts. */
+body[data-home-hero] :is(.faq-section, #about-us) {
+  padding-block: clamp(32px, 4vw, 56px);
+}
+body[data-home-hero] .faq-section {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+body[data-home-hero] .faq-intro {
+  position: static;
+  width: 100%;
+  max-width: 960px;
+  margin-inline: auto;
+  text-align: center;
+}
+body[data-home-hero] :is(.faq-intro, #about-us .home-about-intro) .eyebrow {
+  justify-content: center;
+}
+body[data-home-hero] :is(.faq-intro, #about-us) h2 {
+  font-size: clamp(34px, 2.8vw, 44px);
+  line-height: 1.12;
+}
+body[data-home-hero] .faq-intro > p { margin-block: 16px; }
+body[data-home-hero] .faq-list {
+  width: 100%;
+  max-width: 960px;
+  margin-inline: auto;
+}
+/* Align text, not both paragraph edges: do not use text-align: justify. */
+body[data-home-hero] .faq-list :is(summary, p) { text-align: left; }
+body[data-home-hero] .faq-list summary { font-size: 16px; }
+body[data-home-hero] .faq-list summary > span { margin-left: auto; }
+body[data-home-hero] .faq-actions { margin-top: 24px; text-align: left; }
+body[data-home-hero] .faq-list details > p {
+  max-width: 80ch;
+  padding: 0 50px 24px 0;
+  font-size: 16px;
+  line-height: 1.65;
+}
+body[data-home-hero] #about-us .home-about-intro {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 24px;
+  text-align: center;
+}
+body[data-home-hero] #about-us .value-grid { margin-top: 24px; }
+body[data-home-hero] #about-us .value-grid article {
+  min-width: 0;
+  min-height: 0;
+  padding: 20px;
+}
+body[data-home-hero] #about-us .value-grid h3 {
+  margin: 0 0 14px;
+  font-size: clamp(22px, 2vw, 24px);
+  text-align: center;
+}
+body[data-home-hero] #about-us .value-grid p { text-align: left; }
+body[data-home-hero] #about-us > p.home-about-intro { margin: 24px auto 0; }
+@media (max-width: 720px) {
+  body[data-home-hero] .faq-list details > p { padding-right: 0; }
+}

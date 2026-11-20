@@ -4,7 +4,7 @@ Date: 18 November 2026, Asia/Manila.
 
 Companion: [Revision architecture](ARCHITECTURE.md).
 
-Status: PHASES 1-8 COMPLETE and live verified; Phase 8 source c41e2d7 deployed and verified on 20 November; see [closure](PHASE_8_RELEASE.md). Phase 9 is approved locally only, including exact FAQ alignment revisions. Later phases and held work remain unapproved. Previous freezes/page plans are historical where superseded by the latest owner decisions.
+Status: PHASES 1-8 COMPLETE and live verified; Phase 8 source c41e2d7 deployed and verified on 20 November; see [closure](PHASE_8_RELEASE.md). Phase 9 is fully implemented and verified locally, ready for [owner review](PHASE_9_LOCAL_REVIEW.md), NOT published. Later phases and held work remain unapproved. Previous freezes/page plans are historical where superseded by the latest owner decisions.
 
 ## Workflow for every phase
 
@@ -199,6 +199,10 @@ Files: Home journey/data only for specifically approved wording, JourneyCard lay
 ## Phase 9: FAQs and About us
 
 Approved for full local implementation/review after verified Phase 8 publication. No Phase 9 deployment authorized. Latest FAQ direction is explicit: center the title/introduction above one centered column; keep question and answer text flush left, natural ragged right, NOT fully justified. Align expand/collapse icons right. Preserve whole-row click/tap targets, subtle dividers, restrained blue highlights, visible keyboard focus and multiple independently open answers. Do not switch to two FAQ columns or center answer text.
+
+Local implementation and QA complete; see [Phase 9 review](PHASE_9_LOCAL_REVIEW.md). Exact ten FAQs, original About component/copy, imagery and links preserved. Centered one-column FAQ, explicit text/icon alignment, compact spacing, About principle headings and responsive layout verified. Await owner review and separate publication approval before phase closure.
+
+Owner-review revision: Ask a different question belongs below the complete FAQ list, flush left with the question text, not in the centered introduction. Retain its exact wording, Contact destination and keyboard target; test its position with closed/mixed/all-open answers. Implement locally only.
 
 ### Exact actions
 

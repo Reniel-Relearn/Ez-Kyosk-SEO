@@ -22,6 +22,7 @@ import '../styles/products-section.css';
 import '../styles/payments-section.css';
 import '../styles/industries-section.css';
 import '../styles/journey-section.css';
+import '../styles/faq-about.css';
 import HomeAbout from '../components/HomeAbout.astro';
 
 const platforms = [
@@ -107,8 +108,10 @@ const industries: Array<['hospitality' | 'retail' | 'wellness' | 'services', str
   </section>
 
   <section class="faq-section section-shell" aria-labelledby="faq-title" data-reveal>
-    <div class="faq-intro"><span class="eyebrow">Questions, answered</span><h2 id="faq-title">What businesses ask before a demo.</h2><p>Clear answers about capabilities, payments, customization, compatibility, and pricing.</p><a class="text-link" href={sitePath('/contact/')}>Ask a different question <span aria-hidden="true">↗</span></a></div>
-    <div class="faq-list">{faqs.map(([question, answer]) => <details><summary>{question}<span aria-hidden="true"></span></summary><p>{answer}</p></details>)}</div>
+    <div class="faq-intro"><span class="eyebrow">Questions, answered</span><h2 id="faq-title">What businesses ask before a demo.</h2><p>Clear answers about capabilities, payments, customization, compatibility, and pricing.</p></div>
+    <div class="faq-list">{faqs.map(([question, answer]) => <details><summary>{question}<span aria-hidden="true"></span></summary><p>{answer}</p></details>)}
+      <div class="faq-actions"><a class="text-link" href={sitePath('/contact/')}>Ask a different question <span aria-hidden="true">↗</span></a></div>
+    </div>
   </section>
   <HomeAbout />
   <DemoCTA />
