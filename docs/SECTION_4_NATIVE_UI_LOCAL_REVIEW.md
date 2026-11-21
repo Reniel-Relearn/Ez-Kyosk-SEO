@@ -1,5 +1,7 @@
 # Section 4: all native product interfaces, local review
 
+PUBLICATION UPDATE: owner accepted all five cards and the final Card 2/4 revisions. Implementation462e4d1 is deployed and live-verified on existing GitHub Pages; [release and verification](SECTION_4_NATIVE_UI_RELEASE.md). Local-only/no-publication statements below describe earlier review stages and are superseded by this explicit release. Next is Benefits planning, not automatic implementation.
+
 ## Latest approved revisions: cashier queue and compact analytics
 
 Owner approved the Card 2/4 revision brief. Integrated locally, no commit/push/deployment.

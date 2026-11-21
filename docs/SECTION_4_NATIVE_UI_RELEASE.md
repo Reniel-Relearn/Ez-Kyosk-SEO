@@ -25,6 +25,16 @@ The unused Card 1v2 derivative requirement was removed from the verifier without
 
 Status at implementation commit: clean-source acceptance complete; workflow/live confirmation pending. This is not yet a deployment-success claim.
 
+## Verified publication
+
+COMPLETE: implementation462e4d13e504469ea7b15205b29c2995b2afa167 is pushed to main and publicly deployed. Section 3 release-record correctionc414b01 was committed separately. Website checks44876004484 and Pages deployment44876004526 both succeeded for the implementation SHA.
+
+Live URL: https://reniel-relearn.github.io/Ez-Kyosk-SEO/ . Six public pages and three referenced stylesheet/script assets returned200 and matched the approved clean build by SHA256. Live native-product QA passed80 responsive/theme/density combinations and20 accessibility scans; live Card 1 interaction QA passed16 configurations and4 scans, including keyboard and zero/cap quantities. Zero browser/resource errors or real submissions. Preview noindex and robots Disallow remain active.
+
+The live markup counter was tightened to count actual aside elements rather than matching the same attribute text inside inline JavaScript. This corrected a verifier false positive, not a website change. Local-only private files/unused artwork remain preserved and excluded.
+
+This subsequent release-record reconciliation is documentation-only and does not change the verified runtime. The ongoing GitHub issues #1/#31 receive publication/remaining-work updates; neither is closed while held requests/ongoing feedback remain.
+
 ## Next actions after verified publication
 
 Plan the Benefits section overhaul, “A better way to take orders,” based on an audit of its current three cards. Present exact content/layout/icon recommendations and wait for approval before editing. Payment artwork, header readability, search-question/article research and production launch configuration remain separately scoped.

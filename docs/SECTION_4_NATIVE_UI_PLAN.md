@@ -49,9 +49,9 @@ Completed locally and accepted by owner. Preserve its source and interaction beh
 
 Implementation and checks complete; [current all-card review](SECTION_4_NATIVE_UI_LOCAL_REVIEW.md). Full-site/browser/product suites passed; original golden fixtures and72 protected assets were preserved without reset.
 
-### C. Publication — owner-approved, deployment verification pending
+### C. Publication — completed and live-verified
 
-Owner accepted the final visual review and authorized the release workflow. Clean staged-source root and Pages builds/static verification passed, as did all-native/product/interaction/full-site browser suites. No private/untracked artwork was needed. Deployment success is still a separate verification gate.
+Owner accepted the final visual review and authorized the release workflow. Implementation462e4d1 is deployed and live-verified; [release record](SECTION_4_NATIVE_UI_RELEASE.md). Clean staged-source root/Pages builds and local/live suites passed. No private/untracked artwork was needed. Steps below record the completed publication workflow; further changes still need their own approval.
 
 1. Resolve any owner feedback and obtain acceptance for all five cards.
 2. Obtain explicit publication authority; inspect the dirty worktree and stage only approved necessary runtime/test/documentation changes. Do not include private references or unused image masters.
