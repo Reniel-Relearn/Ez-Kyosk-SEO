@@ -5,7 +5,9 @@ import {createHash} from 'node:crypto';
 import {assertPhase2Preservation} from './phase2-preservation.mjs';
 
 const base=process.env.QA_BASE_URL||'http://127.0.0.1:4323/Ez-Kyosk-SEO';
-const component=(await readFile('src/components/PaymentShowcase.astro','utf8')).replaceAll('\r\n','\n');
+const component=(await readFile('src/components/PaymentShowcase.astro','utf8')).replaceAll('\r\n','\n')
+ .replaceAll('payment-terminal-v2-', 'payment-terminal-v1-')
+ .replace('Illustrative standalone card payment terminal displaying 300 pesos and Tap card', 'Illustrative Ez Kyosk countertop kiosk beside a payment terminal, showing a matching sample order total of 300 pesos');
 assert.equal(createHash('sha256').update(component).digest('hex'),'6f8f4ba7f22a09e9eabf47b47ecf3ea677eb3f268e47cb4515642791da01c93d','original payment copy, links and image markup unchanged');
 const browser=await chromium.launch({channel:'msedge',headless:true}),results=[],errors=[];
 await mkdir('artifacts/phase6',{recursive:true});

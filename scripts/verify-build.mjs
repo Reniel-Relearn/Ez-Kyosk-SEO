@@ -250,7 +250,7 @@ for (const route of ['/']) {
   assert.ok(html.includes('Terminal integration</h3>'), `${route}: payment heading retained`);
   assert.ok(html.includes('Connect a secure payment terminal to the kiosk checkout flow for supported card and in-store payment requirements.'), `${route}: payment description retained`);
   assert.ok(html.includes('Discuss terminal requirements'), `${route}: payment link retained`);
-  assert.ok(html.includes('Illustrative Ez Kyosk countertop kiosk'), `${route}: illustrative alt`);
+  assert.ok(html.includes('Illustrative standalone card payment terminal'), `${route}: illustrative alt`);
   assert.equal((html.match(/class="payment-online-image"/g) || []).length, 1, `${route}: second payment image integrated`);
   assert.ok(!html.includes('class="phone"'), `${route}: online payment CSS placeholder replaced`);
   assert.ok(html.includes('QR and e-wallet checkout</h3>'), `${route}: second payment heading retained`);
@@ -267,11 +267,11 @@ for (const route of ['/']) {
   assert.equal(hash(sourceBytes), '6e5c2d1de4e3d0eef00417515d4fa18234a23e68ccd713793d836c01e528124d', 'exact owner-approved source PNG unchanged');
   assert.equal(hash(deployedBytes), hash(sourceBytes), `${route}: deployed PNG byte-identical to supplied original`);
   for (const width of [360, 720, 1080]) {
-    assert.ok(html.includes(publicPath(`/assets/images/payment-terminal-v1-${width}.webp`)), `${route}: base-safe terminal source ${width}`);
+    assert.ok(html.includes(publicPath(`/assets/images/payment-terminal-v2-${width}.webp`)), `${route}: base-safe terminal source ${width}`);
   }
 }
 for (const width of [360, 720, 1080]) {
-  const file = `dist/assets/images/payment-terminal-v1-${width}.webp`;
+  const file = `dist/assets/images/payment-terminal-v2-${width}.webp`;
   const metadata = await sharp(file).metadata();
   assert.equal(metadata.width, width);
   assert.equal(metadata.height, width * 4 / 3);

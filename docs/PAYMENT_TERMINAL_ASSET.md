@@ -1,5 +1,27 @@
 # Terminal integration payment image
 
+## Current revision: terminal only — 21 November 2026
+
+Owner approved replacing ONLY the first Home payment card artwork, using the supplied terminal-only composition as reference. The older kiosk-and-terminal composition below is historical. Native copy, inquiry link, layout/CSS and online-payment card remain unchanged. Local review only; no commit, push or deployment in this pass.
+
+Built-in ImageGen edit; no CLI fallback. Existing `public/assets/images/payment-terminal-v1-1080.webp` was the edit input. Original assets are preserved. New master: `assets/payment-terminal-only-v2-source.png`. Responsive transparent derivatives: `public/assets/images/payment-terminal-v2-{360,720,1080}.webp`, at 360×480, 720×960 and 1080×1440. WebP quality 88, alpha quality 100. Device is illustrative, not a verified hardware model or evidence of a real transaction.
+
+One complete charcoal terminal at a slight three-quarter angle, blue display with contactless icon, ₱300 and Tap card; aligned numeric keypad and red/yellow/green action keys. No kiosk, stand, embedded branding or opaque backdrop. Transparent clearance and a detached soft shadow create the floating appearance without changing the second card's bottom anchoring.
+
+### Generation prompt
+
+> Use case: precise-object-edit / background-extraction. Asset type: premium photorealistic transparent website payment-terminal cutout, portrait 3:4 canvas, ideally 1536x2048 or at least 1080 pixels wide. Input image 1 is the EXISTING edit target: kiosk plus payment terminal. Keep only the payment terminal's visual/material family, REMOVE THE ENTIRE KIOSK and BOTH stands/bases/mounting poles. Recompose as ONE complete freestanding handheld card-payment terminal, centered and fully uncropped, floating slightly above a very subtle neutral soft elliptical contact shadow on genuinely transparent surroundings. This is the only output subject. NO website card, border, headings, marketing copy, backdrop, table, hands, phone, logos or watermark. Match the user's approved reference direction: premium matte charcoal black rounded terminal, believable slim enclosure, slight three-quarter perspective showing its right side, readable front screen and keypad, physically consistent geometry, straight aligned edges, soft studio highlights. Blue display with white contactless symbol, exact clear text '₱300' and 'Tap card'. Above screen retain subtle physical contactless symbol. Keypad must be clean and plausible: rows 1 2 3 / 4 5 6 / 7 8 9 / centered 0, then three distinct bottom action keys red X, yellow back arrow, green check. No invented provider branding, successful-payment message or real card number. Make the terminal large within the portrait canvas but leave approximately 8 percent clean transparent top/side margins and enough transparent bottom clearance for the detached soft shadow, so it floats without touching the card edge. Preserve actual alpha, not a checkerboard or opaque black/white background; shadow on transparent alpha. Do not include any part of the original kiosk, stand, pedestal or other objects. Website text is native HTML and must not be generated in this asset.
+
+### Verification scope
+
+Production build/static checks, alpha/dimension checks, responsive image loading/centering in both themes and preservation of original assets, online card, copy and links. Browser screenshots are QA artifacts, not new proprietary software references. Existing header contrast concerns remain outside this artwork scope.
+
+Completed targeted checks: build and static verifier passed; 56 responsive/theme/density image checks and four scoped accessibility scans passed; 52 JavaScript-on/off payment layouts (104 card checks) passed. Golden comparison retained four protected sections and 72 original assets. Desktop dark and phone light screenshots visually reviewed: terminal complete, floating, readable, no kiosk/stand; online image unchanged. Evidence: `artifacts/terminal-only-v2-report.json`, `artifacts/terminal-only-v2-home-section-dark.png`, `artifacts/terminal-only-v2-home-terminal-390-light.png` and payment layout report. No CSS changes were necessary.
+
+Current v2 wider regression: `npm run qa` passed 36 layouts and 24 accessibility scans, with no browser errors, failed requests or preview form submissions. Keyboard/menu/tabs/theme checks and mocked form success/failure passed. Report: `artifacts/qa-report.json`.
+
+## Historical first composition
+
 Date: 14 November 2026. Owner authorized the FIRST payment card only after supplying the latest two-card screenshot.
 
 ## Placement and revised reference

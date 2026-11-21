@@ -6,7 +6,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 const base = process.env.QA_BASE_URL || 'http://127.0.0.1:4323/Ez-Kyosk-SEO';
 const prefix = process.env.QA_SCREENSHOT_PREFIX || 'payment-images';
 const imageCards = [
-  { selector: '.payment-terminal-image', name: 'terminal', ratio: 3 / 4, source: 'payment-terminal-v1-', alt: 'Illustrative Ez Kyosk countertop kiosk' },
+  { selector: '.payment-terminal-image', name: 'terminal', ratio: 3 / 4, source: 'payment-terminal-v2-', alt: 'Illustrative standalone card payment terminal' },
   { selector: '.payment-online-image', name: 'online', ratio: 1371 / 1148, source: 'Hand%20Holding%20AltPayNet%20Payment%20Phone%20and%20Cards', alt: 'Owner-supplied illustration' },
 ];
 const browser = await chromium.launch({ channel: 'msedge', headless: true });
@@ -47,7 +47,7 @@ try {
         assert.ok((await onlineCard.locator('a').getAttribute('href')).endsWith('/contact/'));
         assert.equal(await image.getAttribute('loading'), 'lazy');
         assert.equal(await image.getAttribute('decoding'), 'async');
-        assert.ok((await image.getAttribute('alt')).startsWith('Illustrative Ez Kyosk countertop kiosk'));
+        assert.ok((await image.getAttribute('alt')).startsWith('Illustrative standalone card payment terminal'));
         assert.equal(await image.evaluate(image => image.closest('[aria-hidden="true"]')), null);
         for (const theme of ['light', 'dark']) {
           await page.evaluate(theme => document.documentElement.dataset.theme = theme, theme);

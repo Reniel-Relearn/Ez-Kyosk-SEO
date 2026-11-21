@@ -10,6 +10,10 @@ export async function collectPhase2Preservation(){
   // Original artwork bytes and all other markup/assets remain protected; new
   // derivatives are checked by the verifier and platform/browser regression.
   const home=normalizeNativeProductHtml(normalizeMinimalBenefitsHtml(await readFile('dist/index.html','utf8')))
+    // Owner-approved terminal-only artwork: normalize this exact substitution,
+    // retaining the golden checks for original artwork bytes and the online card.
+    .replaceAll('payment-terminal-v2-', 'payment-terminal-v1-')
+    .replace('Illustrative standalone card payment terminal displaying 300 pesos and Tap card', 'Illustrative Ez Kyosk countertop kiosk beside a payment terminal, showing a matching sample order total of 300 pesos')
     .replaceAll('product-self-ordering-v2-', 'product-self-ordering-v1-')
     .replaceAll('product-pos-checkout-v2-', 'product-pos-checkout-v1-')
     .replaceAll('product-inventory-v2-', 'product-inventory-v1-')
