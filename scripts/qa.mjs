@@ -50,16 +50,15 @@ try {
         assert.equal(await page.locator('.payment-terminal-image,.payment-online-image').count(), 0, 'Product no longer repeats Home payment cards');
       }
       if (route === '/') {
-        assert.equal(await page.locator('.product-panel-image').count(), 5, 'all five product panels have imagery');
-        assert.equal(await page.locator('.product-explorer .ui-window').count(), 0, 'all product placeholders replaced');
-        assert.ok((await page.locator('#panel-customers .product-panel-image').getAttribute('src')).includes('product-customers-v1-'));
-        assert.ok((await page.locator('#panel-reports .product-panel-image').getAttribute('src')).includes('product-reports-v1-'));
-        assert.ok((await page.locator('#panel-inventory .product-panel-image').getAttribute('src')).includes('product-inventory-v1-'));
-        assert.ok((await page.locator('#panel-pos-checkout .product-panel-image').getAttribute('src')).includes('product-pos-checkout-v1-'));
-        const productImage = await page.locator('#panel-self-ordering .product-panel-image').evaluate(image => ({ source: image.currentSrc, alt: image.alt, ratio: image.getBoundingClientRect().width / image.getBoundingClientRect().height }));
-        assert.ok(productImage.source.includes('product-self-ordering-v1-'));
-        assert.ok(productImage.alt.startsWith('Illustrative Ez Kyosk'));
-        assert.ok(Math.abs(productImage.ratio - 4 / 3) < .01, 'landscape product image is not stretched');
+        assert.equal(await page.locator('.product-panel-image').count(), 0, 'no product raster panels');
+        assert.equal(await page.locator('#products [data-native-product]').count(), 5);
+        assert.equal(await page.locator('.product-explorer .ui-window').count(), 0);
+        const nativeOrder = page.locator('#panel-self-ordering [data-native-product="self-ordering"]');
+        assert.equal(await nativeOrder.count(), 1);
+        assert.equal(await nativeOrder.locator('.product-native-items > li').count(), 3);
+        assert.equal(await nativeOrder.locator('[data-sample-order-total]').textContent(), '₱300.00');
+        assert.equal(await nativeOrder.locator('button').count(), 7);
+        assert.equal(await nativeOrder.locator('input,form,img').count(), 0);
         const hero = await page.locator('.hero-product img').evaluate(image => ({ source: image.currentSrc, filter: getComputedStyle(image).filter }));
         assert.ok(hero.source.includes('hero-kiosk-transparent-v3.'), 'corrected transparent hero is loaded');
         assert.equal(hero.filter, 'none', 'no broad CSS blur/drop-shadow around the cutout');

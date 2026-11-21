@@ -4,6 +4,7 @@ import {mkdir,readFile,writeFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {productCategories} from '../src/data/product.ts';
 import {assertPhase2Preservation} from './phase2-preservation.mjs';
+import {normalizeNativeProductSource} from './product-native-preservation.mjs';
 
 const base=process.env.QA_BASE_URL||'http://127.0.0.1:4323/Ez-Kyosk-SEO';
 // Preserve original icons/data and the explicitly approved Phase 13 D CTA component.
@@ -13,6 +14,15 @@ for(const [file,expected] of [
  ['src/data/product.ts','e35f434877e7886c9b58f7cf0de97202ff95ebd6914eb9b021b949bb5019234c']
 ]) {
  let source=(await readFile(file,'utf8')).replaceAll('\r\n','\n');
+ if(file==='src/components/ProductExplorer.astro') source=normalizeNativeProductSource(source);
+ // Owner-approved Section 4 Cards 1/2/3 artwork/alts only; preserve every other component byte.
+ if(file==='src/components/ProductExplorer.astro') source=source
+  .replace("stem: 'product-self-ordering-v2'", "stem: 'product-self-ordering-v1'")
+  .replace('Illustrative Ez Kyosk dark portrait kiosk close-up with a café menu and an attached payment terminal', 'Illustrative Ez Kyosk portrait kiosk menu with generic café items and an enlarged matching order review')
+  .replace("stem: 'product-pos-checkout-v2'", "stem: 'product-pos-checkout-v1'")
+  .replace('Illustrative Ez Kyosk checkout concept on an unbranded slim touchscreen with a sample three-item order', 'Illustrative Ez Kyosk staff checkout workstation with an order queue, receipt printer, and matching generic checkout detail')
+  .replace("stem: 'product-inventory-v2'", "stem: 'product-inventory-v1'")
+  .replace('Illustrative Ez Kyosk inventory concept on an unbranded tablet showing a five-row sample stock spreadsheet', 'Illustrative Ez Kyosk inventory tablet beside stock containers and an enlarged sample item availability table');
  // Phase 8 explicitly approved this journey-only caption. Keep the old hash
  // protecting every byte of product categories, FAQ and the rest of the data.
  if(file==='src/data/product.ts') source=source.replace('After payment, optionally scan the order-tracking QR to view order status.','Scan the order-tracking QR to open order tracking.');

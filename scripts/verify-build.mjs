@@ -107,66 +107,42 @@ for (const kind of ['self-ordering', 'pos-checkout', 'inventory', 'reports', 'cu
 }
 assert.ok(!pages.get('/features/').includes('product-tab-icon'), 'separate Product page unchanged by Home-only icons');
 const selfOrderingPanel = homeHtml.match(/<section class="product-panel" id="panel-self-ordering"[\s\S]*?<\/section>/)?.[0];
-assert.ok(selfOrderingPanel?.includes('product-panel-image'), 'Self-Ordering product panel has its generated concept image');
+assert.ok(selfOrderingPanel?.includes('data-native-product="self-ordering"'), 'Self-Ordering is a native sample interface');
 assert.ok(selfOrderingPanel.includes('Every choice, clear from the first tap.</h3>'), 'product panel heading retained');
-assert.ok(selfOrderingPanel.includes('Illustrative Ez Kyosk portrait kiosk menu'), 'image described as illustrative, not a live screenshot');
+assert.ok(selfOrderingPanel.includes('<h4>Current Order '), 'native interface is a current-order preview');
+assert.ok(!/Sample Interface|Demo only|in this sample order/.test(selfOrderingPanel), 'no visible internal preview labels');
+assert.ok(!selfOrderingPanel.includes('brand-mark') && !selfOrderingPanel.includes('product-native-catalog'), 'no native logo or menu');
+assert.ok(!selfOrderingPanel.includes('product-panel-image') && !selfOrderingPanel.includes('product-self-ordering-v2-'), 'no generated photo/frame in native first panel');
+assert.ok(selfOrderingPanel.includes('<ul class="product-native-items" aria-label="Current order items">'), 'order products form a named semantic list');
+assert.ok(selfOrderingPanel.includes('class="product-native-checkout" aria-disabled="true"'), 'checkout remains non-transactional');
+assert.ok(selfOrderingPanel.includes('data-sample-order-total="300"'), 'sample total is three hundred pesos');
+for (const item of ['Coffee','Sandwich','Cookie']) assert.ok(selfOrderingPanel.includes(item), item + ' remains HTML text');
+assert.equal((selfOrderingPanel.match(/<button\b[^>]*data-quantity-change=/g) || []).length, 6, 'six progressive-enhancement quantity buttons');
+assert.ok(!/<input|<form/.test(selfOrderingPanel), 'sample has no order submission or payment form');
 assert.ok(!selfOrderingPanel.includes('ui-window'), 'first product placeholder remains replaced');
 assert.equal((homeHtml.match(/class="ui-window"/g) || []).length, 0, 'all product placeholders replaced');
-assert.equal((homeHtml.match(/class="product-panel-image"/g) || []).length, 5, 'all five product images integrated');
-const customersPanel = homeHtml.match(/<section class="product-panel" id="panel-customers"[\s\S]*?<\/section>/)?.[0];
-assert.ok(customersPanel?.includes('Add customer tools when they serve the experience.</h3>'), 'Customers heading retained');
-assert.ok(customersPanel.includes('Customer profiles, loyalty, promotions, and related tools can be scoped around client needs and the experience they want to provide.'), 'optional customer-tool scoping retained');
-assert.ok(customersPanel.includes('Illustrative Ez Kyosk smartphone sample profile'), 'Customers image described as illustrative');
-assert.ok(!customersPanel.includes('ui-window'), 'Customers placeholder replaced');
-for (const width of [480, 960, 1440]) {
-  const filename = `product-customers-v1-${width}.webp`;
-  assert.ok(customersPanel.includes(publicPath(`/assets/images/${filename}`)), `Customers uses base-safe ${filename}`);
-  const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
-  assert.equal(metadata.width, width);
-  assert.equal(metadata.height, width * 3 / 4);
+assert.equal((homeHtml.match(/class="product-panel-image"/g) || []).length, 0, 'all five product visuals are native');
+for (const id of ['pos-checkout','inventory','reports','customers']) {
+  const panel=homeHtml.match(new RegExp('<section class="product-panel" id="panel-'+id+'"[\\s\\S]*?<\\/section>'))?.[0];
+  assert.ok(panel?.includes('data-native-product="'+id+'"'),id+' native interface present');
+  assert.ok(!/<img|<form|<input|brand-mark|Sample Interface|Demo only/.test(panel),id+' no raster/branding/submission/internal labels');
 }
-const reportsPanel = homeHtml.match(/<section class="product-panel" id="panel-reports"[\s\S]*?<\/section>/)?.[0];
-assert.ok(reportsPanel?.includes('Shape reporting around the questions you ask.</h3>'), 'Reports heading retained');
-assert.ok(reportsPanel.includes('Reporting and analytics can be configured to the information, roles, and workflows a client needs rather than forcing every business into one template.'), 'configurable reporting description retained');
-assert.ok(reportsPanel.includes('Illustrative Ez Kyosk reporting laptop'), 'Reports image described as illustrative');
-assert.ok(!reportsPanel.includes('ui-window'), 'Reports placeholder replaced');
+const checkoutPanel=homeHtml.match(/<section class="product-panel" id="panel-pos-checkout"[\s\S]*?<\/section>/)[0];
+assert.ok(checkoutPanel.includes('data-queue-preparing>3') || checkoutPanel.includes('data-queue-preparing="">3'),'queue preparing count3');
+assert.ok(checkoutPanel.includes('data-queue-pickup>2') || checkoutPanel.includes('data-queue-pickup="">2'),'queue pickup count2');
+assert.ok(checkoutPanel.includes('Cashier view')&&!checkoutPanel.includes('Subtotal'),'cashier-facing queue replaces receipt');
+assert.ok(checkoutPanel.includes('Move confirmed orders into checkout.</h3>'),'checkout marketing title retained');
+const inventoryPanel=homeHtml.match(/<section class="product-panel" id="panel-inventory"[\s\S]*?<\/section>/)[0];
+for(const name of ['Coffee Beans','Paper Cups','Fresh Milk','Matcha Powder','Sugar','In Stock','Low Stock']) assert.ok(inventoryPanel.includes(name),'inventory '+name);
+const reportsPanel=homeHtml.match(/<section class="product-panel" id="panel-reports"[\s\S]*?<\/section>/)[0];
+assert.ok(reportsPanel.includes('data-weekly-total>132') || reportsPanel.includes('data-weekly-total="">132'),'weekly orders total132');
+assert.ok(reportsPanel.includes('View order data')&&reportsPanel.includes('native-orders-chart-desc'),'chart has accessible data');
+assert.ok(reportsPanel.includes('Category Mix')&&reportsPanel.includes('native-category-desc')&&reportsPanel.includes('18.9'),'compact analytics includes accessible category donut and derived average');
+const customersPanel=homeHtml.match(/<section class="product-panel" id="panel-customers"[\s\S]*?<\/section>/)[0];
+for(const word of ['Guest 01','Configurable','Loyalty','Promotions','Repeat orders']) assert.ok(customersPanel.includes(word),'customer tools '+word);
 for (const width of [480, 960, 1440]) {
-  const filename = `product-reports-v1-${width}.webp`;
-  assert.ok(reportsPanel.includes(publicPath(`/assets/images/${filename}`)), `Reports uses base-safe ${filename}`);
-  const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
-  assert.equal(metadata.width, width);
-  assert.equal(metadata.height, width * 3 / 4);
-}
-const inventoryPanel = homeHtml.match(/<section class="product-panel" id="panel-inventory"[\s\S]*?<\/section>/)?.[0];
-assert.ok(inventoryPanel?.includes('Keep menu availability closer to reality.</h3>'), 'Inventory heading retained');
-assert.ok(inventoryPanel.includes('Real-time inventory support helps the ordering experience reflect operational availability and gives teams a clearer view of stock movement.'), 'Inventory description retained');
-assert.ok(inventoryPanel.includes('Illustrative Ez Kyosk inventory tablet'), 'Inventory image described as illustrative');
-assert.ok(!inventoryPanel.includes('ui-window'), 'Inventory placeholder replaced');
-for (const width of [480, 960, 1440]) {
-  const filename = `product-inventory-v1-${width}.webp`;
-  assert.ok(inventoryPanel.includes(publicPath(`/assets/images/${filename}`)), `Inventory uses base-safe ${filename}`);
-  const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
-  assert.equal(metadata.width, width);
-  assert.equal(metadata.height, width * 3 / 4);
-}
-const checkoutPanel = homeHtml.match(/<section class="product-panel" id="panel-pos-checkout"[\s\S]*?<\/section>/)?.[0];
-assert.ok(checkoutPanel?.includes('Move confirmed orders into checkout.</h3>'), 'checkout heading retained');
-assert.ok(checkoutPanel.includes('Connect the self-ordering journey with the operational checkout flow, including order queueing and the requirements defined for each deployment.'), 'checkout description retained');
-assert.ok(checkoutPanel.includes('Illustrative Ez Kyosk staff checkout workstation'), 'checkout image described as illustrative');
-assert.ok(!checkoutPanel.includes('ui-window'), 'checkout placeholder replaced');
-for (const width of [480, 960, 1440]) {
-  const filename = `product-pos-checkout-v1-${width}.webp`;
-  assert.ok(checkoutPanel.includes(publicPath(`/assets/images/${filename}`)), `checkout uses base-safe ${filename}`);
-  const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
-  assert.equal(metadata.width, width);
-  assert.equal(metadata.height, width * 3 / 4);
-}
-for (const width of [480, 960, 1440]) {
-  const filename = `product-self-ordering-v1-${width}.webp`;
-  assert.ok(selfOrderingPanel.includes(publicPath(`/assets/images/${filename}`)), `product panel uses base-safe ${filename}`);
-  const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
-  assert.equal(metadata.width, width);
-  assert.equal(metadata.height, width * 3 / 4);
+  const filename = `product-self-ordering-v2-${width}.webp`;
+  assert.ok(!selfOrderingPanel.includes(filename), 'superseded first image not referenced');
 }
 assert.equal((homeHtml.match(/class="platform-image"/g) || []).length, 5, 'all five platform cards have imagery');
 assert.ok(!homeHtml.includes('platform-self-ordering-v2-'), 'home uses the reviewed v3 correction, not the old white logo plates');

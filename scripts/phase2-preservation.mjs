@@ -1,13 +1,20 @@
 import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
+import {normalizeNativeProductHtml} from './product-native-preservation.mjs';
 const hash=value=>createHash('sha256').update(value).digest('hex');
 export async function collectPhase2Preservation(){
   // Explicit 21 November card-specific approvals: normalize only ordering v4, queue v3,
   // inventory v2, reports v3, cashier v4 and exact descriptive alts for the original golden comparison.
   // Original artwork bytes and all other markup/assets remain protected; new
   // derivatives are checked by the verifier and platform/browser regression.
-  const home=(await readFile('dist/index.html','utf8'))
+  const home=normalizeNativeProductHtml(await readFile('dist/index.html','utf8'))
+    .replaceAll('product-self-ordering-v2-', 'product-self-ordering-v1-')
+    .replaceAll('product-pos-checkout-v2-', 'product-pos-checkout-v1-')
+    .replaceAll('product-inventory-v2-', 'product-inventory-v1-')
+    .replace('Illustrative Ez Kyosk inventory concept on an unbranded tablet showing a five-row sample stock spreadsheet', 'Illustrative Ez Kyosk inventory tablet beside stock containers and an enlarged sample item availability table')
+    .replace('Illustrative Ez Kyosk checkout concept on an unbranded slim touchscreen with a sample three-item order', 'Illustrative Ez Kyosk staff checkout workstation with an order queue, receipt printer, and matching generic checkout detail')
+    .replace('Illustrative Ez Kyosk dark portrait kiosk close-up with a café menu and an attached payment terminal', 'Illustrative Ez Kyosk portrait kiosk menu with generic café items and an enlarged matching order review')
     .replaceAll('platform-self-ordering-human-v4-', 'platform-self-ordering-human-v3-')
     .replaceAll('platform-order-queue-ceiling-v3-', 'platform-order-queue-ceiling-v2-')
     .replaceAll('platform-inventory-human-v2-', 'platform-inventory-human-v1-')
@@ -51,6 +58,10 @@ export async function assertPhase2Preservation(){
   const approvedReportsRevision=currentHome.includes('platform-reports-weekly-v3-');
   const approvedCashierRevision=currentHome.includes('platform-cashier-human-v4-');
   const approvedOrderingRevision=currentHome.includes('platform-self-ordering-human-v4-');
-  return {comparedSections:4,approvedPlatformHeadingNormalization:true,allHomeImagesUnchanged:!approvedOrderingRevision&&!approvedQueueRevision&&!approvedInventoryRevision&&!approvedReportsRevision&&!approvedCashierRevision,allOtherHomeImagesUnchanged:true,approvedOrderingRevision:approvedOrderingRevision?'v4 reference hardware with retained UI/logos/terminal':null,approvedQueueRevision:approvedQueueRevision?'v3 logo removal and upward reflow':null,approvedInventoryRevision:approvedInventoryRevision?'v2 logo-free five-row spreadsheet':null,approvedReportsRevision:approvedReportsRevision?'v3 reference-layout analytics dashboard':null,approvedCashierRevision:approvedCashierRevision?'v4 slim staff-facing device, Card 3 hardware reference':null,protectedAssets:baseline.assetCount};
+  const approvedProductOrderingRevision=currentHome.includes('product-self-ordering-v2-');
+  const approvedProductCheckoutRevision=currentHome.includes('product-pos-checkout-v2-');
+  const approvedProductInventoryRevision=currentHome.includes('product-inventory-v2-');
+  const approvedNativeSelfOrdering=currentHome.includes('data-native-product="self-ordering"');
+  return {comparedSections:4,approvedPlatformHeadingNormalization:true,allHomeImagesUnchanged:!approvedNativeSelfOrdering&&!approvedOrderingRevision&&!approvedQueueRevision&&!approvedInventoryRevision&&!approvedReportsRevision&&!approvedCashierRevision&&!approvedProductOrderingRevision&&!approvedProductCheckoutRevision&&!approvedProductInventoryRevision,allOtherHomeImagesUnchanged:true,approvedNativeSelfOrdering,approvedProductInventoryRevision:approvedProductInventoryRevision?'v2 unbranded single-device five-row inventory':null,approvedProductCheckoutRevision:approvedProductCheckoutRevision?'v2 unbranded single-device sample checkout':null,approvedProductOrderingRevision:approvedProductOrderingRevision?'v2 kiosk detail with logos/terminal, no duplicate order panel':null,approvedOrderingRevision:approvedOrderingRevision?'v4 reference hardware with retained UI/logos/terminal':null,approvedQueueRevision:approvedQueueRevision?'v3 logo removal and upward reflow':null,approvedInventoryRevision:approvedInventoryRevision?'v2 logo-free five-row spreadsheet':null,approvedReportsRevision:approvedReportsRevision?'v3 reference-layout analytics dashboard':null,approvedCashierRevision:approvedCashierRevision?'v4 slim staff-facing device, Card 3 hardware reference':null,protectedAssets:baseline.assetCount};
 }
 if(process.argv.includes('--baseline')) console.log(JSON.stringify(await collectPhase2Preservation(),null,2));

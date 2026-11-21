@@ -1,0 +1,71 @@
+---
+import { inventoryItems, weeklyOrders, weeklyOrderTotal, categoryMix, customerTools, averageDailyOrders, peakOrderDay, queueOrders, preparingCount, pickupCount } from '../data/nativeProducts.mjs';
+interface Props { kind: string }
+const { kind } = Astro.props;
+const titles:Record<string,string> = { 'pos-checkout':'Order Queue', inventory:'Inventory', reports:'Analytics', customers:'Customer workspace' };
+const chartPoints = weeklyOrders.map((item,index)=>`${20+index*30},${110-item.orders*2.6}`).join(' ');
+const categorySegments = categoryMix.map((item,index)=>({...item,offset:categoryMix.slice(0,index).reduce((sum,previous)=>sum+previous.percentage,0)}));
+const dayNames:Record<string,string> = { Mon:'Monday', Tue:'Tuesday', Wed:'Wednesday', Thu:'Thursday', Fri:'Friday', Sat:'Saturday', Sun:'Sunday' };
+---
+<aside class="product-native" data-native-product={kind} aria-label={`${titles[kind]} interface`}>
+  <div class="product-native-header">
+    <div><h4>{titles[kind]}</h4>
+      <span class="product-native-dine-in">{kind==='pos-checkout'?'Cashier view':kind==='inventory'?'Stock overview':kind==='reports'?'Weekly overview':'Configurable'}</span>
+    </div>
+  </div>
+  {kind==='pos-checkout' && <>
+    <div class="product-native-metrics product-native-queue-metrics">
+      <div><span>Preparing</span><strong data-queue-preparing>{preparingCount}</strong></div>
+      <div><span>Ready for Pickup</span><strong data-queue-pickup>{pickupCount}</strong></div>
+    </div>
+    <table class="product-native-table product-native-queue-table">
+      <caption class="product-native-sr-only">Cashier order queue with item summaries and preparation status</caption>
+      <thead><tr><th scope="col">Order</th><th scope="col">Items</th><th scope="col">Status</th></tr></thead>
+      <tbody>{queueOrders.map(order=><tr><th scope="row">#{order.number}</th><td>{order.items}</td><td><span class:list={['product-native-queue-status',{'is-ready':order.status==='Ready for Pickup'}]}>{order.status}</span></td></tr>)}</tbody>
+    </table>
+  </>}
+  {kind==='inventory' && <>
+    <div class="product-native-metrics">
+      <div><span>Tracked items</span><strong>{inventoryItems.length}</strong></div>
+      <div><span>Low stock</span><strong>{inventoryItems.filter(item=>item.status==='Low Stock').length}</strong></div>
+    </div>
+    <table class="product-native-table product-native-stock-table">
+      <caption class="product-native-sr-only">Inventory stock quantities, units and availability</caption>
+      <thead><tr><th scope="col">Item</th><th scope="col" class="product-native-number">Stock</th><th scope="col">Unit</th><th scope="col">Status</th></tr></thead>
+      <tbody>{inventoryItems.map(item=><tr><th scope="row">{item.name}</th><td class="product-native-number">{item.stock}</td><td>{item.unit}</td><td><span class:list={['product-native-stock-status',{'is-low':item.status==='Low Stock'}]}>{item.status}</span></td></tr>)}</tbody>
+    </table>
+  </>}
+  {kind==='reports' && <>
+    <div class="product-native-report-kpis">
+      <div><span>Total Orders</span><strong data-weekly-total>{weeklyOrderTotal}</strong><small>This week</small></div>
+      <div><span>Average per Day</span><strong data-daily-average>{averageDailyOrders}</strong><small>Orders</small></div>
+      <div><span>Peak Day</span><strong data-peak-orders>{peakOrderDay.orders}</strong><small>{dayNames[peakOrderDay.day]}</small></div>
+    </div>
+    <div class="product-native-dashboard-grid">
+    <div class="product-native-chart product-native-trend-panel">
+      <h5>Daily Orders</h5>
+      <svg viewBox="0 0 220 140" role="img" aria-labelledby="native-orders-chart-title native-orders-chart-desc">
+        <title id="native-orders-chart-title">Daily orders this week</title>
+        <desc id="native-orders-chart-desc">{weeklyOrders.map(item=>`${item.day}: ${item.orders} orders`).join('; ')}. Total {weeklyOrderTotal} orders. Data table follows.</desc>
+        {[0,10,20,30].map(value=><g><line x1="20" x2="200" y1={110-value*2.6} y2={110-value*2.6} class="product-native-chart-grid"/><text x="14" y={113-value*2.6} text-anchor="end">{value}</text></g>)}
+        <polyline points={chartPoints} class="product-native-chart-line" />
+        {weeklyOrders.map((item,index)=><g><circle cx={20+index*30} cy={110-item.orders*2.6} r="2.5"/><text x={20+index*30} y={101-item.orders*2.6} text-anchor="middle">{item.orders}</text><text x={20+index*30} y="130" text-anchor="middle">{item.day}</text></g>)}
+      </svg>
+    </div>
+    <div class="product-native-categories product-native-mix-panel"><h5>Category Mix</h5>
+      <svg class="product-native-donut" viewBox="0 0 140 140" role="img" aria-labelledby="native-category-title native-category-desc">
+        <title id="native-category-title">Order category mix</title><desc id="native-category-desc">{categoryMix.map(item=>`${item.name}: ${item.percentage}%`).join('; ')}. Total100%.</desc>
+        {categorySegments.map((item,index)=><circle class={`product-native-segment segment-${index}`} cx="70" cy="70" r="48" fill="none" stroke-width="18" pathLength="100" stroke-dasharray={`${item.percentage} ${100-item.percentage}`} stroke-dashoffset={-item.offset} transform="rotate(-90 70 70)" />)}
+        <text x="70" y="68" text-anchor="middle" class="product-native-donut-total">100%</text><text x="70" y="85" text-anchor="middle" class="product-native-donut-label">Categories</text>
+      </svg>
+      <ul>{categoryMix.map((item,index)=><li><span><i class={`product-native-legend-dot segment-${index}`} aria-hidden="true"></i>{item.name}</span><strong>{item.percentage}%</strong></li>)}</ul>
+    </div>
+    </div>
+    <details class="product-native-chart-data product-native-dashboard-data"><summary>View order data</summary><table class="product-native-table"><caption class="product-native-sr-only">Daily Orders this week</caption><thead><tr><th scope="col">Day</th><th scope="col" class="product-native-number">Orders</th></tr></thead><tbody>{weeklyOrders.map(item=><tr><th scope="row">{item.day}</th><td class="product-native-number">{item.orders}</td></tr>)}</tbody></table></details>
+  </>}
+  {kind==='customers' && <>
+    <div class="product-native-profile"><span class="product-native-avatar" aria-hidden="true">G</span><div><h5>Guest 01</h5><p>Guest profile</p></div></div>
+    <dl class="product-native-profile-fields"><div><dt>Customer type</dt><dd>Guest</dd></div></dl>
+    <div class="product-native-customer-tools"><h5>Customer tools</h5><ul>{customerTools.map(tool=><li><span class="product-native-tool-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d={tool.icon}/></svg></span><span>{tool.title}</span><span class="product-native-tool-detail">{tool.detail}</span></li>)}</ul></div>
+  </>}
+</aside>
