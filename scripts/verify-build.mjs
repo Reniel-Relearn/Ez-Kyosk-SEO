@@ -395,6 +395,19 @@ assert.equal((pages.get('/offers/').match(/data-offer-plan=/g)||[]).length,3);
 for(const amount of ['PHP 0','PHP 1,990/month','PHP 3,990/month','PHP 89,000','PHP 9,900','PHP 14,900']) assert.ok(pages.get('/offers/').includes(amount),'approved offer amount: '+amount);
 assert.ok(pages.get('/offers/').includes('optional future upgrade') && pages.get('/offers/').includes('quoted separately'),'offer limitations remain explicit');
 assert.ok(!pages.get('/offers/').includes('Pricing shown is proposed'),'later commercial approval reflected');
+const yourAiSection=pages.get('/offers/').match(/<section class="offers-section offer-upgrade[\s\S]*?<\/section>/)?.[0];
+assert.equal((yourAiSection?.match(/<img\b/g)||[]).length,1,'one supplied YourAI visual');
+assert.ok(yourAiSection.includes('planned YourAI upgrade'),'accurate illustrative future-upgrade alt');
+assert.ok(yourAiSection.includes('loading="lazy"')&&yourAiSection.includes('decoding="async"'),'non-blocking YourAI image');
+assert.ok(!/<button|<form|<audio|<video|<iframe/.test(yourAiSection),'YourAI illustration does not activate voice/payment features');
+assert.equal(createHash('sha256').update(await readFile('assets/Interactive Virtual Receptionist Kiosk.png')).digest('hex'),'80d034c724509dca94730d9dc7b437c1cd888ee277b39d2694d1195d2acf536e','supplied YourAI source unchanged');
+const yourAiVariants=(await readdir('dist/_astro')).filter(file=>file.startsWith('Interactive Virtual Receptionist Kiosk.')&&file.endsWith('.webp'));
+assert.equal(yourAiVariants.length,5,'four responsive YourAI sizes plus 480px fallback');
+for(const file of yourAiVariants){
+ const meta=await sharp(`dist/_astro/${file}`).metadata();
+ assert.ok([240,360,480,540,720].includes(meta.width));
+ assert.equal(meta.height,meta.width*1.5);assert.equal(meta.hasAlpha,true);
+}
 assert.equal((pages.get('/articles/').match(/data-article-placeholder/g)||[]).length,3);
 assert.ok(!/<time\b|Read more/.test(pages.get('/articles/')),'no fabricated articles');
 assert.ok(!/features\/|how-it-works\/|solutions\/|about\//.test(sitemap),'legacy pages omitted from sitemap');
