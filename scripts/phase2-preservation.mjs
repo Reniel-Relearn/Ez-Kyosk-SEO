@@ -10,6 +10,9 @@ export async function collectPhase2Preservation(){
   // Original artwork bytes and all other markup/assets remain protected; new
   // derivatives are checked by the verifier and platform/browser regression.
   const home=normalizeNativeProductHtml(normalizeMinimalBenefitsHtml(await readFile('dist/index.html','utf8')))
+    // H1 approves only this online artwork/alt substitution, not surrounding copy.
+    .replace('/Ez-Kyosk-SEO/assets/images/payment-online-v4-1371.webp', '/Ez-Kyosk-SEO/_astro/Hand Holding AltPayNet Payment Phone and Cards.D2n-BHG1.png')
+    .replace('Illustrative hand holding an AltPayNet QR payment phone with Visa and Mastercard cards', 'Owner-supplied illustration of a hand holding an AltPayNet payment phone with QR, GCash, Maya, and card options')
     // Owner-approved terminal-only artwork: normalize this exact substitution,
     // retaining the golden checks for original artwork bytes and the online card.
     .replaceAll('payment-terminal-v2-', 'payment-terminal-v1-')

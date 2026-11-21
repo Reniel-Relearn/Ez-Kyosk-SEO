@@ -257,15 +257,26 @@ for (const route of ['/']) {
   assert.ok(html.includes('Let customers use supported QR, GCash, Maya, card, and e-wallet payment paths from a mobile device.'), `${route}: second payment description retained`);
   assert.ok(html.includes('Discuss online payments'), `${route}: second payment link retained`);
   const onlineTag = html.match(/<img class="payment-online-image"[^>]+>/)?.[0];
-  assert.ok(onlineTag?.includes('Owner-supplied illustration'), `${route}: accurate owner-supplied image alt`);
+  assert.ok(onlineTag?.includes('Illustrative hand holding an AltPayNet QR payment phone'), `${route}: accurate revised image alt`);
   assert.ok(onlineTag.includes('width="1371" height="1148"'), `${route}: original dimensions retained`);
   const onlineSource = onlineTag.match(/src="([^"]+)"/)?.[1];
-  assert.ok(onlineSource?.endsWith('.png'), `${route}: original PNG, not a generated/re-encoded replacement`);
+  assert.equal(onlineSource, publicPath('/assets/images/payment-online-v4-1371.webp'), `${route}: approved versioned online image`);
   const sourceBytes = await readFile('assets/Hand Holding AltPayNet Payment Phone and Cards.png');
   const deployedBytes = await readFile(locationFor(outputPath(decodeURIComponent(onlineSource))));
   const hash = bytes => createHash('sha256').update(bytes).digest('hex');
   assert.equal(hash(sourceBytes), '6e5c2d1de4e3d0eef00417515d4fa18234a23e68ccd713793d836c01e528124d', 'exact owner-approved source PNG unchanged');
-  assert.equal(hash(deployedBytes), hash(sourceBytes), `${route}: deployed PNG byte-identical to supplied original`);
+  assert.equal(hash(deployedBytes), hash(await readFile('public/assets/images/payment-online-v4-1371.webp')), `${route}: deployed derivative matches approved local file`);
+  const onlineMetadata = await sharp(deployedBytes).metadata();
+  assert.equal(onlineMetadata.width,1371);
+  assert.equal(onlineMetadata.height,1148);
+  assert.equal(onlineMetadata.hasAlpha,true);
+  const {data: onlinePixels,info: onlineInfo}=await sharp(deployedBytes).ensureAlpha().raw().toBuffer({resolveWithObject:true});
+  assert.equal(onlinePixels[3],0,'online background is genuinely transparent');
+  let wristPixels=0,transparentPixels=0;
+  for(let i=3;i<onlinePixels.length;i+=onlineInfo.channels) if(onlinePixels[i]===0) transparentPixels++;
+  for(let x=0;x<onlineInfo.width;x++) if(onlinePixels[((onlineInfo.height-1)*onlineInfo.width+x)*onlineInfo.channels+3]>250) wristPixels++;
+  assert.ok(transparentPixels>onlineInfo.width*onlineInfo.height*.1,'transparent surroundings retained');
+  assert.ok(wristPixels>onlineInfo.width*.1,'wrist reaches bottom canvas edge without a transparent gap');
   for (const width of [360, 720, 1080]) {
     assert.ok(html.includes(publicPath(`/assets/images/payment-terminal-v2-${width}.webp`)), `${route}: base-safe terminal source ${width}`);
   }

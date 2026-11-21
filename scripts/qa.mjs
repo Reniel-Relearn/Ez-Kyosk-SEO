@@ -42,7 +42,7 @@ try {
       if (route === '/') {
         assert.equal(await page.locator('.payment-terminal-image').count(), 1, 'shared terminal image');
         assert.equal(await page.locator('.payments-section .mini-kiosk').count(), 0, 'first payment placeholder replaced');
-        assert.equal(await page.locator('.payment-online-image').count(), 1, 'exact owner-supplied online payment image');
+        assert.equal(await page.locator('.payment-online-image').count(), 1, 'approved online payment image');
         assert.equal(await page.locator('.payments-section .phone').count(), 0, 'second payment placeholder replaced');
       }
       if (route === '/features/') {

@@ -7,7 +7,7 @@ const base = process.env.QA_BASE_URL || 'http://127.0.0.1:4323/Ez-Kyosk-SEO';
 const prefix = process.env.QA_SCREENSHOT_PREFIX || 'payment-images';
 const imageCards = [
   { selector: '.payment-terminal-image', name: 'terminal', ratio: 3 / 4, source: 'payment-terminal-v2-', alt: 'Illustrative standalone card payment terminal' },
-  { selector: '.payment-online-image', name: 'online', ratio: 1371 / 1148, source: 'Hand%20Holding%20AltPayNet%20Payment%20Phone%20and%20Cards', alt: 'Owner-supplied illustration' },
+  { selector: '.payment-online-image', name: 'online', ratio: 1371 / 1148, source: 'payment-online-v4-1371.webp', alt: 'Illustrative hand holding an AltPayNet QR payment phone' },
 ];
 const browser = await chromium.launch({ channel: 'msedge', headless: true });
 const results = [], accessibility = [], errors = [];
@@ -102,7 +102,7 @@ try {
             assert.ok(geometry.cardHeight < (width <= 720 ? 650 : 480), 'compact card, no old 500px minimum');
             if (width > 720) assert.equal(geometry.besideCopy, true, 'devices sit to the right of HTML copy');
             assert.ok(geometry.source.includes(expected.source), `correct ${expected.name} artwork: ${geometry.source}`);
-            if (expected.name === 'online') assert.ok(geometry.source.endsWith('.png'), 'supplied PNG, no re-encoding');
+            if (expected.name === 'online') assert.ok(geometry.source.endsWith('payment-online-v4-1371.webp'), 'approved versioned online image');
             if (deviceScaleFactor === 1 && [390, 1440].includes(width)) {
               await currentImage.locator('..').locator('..').screenshot({ path: `artifacts/${prefix}-${route === '/' ? 'home' : 'product'}-${expected.name}-${width}-${theme}.png` });
             }
