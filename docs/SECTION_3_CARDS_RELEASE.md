@@ -1,6 +1,6 @@
 # Section 3 approved card release
 
-21 November 2026. Owner approved all five One Connected Platform cards and requested publication to existing GitHub Pages. Release pending workflow/live verification.
+21 November 2026. Owner approved all five One Connected Platform cards and requested publication to existing GitHub Pages. COMPLETE: release 720c1a5166d508743689144f3e137bafc1c0e377 is pushed to main, deployed and live-verified.
 
 ## Bounded publication
 
@@ -24,6 +24,6 @@ Individual card revisions passed build/static checks and 160 platform states, 64
 
 Existing main-branch Pages workflow, /Ez-Kyosk-SEO base path, preview noindex/nofollow, robots blocking, form protections and no real inquiry delivery retained. This is design-review publication, not a production/indexing launch or ranking guarantee.
 
-Expected review URL (not proof of deployment until verified): https://reniel-relearn.github.io/Ez-Kyosk-SEO/ .
+Verified live URL: https://reniel-relearn.github.io/Ez-Kyosk-SEO/ . Website checks run 44860256289 and Pages run 44860256515 both succeeded. Live HTML references all five approved stems; all 15 responsive images returned HTTP 200 and matched local SHA256 hashes. Preview noindex and robots blocking remain active. Workflow action-runtime deprecation warning remains non-blocking and is not changed in this image release.
 
-Next: Section 4 Products image planning, one panel at a time, approved before generation and local integration. No issue changes authorized in this release.
+Next (updated after subsequent owner review): Section 4 now follows the approved native-interface plan, not image generation. The five native interfaces are locally accepted and being prepared as a separate release. This Section 3 record update changes documentation only; no Section 3 runtime/assets are republished as new work.
