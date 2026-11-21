@@ -3,13 +3,14 @@ import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 import {normalizeNativeProductHtml} from './product-native-preservation.mjs';
 import {normalizeMinimalBenefitsHtml} from './benefits-preservation.mjs';
+import {normalizeHeroHardwareHtml} from './hero-hardware-preservation.mjs';
 const hash=value=>createHash('sha256').update(value).digest('hex');
 export async function collectPhase2Preservation(){
   // Explicit 21 November card-specific approvals: normalize only ordering v4, queue v3,
   // inventory v2, reports v3, cashier v4 and exact descriptive alts for the original golden comparison.
   // Original artwork bytes and all other markup/assets remain protected; new
   // derivatives are checked by the verifier and platform/browser regression.
-  const home=normalizeNativeProductHtml(normalizeMinimalBenefitsHtml(await readFile('dist/index.html','utf8')))
+  const home=normalizeHeroHardwareHtml(normalizeNativeProductHtml(normalizeMinimalBenefitsHtml(await readFile('dist/index.html','utf8'))))
     // H1 approves only this online artwork/alt substitution, not surrounding copy.
     .replace('/Ez-Kyosk-SEO/assets/images/payment-online-v4-1371.webp', '/Ez-Kyosk-SEO/_astro/Hand Holding AltPayNet Payment Phone and Cards.D2n-BHG1.png')
     .replace('Illustrative hand holding an AltPayNet QR payment phone with Visa and Mastercard cards', 'Owner-supplied illustration of a hand holding an AltPayNet payment phone with QR, GCash, Maya, and card options')
@@ -53,7 +54,12 @@ export async function collectPhase2Preservation(){
   const sources=new Set(artwork.flatMap(html=>[...html.matchAll(/\/Ez-Kyosk-SEO\/([^"'\s,]+\.(?:webp|png|svg|jpg))/g)].map(m=>`dist/${decodeURIComponent(m[1])}`)));
   for(const source of ['assets/hero-kiosk-transparent-v3.webp','assets/ez-kyosk-lockup.png','assets/Hand Holding AltPayNet Payment Phone and Cards.png','src/styles/global.css','src/styles/home-hero.css']) sources.add(source);
   const assets=[];
-  for(const file of [...sources].sort()) assets.push([file,hash(await readFile(file))]);
+  for(const file of [...sources].sort()){
+    // Retired Hero derivatives are no longer emitted by Astro. Keep their exact
+    // pre-revision bytes archived and checked against the unchanged golden hash.
+    const oldHero=file.match(/^dist\/_astro\/(hero-kiosk-transparent-v3\.BE9si6ci_(?:Z157wo7|Z2lKoEI|Z25QlHy)\.webp)$/);
+    assets.push([file,hash(await readFile(oldHero?`assets/archive/${oldHero[1]}`:file))]);
+  }
   // The owner-approved section swap changes reading order, not image markup or pixels.
   return {baseline:'e6495cda963b6b2371eda2186fc7aafb25fa3a8e',sections,imageMarkup:hash(JSON.stringify(artwork.sort())),assets:hash(JSON.stringify(assets)),assetCount:assets.length};
 }
