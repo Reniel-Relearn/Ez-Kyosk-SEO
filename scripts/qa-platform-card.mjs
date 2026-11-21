@@ -9,11 +9,11 @@ const prefix = process.env.QA_SCREENSHOT_PREFIX || 'platform-card-layout';
 const browser = await chromium.launch({ channel: 'msedge', headless: true });
 const errors = [], results = [], accessibility = [], alignment = [];
 const cards = [
-  { id: 'platform-ordering', title: 'Self-Ordering & Payments', stem: 'platform-self-ordering-human-v3', ratio: 3 / 4, body: 'Give customers a self-service ordering channel with supported electronic payment paths.' },
-  { id: 'platform-queue', title: 'Order Queue & Tracking', stem: 'platform-order-queue-ceiling-v2', ratio: 3 / 4, body: 'Help customers see which orders are being prepared and which are ready for pickup.' },
-  { id: 'platform-inventory', title: 'Inventory & Availability', stem: 'platform-inventory-human-v1', ratio: 3 / 4, body: 'Keep item availability and inventory visibility aligned with daily operations.' },
-  { id: 'platform-reports', title: 'Reports & Insights', stem: 'platform-reports-weekly-v1', ratio: 3 / 4, body: 'Configure reports around sales, products and the operational questions your business needs to answer.' },
-  { id: 'platform-cashier', title: 'Cashier', stem: 'platform-cashier-human-v2', ratio: 3 / 4, body: 'Offer an optional cashier-assisted payment route for customers who prefer to pay in cash.' },
+  { id: 'platform-ordering', title: 'Self-Ordering & Payments', stem: 'platform-self-ordering-human-v4', ratio: 3 / 4, body: 'Give customers a self-service ordering channel with supported electronic payment paths.' },
+  { id: 'platform-queue', title: 'Order Queue & Tracking', stem: 'platform-order-queue-ceiling-v3', ratio: 3 / 4, body: 'Help customers see which orders are being prepared and which are ready for pickup.' },
+  { id: 'platform-inventory', title: 'Inventory & Availability', stem: 'platform-inventory-human-v2', ratio: 3 / 4, body: 'Keep item availability and inventory visibility aligned with daily operations.' },
+  { id: 'platform-reports', title: 'Reports & Insights', stem: 'platform-reports-weekly-v3', ratio: 3 / 4, body: 'Configure reports around sales, products and the operational questions your business needs to answer.' },
+  { id: 'platform-cashier', title: 'Cashier', stem: 'platform-cashier-human-v4', ratio: 3 / 4, body: 'Offer an optional cashier-assisted payment route for customers who prefer to pay in cash.' },
 ];
 await mkdir('artifacts', { recursive: true });
 try {

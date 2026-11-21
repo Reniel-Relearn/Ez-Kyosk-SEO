@@ -185,11 +185,12 @@ assert.ok(firstPlatformCard.includes('AI-generated illustration'), 'image alt do
 assert.ok(firstPlatformCard.includes('attached payment terminal'), 'first card alt reflects revised hardware');
 assert.ok(!firstPlatformCard.includes('platform-self-ordering-v3-'), 'approved human portrait replaces device-only artwork');
 for (const width of [270, 540, 1080]) {
-  const filename = `platform-self-ordering-human-v3-${width}.webp`;
+  const filename = `platform-self-ordering-human-v4-${width}.webp`;
   assert.ok(firstPlatformCard.includes(publicPath(`/assets/images/${filename}`)), `first card references ${filename}`);
   const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
   assert.equal(metadata.width, width);
   assert.equal(metadata.height, width * 4 / 3, 'approved 3:4 portrait ratio');
+  assert.equal(createHash('sha256').update(await readFile(`dist/assets/images/${filename}`)).digest('hex'), createHash('sha256').update(await readFile(`public/assets/images/${filename}`)).digest('hex'), 'ordering hardware derivative copied without modification');
 }
 const secondPlatformCard = platformCards[1];
 assert.ok(secondPlatformCard?.includes('id="platform-queue-title">Order Queue & Tracking</h3>'), 'queue visibility is second');
@@ -200,11 +201,12 @@ assert.ok(secondPlatformCard.includes('width="540" height="720"'), 'queue portra
 assert.ok(secondPlatformCard.includes('AI-generated illustration of a ceiling-mounted Ez Kyosk sample order display'), 'accurate illustrative alt');
 assert.ok(/<summary[^>]*aria-label="About Order Queue & Tracking"/.test(secondPlatformCard), 'queue disclosure has accessible label');
 for (const width of [270, 540, 1080]) {
-  const filename = `platform-order-queue-ceiling-v2-${width}.webp`;
+  const filename = `platform-order-queue-ceiling-v3-${width}.webp`;
   assert.ok(secondPlatformCard.includes(publicPath(`/assets/images/${filename}`)), `queue uses base-safe ${filename}`);
   const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
   assert.equal(metadata.width, width);
   assert.equal(metadata.height, width * 4 / 3, 'uncropped 3:4 queue image');
+  assert.equal(createHash('sha256').update(await readFile(`dist/assets/images/${filename}`)).digest('hex'), createHash('sha256').update(await readFile(`public/assets/images/${filename}`)).digest('hex'), 'approved logo-free queue asset deployed without modification');
 }
 const thirdPlatformCard = platformCards[2];
 assert.ok(thirdPlatformCard?.includes('id="platform-inventory-title">Inventory & Availability</h3>'), 'inventory is third');
@@ -213,14 +215,15 @@ assert.ok(thirdPlatformCard.includes('Keep item availability and inventory visib
 assert.ok(/<summary[^>]*aria-label="About Inventory & Availability"/.test(thirdPlatformCard), 'inventory disclosure has an accessible label');
 assert.ok(!/<details[^>]*\sopen(?:[\s=>])/.test(thirdPlatformCard), 'inventory description starts collapsed');
 assert.ok(thirdPlatformCard.includes('width="540" height="720"'), 'inventory portrait reserves correct layout space');
-assert.ok(thirdPlatformCard.includes('AI-generated illustration of a team member checking a sample inventory list'), 'inventory alt identifies illustrative content');
+assert.ok(thirdPlatformCard.includes('AI-generated illustration of a team member checking a sample inventory spreadsheet'), 'inventory alt identifies illustrative spreadsheet content');
 assert.ok(!thirdPlatformCard.includes('platform-inventory-tracking-v1-'), 'approved portrait replaces legacy stock composition');
 for (const width of [270, 540, 1080]) {
-  const filename = `platform-inventory-human-v1-${width}.webp`;
+  const filename = `platform-inventory-human-v2-${width}.webp`;
   assert.ok(thirdPlatformCard.includes(publicPath(`/assets/images/${filename}`)), `inventory uses base-safe ${filename}`);
   const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
   assert.equal(metadata.width, width);
   assert.equal(metadata.height, width * 4 / 3, 'uncropped 3:4 inventory image');
+  assert.equal(createHash('sha256').update(await readFile(`dist/assets/images/${filename}`)).digest('hex'), createHash('sha256').update(await readFile(`public/assets/images/${filename}`)).digest('hex'), 'inventory spreadsheet derivative deployed without modification');
 }
 const fourthPlatformCard = platformCards[3];
 assert.ok(fourthPlatformCard?.includes('id="platform-reports-title">Reports & Insights</h3>'), 'reports are fourth');
@@ -229,14 +232,15 @@ assert.ok(fourthPlatformCard.includes('Configure reports around sales, products 
 assert.ok(/<summary[^>]*aria-label="About Reports & Insights"/.test(fourthPlatformCard), 'reporting disclosure has an accessible label');
 assert.ok(!/<details[^>]*\sopen(?:[\s=>])/.test(fourthPlatformCard), 'reporting description starts collapsed');
 assert.ok(fourthPlatformCard.includes('width="540" height="720"'), 'analytics portrait reserves correct layout space');
-assert.ok(fourthPlatformCard.includes('AI-generated illustration of a manager reviewing a sample weekly order-trend chart'), 'analytics alt identifies illustrative content');
+assert.ok(fourthPlatformCard.includes('AI-generated illustration of a manager reviewing an illustrative analytics dashboard'), 'analytics alt identifies illustrative content');
 assert.ok(!fourthPlatformCard.includes('platform-configurable-extensions-v1-'), 'approved analytics portrait replaces legacy laptop artwork');
 for (const width of [270, 540, 1080]) {
-  const filename = `platform-reports-weekly-v1-${width}.webp`;
+  const filename = `platform-reports-weekly-v3-${width}.webp`;
   assert.ok(fourthPlatformCard.includes(publicPath(`/assets/images/${filename}`)), `analytics uses base-safe ${filename}`);
   const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
   assert.equal(metadata.width, width);
   assert.equal(metadata.height, width * 4 / 3, 'uncropped 3:4 analytics image');
+  assert.equal(createHash('sha256').update(await readFile(`dist/assets/images/${filename}`)).digest('hex'), createHash('sha256').update(await readFile(`public/assets/images/${filename}`)).digest('hex'), 'approved analytics dashboard derivative deployed without modification');
 }
 const fifthPlatformCard = platformCards[4];
 assert.ok(fifthPlatformCard?.includes('id="platform-cashier-title">Cashier</h3>'), 'optional cashier is fifth');
@@ -249,11 +253,12 @@ assert.ok(fifthPlatformCard.includes('AI-generated illustration of a customer of
 assert.ok(!fifthPlatformCard.includes('platform-pos-checkout-v1-'), 'approved second Cashier image replaces legacy workstation');
 assert.ok(!platformCards.join('').includes('platform-payments-v1-'), 'redundant payment overview artwork is no longer imported');
 for (const width of [270, 540, 1080]) {
-  const filename = `platform-cashier-human-v2-${width}.webp`;
+  const filename = `platform-cashier-human-v4-${width}.webp`;
   assert.ok(fifthPlatformCard.includes(publicPath(`/assets/images/${filename}`)), `cashier uses base-safe ${filename}`);
   const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
   assert.equal(metadata.width, width, `${filename}: responsive width`);
   assert.equal(metadata.height, width * 4 / 3, `${filename}: uncropped 3:4 ratio`);
+  assert.equal(createHash('sha256').update(await readFile(`dist/assets/images/${filename}`)).digest('hex'), createHash('sha256').update(await readFile(`public/assets/images/${filename}`)).digest('hex'), 'cashier orientation derivative copied without modification');
 }
 // The approved artwork remains on frozen Home; redesigned Product uses visual placeholders.
 for (const route of ['/']) {

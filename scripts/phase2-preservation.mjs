@@ -3,7 +3,18 @@ import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 const hash=value=>createHash('sha256').update(value).digest('hex');
 export async function collectPhase2Preservation(){
-  const home=await readFile('dist/index.html','utf8');
+  // Explicit 21 November card-specific approvals: normalize only ordering v4, queue v3,
+  // inventory v2, reports v3, cashier v4 and exact descriptive alts for the original golden comparison.
+  // Original artwork bytes and all other markup/assets remain protected; new
+  // derivatives are checked by the verifier and platform/browser regression.
+  const home=(await readFile('dist/index.html','utf8'))
+    .replaceAll('platform-self-ordering-human-v4-', 'platform-self-ordering-human-v3-')
+    .replaceAll('platform-order-queue-ceiling-v3-', 'platform-order-queue-ceiling-v2-')
+    .replaceAll('platform-inventory-human-v2-', 'platform-inventory-human-v1-')
+    .replaceAll('platform-reports-weekly-v3-', 'platform-reports-weekly-v1-')
+    .replaceAll('platform-cashier-human-v4-', 'platform-cashier-human-v2-')
+    .replace('AI-generated illustration of a manager reviewing an illustrative analytics dashboard on a laptop in a café', 'AI-generated illustration of a manager reviewing a sample weekly order-trend chart on an Ez Kyosk laptop')
+    .replace('AI-generated illustration of a team member checking a sample inventory spreadsheet on a tablet beside café stock containers', 'AI-generated illustration of a team member checking a sample inventory list on an Ez Kyosk tablet beside café stock containers');
   const sections={};
   for(const name of ['home-hero','benefits-section','platform-section','faq-section']){
     const html=home.match(new RegExp(`<section class="${name}[^>]*>[\\s\\S]*?<\\/section>`))?.[0];
@@ -33,7 +44,13 @@ export async function collectPhase2Preservation(){
 }
 export async function assertPhase2Preservation(){
   const baseline=JSON.parse(await readFile(new URL('./fixtures/home-phase2-preservation.json',import.meta.url),'utf8'));
-  assert.deepEqual(await collectPhase2Preservation(),baseline,'protected sections preserved except explicit Phase 4 h2 and Phase 9 FAQ action relocation; all Home images and existing styles preserved');
-  return {comparedSections:4,approvedPlatformHeadingNormalization:true,allHomeImagesUnchanged:true,protectedAssets:baseline.assetCount};
+  assert.deepEqual(await collectPhase2Preservation(),baseline,'protected sections preserved except explicit Phase 4 h2, Phase 9 FAQ relocation and approved ordering/queue/inventory/reports/cashier image substitutions; original assets and all other Home images/styles preserved');
+  const currentHome=await readFile('dist/index.html','utf8');
+  const approvedQueueRevision=currentHome.includes('platform-order-queue-ceiling-v3-');
+  const approvedInventoryRevision=currentHome.includes('platform-inventory-human-v2-');
+  const approvedReportsRevision=currentHome.includes('platform-reports-weekly-v3-');
+  const approvedCashierRevision=currentHome.includes('platform-cashier-human-v4-');
+  const approvedOrderingRevision=currentHome.includes('platform-self-ordering-human-v4-');
+  return {comparedSections:4,approvedPlatformHeadingNormalization:true,allHomeImagesUnchanged:!approvedOrderingRevision&&!approvedQueueRevision&&!approvedInventoryRevision&&!approvedReportsRevision&&!approvedCashierRevision,allOtherHomeImagesUnchanged:true,approvedOrderingRevision:approvedOrderingRevision?'v4 reference hardware with retained UI/logos/terminal':null,approvedQueueRevision:approvedQueueRevision?'v3 logo removal and upward reflow':null,approvedInventoryRevision:approvedInventoryRevision?'v2 logo-free five-row spreadsheet':null,approvedReportsRevision:approvedReportsRevision?'v3 reference-layout analytics dashboard':null,approvedCashierRevision:approvedCashierRevision?'v4 slim staff-facing device, Card 3 hardware reference':null,protectedAssets:baseline.assetCount};
 }
 if(process.argv.includes('--baseline')) console.log(JSON.stringify(await collectPhase2Preservation(),null,2));
