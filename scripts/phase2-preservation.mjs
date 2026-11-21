@@ -2,13 +2,14 @@ import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 import {normalizeNativeProductHtml} from './product-native-preservation.mjs';
+import {normalizeMinimalBenefitsHtml} from './benefits-preservation.mjs';
 const hash=value=>createHash('sha256').update(value).digest('hex');
 export async function collectPhase2Preservation(){
   // Explicit 21 November card-specific approvals: normalize only ordering v4, queue v3,
   // inventory v2, reports v3, cashier v4 and exact descriptive alts for the original golden comparison.
   // Original artwork bytes and all other markup/assets remain protected; new
   // derivatives are checked by the verifier and platform/browser regression.
-  const home=normalizeNativeProductHtml(await readFile('dist/index.html','utf8'))
+  const home=normalizeNativeProductHtml(normalizeMinimalBenefitsHtml(await readFile('dist/index.html','utf8')))
     .replaceAll('product-self-ordering-v2-', 'product-self-ordering-v1-')
     .replaceAll('product-pos-checkout-v2-', 'product-pos-checkout-v1-')
     .replaceAll('product-inventory-v2-', 'product-inventory-v1-')

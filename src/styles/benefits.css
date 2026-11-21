@@ -1,34 +1,20 @@
-/* Phase 3: Home benefits only. Preserve shared styles and existing artwork. */
-.benefits-section { padding-block: clamp(32px, 4vw, 56px); }
-.benefits-section .section-heading {
-  grid-template-columns: minmax(0, 1fr);
-  gap: 24px;
-  text-align: center;
+/* Owner-approved compact Benefits layout. Scoped; no changes to shared surfaces. */
+body[data-home-hero] .benefits-section { padding-block:clamp(24px,2.5vw,36px); }
+body[data-home-hero] .benefits-section .benefits-panel { padding:clamp(24px,3vw,36px); border:1px solid var(--line); border-radius:24px; background:var(--surface-raised); text-align:center; }
+body[data-home-hero] .benefits-section .benefits-panel > h2 { margin:0 0 30px; color:var(--blue); font-size:clamp(17px,1.6vw,22px); font-weight:750; line-height:1.4; letter-spacing:.015em; text-transform:uppercase; }
+body[data-home-hero] .benefits-section .benefit-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); grid-template-rows:auto; gap:28px; margin:0; padding:0; border:0; border-radius:0; background:transparent; overflow:visible; }
+body[data-home-hero] .benefits-section .benefit-grid article,
+body[data-home-hero] .benefits-section .benefit-grid article:hover { display:block; grid-row:auto; min-width:0; min-height:0; padding:0; border:0; border-radius:0; background:transparent; box-shadow:none; transform:none; transition:none; text-align:center; }
+body[data-home-hero] .benefits-section .benefit-icon { width:64px; height:64px; margin:0 auto 14px; }
+body[data-home-hero] .benefits-section .benefit-grid h3 { max-width:none; margin:0; font-size:clamp(18px,1.6vw,22px); font-weight:700; line-height:1.35; color:var(--blue); }
+body[data-home-hero] .benefits-section .benefit-grid article > p,
+body[data-home-hero] .benefits-section .benefit-grid article:hover > p { max-width:30ch; margin:14px auto 0; color:var(--text-muted); font-size:14px; line-height:1.65; }
+@media(max-width:720px) {
+  body[data-home-hero] .benefits-section .benefits-panel { padding:24px 20px; border-radius:20px; }
+  body[data-home-hero] .benefits-section .benefits-panel > h2 { margin-bottom:26px; }
+  body[data-home-hero] .benefits-section .benefit-grid { grid-template-columns:1fr; gap:28px; }
+  body[data-home-hero] .benefits-section .benefit-grid article > p { margin-top:10px; }
 }
-.benefits-section .section-heading .eyebrow { justify-content: center; }
-.benefits-section .section-heading > p {
-  width: 100%;
-  max-width: 76ch;
-  margin: 0 auto;
-  justify-self: center;
-}
-.benefits-section .benefit-grid article {
-  min-width: 0;
-  text-align: center;
-  padding: clamp(28px, 3vw, 42px);
-}
-.benefits-section .benefit-icon { margin: 0 auto 24px; }
-.benefits-section .benefit-grid h3 { margin: 0 auto 16px; }
-.benefits-section .benefit-grid article > p {
-  max-width: 42ch;
-  margin: 0 auto;
-}
-/* Shared natural-height rows align headings and descriptions without clipping. */
-@media (min-width: 981px) {
-  .benefits-section .benefit-grid { grid-template-rows: auto auto auto; }
-  .benefits-section .benefit-grid article {
-    display: grid;
-    grid-template-rows: subgrid;
-    grid-row: span 3;
-  }
+@media(min-width:721px) and (max-width:980px) {
+  body[data-home-hero] .benefits-section .benefit-grid h3 { min-height:2.7em; display:flex; align-items:center; justify-content:center; }
 }

@@ -15,7 +15,7 @@ try {
     const state = await page.evaluate(() => {
       const selectors = ['.benefits-section', '.platform-section', '#products', '#payments', '#how-it-works', '#industries', '.faq-section', '#about-us'];
       return { overflow: document.documentElement.scrollWidth > innerWidth, sections: selectors.map(selector => ({ selector, color: getComputedStyle(document.querySelector(selector)).backgroundColor })),
-        cards: [...document.querySelectorAll('.benefit-grid,.platform-card--expandable,.product-panel,.payment-card,.customer-journey-card,.industry-card,#about-us .value-grid article')].map(el => getComputedStyle(el).backgroundColor),
+        cards: [...document.querySelectorAll('.benefits-panel,.platform-card--expandable,.product-panel,.payment-card,.customer-journey-card,.industry-card,#about-us .value-grid article')].map(el => getComputedStyle(el).backgroundColor),
         inverseTitles: [...document.querySelectorAll('#products .section-heading h2,#how-it-works .section-heading h2')].map(el => getComputedStyle(el).color),
         hero: getComputedStyle(document.querySelector('#home'), '::before').backgroundImage,
         ending: getComputedStyle(document.querySelector('.final-cta')).backgroundImage,

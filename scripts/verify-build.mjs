@@ -85,6 +85,12 @@ assert.equal(heroVariants.length, 3, 'all three responsive transparent hero vari
 for (const file of heroVariants) await verifyHeroImage(`dist/_astro/${file}`);
 await assert.rejects(access('dist/assets/images/platform-self-ordering-v1-640.webp'), 'superseded public artwork is not deployed');
 const homeHtml = pages.get('/');
+const minimalBenefits=homeHtml.match(/<section class="benefits-section[\s\S]*?<\/section>/)?.[0];
+assert.ok(minimalBenefits?.includes('class="benefits-panel"'),'one shared Benefits container');
+assert.equal((minimalBenefits.match(/<article>/g)||[]).length,3,'three concise benefit columns');
+assert.ok(!/<img|<a\b|<button|class="section-heading"|benefit-lead|benefit-label/.test(minimalBenefits),'no CTA, extra introduction or split headings in Benefits');
+assert.equal((minimalBenefits.match(/class="benefit-icon"/g)||[]).length,3,'three original Benefits icons restored');
+for(const word of ['Faster Ordering','More Order Capacity','Better Service Flow','Let customers browse, select and review their order in one place.','Add a self-service ordering channel alongside your existing operations.','Connect ordering, payment and tracking for a clearer customer journey.'])assert.ok(minimalBenefits.includes(word),'approved Benefits wording '+word);
 const homeOrder=['home-hero','benefits-section','platform-section','product-section','payments-section','how-section','industries-section','faq-section','home-about','final-cta'];
 const homePositions=homeOrder.map(name=>homeHtml.indexOf(`class="${name}`));
 assert.ok(homePositions.every((position,index)=>position>=0 && (index===0 || position>homePositions[index-1])),'approved Home order: How It Works before Industries, all other sections retained');

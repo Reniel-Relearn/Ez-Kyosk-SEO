@@ -15,7 +15,6 @@ import { journeyImages } from '../data/journeyImages.mjs';
 import { sitePath } from '../lib/sitePath';
 import '../styles/home-hero.css';
 import '../styles/section-frames.css';
-import '../styles/benefits.css';
 import '../styles/home-content.css';
 import '../styles/platform-section.css';
 import '../styles/products-section.css';
@@ -24,6 +23,7 @@ import '../styles/industries-section.css';
 import '../styles/journey-section.css';
 import '../styles/faq-about.css';
 import '../styles/home-surfaces.css';
+import '../styles/benefits.css';
 import HomeAbout from '../components/HomeAbout.astro';
 
 const platforms = [
@@ -62,8 +62,14 @@ const industries: Array<['hospitality' | 'retail' | 'wellness' | 'services', str
   </section>
 
   <section class="benefits-section section-shell" aria-labelledby="benefits-title" data-reveal>
-    <div class="section-heading"><div><span class="eyebrow">A better way to take orders</span><h2 id="benefits-title">Clear for customers.<br />Considered for your team.</h2></div><p>Ez Kyosk adds a structured customer-facing ordering path without losing sight of the people running the business.</p></div>
-    <div class="benefit-grid"><article><FasterOrderingIcon /><h3>Faster Ordering Experience</h3><p>A direct route from browsing to confirmation can reduce unnecessary steps in the ordering journey.</p></article><article><MoreOrderCapacityIcon /><h3>More Order Capacity</h3><p>Add another channel for customer demand and create more room for your team to focus on service.</p></article><article><BetterServiceFlowIcon /><h3>Better Service Flow</h3><p>Keep choices, totals, payment, order status, and operational visibility in a clearer connected flow.</p></article></div>
+    <div class="benefits-panel">
+      <h2 id="benefits-title">A better way to take orders</h2>
+      <div class="benefit-grid">
+        <article><FasterOrderingIcon /><h3>Faster Ordering</h3><p>Let customers browse, select and review their order in one place.</p></article>
+        <article><MoreOrderCapacityIcon /><h3>More Order Capacity</h3><p>Add a self-service ordering channel alongside your existing operations.</p></article>
+        <article><BetterServiceFlowIcon /><h3>Better Service Flow</h3><p>Connect ordering, payment and tracking for a clearer customer journey.</p></article>
+      </div>
+    </div>
   </section>
 
   <section class="platform-section section-shell" aria-labelledby="platform-title" data-reveal>

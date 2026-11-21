@@ -1,84 +1,71 @@
 import {chromium} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import assert from 'node:assert/strict';
-import {mkdir, writeFile} from 'node:fs/promises';
+import {mkdir,writeFile} from 'node:fs/promises';
 import {assertPhase2Preservation} from './phase2-preservation.mjs';
-
-const base=process.env.QA_BASE_URL || 'http://127.0.0.1:4323/Ez-Kyosk-SEO';
-const titles=['Faster Ordering Experience','More Order Capacity','Better Service Flow'];
+const base=process.env.QA_BASE_URL||'http://127.0.0.1:4323/Ez-Kyosk-SEO';
+const copy=[
+ ['Faster Ordering','Let customers browse, select and review their order in one place.'],
+ ['More Order Capacity','Add a self-service ordering channel alongside your existing operations.'],
+ ['Better Service Flow','Connect ordering, payment and tracking for a clearer customer journey.'],
+];
 const browser=await chromium.launch({channel:'msedge',headless:true});
-const results=[],errors=[];
-const iconContrast=async section=>section.evaluate(el=>{
-  const luminance=color=>{
-    const channels=color.match(/[\d.]+/g).slice(0,3).map(v=>{const c=Number(v)/255;return c<=.04045?c/12.92:((c+.055)/1.055)**2.4;});
-    return channels[0]*.2126+channels[1]*.7152+channels[2]*.0722;
-  };
-  return [...el.querySelectorAll('.benefit-icon svg, .benefit-icon svg [stroke]')].map(n=>{
-    let parent=n.closest('article');
-    while(parent && getComputedStyle(parent).backgroundColor==='rgba(0, 0, 0, 0)') parent=parent.parentElement;
-    const a=luminance(getComputedStyle(n).stroke),b=luminance(getComputedStyle(parent).backgroundColor);
-    return (Math.max(a,b)+.05)/(Math.min(a,b)+.05);
-  });
-});
-await mkdir('artifacts/phase3',{recursive:true});
+const results=[],accessibility=[],errors=[];
+await mkdir('artifacts/minimal-benefits',{recursive:true});
 try {
-  for(const javaScriptEnabled of [true,false]) {
-    const context=await browser.newContext({javaScriptEnabled,reducedMotion:'reduce'});
-    const page=await context.newPage();
-    page.on('pageerror',error=>errors.push(error.message));
-    for(const width of [320,390,720,980,981,1181,1440,1920]) for(const theme of ['light','dark']) {
-      await page.setViewportSize({width,height:900});
-      await page.goto(base+'/');
-      await page.evaluate(async theme=>{document.documentElement.dataset.theme=theme;await document.fonts.ready;},theme);
-      const section=page.locator('.benefits-section');
-      await section.scrollIntoViewIfNeeded();
-      assert.deepEqual(await section.locator('h3').allTextContents(),titles);
-      const state=await section.evaluate(el=>{
-        const box=n=>{const r=n.getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height};};
-        const cards=[...el.querySelectorAll('article')];
-        return {
-          paddingTop:parseFloat(getComputedStyle(el).paddingTop),
-          paddingBottom:parseFloat(getComputedStyle(el).paddingBottom),
-          overflow:document.documentElement.scrollWidth>innerWidth,
-          headingCentered:getComputedStyle(el.querySelector('.section-heading')).textAlign==='center',
-          introCentered:Math.abs(el.querySelector('.section-heading>p').getBoundingClientRect().left+el.querySelector('.section-heading>p').getBoundingClientRect().width/2-innerWidth/2)<2,
-          cards:cards.map(card=>({box:box(card),icon:box(card.querySelector('.benefit-icon')),heading:box(card.querySelector('h3')),paragraph:box(card.querySelector('p')),decorative:card.querySelector('.benefit-icon').getAttribute('aria-hidden'),centered:getComputedStyle(card).textAlign==='center',clipped:[...card.querySelectorAll('h3,p')].some(n=>n.scrollHeight>n.clientHeight+2&&/hidden|clip/.test(getComputedStyle(n).overflowY))}))
-        };
-      });
-      assert.equal(state.overflow,false);
-      const expectedPadding=Math.min(56,Math.max(32,width*.04));
-      assert.ok(Math.abs(state.paddingTop-expectedPadding)<.1,'compact top spacing');
-      assert.ok(Math.abs(state.paddingBottom-expectedPadding)<.1,'compact bottom spacing');
-      assert.equal(state.headingCentered,true);
-      assert.equal(state.introCentered,true);
-      assert.ok((await iconContrast(section)).every(ratio=>ratio>=3),'icon strokes contrast >= 3:1');
-      for(const card of state.cards){
-        assert.equal(card.centered,true);assert.equal(card.clipped,false);assert.equal(card.decorative,'true');
-        assert.equal(card.icon.width,64);assert.equal(card.icon.height,64);
-        assert.ok(Math.abs(card.icon.x+32-card.box.x-card.box.width/2)<2,'icon centered');
-      }
-      if(width>980){
-        for(const field of ['y']) assert.ok(Math.max(...state.cards.map(c=>c.heading[field]))-Math.min(...state.cards.map(c=>c.heading[field]))<2,'heading starts aligned');
-        assert.ok(Math.max(...state.cards.map(c=>c.paragraph.y))-Math.min(...state.cards.map(c=>c.paragraph.y))<2,'paragraph starts aligned');
-      }else assert.ok(state.cards[1].box.y>=state.cards[0].box.y+state.cards[0].box.height-1,'stacked cards');
-      // Check actual rendered section only, not the separately documented header.
-      if(javaScriptEnabled && [390,1440].includes(width)) {
-        const axe=await new AxeBuilder({page}).include('.benefits-section').analyze();
-        assert.deepEqual(axe.violations,[],JSON.stringify(axe.violations));
-        // Hide fixed overlays only during this full-section capture, not during checks.
-        await section.screenshot({path:`artifacts/phase3/benefits-${width}-${theme}.png`,style:'.site-header,.skip-link{visibility:hidden!important}'});
-        await section.locator('article').first().hover();
-        await page.waitForTimeout(300);
-        assert.ok((await iconContrast(section)).every(ratio=>ratio>=3),'hover icon contrast >= 3:1');
-        const hovered=await new AxeBuilder({page}).include('.benefits-section').analyze();
-        assert.deepEqual(hovered.violations,[],JSON.stringify(hovered.violations));
-      }
-      results.push({width,theme,javaScriptEnabled,...state});
-    }
-    await context.close();
+ for(const javaScriptEnabled of [true,false]) {
+  const context=await browser.newContext({javaScriptEnabled,reducedMotion:'reduce'}),page=await context.newPage();
+  page.on('pageerror',error=>errors.push(error.message));
+  page.on('response',response=>{if(response.status()>=400)errors.push(response.status()+' '+response.url());});
+  for(const width of [320,390,720,768,980,981,1181,1440,1920]) for(const theme of ['light','dark']) {
+   await page.setViewportSize({width,height:1000});await page.goto(base+'/');
+   await page.evaluate(async theme=>{document.documentElement.dataset.theme=theme;await document.fonts.ready;},theme);
+   const section=page.locator('.benefits-section'),panel=section.locator('.benefits-panel');
+   await section.scrollIntoViewIfNeeded();
+   assert.equal(await section.locator('h2').textContent(),'A better way to take orders');
+   assert.equal(await section.locator('.benefits-panel').count(),1);
+   assert.equal(await section.locator('img,a,button,.section-heading,.benefit-lead,.benefit-label').count(),0);
+   assert.equal(await section.locator('.benefit-icon svg').count(),3);
+   assert.deepEqual(await section.locator('.benefit-icon').evaluateAll(icons=>icons.map(icon=>icon.getAttribute('aria-hidden'))),['true','true','true']);
+   assert.deepEqual(await section.locator('article').evaluateAll(cards=>cards.map(card=>[card.querySelector('h3').textContent,card.querySelector('p').textContent])),copy);
+   for(const article of await section.locator('article').all()) {
+    const a=await article.boundingBox(),icon=await article.locator('.benefit-icon').boundingBox(),heading=await article.locator('h3').boundingBox(),body=await article.locator('p').boundingBox();
+    assert.equal(icon.width,64);assert.equal(icon.height,64);
+    assert.ok(Math.abs(icon.x+icon.width/2-a.x-a.width/2)<1,'original icon centered');
+    assert.ok(icon.y+icon.height<=heading.y&&heading.y+heading.height<=body.y,'icon, heading, description order');
+   }
+   assert.doesNotMatch(await section.innerText(),/%|Clear for customers|Considered for your team/);
+   const state=await section.evaluate(el=>{
+    const panel=el.querySelector('.benefits-panel'),p=panel.getBoundingClientRect(),hero=document.querySelector('.home-hero'),style=getComputedStyle(el);
+    const cards=[...el.querySelectorAll('article')].map(card=>{const r=card.getBoundingClientRect(),s=getComputedStyle(card),h=card.querySelector('h3').getBoundingClientRect(),description=card.querySelector('p').getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height,headingY:h.y,paragraphY:description.y,background:s.backgroundColor,border:s.borderRightWidth,shadow:s.boxShadow,transform:s.transform,centered:s.textAlign==='center',clipped:[...card.querySelectorAll('h3,p,span')].some(n=>n.scrollWidth>n.clientWidth+1)};});
+    return {overflow:document.documentElement.scrollWidth>innerWidth||panel.scrollWidth>panel.clientWidth,background:getComputedStyle(panel).backgroundColor,
+      equalMargins:Math.abs(p.left-(innerWidth-p.right))<2,
+      heroMargins:style.paddingLeft===getComputedStyle(hero).paddingLeft&&style.paddingRight===getComputedStyle(hero).paddingRight,
+      panelHeight:p.height,paddingTop:parseFloat(style.paddingTop),paddingBottom:parseFloat(style.paddingBottom),cards};
+   });
+   assert.equal(state.overflow,false);assert.equal(state.equalMargins,true);assert.equal(state.heroMargins,true);
+   assert.equal(state.background,theme==='dark'?'rgb(23, 32, 51)':'rgb(255, 255, 255)');
+   const padding=Math.min(36,Math.max(24,width*.025));
+   assert.ok(Math.abs(state.paddingTop-padding)<.1&&Math.abs(state.paddingBottom-padding)<.1);
+   for(const card of state.cards){assert.equal(card.background,'rgba(0, 0, 0, 0)');assert.equal(card.border,'0px');assert.equal(card.shadow,'none');assert.equal(card.transform,'none');assert.equal(card.centered,true);assert.equal(card.clipped,false);}
+   if(width>720) {
+    assert.ok(Math.max(...state.cards.map(c=>c.y))-Math.min(...state.cards.map(c=>c.y))<2);
+    assert.ok(Math.max(...state.cards.map(c=>c.paragraphY))-Math.min(...state.cards.map(c=>c.paragraphY))<2);
+    if(width>=1440)assert.ok(state.panelHeight<=330,'compact desktop shared panel');
+   } else assert.ok(state.cards[1].y>=state.cards[0].y+state.cards[0].height,'phone columns stack');
+   await section.locator('article').first().hover();
+   assert.equal(await section.locator('article').first().evaluate(el=>getComputedStyle(el).transform),'none','no individual-card hover lift');
+   if(javaScriptEnabled&&[390,1440].includes(width)) {
+    const scan=await new AxeBuilder({page}).include('.benefits-section').analyze();assert.deepEqual(scan.violations,[]);
+    accessibility.push({width,theme,violations:scan.violations});
+    await section.screenshot({path:`artifacts/minimal-benefits/benefits-${width}-${theme}.png`,style:'.site-header,.skip-link{visibility:hidden!important}'});
+   }
+   results.push({width,theme,javaScriptEnabled,...state});
   }
-  assert.deepEqual(errors,[]);
-  const preservation=await assertPhase2Preservation();
-  await writeFile('artifacts/phase3/qa-benefits.json',JSON.stringify({results,preservation,errors},null,2));
-  console.log(`PASS: ${results.length} benefits layouts, light/dark, JavaScript/no-JavaScript, 320px reflow, scoped accessibility/rest/hover and Phase 2 preservation.`);
+  await context.close();
+ }
+ assert.deepEqual(errors,[]);
+ const preservation=await assertPhase2Preservation();
+ await writeFile('artifacts/minimal-benefits/report.json',JSON.stringify({results,accessibility,preservation,errors},null,2));
+ console.log(JSON.stringify({layouts:results.length,accessibilityScans:accessibility.length,errors,preservation}));
 } finally {await browser.close();}
