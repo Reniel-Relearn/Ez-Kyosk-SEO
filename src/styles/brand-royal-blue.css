@@ -1,0 +1,3 @@
+/* Revised owner scope: turquoise -> royal blue ONLY. Original navy/white,
+   alpha, geometry and pre-existing dark/footer white-wordmark masks remain. */
+.brand-mark > img { filter: var(--brand-filter); }
