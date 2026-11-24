@@ -57,11 +57,16 @@ try {
             assert.equal(await description.isVisible(), open);
             const geometry = await card.evaluate(card => {
               const image = card.querySelector('img'), heading = card.querySelector('h3'), summary = card.querySelector('summary');
-              const box = card.getBoundingClientRect(), img = image.getBoundingClientRect(), title = heading.getBoundingClientRect(), toggle = summary.getBoundingClientRect();
+              const frame = card.querySelector('.platform-image-frame');
+              const box = card.getBoundingClientRect(), img = (frame || image).getBoundingClientRect(), title = heading.getBoundingClientRect(), toggle = summary.getBoundingClientRect();
               return {
                 edgeLeft: img.left - box.left, edgeRight: box.right - img.right, edgeTop: img.top - box.top,
                 imageRatio: img.width / img.height, headingBelow: title.top >= img.bottom,
                 naturalRatio: image.naturalWidth / image.naturalHeight, imageTransform: getComputedStyle(image).transform,
+                framed: !!frame, frameOverflow: frame ? getComputedStyle(frame).overflow : null,
+                transformOrigin: getComputedStyle(image).transformOrigin, imageWidth: image.getBoundingClientRect().width,
+                imageHeight: image.getBoundingClientRect().height, imageTop: image.getBoundingClientRect().top,
+                frameWidth: img.width, frameHeight: img.height, frameTop: img.top,
                 toggleWidth: toggle.width, toggleHeight: toggle.height, source: image.currentSrc,
                 plusVertical: getComputedStyle(summary.querySelector('span'), '::after').display,
                 noOverflow: document.documentElement.scrollWidth <= innerWidth && card.scrollWidth <= card.clientWidth,
@@ -69,8 +74,17 @@ try {
             });
             assert.ok(Math.abs(geometry.edgeLeft - 1) < .1 && Math.abs(geometry.edgeRight - 1) < .1 && Math.abs(geometry.edgeTop - 1) < .1, 'image flush with the inside card border');
             assert.ok(Math.abs(geometry.imageRatio - (expected.ratio || 4 / 3)) < .01, 'approved per-card aspect ratio');
-            assert.ok(Math.abs(geometry.imageRatio - geometry.naturalRatio) < .01, 'no crop or stretch');
-            assert.equal(geometry.imageTransform, 'none', 'no CSS mirroring of logo or lettering');
+            assert.ok(Math.abs(geometry.imageRatio - geometry.naturalRatio) < .01, 'original photo and frame share the approved aspect ratio');
+            if (expected.id === 'platform-ordering') {
+              assert.equal(geometry.framed, true); assert.equal(geometry.frameOverflow, 'hidden');
+              assert.equal(geometry.imageTransform, 'matrix(1.1, 0, 0, 1.1, 0, 0)', 'approved positive zoom, no mirroring');
+              assert.ok(Math.abs(geometry.imageTop - geometry.frameTop) < 1, 'top anchored');
+              assert.ok(Math.abs(geometry.imageWidth / geometry.frameWidth - 1.1) < .01);
+              assert.ok(Math.abs(geometry.imageHeight / geometry.frameHeight - 1.1) < .01);
+            } else {
+              assert.equal(geometry.framed, false);
+              assert.equal(geometry.imageTransform, 'none', 'other photos remain uncropped and untransformed');
+            }
             assert.equal(geometry.headingBelow, true); assert.equal(geometry.noOverflow, true);
             assert.ok(geometry.toggleWidth >= 44 && geometry.toggleHeight >= 44);
             assert.equal(geometry.plusVertical === 'none', open, 'plus becomes minus when expanded');

@@ -11,6 +11,8 @@ export async function collectPhase2Preservation(){
   // Original artwork bytes and all other markup/assets remain protected; new
   // derivatives are checked by the verifier and platform/browser regression.
   const home=normalizeHeroHardwareHtml(normalizeNativeProductHtml(normalizeMinimalBenefitsHtml(await readFile('dist/index.html','utf8'))))
+    // Owner-approved Card 1 framing wrapper only; keep image attributes/assets and all copy protected.
+    .replace(/<div class="platform-image-frame">\s*(<img\b[^>]*>)\s*<\/div>/g,'$1')
     // 24 November: only Hospitality v3 hardware artwork changes; preserve
     // the original responsive files and all other Industries markup/copy.
     .replaceAll('industry-hospitality-v3-', 'industry-hospitality-v2-')
