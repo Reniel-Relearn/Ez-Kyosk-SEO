@@ -54,7 +54,7 @@ try {
    const expectedBlue=theme==='dark'?'rgb(37, 99, 235)':'rgb(96, 165, 250)';
    assert.equal(state.titleColor,expectedBlue);assert.ok(state.iconColors.every(c=>c===expectedBlue));
    assert.ok(state.bodyColors.every(c=>c===(theme==='dark'?'rgb(71, 85, 105)':'rgb(203, 213, 225)')));
-   assert.ok(state.logoFilters.every(f=>f==='none'),'paused logo filter disconnected');
+   assert.ok(state.logoFilters.every(f=>f.includes('brand-royal-filter.svg#royal-blue')),'approved selective turquoise-only brand filter active');
    assert.equal(state.heroAccent,'none','paused accent disconnected');
    const padding=Math.min(36,Math.max(24,width*.025));
    assert.ok(Math.abs(state.paddingTop-padding)<.1&&Math.abs(state.paddingBottom-padding)<.1);

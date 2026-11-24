@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <filter id="royal-blue" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%">
+    <!-- Select cyan/turquoise, not neutral whites or low-luminance navy.
+         The source alpha clips the selection to the original silhouette. -->
+    <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -3 1.5 1.5 0 -0.5" result="turquoise"/>
+    <feComposite in="turquoise" in2="SourceAlpha" operator="in" result="selection"/>
+    <feFlood flood-color="#2563eb" result="blue"/>
+    <feComposite in="blue" in2="selection" operator="in" result="blueAreas"/>
+    <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="blueAreas"/></feMerge>
+  </filter>
+</svg>
