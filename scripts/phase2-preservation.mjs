@@ -11,6 +11,19 @@ export async function collectPhase2Preservation(){
   // Original artwork bytes and all other markup/assets remain protected; new
   // derivatives are checked by the verifier and platform/browser regression.
   const home=normalizeHeroHardwareHtml(normalizeNativeProductHtml(normalizeMinimalBenefitsHtml(await readFile('dist/index.html','utf8'))))
+    // 24 November: only Hospitality v3 hardware artwork changes; preserve
+    // the original responsive files and all other Industries markup/copy.
+    .replaceAll('industry-hospitality-v3-', 'industry-hospitality-v2-')
+    // Approved Services screen-only revision: four rows, no embedded brand.
+    .replaceAll('industry-services-v7-', 'industry-services-v6-')
+    .replace('AI-generated illustration of a service adviser holding a portrait tablet with an unbranded four-service interface including Custom Setup for a business client', 'AI-generated illustration of a service adviser holding a portrait tablet with a sample Ez Kyosk services dashboard for a business client')
+    // Approved Wellness logo removal: exact artwork and descriptive alt only.
+    .replaceAll('industry-wellness-v2-', 'industry-wellness-v1-')
+    .replace('AI-generated illustration of a salon client and adviser discussing a styling leaflet beside an unbranded staff-facing POS', 'AI-generated illustration of a salon client and adviser discussing a styling leaflet beside a staff-facing POS with an Ez Kyosk logo')
+    // Approved Retail logo removal: exact new artwork/alt only; original
+    // artwork stays byte-protected by the unchanged golden baseline.
+    .replaceAll('industry-retail-v3-', 'industry-retail-v1-')
+    .replace('AI-generated illustration of a shopper and shop associate discussing a boxed accessory beside an unbranded staff-facing POS', 'AI-generated illustration of a shopper and shop associate discussing a boxed accessory beside a staff-facing POS with an Ez Kyosk logo')
     // H1 approves only this online artwork/alt substitution, not surrounding copy.
     .replace('/Ez-Kyosk-SEO/assets/images/payment-online-v4-1371.webp', '/Ez-Kyosk-SEO/_astro/Hand Holding AltPayNet Payment Phone and Cards.D2n-BHG1.png')
     .replace('Illustrative hand holding an AltPayNet QR payment phone with Visa and Mastercard cards', 'Owner-supplied illustration of a hand holding an AltPayNet payment phone with QR, GCash, Maya, and card options')

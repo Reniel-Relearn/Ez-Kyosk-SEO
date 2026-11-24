@@ -1,5 +1,13 @@
 # Ez Kyosk brand guidelines
 
+## Current kiosk hardware rule — 24 November 2026
+
+Owner update: Ez Kyosk kiosk imagery must NOT include a camera or the top-mounted camera/sensor accessory bar. Remove that entire assembly and any mounting stub; finish the top of the enclosure naturally. Do not substitute another lens, webcam, sensor bar or camera-shaped accessory. Preserve the kiosk screen plane, intended viewing angle, slim stand and attached payment terminal unless a separate asset brief changes them.
+
+This supersedes older prompts/references requiring a camera/sensor bar. Supplied hardware photographs and previously approved renders may still show it: use their other approved hardware characteristics, but omit the camera assembly in future generations and revisions. It does not authorize changes to people, photographic scene, software interface or payment controls. Do not claim camera, face-recognition or identity-verification functionality.
+
+First implemented application: owner-approved Industries → Hospitality & food v3, also removing the pedestal's Ez Kyosk logo to retain the slim stand. Existing Hero, YourAI and other kiosk artwork require individually scoped future consistency passes; none is changed by the Industries release. See [Industries image revision plan](INDUSTRIES_IMAGE_REVISION_PLAN.md).
+
 Authoritative update: 13 November 2026. The owner requested consistent naming and the original assets, not a screenshot of the header.
 
 ## Name

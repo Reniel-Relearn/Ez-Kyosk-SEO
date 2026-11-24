@@ -51,7 +51,7 @@ try {
       assert.equal(await page.locator('.industry-image-placeholder').count(), 0);
       assert.equal(await page.locator('.industry-image').count(), 4);
       assert.equal(await page.locator('.industry-card-badge svg[aria-hidden="true"]').count(), 4);
-      for (const [index, stem] of ['industry-hospitality-v2-', 'industry-retail-v1-', 'industry-wellness-v1-', 'industry-services-v6-'].entries()) {
+      for (const [index, stem] of ['industry-hospitality-v3-', 'industry-retail-v3-', 'industry-wellness-v2-', 'industry-services-v7-'].entries()) {
         const image = page.locator('.industry-image').nth(index);
         assert.ok((await image.evaluate(image => image.currentSrc)).includes(stem));
         assert.equal(await image.evaluate(image => image.complete && image.naturalWidth > 0), true);

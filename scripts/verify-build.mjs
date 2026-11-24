@@ -329,13 +329,17 @@ assert.ok(industryCards[0].includes('width="640" height="480"'), 'landscape dime
 assert.ok(!industrySection.includes('industry-hospitality-v1-'), 'superseded first preview not imported');
 assert.ok(industryCards[1].includes('AI-generated illustration of a shopper and shop associate'), 'illustrative retail alt');
 assert.ok(industryCards[1].includes('width="640" height="480"'), 'retail reserves landscape dimensions');
-assert.ok(!industrySection.includes('industry-retail-v2-'), 'owner selected logo-bearing v1, not unbranded v2');
+assert.ok(!/industry-retail-v[12]-/.test(industrySection), 'only current owner-approved Retail v3 imported');
+assert.ok(industryCards[1].includes('beside an unbranded staff-facing POS'), 'approved Retail branding removal reflected in alt');
+assert.ok(!industryCards[1].includes('with an Ez Kyosk logo'), 'Retail alt no longer claims removed branding');
 assert.ok(industryCards[2].includes('AI-generated illustration of a salon client and adviser'), 'illustrative wellness alt');
+assert.ok(industryCards[2].includes('beside an unbranded staff-facing POS'), 'Wellness alt reflects approved logo removal');
+assert.ok(!industryCards[2].includes('with an Ez Kyosk logo'), 'Wellness alt does not claim removed branding');
 assert.ok(industryCards[2].includes('width="640" height="480"'), 'wellness reserves landscape dimensions');
-assert.ok(industryCards[3].includes('AI-generated illustration of a service adviser holding a portrait tablet with a sample Ez Kyosk services dashboard'), 'illustrative sample services alt');
+assert.ok(industryCards[3].includes('AI-generated illustration of a service adviser holding a portrait tablet with an unbranded four-service interface including Custom Setup'), 'illustrative services alt reflects approved branding removal and fourth service');
 assert.ok(industryCards[3].includes('width="640" height="480"'), 'services reserves landscape photo dimensions');
-assert.ok(!/industry-services-v[1-5]-/.test(industrySection), 'only owner-approved balanced Services v6 imported');
-for (const [index, stem] of ['industry-hospitality-v2', 'industry-retail-v1', 'industry-wellness-v1', 'industry-services-v6'].entries()) {
+assert.ok(!/industry-services-v[1-6]-/.test(industrySection), 'only current Services v7 imported');
+for (const [index, stem] of ['industry-hospitality-v3', 'industry-retail-v3', 'industry-wellness-v2', 'industry-services-v7'].entries()) {
   for (const width of [320, 640, 1280]) {
     const filename = `${stem}-${width}.webp`;
     assert.ok(industryCards[index].includes(publicPath(`/assets/images/${filename}`)), 'approved responsive industry source');
