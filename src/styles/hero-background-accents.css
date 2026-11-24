@@ -1,0 +1,34 @@
+/* Isolated Hero background-only accents. Revert this PR or remove the import
+   to restore the original gradient. Never affects text/buttons/card surfaces. */
+body[data-home-hero] .home-hero::after {
+  --accent-start: #ea8a38;
+  --accent-middle: #c97843;
+  --accent-end: #ea8a38;
+  --accent-opacity: .6;
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(125deg, var(--accent-start) 0%, var(--accent-middle) 48%, var(--accent-end) 100%);
+  opacity: var(--accent-opacity);
+  mask: url('../../assets/patterns/hero-flowing-veins.svg') center / 100% 100% no-repeat;
+  mask-mode: alpha;
+}
+html[data-theme='dark'] body[data-home-hero] .home-hero::after {
+  --accent-start: #d6b66a;
+  --accent-middle: #a98134;
+  --accent-end: #ead69b;
+  --accent-opacity: .72;
+}
+@media (max-width: 720px) {
+  body[data-home-hero] .home-hero::after {
+    mask-image: url('../../assets/patterns/hero-flowing-veins-mobile.svg');
+  }
+}
+@media (forced-colors: active) {
+  body[data-home-hero] .home-hero::after { display: none; }
+}

@@ -55,7 +55,7 @@ try {
    assert.equal(state.titleColor,expectedBlue);assert.ok(state.iconColors.every(c=>c===expectedBlue));
    assert.ok(state.bodyColors.every(c=>c===(theme==='dark'?'rgb(71, 85, 105)':'rgb(203, 213, 225)')));
    assert.ok(state.logoFilters.every(f=>f.includes('brand-royal-filter.svg#royal-blue')),'approved selective turquoise-only brand filter active');
-   assert.equal(state.heroAccent,'none','paused accent disconnected');
+   assert.ok(state.heroAccent.includes('linear-gradient'),'approved Hero-only decorative accent active');
    const padding=Math.min(36,Math.max(24,width*.025));
    assert.ok(Math.abs(state.paddingTop-padding)<.1&&Math.abs(state.paddingBottom-padding)<.1);
    for(const card of state.cards){assert.equal(card.background,'rgba(0, 0, 0, 0)');assert.equal(card.border,'0px');assert.equal(card.shadow,'none');assert.equal(card.transform,'none');assert.equal(card.centered,true);assert.equal(card.clipped,false);}

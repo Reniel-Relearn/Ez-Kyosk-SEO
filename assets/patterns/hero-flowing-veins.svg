@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="none" fill="none">
+  <!-- Original code-native decorative paths; color comes from the CSS mask. -->
+  <defs><path id="flow" d="M-90 65C180-25 350 30 530 95S815 235 1050 210 1420 45 1680 145"/><path id="lower" d="M-70 680C170 790 355 875 615 790S1010 690 1230 780 1460 900 1680 790"/></defs>
+  <g stroke="white" stroke-linecap="round" stroke-linejoin="round">
+    <use href="#flow" stroke-width="38" opacity=".035"/>
+    <use href="#flow" stroke-width="12" opacity=".10"/>
+    <use href="#flow" stroke-width="2.2" opacity=".85"/>
+    <path d="M-80 93C175 3 360 60 535 121S830 257 1060 237 1420 69 1680 170" stroke-width="1.1" opacity=".38"/>
+    <path d="M355 47 398 18 442 22 491-18M732 171 786 137 834 143 880 99 931 102M1153 187 1197 221 1242 212 1290 248 1344 233M1402 123 1442 88 1481 97 1540 49" stroke-width="1.35" opacity=".58"/>
+    <use href="#lower" stroke-width="28" opacity=".035"/>
+    <use href="#lower" stroke-width="8" opacity=".1"/>
+    <use href="#lower" stroke-width="1.8" opacity=".7"/>
+    <path d="M-70 705C175 815 357 896 625 813S1020 715 1230 802 1470 925 1680 814" stroke-width=".9" opacity=".35"/>
+    <path d="M181 787 223 751 266 766 305 726M511 818 551 850 594 842 640 881M1190 764 1235 724 1282 741 1330 708M1450 843 1500 812 1542 826 1590 786" stroke-width="1.1" opacity=".55"/>
+  </g>
+</svg>
