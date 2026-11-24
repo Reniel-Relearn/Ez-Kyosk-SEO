@@ -1,6 +1,24 @@
 /* Owner-approved compact Benefits layout. Scoped; no changes to shared surfaces. */
 body[data-home-hero] .benefits-section { padding-block:clamp(24px,2.5vw,36px); }
-body[data-home-hero] .benefits-section .benefits-panel { padding:clamp(24px,3vw,36px); border:1px solid var(--line); border-radius:24px; background:var(--surface-raised); text-align:center; }
+/* Reverse ONLY the shared card's palette; keep the section/theme unchanged. */
+body[data-home-hero] .benefits-section .benefits-panel {
+  --benefits-panel-bg:#172033;
+  --blue:#60a5fa;
+  --cyan:#22d3ee;
+  --text:#f8fafc;
+  --text-muted:#cbd5e1;
+  --line:#253247;
+  padding:clamp(24px,3vw,36px); border:1px solid var(--line); border-radius:24px;
+  background:var(--benefits-panel-bg); color:var(--text); text-align:center;
+}
+html[data-theme='dark'] body[data-home-hero] .benefits-section .benefits-panel {
+  --benefits-panel-bg:#ffffff;
+  --blue:#2563eb;
+  --cyan:#0e7490;
+  --text:#0f172a;
+  --text-muted:#475569;
+  --line:#e2e8f0;
+}
 body[data-home-hero] .benefits-section .benefits-panel > h2 { margin:0 0 30px; color:var(--blue); font-size:clamp(17px,1.6vw,22px); font-weight:750; line-height:1.4; letter-spacing:.015em; text-transform:uppercase; }
 body[data-home-hero] .benefits-section .benefit-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); grid-template-rows:auto; gap:28px; margin:0; padding:0; border:0; border-radius:0; background:transparent; overflow:visible; }
 body[data-home-hero] .benefits-section .benefit-grid article,

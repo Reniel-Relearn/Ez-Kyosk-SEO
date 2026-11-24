@@ -15,7 +15,8 @@ try {
     const state = await page.evaluate(() => {
       const selectors = ['.benefits-section', '.platform-section', '#products', '#payments', '#how-it-works', '#industries', '.faq-section', '#about-us'];
       return { overflow: document.documentElement.scrollWidth > innerWidth, sections: selectors.map(selector => ({ selector, color: getComputedStyle(document.querySelector(selector)).backgroundColor })),
-        cards: [...document.querySelectorAll('.benefits-panel,.platform-card--expandable,.product-panel,.payment-card,.customer-journey-card,.industry-card,#about-us .value-grid article')].map(el => getComputedStyle(el).backgroundColor),
+        benefitsCard:getComputedStyle(document.querySelector('.benefits-panel')).backgroundColor,
+        cards: [...document.querySelectorAll('.platform-card--expandable,.product-panel,.payment-card,.customer-journey-card,.industry-card,#about-us .value-grid article')].map(el => getComputedStyle(el).backgroundColor),
         inverseTitles: [...document.querySelectorAll('#products .section-heading h2,#how-it-works .section-heading h2')].map(el => getComputedStyle(el).color),
         hero: getComputedStyle(document.querySelector('#home'), '::before').backgroundImage,
         ending: getComputedStyle(document.querySelector('.final-cta')).backgroundImage,
@@ -26,6 +27,7 @@ try {
     const alt = theme === 'light' ? 'rgb(245, 245, 245)' : 'rgb(17, 24, 39)';
     state.sections.forEach((s, i) => assert.equal(s.color, i % 2 === 0 ? alt : baseColor, `${theme} ${s.selector}`));
     assert.ok(state.cards.every(c => c === (theme === 'light' ? baseColor : 'rgb(23, 32, 51)')));
+    assert.equal(state.benefitsCard,theme==='light'?'rgb(23, 32, 51)':'rgb(255, 255, 255)','owner-approved inverse Benefits card, not section');
     assert.ok(state.inverseTitles.every(c => c === (theme === 'light' ? 'rgb(15, 23, 42)' : 'rgb(248, 250, 252)')));
     assert.equal(state.overflow, false);
     assert.ok(state.hero.includes('linear-gradient'));

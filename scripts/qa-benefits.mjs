@@ -39,12 +39,23 @@ try {
     const panel=el.querySelector('.benefits-panel'),p=panel.getBoundingClientRect(),hero=document.querySelector('.home-hero'),style=getComputedStyle(el);
     const cards=[...el.querySelectorAll('article')].map(card=>{const r=card.getBoundingClientRect(),s=getComputedStyle(card),h=card.querySelector('h3').getBoundingClientRect(),description=card.querySelector('p').getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height,headingY:h.y,paragraphY:description.y,background:s.backgroundColor,border:s.borderRightWidth,shadow:s.boxShadow,transform:s.transform,centered:s.textAlign==='center',clipped:[...card.querySelectorAll('h3,p,span')].some(n=>n.scrollWidth>n.clientWidth+1)};});
     return {overflow:document.documentElement.scrollWidth>innerWidth||panel.scrollWidth>panel.clientWidth,background:getComputedStyle(panel).backgroundColor,
+      sectionBackground:style.backgroundColor,titleColor:getComputedStyle(panel.querySelector('h2')).color,
+      bodyColors:[...panel.querySelectorAll('article>p')].map(n=>getComputedStyle(n).color),
+      iconColors:[...panel.querySelectorAll('.benefit-icon svg')].map(n=>getComputedStyle(n).stroke),
+      logoFilters:[...document.querySelectorAll('.brand-mark img')].map(n=>getComputedStyle(n).filter),
+      heroAccent:getComputedStyle(hero,'::after').backgroundImage,
       equalMargins:Math.abs(p.left-(innerWidth-p.right))<2,
       heroMargins:style.paddingLeft===getComputedStyle(hero).paddingLeft&&style.paddingRight===getComputedStyle(hero).paddingRight,
       panelHeight:p.height,paddingTop:parseFloat(style.paddingTop),paddingBottom:parseFloat(style.paddingBottom),cards};
    });
    assert.equal(state.overflow,false);assert.equal(state.equalMargins,true);assert.equal(state.heroMargins,true);
-   assert.equal(state.background,theme==='dark'?'rgb(23, 32, 51)':'rgb(255, 255, 255)');
+   assert.equal(state.background,theme==='dark'?'rgb(255, 255, 255)':'rgb(23, 32, 51)');
+   assert.equal(state.sectionBackground,theme==='dark'?'rgb(17, 24, 39)':'rgb(245, 245, 245)','section surface unchanged');
+   const expectedBlue=theme==='dark'?'rgb(37, 99, 235)':'rgb(96, 165, 250)';
+   assert.equal(state.titleColor,expectedBlue);assert.ok(state.iconColors.every(c=>c===expectedBlue));
+   assert.ok(state.bodyColors.every(c=>c===(theme==='dark'?'rgb(71, 85, 105)':'rgb(203, 213, 225)')));
+   assert.ok(state.logoFilters.every(f=>f==='none'),'paused logo filter disconnected');
+   assert.equal(state.heroAccent,'none','paused accent disconnected');
    const padding=Math.min(36,Math.max(24,width*.025));
    assert.ok(Math.abs(state.paddingTop-padding)<.1&&Math.abs(state.paddingBottom-padding)<.1);
    for(const card of state.cards){assert.equal(card.background,'rgba(0, 0, 0, 0)');assert.equal(card.border,'0px');assert.equal(card.shadow,'none');assert.equal(card.transform,'none');assert.equal(card.centered,true);assert.equal(card.clipped,false);}
