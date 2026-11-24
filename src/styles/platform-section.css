@@ -21,3 +21,16 @@ body[data-home-hero] .platform-section .platform-card-body h3 {
   justify-content: center;
   text-align: center;
 }
+/* Card 1 framing only: keep its floor plate below the photo boundary.
+   Original artwork and the shared 3:4 frame/card geometry stay unchanged. */
+body[data-home-hero] .platform-image-frame {
+  aspect-ratio: 3 / 4;
+  min-width: 0;
+  overflow: hidden;
+}
+body[data-home-hero] .platform-image-frame .platform-image {
+  width: 100%;
+  height: 100%;
+  transform: scale(1.1);
+  transform-origin: center top;
+}
