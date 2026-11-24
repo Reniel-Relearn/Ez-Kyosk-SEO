@@ -60,7 +60,7 @@ try {
         assert.equal(await nativeOrder.locator('button').count(), 7);
         assert.equal(await nativeOrder.locator('input,form,img').count(), 0);
         const hero = await page.locator('.hero-product img').evaluate(image => ({ source: image.currentSrc, filter: getComputedStyle(image).filter }));
-        assert.ok(hero.source.includes('hero-kiosk-hardware-v4.'), 'approved hardware-only transparent hero is loaded');
+        assert.ok(hero.source.includes('hero-kiosk-hardware-v6.'), 'logo-free UI, camera-free slim-pedestal transparent hero is loaded');
         assert.equal(hero.filter, 'none', 'no broad CSS blur/drop-shadow around the cutout');
         const platformImage = page.locator('.platform-grid .platform-image');
         assert.equal(await platformImage.count(), 5, 'all five platform cards have imagery');
