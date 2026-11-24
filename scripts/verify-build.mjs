@@ -170,7 +170,7 @@ assert.ok(firstPlatformCard.includes('AI-generated illustration'), 'image alt do
 assert.ok(firstPlatformCard.includes('attached payment terminal'), 'first card alt reflects revised hardware');
 assert.ok(!firstPlatformCard.includes('platform-self-ordering-v3-'), 'approved human portrait replaces device-only artwork');
 for (const width of [270, 540, 1080]) {
-  const filename = `platform-self-ordering-human-v4-${width}.webp`;
+  const filename = `platform-self-ordering-human-v5-${width}.webp`;
   assert.ok(firstPlatformCard.includes(publicPath(`/assets/images/${filename}`)), `first card references ${filename}`);
   const metadata = await sharp(`dist/assets/images/${filename}`).metadata();
   assert.equal(metadata.width, width);
